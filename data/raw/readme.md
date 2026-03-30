@@ -1,6 +1,7 @@
 # Quy trinh crawl data (raw)
 
 Thu muc nay chua du lieu chua qua tien xu ly, lay truc tiep tu Tiki API.
+Du lieu hien tai lay tu Nha Sach Tiki, nen toan bo du lieu deu la ve sach
 
 ## 1) Chuan bi
 
