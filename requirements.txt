@@ -1,1 +1,4 @@
-# Thêm các thư viện rõ ràng vào đây để phù hợp yêu cầu nha
+streamlit>=1.35
+plotly>=5.22
+pandas>=2.2
+statsmodels>=0.14
