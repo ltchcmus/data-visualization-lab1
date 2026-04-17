@@ -1,0 +1,3 @@
+﻿id,name,price,list_price,discount_rate,rating_average,review_count,all_time_quantity_sold,authors,publisher_vn,manufacturer,isbn13,book_cover,number_of_page,publication_date,current_seller_name,inventory_status,stock,has_freeship,is_authentic,has_return_policy
+205303262,The Washington Manual Endocrinology Subspecialty Consult,200000,200000,0,0,0,2,,Lippincott Williams & Wilkins,,,Bìa mềm,,,Nhà Sách Phương Nam,available,1000,True,True,True
+278724538,Sách - Under The Knife: A History of Surgery in 28 Remarkable Operations by Arnold van de Laar,300000,300000,0,0,0,0,Arnold van de Laar,,,,,,,,out_of_stock,,False,False,False

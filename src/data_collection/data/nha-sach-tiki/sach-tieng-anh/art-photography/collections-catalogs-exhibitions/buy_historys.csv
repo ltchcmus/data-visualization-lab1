@@ -1,0 +1,4 @@
+﻿customer_id,product_id,order_id,seller_id,seller_name,quantity,price_at_purchase,total_price,purchased_at,delivery_date,review_id
+6810200,262336120,,229023,Nhà Sách Phương Nam,1,,,2023-11-23 02:40:27+00:00,2023-11-27 10:12:11+00:00,19697217
+6810200,262336087,,229023,Nhà Sách Phương Nam,4,,,2023-11-23 02:40:27+00:00,2023-11-27 10:12:11+00:00,19697214
+6810200,262309224,,229023,Nhà Sách Phương Nam,1,,,2023-11-23 02:42:01+00:00,2023-11-27 10:11:19+00:00,19697216

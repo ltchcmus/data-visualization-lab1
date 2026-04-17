@@ -1,0 +1,432 @@
+﻿id,name,price,list_price,discount_rate,rating_average,review_count,all_time_quantity_sold,authors,publisher_vn,manufacturer,isbn13,book_cover,number_of_page,publication_date,current_seller_name,inventory_status,stock,has_freeship,is_authentic,has_return_policy
+279181640,DẤU XƯA TRÊN BIỂN LỚN – Sara Caputo – Hồng Quyên dịch – NXB Trẻ,170000,170000,0,0.0,0,1,Sara Caputo,NXB Trẻ,NXB Trẻ,,Bìa mềm,,,Nhà Xuất Bản Trẻ,available,1000.0,True,True,True
+278960263,LÃNG DU Ở XỨ SỞ KANGAROO - ALEX LONE,259000,259000,0,0.0,0,2,Alex Lone,Công ty Cổ phần Truyền thông Văn hóa 25,Nhà Xuất Bản Thế Giới,,,400.0,,25 AGENCY,available,1000.0,True,True,True
+278940887,KHÔNG NGỦ Ở SAINT PETERSBURG – Trương Anh Ngọc – NXB Phụ Nữ Việt Nam,108000,108000,0,0.0,0,17,Trương Anh Ngọc,NXB Phụ Nữ Việt Nam,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,240.0,,BÌNH BÁN BOOK,available,1000.0,True,True,True
+278831265,Sách - Quá Trẻ Để Chết - Hành Trình Nước Mỹ,116100,129000,10,0.0,0,7,Đinh Hằng,Công ty TNHH Xuất bản Thiện Tri Thức,Nhà Xuất Bản Thế Giới,,Bìa mềm,,2023-12-21,Nhà sách Fahasa,available,1000.0,True,True,True
+278691866,Sách Ta Còn Bao Nhiêu Ngày Để Hạnh Phúc - 17 Hành Trình Tỉnh Thức Qua Những Miền Đất Thiêng,129360,168000,23,0.0,0,14,Nguyễn Hoàng Bảo,Saigon Books,Nhà Xuất Bản Thế Giới,,Bìa mềm,219.0,,Tiki Trading,available,1000.0,False,True,True
+278131787,Tina Yuan - Dưới trời xanh Hy Lạp (Sách bỏ túi),115000,115000,0,0.0,0,3,Tina Yuan,Đông Tây,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,207.0,2025-06-19,Đông Tây,available,1000.0,True,True,True
+278074054,Sách Chu Du Nhật Bản - Mười Năm Ở Vùng Đất Mặt Trời Mọc,135000,180000,25,4.5,2,22,Chris Broad,NXB Trẻ,NXB Trẻ,,Bìa mềm,408.0,,Tiki Trading,available,1000.0,False,True,True
+276565250,Đi Ngang Hà Nội,120000,120000,0,0.0,0,0,Nguyễn Ngọc Tiến,NXB Trẻ,NXB Trẻ,,Bìa mềm,356.0,2024-11-13,Nhà sách NetaBooks,available,1000.0,True,True,True
+276305333,Vẻ Đẹp Của Cảnh Sắc Tầm Thường - Hay Vì Sao Chúng Ta Cần Thay Đổi Cách Thưởng Thức Thiên Nhiên? (Đặng Hoàng Giang) - Omega Plus,188000,235000,20,0.0,0,4,Đặng Hoàng Giang,Alpha Books,Nhà Xuất Bản Hội Nhà Văn,,,400.0,2024-10-03,Alpha Books Official,available,1000.0,True,True,True
+275853507,"Sách Vòng Quanh Châu Á – Nam Kỳ, Trung Kỳ, Bắc Kỳ",149400,239000,37,4.0,2,54,Jean Marie Albert Marcel Monnier,Alphabooks,Nhà Xuất Bản Dân Trí,,Bìa mềm,239.0,2024-01-08,Tiki Trading,available,1000.0,False,True,True
+274468056,Sách Du Ký Việt Nam trên Nam Phong tạp chí (Hộp 2 cuốn),686000,890000,23,4.8,10,104,"Nhiều tác giả, Nguyễn Hữu Sơn",NXB Trẻ,NXB Trẻ,,Bìa cứng,1780.0,2024-03-19,Tiki Trading,available,1000.0,False,True,True
+273842947,Sách Vạn Dặm Đường Từ Một Bước Chân,151000,159000,5,0.0,0,0,Mavis ViVu Ký,Skybooks,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,248.0,2024-01-10,Alpha Books Official,available,1000.0,True,True,True
+273413908,Mùi Hương Trầm (Tái Bản 2023),228100,248000,8,0.0,0,8,Nguyễn Tường Bách,PHANBOOK,Nhà Xuất Bản Lao Động,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+270442400,Sách Những bí ẩn trên thế giới chưa được giải đáp (Bìa mềm) - Tái bản,78400,110000,29,5.0,1,17,Nguyễn Văn Huân,Nhà sách Minh Thắng,Nhà Xuất Bản Dân Trí,,Bìa mềm,452.0,2023-02-01,Tiki Trading,available,1000.0,False,True,True
+270442383,Sách Những bí ẩn trên thế giới chưa được giải đáp (Bìa cứng) - Tái bản,105100,140000,25,5.0,3,14,Nguyễn Văn Huân,Nhà sách Minh Thắng,Nhà Xuất Bản Dân Trí,,Bìa cứng,452.0,2023-02-01,Tiki Trading,available,1000.0,False,True,True
+241821210,Sách Những Nẻo Đường Nước Mỹ - Tập 1: Hành Trình Của Người Đi Xuyên 50 Tiểu Bang,220000,250000,12,5.0,7,90,Nguyễn Tiến Niệm,Phương Nam Book,Nhà Xuất Bản Thế Giới,,Bìa mềm,379.0,2022-02-02,Tiki Trading,available,1000.0,False,True,True
+225267771,Sách Những Miền Lưu Dấu - Cảnh Việt Trong Văn Chương,222000,250000,11,3.5,2,22,Nhiều tác giả,NXB Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,84.0,2023-01-01,Tiki Trading,available,1000.0,False,True,True
+210277405,Sách Du hành cùng Herodotus,128000,135000,5,0.0,0,0,Ryszard Kapuściński,Nhã Nam,Nhà Xuất Bản Thế Giới,,Bìa mềm,368.0,2022-12-01,Alpha Books Official,available,1000.0,True,True,True
+205279963,1111 - Nhật Ký Sáu Vạn Dặm Trên Yên Xe Cà Tàng,250387,272160,8,4.8,16,88,Trần Đặng Đăng Khoa,NXB Trẻ,NXB Trẻ,,Bìa mềm,778.0,2022-11-11,Nhà sách NetaBooks,available,1000.0,True,True,True
+204317934,Sách 1111 - Nhật Ký Sáu Vạn Dặm Trên Yên Xe Cà Tàng,237000,325000,27,5.0,273,2481,Trần Đặng Đăng Khoa,NXB Trẻ,NXB Trẻ,,Bìa mềm,776.0,2022-11-10,Tiki Trading,available,1000.0,False,True,True
+198643637,Sách Tung tăng tung tẩy…trời Tây (Tái bản T9/2022),64000,100000,36,4.7,3,18,Lưu Đình Triều,Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,168.0,2022-01-01,Tiki Trading,available,1000.0,False,True,True
+196902142,Sách Cơm nhà xứ Quảng (Tặng kèm 1 bộ postcard 6 tấm có gửi hình kèm theo),101000,130000,22,5.0,4,50,Lưu Bình,Chibooks,Nhà Xuất Bản Lao Động,,Bìa mềm,264.0,2022-01-01,Tiki Trading,available,1000.0,False,True,True
+111582626,Sách Tôi Nghĩ Tôi Thích Nước Mỹ - Du Ký (Dương Thụy) (Tái Bản),112100,118000,5,0.0,0,10,Dương Thụy,NXB Trẻ,NXB Trẻ,,Bìa mềm,318.0,2021-07-15,Nhà sách Fahasa,available,1000.0,True,True,True
+76106026,Sách Cô Đơn Trên Everest (Du Ký),100800,126000,20,4.8,85,418,Di Li,Liên Việt,Nhà Xuất Bản Hội Nhà Văn,,Bìa mềm,323.0,2021-01-01,Liên Việt Official Store,available,1000.0,True,True,True
+68819776,Sách Sơn Nam - Vạch Một Chân Trời - Chim Quyên Xuống Đất,108000,120000,10,5.0,1,8,Sơn Nam,NXB Trẻ,NXB Trẻ,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+53545646,Sách Tây Tạng Huyền Bí & Nghệ Thuật Sinh Tử (Tái Bản 2020),105000,175000,40,4.7,98,601,Đặng Hoàng Xa,Omega Plus,Nhà Xuất Bản Thế Giới,,Bìa mềm,320.0,2020-04-01,Tiki Trading,available,1000.0,False,False,True
+50379011,Sách Vàng Son Một Thuở Ba Tư - Tập Du Ký,96000,100000,4,4.0,2,20,Nguyễn Chí Linh,Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,252.0,2020-02-01,Nhà sách Fahasa,available,1000.0,True,True,True
+48629532,Sách Đến Nhật Bản Học Về Cuộc Đời (Tái Bản),73000,99000,26,5.0,1,10,Lê Nguyễn Nhật Linh,NXB Trẻ,NXB Trẻ,,Bìa mềm,,2020-02-02,Tiki Trading,available,1000.0,False,True,True
+48481757,Sách HIMALAYA – Hành Trình Chạm Đến Trán Trời,72000,105000,31,3.7,12,129,Mai Lan,Alphabooks,Nhà Xuất Bản Thế Giới,,Bìa mềm,192.0,2020-02-02,Tiki Trading,available,1000.0,False,True,True
+26412706,Sách Đừng Chết Ở Ả Rập Xê Út,89100,99000,10,4.8,12,80,Nghiêm Hương,Alphabooks,,,Bìa mềm,196.0,2019-01-08,Nhà sách Fahasa,available,1000.0,True,True,True
+23943907,Sách Châu Âu Có Gì Lạ Không Em?,78400,109000,28,4.7,80,746,Misa Gjone,Alphabooks,Nhà Xuất Bản Thế Giới,,Bìa mềm,452.0,2019-07-01,Tiki Trading,available,1000.0,False,True,True
+19761828,Sách Từ Ba Tư Đến Bắc Mỹ,94000,94000,0,4.8,5,26,Hoàng Minh Tường,NXB Phụ Nữ Việt Nam,,,Bìa mềm,245.0,2019-06-01,Nhà sách 30 Hàn Thuyên,available,1000.0,True,True,True
+17406542,Sách Thế Giới Rộng Lớn Đừng Đi Một Mình,95200,119000,20,4.3,105,3264,Lý Thành Cơ,Skybooks,Nhà Xuất Bản Phụ Nữ,,Bìa mềm,208.0,2019-01-05,Tiki Trading,available,1000.0,False,False,True
+15686464,"Sách Nhật Bản: Hoa Anh Đào, Kimono & Gì Nữa",69000,100000,31,4.2,14,225,Tama Duy Ngọc,NXB Trẻ,,,Bìa mềm,212.0,2019-05-01,Tiki Trading,available,1000.0,False,True,True
+5745743,Sách Trên Đỉnh Namsan Ngắm Mặt Trời,84100,99000,15,5.0,1,3,Hoài Thanh,Alphabooks,,,Bìa mềm,200.0,2018-01-10,Nhà sách Fahasa,available,1000.0,True,True,True
+4708867,Sách Thiên Đường Qua Những Ô Cửa Màu Xanh,66500,70000,5,5.0,3,12,Na Hồ,NXB Phụ Nữ Việt Nam,,,Bìa mềm,248.0,2018-09-18,Nhà sách Fahasa,available,1000.0,True,True,True
+4059697,Sách Theo Chân Người Tình & Một Mảnh Tình Riêng,80700,85000,5,0.0,0,15,Sơn Nam,NXB Trẻ,,,Bìa mềm,263.0,2018-08-24,Nhà sách Fahasa,available,1000.0,True,True,True
+3767321,Sách Mùi Hương Trầm,181500,248000,27,4.8,37,599,Nguyễn Tường Bách,PHANBOOK,Nhà Xuất Bản Lao Động,,Bìa mềm,475.0,2018-08-15,PHAN LỆ & FRIENDS,available,1000.0,True,True,True
+1058052,Sách Bước Chân Theo Dấu Mặt Trời – Hành Trình Trở Về Ấn Độ,95000,119000,20,5.0,1,2,Phương Thu Thủy,Alphabooks,Nhà Xuất Bản Thế Giới,,Bìa mềm,348.0,2017-10-20,Omega Plus Books,available,1000.0,True,True,True
+387725,Sách Xách Ba Lô Lên Và Đi - Tập 1: Châu Á Là Nhà. Đừng Khóc! (Tái Bản),92000,119000,23,4.8,96,1893,Huyền Chip,Quảng Văn,Nhà Xuất Bản Phụ Nữ,,Bìa mềm,480.0,2013-01-31,Tiki Trading,available,1000.0,False,True,True
+279209224,Beartown - Thị Trấn Nhỏ Giấc Mơ Lớn,210000,210000,0,0.0,0,3,,NXB Trẻ,NXB Trẻ,,,,,Nhân Văn,available,1000.0,True,True,True
+279108117,[BẢN ĐẶC BIỆT - BÌA CỨNG] - SÁCH: WHAKAPAPA - RỄ CỦA NƯỚC,249000,249000,0,0.0,0,2,Luke Ngo,Công Ty TNHH Xuất bản và Giáo dục Mochibooks,Nhà Xuất Bản Thế Giới,,,,,Nhà sách Mochibooks,available,1000.0,True,True,True
+279077687,TRÒ CHUYỆN VỚI NỖI ĐAU VÀ VƯỢT QUA TỔN THƯƠNG - Nguyễn Cao Minh - Nhã Nam ,171000,171000,0,0.0,0,1,T.S tâm lý Nguyễn Cao Minh,Nhã Nam,NXB Dân Trí,,Bìa mềm,329.0,,BÌNH BÁN BOOK,available,1000.0,True,True,True
+278757467,Sách - Lạc lối ở Himalaya,168000,168000,0,0.0,0,0,Huyền Diệu,Công Ty TNHH Xuất bản và Giáo dục Mochibooks,Nhà Xuất Bản Thế Giới,,Bìa mềm,208.0,2025-10-15,Nhà sách Mochibooks,available,1000.0,True,True,True
+278618530,ĐỪNG CHẾT Ở TUỔI 20,127000,127000,0,5.0,1,13,Nguyễn Thiện,Công ty CP Xuất bản Khoa học và Giáo dục Thời Đại (TIMES BOOKS),Nhà Xuất Bản Hội Nhà Văn,,,,,Minhhabooks,available,1000.0,True,True,True
+278487723,"Sách Vương Quốc Brunei - Vùng Đất, Văn Hóa Và Con Người",146000,195000,25,5.0,1,3,Trần Giang San,Nhà xuất bản Phụ Nữ Việt Nam,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,212.0,,Tiki Trading,available,1000.0,False,True,True
+278114034,(Tập 2) TÂY DU LẦY LỘI KÝ - Trần Lỗi & Cộng Sự – Nhượng Lê dịch – Nhã Nam - NXB Hội Nhà Văn,215000,215000,0,0.0,0,0,Trần Lỗi & Cộng sự,Nhã Nam,Nhà Xuất Bản Hội Nhà Văn,,Bìa mềm,364.0,,NHBook,available,1000.0,True,True,True
+277920196,Sách Từ Nhà Anh Về Nhà Em - Hành Trình 16.000 Km Đạp Xe Xuyên Âu-Á Của Cặp Đôi Pháp-Việt,134000,150000,11,5.0,1,8,Thibault Clemenceau,Nhà Xuất Bản Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,396.0,2025-01-05,Tiki Trading,available,1000.0,False,True,True
+277389174,Khu Tập Thể Đường Tàu (NXB Trẻ),175000,175000,0,0.0,0,1,ThS Đặng Ngọc Hùng,NXB Trẻ,NXB Trẻ,,Bìa mềm,392.0,,Nhà Xuất Bản Trẻ,available,1000.0,True,True,True
+277380207,Sách SaLam! Chào Xứ Ba Tư (NXB Trẻ 2025),170000,170000,0,0.0,0,3,,NXB Trẻ,NXB Trẻ,,Bìa mềm,,,Nhà Xuất Bản Trẻ,available,1000.0,True,True,True
+276482703,"Combo/Lẻ: Bức Xúc Không Làm Ta Vô Can + Thiện, Ác và Smartphone + Vẻ Đẹp Của Cảnh Sắc Tầm Thường (Đặng Hoàng Giang)",113000,119000,5,0.0,0,4,Đặng Hoàng Giang,Thái Hà,Nhiều Nhà Xuất Bản,,Bìa mềm,,2024-10-30,Alpha Books Official,available,1000.0,True,True,True
+276379815,Vẻ Đẹp Của Cảnh Sắc Tầm Thường - Hay Vì Sao Chúng Ta Cần Thay Đổi Cách Thưởng Thức Thiên Nhiên? (Đặng Hoàng Giang) - Omega Plus,188000,235000,20,0.0,0,8,Đặng Hoàng Giang,Omega Plus,Nhà Xuất Bản Hội Nhà Văn,,,400.0,2024-10-15,Alpha Books Official,available,1000.0,True,True,True
+276318076,Vẻ Đẹp Của Cảnh Sắc Tầm Thường - Hay Vì Sao Chúng Ta Cần Thay Đổi Cách Thưởng Thức Thiên Nhiên? (Đặng Hoàng Giang) - Omega Plus,188000,235000,20,5.0,1,2,Đặng Hoàng Giang,Omega Plus,Nhà Xuất Bản Hội Nhà Văn,,,400.0,2024-10-05,Alpha Books Official,available,1000.0,True,True,True
+275833304,EXODUS - Đường Về Đất Hứa,198400,198400,0,4.3,3,18,Leon Uris,Cty Sách Đông Nam,Nhà Xuất Bản Hồng Đức,,Bìa mềm,662.0,2023-08-08,Sách Hay Tinh Tuyển,available,1000.0,True,True,True
+275006253,Đường Xa Nắng Mới - Nguyễn Tường Bách,171500,223000,23,5.0,3,33,Nguyễn Tường Bách,PHANBOOK,Nhà Xuất Bản Hội Nhà Văn,,Bìa mềm,420.0,,PHAN LỆ & FRIENDS,available,1000.0,True,True,True
+274801537,COMBO 2 CUỐN - HƯỚNG DẪN SỬ DỤNG TÂM MÌNH & CON ĐƯỜNG KHAI TÂM,328000,328000,0,0.0,0,4,Tạ Minh Tuấn,Nhà Xuất Bản Dân Trí,Nhà Xuất Bản Dân Trí,,Bìa mềm tay gấp,272.0,,25 AGENCY,available,1000.0,True,True,True
+274441961,Sách - Triệu dấu chân qua những cửa ô - Nhã Nam Official,160000,160000,0,0.0,0,0,Nguyễn Trương Quý,Nhã Nam,Nhà Xuất Bản Phụ Nữ,,Bìa mềm,388.0,,Bảo Châu Books,available,1000.0,True,True,True
+274189381,Đi Qua Trăm Năm,180000,180000,0,0.0,0,1,Nguyễn Đình Tư,NXB Tổng hợp Thành Phố Hồ Chí Minh,NXB Tổng Hợp Thành Phố Hồ Chí Minh,,Bìa mềm,381.0,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+274145130,The Path - Con Đường Khai Tâm,199000,199000,0,5.0,1,8,Tạ Minh Tuấn,Nhà Xuất Bản Dân Trí,Nhà Xuất Bản Dân Trí,,Bìa mềm,272.0,2024-02-15,25 AGENCY,available,1000.0,True,True,True
+273958547,"NGHỆ THUẬT DU NGOẠN - Alain De Botton - Đặng Ly, Đỗ Trí Vương dịch - Nhã Nam - Nhà xuất bản Thế Giới.",168000,168000,0,0.0,0,0,Alain de Botton,Nhã Nam,Nhà Xuất Bản Thế Giới,,Bìa mềm tay gấp,364.0,,Bamboo Books,available,1000.0,True,True,True
+273645253,"Giấc Mơ Nhật - Đi Để Vấp Ngã, Đi Để Trưởng Thành",117000,130000,10,0.0,0,1,Nguyễn Phương Dung,Chibooks,Nhà Xuất Bản Lao Động,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+272198973,Tôi Là Một Con Lừa -  Nguyễn Phương Mai - (bìa mềm),80000,80000,0,5.0,1,6,Nguyễn Phương Mai,Nhã Nam,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,183.0,2023-09-20,Bamboo Books,available,1000.0,True,True,True
+271141530,Mùa Lá Rụng Trong Vườn,100300,118000,15,0.0,0,8,Ma Văn Kháng,CÔNG TY TNHH PHÁT HÀNH S BOOKS,Nhà Xuất Bản Văn Học,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+270119011,Có những ngày chông chênh giữa phố  (Tái Bản 2023),90000,90000,0,0.0,0,0,Phạm Minh Mẫn,Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,252.0,2023-06-16,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+253237427,Đi khi ta còn trẻ (Trương Anh Ngọc) - Bản Quyền,120000,120000,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Thế Giới,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+252004032,Miền Nam Sống Đẹp,79000,79000,0,0.0,0,2,Vũ Đức Sao Biển,Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,NXB TỔNG HỢP,available,1000.0,True,True,True
+197897214,Đi Khi Ta Còn Trẻ,114000,120000,5,0.0,0,11,Trương Anh Ngọc,Nhã Nam,Nhà Xuất Bản Thế Giới,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+194960746,"Sách Đà Lạt, một thời hương xa - Du Khảo Văn Hóa Đà Lạt 1954 - 1975",136000,195000,30,4.0,4,63,Nguyễn Vĩnh Nguyên,NXB Trẻ,NXB Trẻ,,Bìa mềm,400.0,2022-08-22,Tiki Trading,available,1000.0,False,True,True
+194807196,Combo 3 Quyển Tác Giả Lê Rin : Việt Nam Dọc Miền Du Ký - Tập 1 + Tập 2 + Việt Nam Miền Ngon,593000,593000,0,0.0,0,14,Lê Rin,Thái Hà,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,Bìa mềm,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+189940023,Du ký Phan Quang - Tiếc nuối hoa hồng,382500,450000,15,0.0,0,0,Phan Quang,Công Ty Cổ Phần Văn Hóa Đông A,Nhà Xuất Bản Văn Học,,Bìa mềm,,,Cá Chép Bookstore,available,1000.0,True,True,True
+179952433,Phía Tây Không Có Gì Lạ,80000,80000,0,0.0,0,0,,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+176937926,Đất Mồ Côi,150000,150000,0,4.0,1,1,,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,,,,Bamboo Books,available,1000.0,True,True,True
+137941433,Sách - NXB Trẻ - Nhật ký Sen trắng,85000,85000,0,0.0,0,1,,NXB Trẻ,NXB Trẻ,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+103511951,Sách Tinh Hoa Du Ký Trên Tri Tân Tạp Chí (1941-1945),171000,259000,34,5.0,7,64,"Nguyễn Hữu Sơn, Trần Bá Dung",Tri Thức Trẻ Books,Nhà Xuất Bản Thanh Niên,,Bìa mềm,396.0,2021-06-15,Tiki Trading,available,1000.0,True,True,True
+41294584,Sách Du Ký Xanh - Hành Trình Cứu Biển,98100,109000,10,0.0,0,4,Lekima Hùng,Alphabooks,,,Bìa mềm,164.0,2019-11-01,Nhà sách Fahasa,available,1000.0,True,True,True
+15592528,Sách Đi Bộ Xuyên Việt Với Cây Đàn Guitar,111600,124000,10,3.0,1,5,Hồ Nhật Hà,Alphabooks,,,Bìa mềm,344.0,2019-01-05,Nhà sách Fahasa,available,1000.0,True,True,True
+15592527,Sách Đi Như Tờ Giấy Trắng,107100,119000,10,0.0,0,15,Trần Thuỳ Linh,Alphabooks,,,Bìa mềm,304.0,2019-01-05,Nhà sách Fahasa,available,1000.0,True,True,True
+14523892,Sách Chốc Lát Những Bến Bờ,109200,115000,5,5.0,1,16,Hồ Anh Thái,NXB Trẻ,,,Bìa mềm,392.0,2019-04-01,Nhà sách Fahasa,available,1000.0,True,True,True
+1256325,Sách Đá Nhọn Vực Sâu,89100,99000,10,3.0,1,4,Nguyễn Vân Anh.,Alphabooks,,,Bìa mềm,88.0,2018-01-01,Nhà sách Fahasa,available,1000.0,True,True,True
+550683,Sách Hạt Muối Rong Chơi,73000,73000,0,0.0,0,13,Nguyễn Phan Quế Mai,Nhà xuất bản Phụ Nữ Việt Nam,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,156.0,2016-06-01,Nhà Xuất Bản Phụ Nữ Việt Nam,available,1000.0,True,True,True
+279024523,Vương Hồng Sển - Tự Vị Tiếng Nói Miền Nam - Bìa Cứng,630000,630000,0,0.0,0,1,Vương Hồng Sển,NXB Trẻ,NXB Trẻ,,,1044.0,,Nhân Văn,available,1000.0,True,True,True
+278882493,Sách - Về miền bí ẩn: Chuyến phiêu lưu của một cuộc đời phi thường (Nhã Nam HCM),144500,170000,15,0.0,0,8,Tôn sư Tenzin Priyadarshi Rinpoche,Nhã Nam,Nhà Xuất Bản Thế Giới,,Bìa mềm,340.0,2025-11-21,Nhã Nam HCM,available,1000.0,True,True,True
+278633020,ĐÀN BÀ UỐNG RƯỢU: TẠP VĂN – Nguyễn Việt Hà – NXB Trẻ,120000,120000,0,0.0,0,0,Nguyễn Việt Hà,NXB Trẻ,NXB Trẻ,,Bìa mềm,296.0,,FishingBook,available,1000.0,True,True,True
+278501769,Sách Vợ Người Du Hành Thời Gian - Tác giả Audrey Niffenegger - Rainbow Books,208500,278000,25,0.0,0,4,Audrey Niffenegger,CÔNG TY TNHH VĂN HÓA VÀ TRUYỀN THÔNG CẦU VỒNG,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm tay gấp,512.0,2025-08-08,RAINBOW BOOKS,available,1000.0,True,True,True
+277772312,Sách - Mê cung của linh hồn (Carlos Ruiz Zafón) (Nhã Nam Official),369000,369000,0,0.0,0,0,Carlos Ruiz Zafón,Nhã Nam,Nhà Xuất Bản Văn Học,,Bìa mềm,776.0,,FishingBook,available,1000.0,True,True,True
+277462278,Khu Tập Thể Đường Tàu,175000,175000,0,0.0,0,1,Đặng Ngọc Hưng,NXB Trẻ,NXB Trẻ,,Bìa mềm,392.0,2025-03-07,Nhà sách NetaBooks,available,1000.0,True,True,True
+277233527,Sài Gòn Đi Qua Ký Ức,95000,95000,0,0.0,0,0,Lê Văn Nghĩa,NXB Trẻ,NXB Trẻ,,Bìa mềm,216.0,2025-02-03,Nhà sách NetaBooks,available,1000.0,True,True,True
+276264273,Có Ngôi Nhà Ở Trong Ta,106720,116000,8,0.0,0,30,,PHANBOOK,Nhà Xuất Bản Dân Trí,,Bìa mềm,196.0,2024-09-27,Nhà sách NetaBooks,available,1000.0,True,True,True
+275060719,ĐỜI SỐNG TỈNH THỨC - Tác giả Đoàn Quý Lâm,150000,150000,0,5.0,1,5,,Công ty Cổ phần Truyền thông Văn hóa 25,Nhà Xuất Bản Đà Nẵng,,Bìa mềm tay gấp,280.0,2024-05-06,25 AGENCY,available,1000.0,True,True,True
+274684657,Thế Giới Rộng Lớn Đừng Đi Một Mình - Tặng Kèm Bookmark + Postcard,113000,119000,5,5.0,2,2,Lý Thành Cơ,Skybooks,Nhà Xuất Bản Phụ Nữ Việt Nam,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+274389841,DƯỚI BẦU TRỜI TRẮNG – Elizabeth Kolbert – Hà Hường dịch – NXB Tổng hợp HCM – Nhã Nam,165000,165000,0,0.0,0,0,Elizabeth Kolbert,Nhã Nam -  Hội Nhà Văn,NXB Tổng Hợp Thành Phố Hồ Chí Minh,,Bìa mềm,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+274360746,(Bộ 2 cuốn) GIA ĐỊNH LÀ NHỚ – SÀI GÒN LÀ THƯƠNG (Tập 1 + Tập 2) – Cù Mai Công – First News,256000,256000,0,0.0,0,0,,FIRST NEWS,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+273916343,Vạn Dặm Đường Từ Một Bước Chân - Tặng Kèm Bookmark,151000,159000,5,4.5,2,32,Mavis ViVu Ký,Skybooks,Nhà Xuất Bản Phụ Nữ Việt Nam,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+273912528,Vạn Dặm Đường Từ Một Bước Chân- Cuốn Sách Tạo Đôngj Lực Hay,151000,159000,5,0.0,0,0,,Công Ty TNHH Văn Hóa Và Truyền Thông Skybooks Việt Nam,Nhà Xuất Bản Phụ Nữ,,,,,Alpha Books Official,available,1000.0,True,True,True
+273725360,Yếm đào du ký - BẢN QUYỀN,99000,99000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Phụ Nữ,,,,,info book,available,1000.0,True,True,True
+273357089,Nếu Một Đêm Đông Có Người Lữ Khách (Tái Bản 2023),145000,145000,0,0.0,0,4,Italo Calvino,Nhã Nam,Nhà Xuất Bản Văn Học,,,,,NHBook,available,1000.0,True,True,True
+272602704, Nước Mỹ Rộng Lớn - Hạnh Phúc Giản Đơn,84500,89000,5,0.0,0,1,Tạp dề viết văn,AZ Việt Nam,Nhà Xuất Bản Thế Giới,,Bìa mềm,176.0,2023-10-06,Alpha Books Official,available,1000.0,True,True,True
+272474119,"Nước Mỹ, Nước Mỹ Và Những Truyện Ngắn Mới",100000,100000,0,0.0,0,0,Phan Việt,Nhã Nam,Nhà Xuất Bản Hội Nhà Văn,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+271144175,Law of lavender – Thiên nga quần hội,140000,140000,0,0.0,0,0,,Thái Hà,Nhà Xuất Bản Hà Nội,,,,,NHBook,available,1000.0,True,True,True
+252043328,Beartown - Thị Trấn Nhỏ Giấc Mơ Lớn,210000,210000,0,0.0,0,0,,NXB Trẻ,NXB Trẻ,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+216333089,Con voi thành Phật Thệ,168000,168000,0,0.0,0,0,,Không có,Không có,,,,,Bamboo Books,available,1000.0,True,False,True
+214928784,Sách Ping - Giải Cứu Vườn Địa Đàng,75460,98000,23,4.7,7,77,Stuart Avery Gold,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,216.0,2023-01-01,Tiki Trading,available,1000.0,False,True,True
+209430857,Trò Chơi Vương Quyền 2B - Bảy Phụ Quốc (Tái Bản 2020) - Bản Quyền,239000,239000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Hồng Đức,,,,,Gooda Official,available,1000.0,True,True,True
+208648538,Sách Những bố già châu Á (Tái bản Mới Nhất) - Alphabooks - BẢN QUYỀN,199000,199000,0,3.3,3,22,,Alphabooks,Nhà Xuất Bản Thế Giới,,,,,Alpha Books Official,available,1000.0,True,True,True
+200855706,Lũ trẻ đường tàu,85000,85000,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Hội Nhà Văn,,,,,info book,available,1000.0,True,True,True
+197824337,Cuốn Sách Dành Cho Những Người Trẻ Đam Mê Xê Dịch : Đi Khi Ta Còn Trẻ,120000,120000,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Thế Giới,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+192333128,Sách Du Ký Phan Quang - Tiếc Nuối Hoa Hồng,344000,450000,24,5.0,5,41,Phan Quang,Công Ty Cổ Phần Văn Hóa Đông A,Nhà Xuất Bản Văn Học,,Bìa mềm,692.0,2022-07-07,Tiki Trading,available,1000.0,False,True,True
+177197790,Bầy Rùa Chồng Chất - Turtles All The Way Down,120000,120000,0,0.0,0,0,,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,,,,Bamboo Books,available,1000.0,True,True,True
+171580723,Nước Đức Từ A Đến Z,100000,100000,0,0.0,0,2,Lê Quang,Phụ Nữ,Nhà Xuất Bản Phụ Nữ Việt Nam,,,,,AN PHÚ BOOKSTORE,available,1000.0,True,True,True
+162399299,Việt Nam Dọc Miền Du Ký - Tập 2,201400,219000,8,5.0,3,18,,Thái Hà,Nhà Xuất Bản Lao Động,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+137941678,Sách - NXB Trẻ - Người Quảng Nam,200000,200000,0,5.0,1,8,,NXB Trẻ,NXB Trẻ,,,,,info book,available,1000.0,True,True,True
+109982962,Sách Sự Thật Ta Nắm Giữ - Một Hành Trình Xuyên Nước Mỹ,122900,195000,37,4.8,16,109,Kamala Harris,Tân Việt,Nhà Xuất Bản Dân Trí,,Bìa mềm,368.0,2021-07-15,Tiki Trading,available,1000.0,False,True,True
+95163489,Joe Biden - Hành Trình Kéo Dài Năm Thập Kỷ,119250,159000,25,4.8,5,66,,1980 Books,Nhà Xuất Bản Thế Giới,,,,,1980 BOOKS HCM,available,1000.0,True,True,True
+33765288,Sách Đi Thật Xa Trên Một Chiếc Camper,115000,172000,33,4.8,5,107,,PHANBOOK,Nhà Xuất Bản Phụ Nữ,,Bìa mềm,272.0,2019-08-05,PHAN LỆ & FRIENDS,available,1000.0,True,True,True
+19775975,Sách Đi Ra Biển Lớn,79000,79000,0,5.0,6,19,"Hoàng Dân, Hoàng Linh",HaNoi Books,,,Bìa mềm,208.0,2019-06-10,HanoiBooks,available,1000.0,True,True,True
+14660324,Sách Ở Lại Với Ngàn Sao (Du Ký),140000,200000,30,4.7,3,26,Đỗ Doãn Hoàng,Liên Việt,Nhà Xuất Bản Văn Học,,Bìa mềm,,2019-04-01,Liên Việt Official Store,available,1000.0,True,True,True
+11491784,Du Ngoạn Vòng Quanh Châu Á Trên Lưng Ngựa,66500,95000,30,5.0,3,73,,Vinabook JSC,,,Bìa mềm,224.0,2019-03-11,VIETNAMBOOK,available,1000.0,True,True,True
+10190801,Sách Đà Lạt Bên Dưới Sương Mù,208300,229000,9,4.8,8,64,Nguyễn Vĩnh Nguyên,PHANBOOK,,,Bìa mềm,399.0,2019-01-01,Nhà sách Fahasa,available,1000.0,True,True,True
+8011013,Sách Đi Rong Trên Những Múi Giờ,98100,109000,10,5.0,1,12,Nguyễn Hữu Tài,Alphabooks,,,Bìa mềm,292.0,2018-12-06,Nhà sách Fahasa,available,1000.0,True,True,True
+1061576,Sách Đạp Xe Vì Tình Từ Ấn Sang Âu,95000,108000,12,5.0,2,14,Per J Andersson,First News - Trí Việt,,,Bìa mềm,360.0,2017-10-01,Nhà sách Fahasa,available,1000.0,True,True,True
+279064166,Sách - Những Chủ nhật của một thị dân Paris (Guy de Maupassant) (Nhã Nam HCM),109650,129000,15,0.0,0,4,Guy De Maupassant,Nhã Nam,Nhà Xuất Bản Văn Học,,Bìa mềm,304.0,2026-01-07,Nhã Nam HCM,available,1000.0,True,True,True
+279058319,Mùng ba tháng ba trong văn hóa truyền thống trung hoa,126000,140000,10,0.0,0,0,Nhóm tác giả,Chibooks,nxb lao dong ha noi,,Bìa mềm,268.0,,VIETNAMBOOK,available,1000.0,True,True,True
+279017064,Sách - Không Ngủ Ở Saint Petersburg,93900,108000,13,0.0,0,1,Trương Anh Ngọc,Phụ Nữ,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,,2023-12-21,Nhà sách Fahasa,available,1000.0,True,True,True
+278969622,Sách - Những Ngôi Làng Cổ Tích Trên Trái Đất,128200,135000,5,0.0,0,0,Huỳnh Thu Dung,NXB Tổng Hợp TPHCM,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,,2023-12-21,Nhà sách Fahasa,available,1000.0,True,True,True
+278831259,Sách - Cuba - Đi Lạc Trong Vòng Tay Thân Ái,138300,159000,13,0.0,0,0,nhieu tac gia,Fahasa,Nhà Xuất Bản Thế Giới,,Bìa mềm,,2023-12-21,Nhà sách Fahasa,available,1000.0,True,True,True
+278228707,Bụi Đường Tuổi Trẻ (Tái Bản),119000,119000,0,0.0,0,0,Tâm Bùi,Gieobooks,NXB Dân Trí,,Bìa mềm,224.0,2025-07-01,Tazano Official Store,available,1000.0,True,True,True
+278159914,Rừng Đêm Xào Xạc (Tái Bản 2025),50000,50000,0,5.0,1,4,Đoàn Giỏi,Nhà Xuất Bản Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,188.0,,Nhân Văn,available,1000.0,True,True,True
+276183108,Vừa đi đường vừa kể chuyện,36000,36000,0,0.0,0,3,,Nhà Xuất Bản Chính Trị Quốc Gia Sự Thật,Nhà Xuất Bản Chính Trị Quốc Gia Sự Thật,,,,,Hiệu Sách Tự Do,available,1000.0,True,True,True
+275321466,Tôi Nghĩ Tôi Thích Nước Mỹ - Du Ký (Dương Thụy) (Tái Bản) (NXB Trẻ),118000,118000,0,0.0,0,0,,NXB Trẻ,NXB Trẻ,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+275181539,Sách - Ma Quỷ Dân Gian Ký - Duy Văn,268000,268000,0,0.0,0,0,Duy Văn,Linh Lan Books,Nhà Xuất Bản Hội Nhà Văn,,Bìa mềm,260.0,,Bảo Châu Books,available,1000.0,True,True,True
+273946436,Hippi - Những Kẻ Lãng Du  - Bản Quyền,75000,150000,50,0.0,0,5,,Nhã Nam,Nhà Xuất Bản Hội Nhà Văn,,,,,NHBook,available,1000.0,True,True,True
+273820148,Để lại những dấu chân (Du khảo),134400,168000,20,0.0,0,11,Nguyễn Phan Khiêm,Liên Việt,Nhà Xuất Bản Văn Học,,Bìa mềm,308.0,2024-01-02,Liên Việt Official Store,available,1000.0,True,True,True
+273683182,HỒI ĐÓ Ở SA KỲ,75000,75000,0,0.0,0,0,Bùi Minh Quốc,Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,280.0,,TYMBooks,available,1000.0,True,False,True
+273220334,Tôi Đi Học - Nguyễn Ngọc Ký,76000,76000,0,0.0,0,0,Nguyễn Ngọc Ký,FIRST NEWS,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,176.0,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+272419813,Dạo Bước Nhân Gian - Đi Qua Những Tháng Ngày Bất Định,217000,217000,0,0.0,0,0,Quách Thành,MCBOOKS,hong duc,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+272182991,Sách - Sài Gòn hay ta! - Nhã Nam Official,188000,198000,5,0.0,0,0,"Thăng Fly Comics, Bình Bồng Bột",Nhã Nam,Nhà Xuất Bản Phụ Nữ,,Bìa mềm,302.0,,Alpha Books Official,available,1000.0,True,True,True
+269089318,Mùa Lá Rụng Trong Vườn - Ma Văn Kháng ,118000,118000,0,5.0,8,65,Ma Văn Kháng,SBOOKS,Nhà Xuất Bản Văn Học,,Bìa mềm,340.0,2023-04-14,SBOOKS OFFICIAL,available,1000.0,True,True,True
+252041024,Lâu đài Otranto - The Castle of Otranto,60000,60000,0,0.0,0,0,,NXB Kim Đồng,Nhà Xuất Bản Kim Đồng,,,,,Bamboo Books,available,1000.0,True,True,True
+249940818,Thanh Xuân Không Chỉ Một Thời,136000,160000,15,0.0,0,0,Xuân Hiếu,Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,408.0,2022-09-01,NXB TỔNG HỢP,available,1000.0,True,True,True
+246773009,Cô Đơn Trên Everest,135000,150000,10,0.0,0,5,Dili,Cty Văn Hóa & Truyền Thông Liên Việt,Nhà Xuất Bản Hội Nhà Văn,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+243086260,Quyền lực của địa lý ,280000,280000,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Phụ Nữ,,Bìa cứng,559.0,,FishingBook,available,1000.0,True,True,True
+243084982,Hạnh phúc là con đường,165000,165000,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Thế Giới,,Bìa mềm,368.0,,FishingBook,available,1000.0,True,True,True
+215748988,Bóng Người Trên Cát - cuộc hành trình theo dấu chân Ngài Huyền Trang sang Ấn Độ thỉnh kinh vào thế kỷ thứ VII,120000,120000,0,0.0,0,0,,Sách điện tử Saigon Books,Nhiều Nhà Xuất Bản,,,,,Bamboo Books,available,1000.0,True,True,True
+214186017,Du Hành Cùng Herodotus - Tặng kèm Bookmark,135000,135000,0,0.0,0,0,Ryszard Kapuściński,Nhã Nam,Nhà Xuất Bản Thế Giới,,Bìa mềm,368.0,2022-12-01,Bamboo Books,available,1000.0,True,True,True
+210960221,Sách Bãi săn phần 1 : Giếng cổ - Alphabooks - BẢN QUYỀN,129000,129000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Văn Học,,,,,info book,available,1000.0,True,True,True
+201477264,Sách Joe Biden - Hành Trình Kéo Dài Năm Thập Kỷ,159000,159000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+191447019,Tinh Hoa Du Ký Trên Tri Tân Tạp Chí (1941-1945 Nguyễn Hữu Sơn - Trần Bá Dung ),259000,259000,0,0.0,0,1,Nguyễn Hữu Sơn,CÔNG TY TNHH SÁCH & TRUYỀN THÔNG VIỆT NAM,Nhà Xuất Bản Thanh Niên,,Bìa mềm,396.0,,Bảo Châu Books,available,1000.0,True,True,True
+179952982,Cẩm Nang Du Lịch Trung Quốc,330000,330000,0,0.0,0,0,Dorling Kindersley Limited,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,Bìa mềm,658.0,,Bamboo Books,available,1000.0,True,True,True
+179196335,Đà Lạt Một Thời Hương Xa,160000,160000,0,0.0,0,3,,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+174182720,Sưu Thần Ký,278000,278000,0,0.0,0,1,,CÔNG TY TNHH SÁCH & TRUYỀN THÔNG VIỆT NAM,Nhà Xuất Bản Khoa Học Xã Hội,,,,,Bảo Châu Books,available,1000.0,True,True,True
+174180289, Tuyển Tập Du Ký( Tặng kèm sổ tay),130000,130000,0,4.0,1,3,,NXB Tri Thức,Nhà Xuất Bản Tri Thức,,Bìa mềm,280.0,,NHBook,available,1000.0,True,True,True
+171692673,Tuyển tập Du ký,131000,131000,0,0.0,0,0,,NXB Tri Thức,Nhà Xuất Bản Tri Thức,,Bìa mềm,280.0,2022-03-01,Nhà sách NetaBooks,available,1000.0,True,True,True
+137941512,Sách - NXB Trẻ - Mùa hè năm Petrus,135000,135000,0,0.0,0,0,,NXB Trẻ,NXB Trẻ,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+59468633,Sách Kaa Du Kí,160000,160000,0,0.0,0,0,Kaa Illustration,NXB Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,164.0,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+38085643,Thế Giới Rộng Lớn Đừng Đi Một Mình - Tặng Kèm Sổ Tay,119000,119000,0,0.0,0,0,Lý Thành Cơ,Skybooks,,,Bìa mềm,208.0,,NHBook,available,1000.0,True,True,True
+23870341,Sách Vắt Qua Những Ngàn Mây,88200,97000,9,5.0,3,19,Đỗ Quang Tuấn Hoàng,Chibooks,,,Bìa mềm,276.0,2019-07-01,Nhà sách Fahasa,available,1000.0,True,True,True
+14684956,Sách Sáu Người Đi Khắp Thế Gian (Tập 2) ( Tái Bản 2019 ),165000,165000,0,0.0,0,1,James Albert Michener,Nhã Nam,Nhà Xuất Bản Hội Nhà Văn,,Bìa mềm,564.0,2019-04-01,Bamboo Books,available,1000.0,True,True,True
+5995385,Sách Trên Đường Về Nhớ Đầy (Du Ký),80700,85000,5,0.0,0,7,Dương Thành Truyền,NXB Trẻ,,,Bìa mềm,,2018-10-13,Nhà sách Fahasa,available,1000.0,True,True,True
+644149,Sách Từ Rừng Thẳm Amazon Đến Quê Hương Bolero,105400,124000,15,4.7,6,27,Nguyễn Tập,First News - Trí Việt,,,Bìa mềm,,2017-05-01,Nhà sách Fahasa,available,1000.0,True,True,True
+370916,Sách Rong Ruổi Thực Lục - Tập 1,83300,83300,0,5.0,1,7,Trần Đức Anh Sơn,NXB Văn Hóa - Văn Nghệ,Nhà Xuất Bản Văn Hóa - Văn Nghệ,,Bìa mềm,420.0,2013-07-15,TYMBooks,available,1000.0,True,True,True
+278969218,Sách - KHÔNG NGỦ Ở SAINT PETERSBURG - Du ký trải nghiệm du lịch,86400,108000,20,0.0,0,6,Trương Anh Ngọc,Nhà xuất bản Phụ Nữ Việt Nam,Nhà Xuất Bản Phụ Nữ Việt Nam,,,,,Nhà Xuất Bản Phụ Nữ Việt Nam,available,1000.0,True,True,True
+278832553,(Giải cứu sách) Shuggie Bain - Chiếc Linh Hồn Nhỏ - The 2020 Booker Prize – Douglas Stuart – Trần Quốc Tân dịch,165000,165000,0,0.0,0,0,nhieu tac gia,Huy Hoàng Bookstore,Nhà Xuất Bản Văn Học,,,,,BÌNH BÁN BOOK,available,1000.0,True,True,True
+278020742,Bụi Đường Tuổi Trẻ,119000,119000,0,0.0,0,0,Tâm Bùi,Nhã Nam,Nhà Xuất Bản Dân Trí,,Bìa mềm,224.0,2025-05-23,Nhà sách NetaBooks,available,1000.0,True,True,True
+277277842,Tinh Hoa Du Ký Trên Tri Tân Tạp Chí,220050,220050,0,0.0,0,0,,,,,,,,,out_of_stock,,False,False,False
+277045694,CHIỀU TÀ CHỈ THẤY CỎ XANH – Nguyễn Phan Khiêm – Liên Việt – NXB Văn học,198000,198000,0,0.0,0,0,Nguyễn Phan Khiêm,Cty Văn Hóa & Truyền Thông Liên Việt,Nhà Xuất Bản Văn Học,,Bìa mềm,347.0,,VIETNAMBOOK,available,1000.0,True,True,True
+276567999,Hà Nội Là Hà Nội - TRE,95000,95000,0,0.0,0,0,Nguyễn Trương Quý,NXB Trẻ,NXB Trẻ,,Bìa mềm,232.0,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+276558647,Café Nàng Thơ,169100,190000,11,5.0,2,7,Nicky Khánh Ngọc,Công ty TNHH Văn Hóa & Truyền Thông Du Bút,nxb thanh nien,,Bìa mềm,,2023-12-21,Nhà sách Fahasa,available,1000.0,True,True,True
+276493489,Sách - An nhiên như những áng mây,129360,168000,23,0.0,0,0,Nguyễn Nhã,Thái Hà,Nhà Xuất Bản Công Thương,,Bìa mềm,180.0,2024-11-01,THAIHABOOKS,available,1000.0,True,True,True
+276422940,"BỘ SÁCH VĂN HỌC MIỀN NAM LỤC TỈNH: Miền Nam Và Văn Học Dân Gian Địa Phương, Văn Học Hán Nôm Thời Khai Mở Và Xây Dựng Đất Mới, Văn Học Hán Nôm Và Văn Học Quốc Ngữ Thời Kháng Pháp Và Thuộc Pháp - Nguyễn Văn Hầu - NXB Trẻ",630000,630000,0,0.0,0,0,Nguyễn Văn Hầu,NXB Trẻ,NXB Trẻ,,Bìa mềm,1468.0,,FishingBook,available,1000.0,True,True,True
+274563090,Boxset Du Ký Việt Nam Trên Nam Phong Tạp Chí (Bộ 2 Cuốn),890000,890000,0,0.0,0,0,Nguyễn Hữu Sơn,NXB Trẻ,NXB Trẻ,,,,,FishingBook,available,1000.0,True,True,True
+273733294,ĐÀ LẠT KÍ ỨC MÙI HƯƠNG,85000,85000,0,0.0,0,0,Kỳ Nam Uyên,Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,136.0,,TYMBooks,available,1000.0,True,True,True
+273522647,Sách Khoa Học Vũ Trụ Cực Hay-Mở Khóa Vũ Trụ,225000,225000,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Thế Giới,,,,,Bamboo Books,available,1000.0,True,True,True
+272474171,Bất Hạnh Là Một Tài Sản - Một Mình Ở Châu Âu,129000,129000,0,0.0,0,2,Phan Việt,Nhã Nam,Nhà Xuất Bản Hội Nhà Văn,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+270701318,"(Bìa cứng, in màu toàn bộ) VIỆT NAM DỌC MIỀN DU KÝ TẬP 1-Lê Rin - Thái Hà- NXB Lao Động",219000,219000,0,0.0,0,0,,Thái Hà,Nhà Xuất Bản Lao Động,,,,,Bamboo Books,available,1000.0,True,True,True
+269105415,Biển Xanh Áo Trắng và Những Trái Tim Hồng - Phạm Văn Đảng (truyện và ký - sách bìa cứng),125000,125000,0,0.0,0,0,,An Nam Books,Nhà Xuất Bản Văn Học,,Bìa cứng,250.0,2023-06-28,SÁCH ĐẠI NAM,available,1000.0,True,True,True
+263768428,Chúng Tôi Ăn Rừng - Georges Condominas - Nhiều dịch giả - Nguyên Ngọc hiệu đính - (bìa mềm),249000,249000,0,0.0,0,0,Georges Condominas,Omega Plus,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,516.0,2021-01-01,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+258805956,"Thú vui ""xê dịch"" - Bản Quyền",188000,188000,0,0.0,0,0,,Saigon Books,Nhà Xuất Bản Thế Giới,,,,,info book,available,1000.0,True,True,True
+247405804,Vui Buồn Hoa Phượng,173800,189000,8,0.0,0,0,Trần Đình Chất,Thái Hà,Nhà Xuất Bản Hà Nội,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+225170585,Cô Đơn Trên Everest (Tái bản 2022),112500,150000,25,5.0,1,21,"Di Li, Di Li",Liên Việt,Nhà Xuất Bản Hội Nhà Văn,,Bìa mềm,324.0,2022-12-16,Liên Việt Official Store,available,1000.0,True,True,True
+216142898,Combo 2 cuốn David Walliams: Băng đảng nửa đêm - Cậu bé mặc váy,233000,233000,0,0.0,0,0,,Nhã Nam ,Nhà Xuất Bản Hội Nhà Văn,,,,,FishingBook,available,1000.0,True,True,True
+215749031,Bóng Người Trên Cát - Hành trình theo đuổi đam mê và đi tìm ý nghĩa cuộc sống,120000,120000,0,0.0,0,0,,Sách điện tử Saigon Books,Nhiều Nhà Xuất Bản,,,,,info book,available,1000.0,True,True,True
+210886595,Sách Đi Bộ Xuyên Việt Với Cây Đàn Guitar - Alphabooks - BẢN QUYỀN,124000,124000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Thanh Niên,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+210277378,Sách Gỗ mun,123200,160000,23,4.6,25,224,Ryszard Kapuściński,Nhã Nam,Nhà Xuất Bản Thế Giới,,Bìa mềm,500.0,2022-12-01,Tiki Trading,available,1000.0,False,True,True
+210137947,Sách Bước chân theo dấu mặt trời - Alphabooks - BẢN QUYỀN,119000,119000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+208285367,Sách Những bố già châu Á - Alphabooks - BẢN QUYỀN,159000,199000,20,0.0,0,3,,Alphabooks,Nhà Xuất Bản Thế Giới,,,,,Alpha Books Official,available,1000.0,True,True,True
+205293454,1111 - Nhật Ký Sáu Vạn Dặm Trên Yên Xe Cà Tàng,325000,325000,0,0.0,0,0,Trần Đặng Đăng Khoa,NXB Trẻ,NXB Trẻ,,Bìa mềm,778.0,2022-11-11,info book,available,1000.0,True,True,True
+202961583,Triệu Dấu Chân Qua Những Cửa Ô,150400,160000,6,5.0,1,3,Nguyễn Trương Quý,Nhã Nam,Nhà Xuất Bản Phụ Nữ,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+195715683,Ánh Sáng Trên Đường Đạo,75000,75000,0,0.0,0,0,Swami Muktananda,Cty Văn Hóa Văn Lang,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,Bìa mềm,200.0,2017-07-31,Bamboo Books,available,1000.0,True,True,True
+190298290,TIẾC NUỐI HOA HỒNG – bìa mềm minh họa màu – Đông A,450000,450000,0,0.0,0,0,Phan Quang,Công Ty Cổ Phần Văn Hóa Đông A,Nhà Xuất Bản Văn Học,,Bìa mềm,692.0,,Bamboo Books,available,1000.0,True,True,True
+190252219,DU KÝ PHAN QUANG - TIẾC NUỐI HOA – bìa mềm minh họa màu – Đông A,450000,450000,0,0.0,0,0,Phan Quang,Công Ty Cổ Phần Văn Hóa Đông A,Nhà Xuất Bản Văn Học,,Bìa mềm,692.0,,Bamboo Books,available,1000.0,True,True,True
+136013292,UZBEKISTAN - Giấc Mơ Màu Lam Ngọc,60000,60000,0,5.0,2,5,,Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,108.0,,Bamboo Books,available,1000.0,True,True,True
+113583666,"Combo 2 Cuốn: JOE BIDEN- Hứa Với Con, Ba Nhé + Sự Thật Ta Nắm Giữ - Một Hành Trình Xuyên Nước Mỹ",329100,374000,12,0.0,0,0,"Joe Biden, Kamala Harris",Tân Việt,Nhà Xuất Bản Dân Trí,,Bìa mềm,,2021-07-15,Nhà sách Fahasa,available,1000.0,True,True,True
+76048912,Sách Gulliver Du Ký Tập 2 - Chuyến Hải Trình Tới Brobdingnag (Song Ngữ Anh - Việt),90000,90000,0,0.0,0,2,Johnathan Swift,CÔNG TY CỔ PHẦN GIÁO DỤC SPUTNIK,Nhà Xuất Bản Thông Tin Và Truyền Thông,,Bìa mềm,248.0,2020-07-01,NT Bookstore,available,1000.0,True,True,True
+62349850,Sách UZBEKISTAN - Giấc Mơ Màu Lam Ngọc,60000,60000,0,0.0,0,2,Hảo Phạm Fiori,Wings Books,Nhà Xuất Bản Kim Đồng,,Bìa mềm,120.0,2020-08-01,Bamboo Books,available,1000.0,True,True,True
+50214757,Namaskar! Xin Chào Ấn Độ (Tái Bản 2020),123500,130000,5,5.0,17,130,Hồ Anh Thái,NXB Trẻ,NXB Trẻ,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+36565086,Nửa Vòng Trái Đất Uống Một Ly Trà - Tặng Kèm Sổ Tay,120000,120000,0,5.0,1,4,Di Li,Thái Hà,,,Bìa mềm,326.0,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+36061937,Sách Nửa Vòng Trái Đất Uống Một Ly Trà,111600,120000,7,4.8,9,53,Di Li,Thái Hà,,,Bìa mềm,326.0,2019-10-01,Nhà sách Fahasa,available,1000.0,True,True,True
+10104837,"Combo sách gia đình: Hành Trình Về Phương Đông, Dế Mèn Phiêu Lưu Ký",268000,268000,0,0.0,0,0,"Baird T. Spalding, Tô Hoài",First News - Trí Việt,,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+548212,Sách Đà Lạt Một Thời Hương Xa (Du Khảo Văn Hóa Đà Lạt 1954 - 1975),160000,160000,0,0.0,0,2,Nguyễn Vĩnh Nguyên,NXB Trẻ,NXB Trẻ,,Bìa mềm,400.0,2016-09-28,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+345206,"Sách Tôi, Charley Và Hành Trình Nước Mỹ",140000,140000,0,0.0,0,6,John Steinbeck,NXB Trẻ,NXB Trẻ,,Bìa mềm,468.0,2012-03-19,Bamboo Books,available,1000.0,True,True,True
+279108113,Sách - Whakapapa: Rễ của nước,199000,199000,0,0.0,0,0,Luke Ngo,Công Ty TNHH Xuất bản và Giáo dục Mochibooks,Nhà Xuất Bản Thế Giới,,Bìa mềm,,2026-01-19,Nhà sách Mochibooks,available,1000.0,True,True,True
+279003865,Lãng du ở xứ sở Kangaroo - Hành trình Visa 462,259000,259000,0,0.0,0,2,Alex Lone,Đông Tây,Nhà Xuất Bản Thế Giới,,Bìa mềm tay gấp,380.0,2025-12-24,Đông Tây,available,1000.0,True,True,True
+278833266,Sách - Việt Nam Dọc Miền Du Ký - Tập 3 - Chu Du Hà Nội - Explore Hanoi Through My Pages - Bìa Cứng,269000,269000,0,0.0,0,0,Lê Rin,Thái Hà,Nhà Xuất Bản Công Thương,,Bìa mềm,,2023-12-21,Bamboo Books,available,1000.0,True,True,True
+278462937,NGƯỜI GIẢI MÃ CUỐI CÙNG SHERLOCK HOLMES - Anthur Conan Doyle - IL Cartavolante – Sách Nhân Dân,132000,132000,0,0.0,0,0,nhieu tac gia,CÔNG TY TNHH THƯƠNG MẠI SÁCH NHÂN DÂN,Nhà Xuất Bản Văn Học,,Bìa mềm,112.0,,BÌNH BÁN BOOK,available,1000.0,True,True,True
+278093786,Tây Du Lầy Lội Ký 2,204000,215000,5,0.0,0,0,Trần Lỗi,Nhã Nam,Nhà Xuất Bản Hội Nhà Văn,,Bìa mềm,364.0,2025-06-10,Alpha Books Official,available,1000.0,True,True,True
+277976190,Sách - Từ Nhà Anh Về Nhà Em - Hành Trình 16.000 Km Đạp Xe Xuyên Âu-Á Của Cặp Đôi Pháp-Việt,142500,150000,5,0.0,0,0,Thibault Clemenceau,Nhà Xuất Bản Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,,2023-12-21,Nhà sách Fahasa,available,1000.0,True,True,True
+276564489,Hà Nội Là Hà Nội,95000,95000,0,0.0,0,0,Nguyễn Trương Quý,NXB Trẻ,NXB Trẻ,,Bìa mềm,232.0,2024-11-13,Nhà sách NetaBooks,available,1000.0,True,True,True
+274989128,Sách - Cẩm Nang Du Lịch Ấn Độ,100000,100000,0,0.0,0,6,,Công ty TNHH Thương mại và Dịch vụ Văn hóa Hà Nội,Nhà Xuất Bản Thế Giới,,Bìa mềm,138.0,2024-05-10,Nhà Sách Minh Đức,available,1000.0,True,True,True
+274423977,The Path - Con đường Khai Tâm - Có tặng thẻ thông điệp chúc lành từ tác giả,99500,99500,0,0.0,0,0,Tạ Minh Tuấn,,,,,,,,out_of_stock,,False,False,False
+273906551,Vạn Dặm Đường Từ Một Bước Chân - Bản Quyền,151000,159000,5,0.0,0,0,,Skybooks,Nhà Xuất Bản Phụ Nữ Việt Nam,,,,,Alpha Books Official,available,1000.0,True,True,True
+273826947,Sự Tích Các Loài Vật- Cuốn Sách Tổng Hợp Về Thế Giới Động Vật,70000,70000,0,0.0,0,0,,Công Ty Cổ Phần Văn Hóa Đông A,Nhà Xuất Bản Văn Học,,,,,AHABOOKS,available,1000.0,True,True,True
+273413454,"(Bìa cứng áo ôm) (Có 38 tranh ảnh in màu,15 bản đồ) TRÁI ĐẤT CHUYỂN MÌNH: MỘT LỊCH SỬ CHƯA KỂ VỀ NHÂN LOẠI - Peter Frankopan - Omegaplus",630000,630000,0,0.0,0,11,Peter Frankopan,Công ty Cổ phần Sách Omega Việt Nam,Nhà Xuất Bản Tri Thức,,Bìa cứng,,,BÌNH BÁN BOOK,available,1000.0,True,True,True
+273220180,"Làm Người Lớn, Một Điều Huyền Bí- Cuốn Sách Dành Cho Những Người Trẻ Hiện Đại",69000,69000,0,0.0,0,0,Sarah Andersen,Nhã Nam,Nhà Xuất Bản Hội Nhà Văn,,Bìa mềm,111.0,,info book,available,1000.0,True,True,True
+273047352,Đẹp trai không ngại đi Mỹ (Mai Đức Anh) - Bản Quyền,70000,70000,0,0.0,0,1,,Nhã Nam,Nhà Xuất Bản Hội Nhà Văn,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+272124060,Tôi Là Một Con Lừa,80000,80000,0,0.0,0,0,Nguyễn Phương Mai,Nhã Nam,Nhà Xuất Bản Hội Nhà Văn,,Bìa mềm,183000.0,,Bamboo Books,available,1000.0,True,True,True
+270771574,1111 - Nhật Ký Sáu Vạn Dặm Trên Yên Xe Cà Tàng - Trần Đặng Đăng Khoa,325000,325000,0,0.0,0,1,,NXB Trẻ,NXB Trẻ,,,,,info book,available,1000.0,True,True,True
+270701622,"(Combo trọn bộ 2 tập - Bìa cứng, in màu toàn bộ) VIỆT NAM DỌC MIỀN DU KÝ TẬP 1 & 2 -Lê Rin - Thái Hà- NXB Lao Động",438000,438000,0,0.0,0,2,,Thái Hà,Nhà Xuất Bản Lao Động,,,,,Bamboo Books,available,1000.0,True,True,True
+270126528,Việt Nam Miền Ngon (Tái Bản 2019) - Bản Quyền,155000,155000,0,0.0,0,0,,Thái Hà Book,Nhà Xuất Bản Lao Động,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+263033878,Du Kí Vòng Quanh Nước Ý - Ngàn Kì Quan,165000,165000,0,0.0,0,0,Geronimo Stilton,NXB Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,224.0,2023-06-12,Nhà sách NetaBooks,available,1000.0,True,True,True
+259478504,Tây Ban Nha – Hành Trình Không Ngôn Ngữ,103000,103000,0,0.0,0,0,,,,,,,,,out_of_stock,,False,False,False
+251003049,Sách - Mùi Hương Trầm - Nguyễn Tường Bách - Phanbook - Tặng Kèm Bookmark Bamboo Books,248000,248000,0,0.0,0,0,Nguyễn Tường Bách,PHANBOOK,Nhà Xuất Bản Văn Học,,Bìa mềm,475.0,,Bamboo Books,available,1000.0,True,True,True
+242483955,Sách Du hành cùng Herodotus (Ryszard Kapuściński) - Nhã Nam - BẢN QUYỀN,135000,135000,0,0.0,0,1,,Nhã Nam,Nhà Xuất Bản Thế Giới,,,,,FishingBook,available,1000.0,True,True,True
+217125836,Sách - Đi Qua Hoa Cúc,105000,105000,0,0.0,0,0,,FIRST NEWS,NXB Trẻ,,,,,info book,available,1000.0,True,True,True
+214592918,"Sài Gòn Hay Ta! - Thăng Fly Comics, Bình Bồng Bột (Tặng Sổ Tay)",198000,198000,0,0.0,0,5,"Thăng Fly Comics, Bình Bồng Bột",Nhã Nam,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,302.0,2023-01-06,Bamboo Books,available,1000.0,True,True,True
+211255725,Sách Danh Họa Larousse - Paul Cézanne - Alphabooks - BẢN QUYỀN,299000,299000,0,0.0,0,0,,Alphabooks,NXB Dân Trí,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+210525233,Triệu dấu chân qua những cửa ô,160000,160000,0,0.0,0,0,Nguyễn Trương Quý,Nhã Nam,Nhà Xuất Bản Phụ Nữ,,Bìa mềm,388.0,2022-10-03,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+209405814,VÕ VĂN KIỆT TRĂM NĂM TRONG MỘT CHỮ DÂN,140000,140000,0,5.0,1,18,nhieu tac gia,Nhà Xuất Bản Tổng Hợp TPHCM,Nhà Xuất Bản Tổng Hợp,,Bìa mềm,304.0,2022-11-30,Bamboo Books,available,1000.0,True,True,True
+205288789,1111 - Nhật Ký Sáu Vạn Dặm Trên Yên Xe Cà Tàng,260000,325000,20,0.0,0,1,Trần Đặng Đăng Khoa,Văn Lang,Nhà Xuất Bản Hồng Đức,,Bìa mềm,776.0,2022-11-10,Bảo Châu Books,available,1000.0,True,True,True
+199931042,(Có chữ ký tác giả) TRIỆU DẤU CHÂN QUA NHỮNG CỬA Ô – Nguyễn Trương Quý – Nhã Nam – NXB Phụ Nữ (Bìa mềm),160000,160000,0,0.0,0,0,Nguyễn Trương Quý,Nhã Nam,Nhà Xuất Bản Phụ Nữ,,Bìa mềm,388.0,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+197546438,BÁCH HÓA GIẤC MƠ CỦA NGÀI DOLLARGUT,130000,130000,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Hà Nội,,,,,Nhà sách NetaBooks,available,1000.0,True,True,True
+178033006,Sáu Người Đi Khắp Thế Gian - Tập 2,150000,150000,0,1.0,1,4,,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+147568385,Tung Tăng Tung Tẩy …Trời Tây,100000,100000,0,0.0,0,0,Lưu Đình Triều,NXB Tổng Hợp TPHCM,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,Bamboo Books,available,1000.0,True,True,True
+143144257,Sách-Cô Gái Thứ Ba (NXB Trẻ),100000,100000,0,0.0,0,0,,NXB Trẻ,NXB Trẻ,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+137941545,Sách - NXB Trẻ - Hai cõi người ta,270000,270000,0,0.0,0,0,,NXB Trẻ,NXB Trẻ,,,,,FishingBook,available,1000.0,True,True,True
+57771248,Cuốn du ký được đông đảo độc giả đón đọc: Himalaya - Hành Trình Chạm Đến Trán Trời,84000,105000,20,0.0,0,3,,Alphabooks,Nhà Xuất Bản Thế Giới,,,,,Omega Plus Books,available,1000.0,True,True,True
+36313879,Đi Thật Xa Trên Một Chiếc Camper,172000,172000,0,0.0,0,3,Khải Đơn,NXB Phụ Nữ,,,,,,Bamboo Books,available,1000.0,True,True,True
+10738152,Sách Mumbai Và Những Chuyến Tàu Đêm,120000,120000,0,0.0,0,5,Hasu Tran,Wings Books,Nhà Xuất Bản Kim Đồng,,Bìa mềm,400.0,2019-02-02,Bamboo Books,available,1000.0,True,True,True
+5440965,Sách Bóng Người Trên Cát,120000,120000,0,0.0,0,0,Nhi Phan,Saigon Books,Nhà Xuất Bản Văn Hóa Văn Nghệ,,Bìa mềm,384.0,2018-01-09,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+717476,Sách Đi Dọc Hà Nội,120000,120000,0,0.0,0,0,Nguyễn Ngọc Tiến,NXB Trẻ,NXB Trẻ,,Bìa mềm,362.0,2017-07-01,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+366960,Sách Lên Đường Với Trái Tim Trần Trụi - Tôi Là Một Con Lừa,80000,80000,0,5.0,1,3,Nguyễn Phương Mai,Nhã Nam,Nhà Xuất Bản Hội Nhà Văn,,Bìa mềm,184.0,2013-05-20,Bamboo Books,available,1000.0,True,True,True
+278525479,SÀI GÒN - PARIS VIỄN ĐÔNG,140000,140000,0,0.0,0,0,nhieu tac gia,Nhà sách Tân Việt,NXB Trẻ,,,,,NHBook,available,1000.0,True,True,True
+278131825,Tina Yuan - Những dặm đường Tổ Quốc (Sách bỏ túi),115000,115000,0,0.0,0,2,Tina Yuan,Đông Tây,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,203.0,2025-06-19,Đông Tây,available,1000.0,True,True,True
+277963673,Sách - Lá Cờ Bên Chiếc Ba Lô - (tác giả Đào Minh Tiến - Dế Mèn Du Ký),99700,105000,5,0.0,0,0,,Nhà Sách Hồng Ân,Nhà Xuất Bản Dân Trí,,,,,Alpha Books Official,available,1000.0,True,True,True
+277558211,Tuyết Xuân - Yukio Mishima - Tao Đàn,377000,377000,0,0.0,0,0,Yukio Mishima,Tao Đàn,Nhà Xuất Bản Hội Nhà Văn,,,486.0,,SÁCH ĐẠI NAM,available,1000.0,True,True,True
+277555093,Hiệu Sách Trên Đảo - Bản Quyền,145000,145000,0,0.0,0,0,Gabrielle Zevin,Nhã Nam,Nhà Xuất Bản Phụ Nữ,,Bìa mềm,264.0,2025-03-24,FishingBook,available,1000.0,True,True,True
+277541666,Grasshopper - Sát Thủ Báo Thù - Bản Quyền,152000,160000,5,0.0,0,0,Isaka Kotaro,Nhã Nam,Nhà Xuất Bản Hà Nội,,Bìa mềm,348.0,2025-03-21,Alpha Books Official,available,1000.0,True,True,True
+277436499,Sách - Chiều Tà Chỉ Thấy Cỏ Xanh,176200,198000,11,0.0,0,1,Nguyễn Phan Khiêm,Cty Văn Hóa & Truyền Thông Liên Việt,Nhà Xuất Bản Văn Học,,Bìa mềm,,2023-12-21,Nhà sách Fahasa,available,1000.0,True,True,True
+276037186,Nomadland - Cõi Người Dưng - Đời Du Dân Mỹ Thế Kỷ 21 (NXB PN),154800,180000,14,0.0,0,0,Jessica Bruder,NXB Phụ Nữ Việt Nam,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,400.0,,Văn Lang Official Store,available,1000.0,True,True,True
+275603808,365 Ngày Đầu Tiên Ở Xứ Sở Hoa Anh Đào - Hành Trình Du Học Ở Tuổi 15 (Nguyễn Ngọc Minh Anh),103000,129000,20,0.0,0,0,,Alpha Books,Nhà Xuất Bản Thế Giới,,Bìa mềm,164.0,2024-07-13,Alpha Books Official,available,1000.0,True,True,True
+273913979,Sách - Du hành cùng Herodotus (Ryszard Kapuściński) - Nhã Nam Official,128000,135000,5,0.0,0,0,Ryszard Kapuściński,Nhã Nam,Nhà Xuất Bản Thế Giới,,Bìa mềm,368.0,,Alpha Books Official,available,1000.0,True,True,True
+273714539,Trở Về - Phần 1 : Châu Âu (Nhà  Thành An) - Phan Công Thiết  - Bản Quyền,100000,100000,0,0.0,0,0,,Alpha Books,Nhà Xuất Bản Thế Giới,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+273535633,MỞ KHÓA VŨ TRỤ - Stephen Hawking & Lucy Hawking – Kim Phụng dịch – Nhã Nam – NXB Thế giới,225000,225000,0,0.0,0,0,Stephen Hawking Lucy Hawking,Nhã Nam -  Hội Nhà Văn,Nhà Xuất Bản Thế Giới,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+270962769,[Bìa cứng] 80 NGÀY VÒNG QUANH THẾ GIỚI - Jules Verne - Ngụy Thanh Tuyên - Đinh Tị Books - NXB Thanh Niên,139000,139000,0,0.0,0,0,,Đinh Tị,nxb thanh nien,,Bìa cứng,392.0,,Bamboo Books,available,1000.0,True,True,True
+270126598,Việt Nam dọc miền du ký tập 2 (Bìa cứng) - Bản Quyền,219000,219000,0,0.0,0,1,,Thái Hà Book,Nhà Xuất Bản Lao Động,,,,,Bamboo Books,available,1000.0,True,True,True
+264052287,Sách Nhã Nam - Du hành cùng Herodotus,135000,135000,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Thế Giới,,,,,FishingBook,available,1000.0,True,True,True
+260922730,"Lịch Sử Thượng Đế - A History Of God - Karen Armstron (Tái Bản Mới Nhất, Omega+)",319000,319000,0,0.0,0,0,,Không có,Không có,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+253271287,Chuyện Người Tây Ở Xứ Ta -  Bản Quyền,87000,87000,0,0.0,0,0,,Nhã Nam ,Nhà Xuất Bản Thế Giới,,,,,SÁCH ĐẠI NAM,available,1000.0,True,True,True
+253129533,Nomadland - Cõi người dưng - Đời Du Dân Mỹ Thế Kỷ 21,169200,180000,6,0.0,0,7,Jessica Bruder,Phụ Nữ,Nhà Xuất Bản Phụ Nữ Việt Nam,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+249882522,1111 - Nhật Ký Sáu Vạn Dặm Trên Yên Xe Cà Tàng,325000,325000,0,0.0,0,0,,Bloomsbury Childrens - NXB Trẻ,NXB Trẻ,,,,,info book,available,1000.0,True,True,True
+249882519,1111 - Nhật Ký Sáu Vạn Dặm Trên Yên Xe Cà Tàng,325000,325000,0,0.0,0,0,,Bloomsbury Childrens - NXB Trẻ,NXB Trẻ,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+248789000,Nước Mỹ Đâu Xa! - Quyển 1 - Tiểu Bang New York - Tiểu Bang Hoàng Đế ( The Empire State),130500,145000,10,0.0,0,3,Lê Lan Anh,Cty Văn Hóa & Truyền Thông Liên Việt,Nhà Xuất Bản Hội Nhà Văn,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+243034600,Tuổi Trẻ Lạc Lối,103000,129000,20,0.0,0,1,,Alphabooks,Nhà Xuất Bản Dân Trí,,Bìa mềm,236.0,,Alpha Books Official,available,1000.0,True,True,True
+242076094,Chân Nhỏ Dũng Cảm - Cùng Con Đi Khắp Thế Gian,61700,65000,5,0.0,0,1,Cao Bảo Vy,NXB Tổng Hợp TPHCM,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+215141131,Bóng Người Trên Cát (SGB),120000,120000,0,0.0,0,0,,Sách điện tử Saigon Books,Nhiều Nhà Xuất Bản,,,,,Bamboo Books,available,1000.0,True,True,True
+215092637,Bóng Người Trên Cát-Tác giả Nhi Phan,120000,120000,0,0.0,0,0,,Sách điện tử Saigon Books,Nhiều Nhà Xuất Bản,,,,,Bamboo Books,available,1000.0,True,True,True
+215092629,Bóng Người Trên Cát-Tác giả Nhi Phan,120000,120000,0,0.0,0,0,,Sách điện tử Saigon Books,Nhiều Nhà Xuất Bản,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+209413799,Sách Marco Polo - Từ Venice Tới Thượng Đô 239K - Alphabooks - BẢN QUYỀN,239000,239000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+208428307,Sách Danh Họa Larousse - Hokusai,299000,299000,0,0.0,0,0,,Alphabooks,NXB Dân Trí,,,,,info book,available,1000.0,True,True,True
+202475564,Sách -  Đi Qua Hoa Cúc (Khổ nhỏ) - NXB Trẻ,40000,40000,0,0.0,0,0,,Không có,NXB Trẻ,,,,,Hiệu Sách Tự Do,available,1000.0,True,False,True
+196190353,ĐI ĐƯỜNG CŨ KHÔNG THỂ TỚI NƠI MỚI_AZ,99000,99000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Dân Trí,,Bìa mềm,,,NewShop Official,available,1000.0,True,True,True
+192295472,Tác Phẩm: Du ký Phan Quang - Tiếc nuối hoa hồng (Tặng kèm bookmark Bamboo Books),450000,450000,0,0.0,0,0,Phan Quang,Công Ty Cổ Phần Văn Hóa Đông A,Nhà Xuất Bản Văn Học,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+189588167,Con Đường Tơ Lụa,122550,129000,5,4.5,2,7,Trần Hồng Ngọc,Chibooks,Nhà Xuất Bản Lao Động,,Bìa mềm,216.0,2022-07-04,Cá Chép Bookstore,available,1000.0,True,True,True
+179193950,Chốc Lát Những Bến Bờ,115000,115000,0,0.0,0,1,Hồ Anh Thái,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,Bìa mềm,392.0,,Bamboo Books,available,1000.0,True,True,True
+177315574,Nhật Ký Phi Công Tiêm Kích,185000,185000,0,5.0,1,11,,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,,,,info book,available,1000.0,True,True,True
+160622208,Tippi Hoang Dã,196000,196000,0,0.0,0,0,,Nhà Xuất Bản Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa cứng,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+127033451,Sách-Đi Qua Hoa Cúc (NXB Trẻ),105000,105000,0,0.0,0,0,,NXB Trẻ,NXB Trẻ,,,,,FishingBook,available,1000.0,True,True,True
+109862058,Sách - Dưới Bóng Những Cô Gái Đương Hoa,179000,179000,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Văn Học,,,,,FishingBook,available,1000.0,True,True,True
+77059046,Cuốn sách lôi cuốn người đọc dành cho những ai ưa thích khám phá: Tôi là một con lừa,80000,80000,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Hội Nhà Văn,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+76048152,Sách Gulliver Du Ký Tập 1 - Chuyến Hải Trình Tới Lilliput (Song Ngữ Anh - Việt),90000,90000,0,0.0,0,1,Johnathan Swift,CÔNG TY CỔ PHẦN GIÁO DỤC SPUTNIK,Nhà Xuất Bản Thông Tin Và Truyền Thông,,Bìa mềm,236.0,2020-07-01,NT Bookstore,available,1000.0,True,True,True
+72882541,Sách Chu Du Xứ Sương Mù,71200,75000,5,5.0,4,24,Kim Anh,NXB Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,144.0,2020-11-15,Nhà sách Fahasa,available,1000.0,True,True,True
+279187824,CÓ MỘT MÙA XUÂN TRONG RỪNG THẲM - Yến Tử - Thái Hà,208000,208000,0,0.0,0,2,nhieu tac gia,Thái Hà,Nhà Xuất Bản Hà Nội,,Bìa mềm,328.0,,BÌNH BÁN BOOK,available,1000.0,True,True,True
+279139495,Không bao giờ nói không: Hành trình từ Saddleworth tới Sài Gòn,280000,280000,0,0.0,0,0,Kenneth Atkinson OBE,Công Ty CP Truyền Thông Sách Khải Minh,Nhà Xuất Bản Thế Giới,,Bìa mềm,260.0,2025-10-02,Khải Minh Book,available,1000.0,True,True,True
+278815855,Sách - Chu du Hà Nội,269000,269000,0,0.0,0,0,Lê Rin,Thái Hà,Nhà Xuất Bản Công Thương,,Bìa mềm,128.0,2025-10-28,THAIHABOOKS,available,1000.0,True,True,True
+278761113,Sách - Hải Ngoại Kỷ Sự,210600,229000,8,0.0,0,0,nhieu tac gia,Thái Hà,Nhà Xuất Bản Thế Giới,,Bìa mềm,,2023-12-21,Nhà sách Fahasa,available,1000.0,True,True,True
+278569923,Sách Hành Trình Về Phương Đông (Chang Book),118000,118000,0,0.0,0,0,Christian Stang,Nhà Xuất Bản Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,350.0,2025-08-25,Changs Book,available,1000.0,True,True,True
+278442439,Sách - 35 Ký Lô Hy Vọng,99330,129000,23,0.0,0,0,Ann Gleason,Thái Hà,Nhà Xuất Bản Công Thương,,Bìa mềm,116.0,2025-07-30,THAIHABOOKS,available,1000.0,True,True,True
+277614634,"Vòng Quanh Châu Á - Nam Kỳ, Trung Kỳ, Bắc Kỳ - Bản Quyền",239000,239000,0,0.0,0,0,,Alphabooks,NXB Dân Trí,,Bìa mềm,312.0,2025-04-06,Gooda Official,available,1000.0,True,True,True
+277172642,Chiều tà chỉ thấy cỏ xanh (Du ký),158400,198000,20,0.0,0,0,Nguyễn Phan Khiêm,Liên Việt,Nhà Xuất Bản Văn Học,,Bìa mềm,347.0,2025-01-15,Liên Việt Official Store,available,1000.0,True,True,True
+276672358,Miền Trung Du Hí - Heartland Journey,143100,159000,10,0.0,0,0,Active Skills,Thái Hà,Nhà Xuất Bản Công Thương,,Bìa mềm,,2023-12-21,Nhà sách Fahasa,available,1000.0,True,True,True
+276564286,Ăn Phở Rất Khó Thấy Ngon,85000,85000,0,0.0,0,0,Nguyễn Trương Quý,NXB Trẻ,NXB Trẻ,,Bìa mềm,200.0,2024-11-13,Nhà sách NetaBooks,available,1000.0,True,True,True
+275813971,Combo Sách Ngàn Mùa Hoa: Nét Đẹp Quê Hương + Nét Đẹp Thiên Nhiên (Bộ 2 Cuốn) (PNU),96000,96000,0,0.0,0,1,Băng Sơn,Nhà xuất bản Phụ Nữ,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+274394207,SỐNG MẠO HIỂM MỘT CÁCH CẨN THẬN – Maye Musk – Minh Nhật dịch - NXB Lao động – Hải Đăng,151000,159000,5,0.0,0,0,Maye Musk,Hải Đăng Book,Nhà Xuất Bản Lao Động,,Bìa mềm,,,Alpha Books Official,available,1000.0,True,True,True
+274113654,Họ Trở Thành Nhân Vật Của Tôi,168000,175000,4,0.0,0,0,Hồ Anh Thái,NXB Trẻ,NXB Trẻ,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+273904794,1111 - Nhật Ký Sáu Vạn Dặm Trên Yên Xe Cà Tàng,325000,325000,0,0.0,0,1,,NXB Trẻ,NXB Trẻ,,,,,info book,available,1000.0,True,True,True
+272443861,THỜI CÁ VOI BIẾT ĐI,98000,98000,0,0.0,0,0,,Huy Hoàng Bookstore,Nhà Xuất Bản Đại Học Sư Phạm,,,,,AHABOOKS,available,1000.0,True,True,True
+271413633,[Ấn bản 2023 - Bìa cứng] NĂM TUẦN TRÊN KHINH KHÍ CẦU - CHUYẾN DU LỊCH ĐỘC ĐÁO XUYÊN QUA CHÂU PHI HOANG DÃ - Jules Verne – Dich giả Ngụy Thanh Tuyên - Đinh Tị Books - NXB Thanh Niên.,169000,169000,0,0.0,0,0,Jules Verne,Đinh Tị,Nhà Xuất Bản Thanh Niên,,Bìa cứng,472.0,,Bamboo Books,available,1000.0,True,True,True
+262870371,Bé tiêu phiêu lưu ký - Hành trình một mình chinh phục thế giới của cô gái Việt,99000,99000,0,3.0,2,6,,Công Ty TNHH Xuất bản và Giáo dục Mochibooks,Nhà Xuất Bản Lao Động,,Bìa mềm,195.0,2023-06-08,Nhà sách Mochibooks,available,1000.0,True,True,True
+262053143,Tung Tăng Tung Tẩy…Trời Tây,85000,100000,15,0.0,0,0,Lưu Đình Triều,Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,NXB TỔNG HỢP,available,1000.0,True,True,True
+258668560,Tung tăng tung tẩy... trời Tây - Bản Quyền,100000,100000,0,0.0,0,0,,Saigon Books,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,Bamboo Books,available,1000.0,True,True,True
+253326718,Uống Cà Phê Trên Đường Của Vũ,77220,77220,0,0.0,0,0,,,,,,,,,out_of_stock,,False,False,False
+252025292,Văn Chương Sài Gòn 1881-1924 - Tập 4: Du Ký Và Những Truyện Khác,190000,190000,0,0.0,0,3,Trần Nhật Vy,Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,NXB TỔNG HỢP,available,1000.0,True,True,True
+251767267,Sách - Hành trình thám hiểm Đông Dương,790000,790000,0,0.0,0,0,,Đông A,Nhà Xuất Bản Đại Học Sư Phạm,,,,,Bamboo Books,available,1000.0,True,True,True
+249941178,Tung Tăng Tung Tẩy…Trời Tây (Tái Bản T9/2022),85000,100000,15,5.0,2,3,Lưu Đình Triều,Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,168.0,2022-09-01,NXB TỔNG HỢP,available,1000.0,True,True,True
+220666217,Sách Phía Sau Cỗ Torii – Lạc Bước Thanh Xuân,108000,180000,40,5.0,11,111,sontungst,Skybooks,Nhà Xuất Bản Dân Trí,,Bìa mềm,264.0,2023-02-14,Tiki Trading,available,1000.0,False,True,True
+215092639,Bóng Người Trên Cát-Tác giả Nhi Phan,120000,120000,0,0.0,0,0,,Sách điện tử Saigon Books,Nhiều Nhà Xuất Bản,,,,,Bamboo Books,available,1000.0,True,True,True
+214189276,Thời Cá Voi Biết Đi,98000,98000,0,0.0,0,0,,Huy Hoàng Bookstore,Nhà Xuất Bản Đại Học Sư Phạm,,,,,Bamboo Books,available,1000.0,True,True,True
+206715176,1111 - Nhật Ký Sáu Vạn Dặm Trên Yên Xe Cà Tàng,308700,325000,5,5.0,3,25,Trần Đặng Đăng Khoa,NXB Trẻ,NXB Trẻ,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+202025036,Sách Thế Giới Một Chạm,290000,290000,0,0.0,0,0,Nguyễn Thị Huyền Ngân,NXB Tổng Hợp TP. HCM,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,394.0,2022-10-10,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+181991026,Sách Từ Rừng Thẳm Amazon Đến Quê Hương Bolero,105400,124000,15,4.5,4,30,Nguyễn Tập,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,First News,available,1000.0,True,True,True
+181195009,Ngọc Sáng Trong Hoa Sen,128000,128000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+137941513,Sách - NXB Trẻ - Hát mãi một mình,120000,120000,0,0.0,0,0,,NXB Trẻ,NXB Trẻ,,,,,FishingBook,available,1000.0,True,True,True
+115254287,Sách - Con Đã Có Đường Đi,199000,199000,0,0.0,0,0,,Thái Hà,Nhà Xuất Bản Lao Động,,,,,Bamboo Books,available,1000.0,True,True,True
+111174274,Khát vọng của biển (truyện ký),50000,50000,0,5.0,1,3,,An Nam Books,Nhà Xuất Bản Hội Nhà Văn,,Bìa gập,270.0,2020-07-23,SÁCH ĐẠI NAM,available,1000.0,True,True,True
+101933756,Sách - Thế Giới Rộng Lớn Đừng Đi Một Mình,119000,119000,0,0.0,0,0,Lý Thành Cơ,Skybooks,Nhà Xuất Bản Phụ Nữ,,,208.0,,NHBook,available,1000.0,True,True,True
+77220985,"Sách - Nghe đến nơi, hiểu đến chốn (tặng kèm bookmark thiết kế)",96000,96000,0,0.0,0,0,.,Nhã Nam,Nhà Xuất Bản Thế Giới,,,,,Bamboo Books,available,1000.0,True,True,True
+68855044,Combo Sách Cho Người Đam Mê Với Những Chuyến Đi : Đi Bộ Xuyên Việt Với Cây Đàn Guitar + Du Ký Xanh - Hành Trình Cứu Biển + Đi Rong Trên Những Múi Giờ + Đi Như Tờ Giấy Trắng + Đá Nhọn Vực Sâu,552500,552500,0,0.0,0,0,nhieu tac gia,Alphabooks,Nhà Xuất Bản Thanh Niên,,Bìa mềm,,,AHABOOKS,available,1000.0,True,True,True
+68844180,Combo Sách Du Ký : HIMALAYA – Hành Trình Chạm Đến Trán Trời + Khơi Lửa Sông Nile,197000,247000,20,0.0,0,9,nhieu tac gia,Alphabooks,Nhà Xuất Bản Thế Giới,,Bìa mềm,,,Omega Plus Books,available,1000.0,True,True,True
+53720985,"Sách Angelina Jolie - Nhật Kí Những Chuyến Đi - Những Cuộc Gặp Gỡ Với Người Tị Nạn ở Châu Phi, Campuchia, Pakistan Và Ecuador",118000,118000,0,0.0,0,1,Angelina Jolie,NXB Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa cứng,316.0,2020-04-04,Bamboo Books,available,1000.0,True,True,True
+34816996,Đừng Chết Ở Ả Rập Xê Út - Tặng kèm sổ tay,99000,99000,0,0.0,0,0,Nghiêm Hương,Alphabooks,Nhà Xuất Bản Thế Giới,,Bìa mềm,196.0,2019-01-16,info book,available,1000.0,True,True,True
+31690412,Đi Bộ Xuyên Việt Với Cây Đàn Guitar (Tặng kèm sổ tay),124000,124000,0,0.0,0,1,Hồ Nhật Hà,Alphabooks,Nhà Xuất Bản Thanh Niên,,Bìa mềm,344.0,2019-01-16,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+279211073,HIMALAYA: ĐẤT NƯỚC LỬA KHÍ KHÔNG – Nguyễn Mạnh Duy (Pema Tenzin)  – NXB Thế Giới – Thái Hà,1800000,1800000,0,0.0,0,0,Nguyễn Mạnh Duy (Pema Tenzin),Thái Hà,Nhà Xuất Bản Thế Giới,,Bìa cứng,492.0,,BÌNH BÁN BOOK,available,1000.0,True,True,True
+279077995,NHỮNG THẾ GIỚI CON - ICHINHO MICHI - NHÃ NAM,166000,166000,0,0.0,0,0,Ichiho Michi,Nhã Nam,ha noi,,Bìa mềm,317.0,,BÌNH BÁN BOOK,available,1000.0,True,True,True
+278828504,Những ngọn gió – Saint-John Perse,120000,120000,0,0.0,0,1,Saint-John Perse,Công ty TNHH Truyền Thông và Giáo Dục Lyceum,Nhà Xuất Bản Hội Nhà Văn,,Bìa mềm,135.0,2025-10-30,Book Hunter,available,1000.0,True,True,True
+278229204,Sách - Dạo Khắp Một Vòng Việt Nam,147700,166000,11,0.0,0,0,,Fahasa,Nhà Xuất Bản Hà Nội,,Bìa mềm,,2023-12-21,Nhà sách Fahasa,available,1000.0,True,True,True
+277436659,Sách - Nước Đức Từ A Đến Z (Tái Bản 2025),113000,119000,5,0.0,0,2,Lê Quang,Phụ Nữ,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,,2023-12-21,Nhà sách Fahasa,available,1000.0,True,True,True
+276565312,Đi Dọc Hà Nội,120000,120000,0,0.0,0,0,Nguyễn Ngọc Tiến,NXB Trẻ,NXB Trẻ,,Bìa mềm,362.0,2024-11-13,Nhà sách NetaBooks,available,1000.0,True,True,True
+276386496,Vẻ Đẹp Của Cảnh Sắc Tầm Thường - Hay Vì Sao Chúng Ta Cần Thay Đổi Cách Thưởng Thức Thiên Nhiên? (Đặng Hoàng Giang) - Bìa Mềm,188000,235000,20,0.0,0,4,Đặng Hoàng Giang,Omega Plus,Nhà Xuất Bản Hội Nhà Văn,,Bìa mềm,400.0,2024-10-16,Alpha Books Official,available,1000.0,True,True,True
+276350680,Những Đứa Con Của Rồng,93500,110000,15,0.0,0,0,Hữu Vi,Công ty TNHH Truyền Thông và Giáo Dục Lyceum,Nhà Xuất Bản Văn Học,,Bìa mềm,,2023-12-21,Nhà sách Fahasa,available,1000.0,True,True,True
+276107489,Văn học trong nhà trường: Hà Nội băm sáu phố phường - Bản Quyền,27500,27500,0,0.0,0,0,Thạch Lam,Nhã Nam,Nhà Xuất Bản Kim Đồng,,Bìa mềm,108.0,2024-09-09,Tiệm Sách Minh Vân,available,1000.0,True,True,True
+276031610,Hữu Vi - Những đứa con của Rồng,104000,104000,0,0.0,0,0,Hữu Vi,Đông Tây,Nhà Xuất Bản Văn Học,,Bìa mềm,151.0,2024-08-28,SÁCH ĐẠI NAM,available,1000.0,True,True,True
+275902847,"Vòng Quanh Châu Á - Nam Kỳ, Trung Kỳ, Bắc Kỳ",215100,239000,10,0.0,0,0,,Alpha Books,NXB Dân Trí,,Bìa mềm,,2023-12-21,Nhà sách Fahasa,available,1000.0,True,True,True
+274710026,Boxset Du Ký Việt Nam Trên Nam Phong Tạp Chí (Bộ 2 Cuốn),890000,890000,0,0.0,0,0,Nguyễn Hữu Sơn,NXB Trẻ,NXB Trẻ,,Bìa mềm,1780.0,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+274452822,Cuốn Sách Văn Học Hành Động Hay: Cacao Máu ,141750,189000,25,0.0,0,1,,1980 Books,Nhà Xuất Bản Thanh Niên,,,,,1980 BOOKS HCM,available,1000.0,True,True,True
+274005439,Những Tấm Bưu Thiếp Việt Nam (Jan Wagner)  - Bản Quyền,80000,80000,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Thông Tấn,,,,,Nhà sách NetaBooks,available,1000.0,True,True,True
+273856272,(sách in màu; tặng kèm Bookmark) VẠN DẶM ĐƯỜNG TỪ MỘT BƯỚC CHÂN - Mavis ViVu Ký – NXB Phụ nữ Việt Nam – Skybooks,159000,159000,0,0.0,0,1,,Công Ty TNHH Văn Hóa Và Truyền Thông Skybooks Việt Nam,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,,,NHBook,available,1000.0,True,True,True
+273553577,"Sách GIẤC MƠ NHẬT: Đi để vấp ngã, đi để trưởng thành",86000,130000,34,0.0,0,29,Nguyễn Phương Dung,Chibooks,Nhà Xuất Bản Lao Động,,Bìa mềm,224.0,2023-12-01,Tiki Trading,available,1000.0,False,True,True
+270975631,Vàng Son Một Thuở Ba Tư - Tập Du Ký,100000,100000,0,0.0,0,5,Nguyễn Chí Linh,Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,NXB TỔNG HỢP,available,1000.0,True,True,True
+270253544,Về Nơi Có Nhiều Cánh Đồng (Tái Bản 2023),135000,150000,10,5.0,5,35,Phan,Công ty TNHH Văn Hóa & Truyền Thông Du Bút,nxb thanh nien,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+263103935,Các Bạn Tôi Ở Trên Ấy,168000,168000,0,0.0,0,3,Nguyên Ngọc,Phụ Nữ,Nhà Xuất Bản Phụ Nữ Việt Nam,,,,,SÁCH ĐẠI NAM,available,1000.0,True,True,True
+258571130,Ai-len - Vũ khúc mùa hè - Bản Quyền,130000,130000,0,0.0,0,0,,Saigon Books,NXB Văn hóa – Văn nghệ,,,,,info book,available,1000.0,True,True,True
+248622490,Việt Nam Dọc Miền Du Ký - Tập 1 (Bìa Cứng),219000,219000,0,0.0,0,1,,Sách điện tử Thái Hà,Nhà Xuất Bản Lao Động,,,,,Bamboo Books,available,1000.0,True,True,True
+246160736,Sách Chuyện Người Tây Ở Xứ Ta - Nhã Nam - BẢN QUYỀN,87000,87000,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Thế Giới,,,,,SÁCH ĐẠI NAM,available,1000.0,True,True,True
+216462146,Sách - Con Đã Có Đường Đi,199000,199000,0,0.0,0,0,,Thái Hà,Nhà Xuất Bản Lao Động - Xã Hội,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+210531024,Việt Nam danh tác - Miếng ngon Hà Nội,70000,70000,0,0.0,0,1,Vũ Bằng,Nhã Nam,Nhà Xuất Bản Hội Nhà Văn,,Bìa mềm,212.0,2022-10-10,SÁCH ĐẠI NAM,available,1000.0,True,True,True
+208223994,Sách Tiểu Luận Về Dân Bắc Kỳ - Alphabooks - BẢN QUYỀN,209000,209000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Hà Nội,,,,,FishingBook,available,1000.0,True,True,True
+204649516,Sách - 1111 - NHẬT KÝ SÁU VẠN DẶM TRÊN YÊN XE CÀ TÀNG - Trần Đặng Đăng Khoa - NXB Trẻ - bìa mềm,325000,325000,0,0.0,0,1,,NXB Trẻ,NXB Trẻ,,,,,FishingBook,available,1000.0,True,True,True
+204416968,Tung Tăng Tung Tẩy…Trời Tây (2022),93000,100000,7,0.0,0,8,Lưu Đình Triều,NXB Tổng Hợp TPHCM,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+201055584,Đà Lạt Một Thời Hương Xa (Tái Bản 2022),160000,160000,0,0.0,0,4,,NXB Trẻ,NXB Trẻ,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+192950215,Du Ký Phan Quang - Tiếc Nuối Hoa Hồng,396000,450000,12,0.0,0,1,Phan Quang,dong a,Nhà Xuất Bản Văn Học,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+167614998,Bốn Mùa Trên Xứ Phù Tang - Du Ký Nhật Bản,168000,168000,0,0.0,0,3,,First News - Trí Việt,oem,,,,,Bamboo Books,available,1000.0,True,True,True
+167462132,"Tiếp Viên Hàng Không - Đôi Chân, Trái Tim Và Bầu Trời",90000,99000,9,5.0,1,16,,Chibooks,Nhà Xuất Bản Lao Động,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+163576677,SÁU NGƯỜI ĐI KHẮP THẾ GIAN- TẬP 2,150000,150000,0,0.0,0,0,James Albert Michener,Nhã Nam,Nhà Xuất Bản Hội Nhà Văn,,Bìa mềm,565.0,2019-04-27,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+143144165,Sách-Đi Tìm Alaska (NXB Trẻ),95000,95000,0,0.0,0,0,,NXB Trẻ,NXB Trẻ,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+129866864,Văn Chương Sài Gòn 1881-1924 Tập 4:  Du Ký và Những Truyện Khác,190000,190000,0,0.0,0,1,Trần Nhật Vy,Nhà Xuất Bản Văn hóa Văn nghệ,Nhà Xuất Bản Văn Hóa Văn Nghệ,,Bìa mềm,514.0,2019-08-26,TYMBooks,available,1000.0,True,True,True
+127031525,"Sách-Nhật bản: Hoa anh đào, Kimono & gì nữa?",100000,100000,0,0.0,0,0,,NXB Trẻ,NXB Trẻ,,,,,info book,available,1000.0,True,True,True
+98300961,Sách - Thế Giới Rộng Lớn Đừng Đi Một Mình,119000,119000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Phụ Nữ,,,208.0,,NHBook,available,1000.0,True,True,True
+70844535,Sách Chiến Dịch Hoa Kim Tước,115000,115000,0,0.0,0,0,Phạm Sanh Châu,Nhã Nam,Nhà Xuất Bản Hội Nhà Văn,,Bìa mềm,268.0,2020-10-15,info book,available,1000.0,True,True,True
+54426455,Combo Sách Du Ký : HIMALAYA – Hành Trình Chạm Đến Trán Trời + Khơi Lửa Sông Nile + Đừng Chết Ở Ả Rập Xê Út,284000,356000,20,2.0,1,6,`,Alphabooks,Nhà Xuất Bản Thế Giới,,Bìa mềm,,,Alpha Books Official,available,1000.0,True,True,True
+22367423,Sách Bước Chân Theo Dấu Mặt Trời – Hành Trình Trở Về Ấn Độ (Bản Thông Thường)(Tặng Kèm Bookmark Tiki),95000,119000,20,4.8,6,21,Phương Thu Thủy,Alphabooks,,,Bìa mềm,348.0,2019-07-01,Alpha Books Official,available,1000.0,True,True,True
+22080381,Sách Đi Như Tờ Giấy Trắng (Tặng Kèm Bookmark Tiki),119000,119000,0,0.0,0,0,Trần Thuỳ Linh,Alphabooks,Nhà Xuất Bản Văn Học,,Bìa mềm,304.0,2019-07-01,info book,available,1000.0,True,True,True
+278587960,NHIỆT ĐỚI BUỒN - Claude Lévi-Strauss  - Ngô Bình Lâm dịch – NXB Tri Thức,280000,280000,0,0.0,0,0,Claude Lévi - Strauss,NXB Tri Thức,Nhà Xuất Bản Tri Thức,,Bìa mềm,472.0,,BÌNH BÁN BOOK,available,1000.0,True,True,True
+278462476,Sách - Người Giải Mã Cuối Cùng Sherlock Holmes - Anthur Conan Doyle - ndbooks,139000,139000,0,0.0,0,1,nhieu tac gia,CÔNG TY TNHH THƯƠNG MẠI SÁCH NHÂN DÂN,Nhà Xuất Bản Văn Học,,,,,SÁCH NHÂN DÂN - ndbooks,available,1000.0,True,True,True
+277723763,Sách - Búp Sen Xanh - Kim Đồng,72000,72000,0,0.0,0,1,,Nhà Sách Hồng Ân,Nhà Xuất Bản Kim Đồng,,,,,Khanhlinhbook,available,1000.0,True,True,True
+276969801,Tết Ba Miền: The Stories Of Vietnamese New Year (Song Ngữ Anh Việt - Bìa Cứng),255550,269000,5,0.0,0,1,Lê Rin,Thái Hà,Nhà Xuất Bản Công Thương,,Bìa cứng,168.0,2025-01-10,Cá Chép Bookstore,available,1000.0,True,True,True
+276345842,Vẻ Đẹp Của Cảnh Sắc Tầm Thường - Hay Vì Sao Chúng Ta Cần Thay Đổi Cách Thưởng Thức Thiên Nhiên? (Đặng Hoàng Giang) - Bìa Mềm,235000,235000,0,0.0,0,5,Đặng Hoàng Giang,OMEGA PLUS+,Nhà Xuất Bản Hội Nhà Văn,,Bìa mềm,400.0,2024-10-09,info book,available,1000.0,True,True,True
+275813955,Ngàn Mùa Hoa - Nét Đẹp Thiên Nhiên (PNU),48000,48000,0,0.0,0,1,Băng Sơn,Nhà xuất bản Phụ Nữ,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,148.0,,Bamboo Books,available,1000.0,True,True,True
+275813925,Ngàn Mùa Hoa - Nét Đẹp Quê Hương (PNU),48000,48000,0,0.0,0,0,Băng Sơn,Nhà xuất bản Phụ Nữ,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,144.0,,Bamboo Books,available,1000.0,True,True,True
+274986706,Sài Gòn Một Thuở Dân Ông Tạ Đó - Tập 1,118000,118000,0,0.0,0,0,Cù Mai Công,FIRST NEWS,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+274573053,Sách Thế Giới Rộng Lớn Đừng Đi Một Mình  - Bản Quyền,119000,119000,0,0.0,0,0,,Công Ty TNHH Văn Hóa Và Truyền Thông Skybooks Việt Nam,Nhà Xuất Bản Phụ Nữ Việt Nam,,,,,NHBook,available,1000.0,True,True,True
+274319178,Họ Trở Thành Nhân Vật Của Tôi,175000,175000,0,0.0,0,0,Hồ Anh Thái,NXB Trẻ,NXB Trẻ,,Bìa mềm,464.0,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+274284150,Cuốn Sách Văn Học Hành Động Hay-Kẻ Cuối Cùng Trong Sáu Người,96000,96000,0,0.0,0,0,,AZ Việt Nam,NXB Dân Trí,,,,,AHABOOKS,available,1000.0,True,True,True
+274100876,Có gì phía sau chân trời - Nguyễn Trí Thông TH180,144000,144000,0,5.0,4,94,,Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,LITTLE BOOKS,available,1000.0,True,True,True
+273513289,QUÁN BAR TRONG BỤNG CÁ VOI – Hiền Trang – Nhã Nam – NXB Văn học,135000,135000,0,0.0,0,0,Hiền Trang,Nhã Nam -  Hội Nhà Văn,Nhà Xuất Bản Văn Học,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+273283673,"(Bìa mềm) BÊN KIA VÙNG BIỂN SÁNG TRĂNG – Julianne MacLean – 1980 Novel, Hoài Anh dịch – NXB Thanh Niên - 1980 Books ",219000,219000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Thanh Niên,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+272910794,Việt Nam - Quê hương thứ hai của tôi (bản in 2023),253000,253000,0,0.0,0,0,,Nhà Xuất Bản Chính Trị Quốc Gia Sự Thật,Nhà Xuất Bản Chính Trị Quốc Gia Sự Thật,,,,,Bamboo Books,available,1000.0,True,True,True
+271966670,Sách Khai Phong Chí Quái Trọn Bộ 3 Tập,652500,750000,13,0.0,0,0,,Công Ty Cổ Phần Văn Hóa Huy Hoàng,Nhà Xuất Bản Phụ Nữ,,,,,Minh Khang Books,available,1000.0,True,True,True
+270977620,Sách - Combo 2c - Đệ tử quy & Tam tự kinh,208000,208000,0,0.0,0,3,,Nhà Sách Hồng Ân,Nhà Xuất Bản Dân Trí,,Bìa mềm,,,Khanhlinhbook,available,1000.0,True,True,True
+253671209,Sách Bốn Mùa Trên Xứ Phù Tang - Bản Quyền,168000,168000,0,0.0,0,3,,First News - Trí Việt,NXB Tổng Hợp Thành Phố Hồ Chí Minh,,,,,NHBook,available,1000.0,True,True,True
+253111154,Cõi Người Dưng - Đời Du Dân Mỹ Thế Kỷ 21,180000,180000,0,0.0,0,0,Jessica Bruder,Văn Lang,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,400.0,2023-04-28,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+252631743,Cõi Đi Về,169000,169000,0,0.0,0,0,Thái Kim Lan,Alpha Books,Nhà Xuất Bản Lao Động,,Bìa mềm,380.0,2023-04-20,Nhà sách NetaBooks,available,1000.0,True,True,True
+249936852,Thế giới một chạm,246500,290000,15,0.0,0,0,Nguyễn Thị Huyền Ngân,Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,394.0,2022-10-01,NXB TỔNG HỢP,available,1000.0,True,True,True
+242618476,Sách Đi khi ta còn trẻ (Trương Anh Ngọc) - Nhã Nam - BẢN QUYỀN,120000,120000,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Thế Giới,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+225386411,Combo 5 Cuốn Bùi Quốc Châu,515000,515000,0,0.0,0,2,Bùi Quốc Châu,Công ty TNHH TM & DV Văn Hóa Hương Trang,Nhà Xuất Bản Đà Nẵng,,Bìa mềm,1000.0,2020-04-30,Hiệu Sách Văn Hiến,available,1000.0,True,False,True
+221017223,Ping - Giải Cứu Vườn Địa Đàng,86240,86240,0,0.0,0,0,,,,,,,,,out_of_stock,,False,False,False
+215092635,Bóng Người Trên Cát-tái hiện cuộc hành trình theo dấu chân Ngài Huyền Trang sang Ấn Độ thỉnh kinh vào thế kỷ thứ VII. Mở đầu tác phẩm là phần sơ lược về cuộc đời và sự nghiệp của bốn người vĩ đại có ảnh hưởng tới Phật giáo,120000,120000,0,0.0,0,0,,Sách điện tử Saigon Books,Nhiều Nhà Xuất Bản,,,,,info book,available,1000.0,True,True,True
+215092633,Bóng Người Trên Cát-Tác giả Nhi Phan,120000,120000,0,0.0,0,0,,Sách điện tử Saigon Books,Nhiều Nhà Xuất Bản,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+215092631,Bóng Người Trên Cát-Tác giả Nhi Phan,120000,120000,0,0.0,0,0,,Sách điện tử Saigon Books,Nhiều Nhà Xuất Bản,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+213913983,Sách Noriko Matsui - Tình Yêu Làm Đất Lạ Hóa Quê Hương,185000,185000,0,0.0,0,0,Văn Thành Lê,NXB Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,172.0,2022-12-01,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+208435479,Sách Danh họa thế giới Johannes Vermeer - Omega Plus - Alphabooks - BẢN QUYỀN,299000,299000,0,0.0,0,1,,Alphabooks,NXB Dân Trí,,,,,info book,available,1000.0,True,True,True
+208065984,Sách Tọa Độ: Cấu Trúc Gia Đình Và Xã Hội Của Người - Alphabooks - BẢN QUYỀN,229000,229000,0,0.0,0,0,,Alpha Books,Nhà Xuất Bản Thế Giới,,,,,info book,available,1000.0,True,True,True
+201308024,Sách - Bộ We Best Love - Mãi mãi là số 1 & Cuộc phản công của số 2,180000,180000,0,0.0,0,0,,Nhà Xuất Bản Kim Đồng,Nhà Xuất Bản Kim Đồng,,,,,Bamboo Books,available,1000.0,True,True,True
+190321223,DU KÝ PHAN QUANG - TIẾC NUỐI HOA HỒNG – bìa mềm minh họa màu – Đông A,450000,450000,0,0.0,0,0,Phan Quang,Công Ty Cổ Phần Văn Hóa Đông A,Nhà Xuất Bản Văn Học,,Bìa mềm,692.0,,Bamboo Books,available,1000.0,True,True,True
+181908625,Hành Trình Về Phương Đông (First News - Bìa Cứng),138000,138000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,Bìa cứng,208.0,2021-05-12,SÁCH ĐẠI NAM,available,1000.0,True,True,True
+177860498,Mùi Hương Trầm,248000,248000,0,0.0,0,2,Nguyễn Tường Bách,PHANBOOK,Nhà Xuất Bản Lao Động,,,,,Bamboo Books,available,1000.0,True,True,True
+174283444,Nhắm Mắt Đi Liều,124000,124000,0,0.0,0,14,,Alpha Books,Nhà Xuất Bản Thanh Niên,,Bìa mềm,256.0,2021-12-31,KM0 BOOKS,available,1000.0,True,True,True
+138182429,Chúng Tôi Ăn Rừng,249000,249000,0,0.0,0,0,Georges Condominas,Nhà Xuất Bản Thế Giới,Nhà Xuất Bản Thế Giới,,Bìa mềm,515.0,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+105278809,Sách Sự Thật Ta Nắm Giữ - Một Hành Trình Xuyên Nước Mỹ,194000,194000,0,0.0,0,0,Kamala Harris,Tân Việt,Nhà Xuất Bản Dân Trí,,Bìa mềm,368.0,2021-06-09,SÁCH ĐẠI NAM,available,1000.0,True,True,True
+54144906,Combo Sách Du Ký Hay : Đi Bộ Xuyên Việt Với Cây Đàn Guitar + Du Ký Xanh - Hành Trình Cứu Biển,204500,204500,0,0.0,0,0,"Hồ Nhật Hà, Lekima Hùng",Alphabooks,Nhà Xuất Bản Thanh Niên,,Bìa mềm,,,Phương Đông Books,available,1000.0,True,True,True
+41374834,Văn Chương Sài Gòn 1881 - 1924 - Tập 4: Du Ký Và Những Truyện Khác,190000,190000,0,0.0,0,0,Trần Nhật Vy,NXB Văn Hoá Văn Nghệ,,,,,,Bamboo Books,available,1000.0,True,True,True
+20276985,Combo Đừng Bao Giờ Đi Ăn Một Mình + Thế Giới Rộng Lớn Đừng Đi Một Mình (Tặng Bookmark Phương Đông),264000,264000,0,0.0,0,0,.,Skybooks,Nhà Xuất Bản Phụ Nữ,,Bìa mềm,,,NHBook,available,1000.0,True,True,True
+278124423,Sách - Một Tháng Ở Nam Kỳ,89100,99000,10,0.0,0,0,Phạm Quỳnh,Alpha Books,Nhà Xuất Bản Thế Giới,,Bìa mềm,,2023-12-21,Nhà sách Fahasa,available,1000.0,True,True,True
+276965852,Sách - Đường về hoa nở,91630,119000,23,0.0,0,1,Thích Nữ Nhuận Bình,Thái Hà,Công Ty Cổ Phần Đầu Tư và Phát Hành Sách Hà Nội,,Bìa mềm,196.0,2025-01-09,THAIHABOOKS,available,1000.0,True,True,True
+276876260,Đi như tờ giấy trắng 2 - Như cánh chuốn bay,138000,138000,0,0.0,0,4,Trần Thuỳ Linh,Đông Tây,Nhà Xuất Bản Văn Học,,Bìa mềm,300.0,2024-12-26,Đông Tây,available,1000.0,True,True,True
+276667971,Vô Niệm - Con phải tới Himalaya,78000,78000,0,0.0,0,7,,Đông Tây,Nhà Xuất Bản Dân Trí,,Bìa mềm,167.0,2024-11-30,Đông Tây,available,1000.0,True,True,True
+276564012,Tự Nhiên Như Người Hà Nội,85000,85000,0,0.0,0,0,Nguyễn Trương Quý,NXB Trẻ,NXB Trẻ,,Bìa mềm,190.0,2024-11-13,Nhà sách NetaBooks,available,1000.0,True,True,True
+276394503,Việt Nam - Quê hương thứ hai của tôi (bản in 2023),253000,253000,0,0.0,0,0,,Nhà Xuất Bản Chính Trị Quốc Gia Sự Thật,Nhà Xuất Bản Chính Trị Quốc Gia Sự Thật,,Bìa mềm tay gấp,618.0,,Bamboo Books,available,1000.0,True,True,True
+275466963,Tây Tạng Huyền Bí Và Nghệ Thuật Sinh Tử - Đặng Hoàng Xa (Omega),140000,175000,20,4.7,3,24,Đặng Hoàng Xa,Omega Plus,Nhà Xuất Bản Thế Giới,,Bìa mềm,320.0,2020-04-01,Sống Official,available,1000.0,True,True,True
+274853670,The Path - Con Đường Khai Tâm - Ấn Độ Tâm Linh Ký,177100,199000,11,0.0,0,6,Tạ Minh Tuấn,NXB Khác,Nhà Xuất Bản Dân Trí,,Bìa mềm,,2023-12-21,Nhà sách Fahasa,available,1000.0,True,True,True
+274835142,Sách Hướng Nghiệp: Giấc Mơ Trung Quốc - Tái Bản,188150,188150,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Hồng Đức,,,,,AHABOOKS,available,1000.0,True,True,True
+274794235,Sách Du Lịch- Du Ký: Thế Giới Rộng Lớn Đừng Đi Một Mình,119000,119000,0,0.0,0,3,,AZ Việt Nam,Nhà Xuất Bản Phụ Nữ,,,,,NHBook,available,1000.0,True,True,True
+273979184,Nghệ Thuật Du Ngoạn,168000,168000,0,0.0,0,0,Alain de Botton,Nhã Nam,Nhà Xuất Bản Tổng Hợp,,Bìa mềm,364.0,,NHBook,available,1000.0,True,True,True
+272439570,PHÍA TÂY CÓ ĐÀN HƯƠU CAO CỔ - WEST WITH GIRAFFES,220000,220000,0,0.0,0,0,,Huy Hoàng Bookstore,Nhà Xuất Bản Văn Học,,,,,AHABOOKS,available,1000.0,True,True,True
+253238239,Du hành cùng Herodotus (Ryszard Kapuściński) - Bản Quyền,135000,135000,0,0.0,0,0,,Nhã Nam ,Nhà Xuất Bản Thế Giới,,,,,FishingBook,available,1000.0,True,True,True
+212426344,(Tái bản 2022) GỖ MUN - Ryszard Kapuscinski – Nguyễn Thái Linh dịch – Nhã Nam – bìa mềm,160000,160000,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Thế Giới,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+193900116,Mèo Con Phiêu Lưu Ký ,71400,85000,16,0.0,0,3,Zelda tinh nghịch,Cty Văn Hóa Văn Lang,Nhà Xuất Bản Hồng Đức,,Bìa mềm,192.0,2022-07-25,Văn Lang Official Store,available,1000.0,True,True,True
+178761417,Sách - Châu Phi Nghìn Trùng ( bc),165000,165000,0,4.0,1,12,,NXB Phụ Nữ,Nhà Xuất Bản Phụ Nữ,,Bìa mềm,408.0,,Bảo Châu Books,available,1000.0,True,True,True
+174003699,Những Chuyến Tàu Mùa Hè,89000,89000,0,0.0,0,3,Bỉnh Khôi,Nhà Xuất Bản Văn Hóa - Văn Nghệ,Nhà Xuất Bản Văn Hóa - Văn Nghệ,,Bìa mềm,193.0,2020-04-20,TYMBooks,available,1000.0,True,True,True
+163576673,SÁU NGƯỜI ĐI KHẮP THẾ GIAN - TẬP 1,115000,115000,0,0.0,0,1,James Albert Michener,Nhã Nam,Nhà Xuất Bản Văn Học,,Bìa mềm,348.0,2018-04-11,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+137941421,Sách - NXB Trẻ - Trên đường về nhớ đầy (Du ký) (85000),85000,85000,0,0.0,0,1,,NXB Trẻ,NXB Trẻ,,,,,Bamboo Books,available,1000.0,True,True,True
+71353257,Sách Từ Nhà Ra Thế Giới - Những Bước Chân Đầu Tiên Của Một Công Dân Toàn Cầu,69500,79000,12,0.0,0,2,Nhiều tác giả,Tri Thức Trẻ Books,Nhà Xuất Bản Thanh Niên,,Bìa mềm,215.0,2020-10-01,Nhà sách Fahasa,available,1000.0,True,True,True
+279286781,Sách - Nước Đức Và Trải Nghiệm Du Học - Bìa Cứng,143200,179000,20,0.0,0,0,nhieu tac gia,Fahasa,Nhà Xuất Bản Lao Động,,Bìa mềm,,2023-12-21,Nhà sách Fahasa,available,1000.0,True,True,True
+279293894,Sách - Mỗi Chuyến Đi Là Một Lần Trưởng Thành - Phương Đông 10 Năm Rong Ruổi - Nikita Huyền,149000,149000,0,0.0,0,0,Nikita Huyền,Thái Hà,Nhà Xuất Bản Công Thương,,Bìa mềm,168.0,,Nhân Văn,available,1000.0,True,True,True
+279308784,Sách Đợi Chị Về Tưới Rượu Bến Sông - Nhà xuất bản Hội Nhà văn,298000,298000,0,0.0,0,0,Nguyễn Tham Thiện Kế,NXB Hội Nhà Văn,NXB Hội nhà văn,,Bìa mềm,519.0,2023-01-01,Nhà xuất bản Hội Nhà văn,available,1000.0,True,True,True
+276901201,Tuổi trẻ dấn bước - Lớn lên từ những điều nhỏ bé,120000,120000,0,0.0,0,0,,Đông Tây,Nhà Xuất Bản Dân Trí,,Bìa mềm,351.0,2024-12-28,Sách Saca,available,1000.0,True,True,True
+278832576,Sách - Combo 2 cuốn Nhẩn Nha Với Trà,261300,264000,1,0.0,0,0,Nhiều dịch giả,Thái Hà,Nhà Xuất Bản Công Thương,,Bìa mềm,228.0,2025-11-01,Minhhabooks,available,1000.0,True,True,True
+278214671,Bốn Mùa Nhật Bản - Four Seasons In Japan - Bản Quyền,170000,170000,0,0.0,0,0,Nick Bradley,NXB Trẻ,NXB Trẻ,,Bìa mềm,400.0,2025-06-28,Bamboo Books,available,1000.0,True,True,True
+261996346,Những hạt bùn vạn dặm,96000,160000,40,0.0,0,9,Lê Quang Trạng,Chibooks,Nhà Xuất Bản Lao Động,,Bìa mềm,,,NHÀ SÁCH CHIBOOKS,available,1000.0,True,True,True
+202494072,Nhật Ký Người Lạ - ĐT,189000,189000,0,0.0,0,0,Elly Griffiths,Đinh Tị,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,Bìa mềm,516.0,2022-10-03,Bamboo Books,available,1000.0,True,True,True
+276385739,Tiểu thuyết tiếng Anh - Moby-Dick,384480,432000,11,5.0,1,4,,Penguin Books Ltd,Penguin Books Ltd,,Bìa mềm,,,Blue Horizon Books,available,1000.0,True,True,True
+273910803,Nhẹ bước lãng du - Nguyễn Chấn Hùng - Tái bản có bổ sung 2020,174000,174000,0,0.0,0,3,GS BS Nguyễn Chấn Hùng,Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm tay gấp,,,LITTLE BOOKS,available,1000.0,True,True,True
+164209952,Tiếp viên hàng không - Đôi chân trái tim và bầu trời,99000,99000,0,5.0,3,61,,Chibooks,Nhà Xuất Bản Lao Động,,Bìa mềm,200.0,2022-02-22,NHÀ SÁCH CHIBOOKS,available,1000.0,True,True,True

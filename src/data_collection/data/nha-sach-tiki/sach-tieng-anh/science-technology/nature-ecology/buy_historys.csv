@@ -1,0 +1,3 @@
+﻿customer_id,product_id,order_id,seller_id,seller_name,quantity,price_at_purchase,total_price,purchased_at,delivery_date,review_id
+28001239,263256220,,229023,Nhà Sách Phương Nam,1,,,2023-07-02 11:37:08+00:00,2023-07-05 16:48:14+00:00,19389198
+17776759,2395109,,1231,Xunhasaba Thế giới Sách Ngoại văn,1,,,2024-11-22 02:03:06+00:00,2024-11-25 13:24:21+00:00,20037410

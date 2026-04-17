@@ -1,0 +1,4 @@
+﻿customer_id,product_id,order_id,seller_id,seller_name,quantity,price_at_purchase,total_price,purchased_at,delivery_date,review_id
+908262.0,14919714,,96,Tân Việt,2,,,2023-12-21 06:17:09+00:00,2023-12-23 10:51:06+00:00,19693858
+956108.0,14919714,,96,Tân Việt,4,,,2021-09-23 03:00:46+00:00,2021-09-26 09:24:06+00:00,12471930
+,14919714,,12696,Blue Horizon Books,2,,,2021-05-21 08:53:11+00:00,2021-05-25 14:28:23+00:00,10371965

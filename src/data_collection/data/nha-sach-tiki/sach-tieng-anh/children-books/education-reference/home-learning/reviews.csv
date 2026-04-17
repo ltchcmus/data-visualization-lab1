@@ -1,0 +1,11 @@
+﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
+20157899,12384468,277591526,5,Cực kì hài lòng,,approved,0,0,[],229023,Nhà Sách Phương Nam,[]
+15838084,359020,2248841,5,Cực kì hài lòng,"sách mới, khổ nhỏ hơn các sách dạng này, cuốn này không bằng cuốn ""how to be good at science"" cũng của dk, giao hàng nhanh",approved,0,0,"[{'id': 3336033, 'full_path': 'https://salt.tikicdn.com/ts/review/05/53/68/f464692c5b91382fd45947b547882f35.jpg', 'status': 'approved'}]",1,Tiki Trading,[]
+18585788,6296758,2248841,5,Cực kì hài lòng,Giá sale quá tốt. Hình thức 9/10.,approved,0,0,[],1,Tiki Trading,[]
+14524834,15483136,2248841,5,Cực kì hài lòng,,approved,0,0,[],1,Tiki Trading,[]
+5925602,768339,2248841,5,Cực kì hài lòng,sách in màu đẹp lắm,approved,0,0,"[{'id': 1347286, 'full_path': 'https://salt.tikicdn.com/ts/review/75/8d/53/565c23c4c37fbb25d3bf711e7f709c5a.jpg', 'status': 'approved'}]",53660,Nhà sách Fahasa,[]
+10487599,78638,2248841,5,Cực kì hài lòng,,approved,0,0,[],1,Tiki Trading,[]
+9658964,1359810,2248841,5,Cực kì hài lòng,,approved,0,0,[],1,Tiki Trading,[]
+8283390,5222487,2248841,5,Cực kì hài lòng,,approved,0,0,[],1,Tiki Trading,[]
+19889657,29955638,273305247,5,Cực kì hài lòng,,approved,0,0,[],229023,Nhà Sách Phương Nam,[]
+10030890,961170,11801656,4,Hài lòng,,approved,0,0,[],12696,Blue Horizon Books,[]

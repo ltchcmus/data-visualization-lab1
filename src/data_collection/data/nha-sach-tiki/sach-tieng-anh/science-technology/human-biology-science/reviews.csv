@@ -1,0 +1,23 @@
+﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
+19925369,9716988,192090992,5,Cực kì hài lòng,,approved,0,0,[],1231,Xunhasaba Thế giới Sách Ngoại văn,[]
+18883571,13229508,192090992,5,Cực kì hài lòng,,approved,0,0,[],1231,Xunhasaba Thế giới Sách Ngoại văn,[]
+18758380,19750162,192090992,5,Cực kì hài lòng,,approved,0,0,[],1231,Xunhasaba Thế giới Sách Ngoại văn,[]
+18979963,21747919,173449478,5,Cực kì hài lòng,"Shop giao hàng cực nhanh, đóng gói rất chuyên nghiệp, shipper giao hàng thân thiện, nhiệt tình. Cám ơn shop và shipper nhiều ạ !!!",approved,0,0,"[{'id': 4160382, 'full_path': 'https://salt.tikicdn.com/ts/review/7a/08/70/57de3c782f440254b4c0fe24cb6561a1.jpg', 'status': 'approved'}, {'id': 4160383, 'full_path': 'https://salt.tikicdn.com/ts/review/1c/08/4b/bd3ca7ad284ca6a33f009382764277a2.jpg', 'status': 'approved'}]",53660,Nhà sách Fahasa,[]
+20102445,9136778,173449478,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+19838625,217353,173449478,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+18962820,16970726,173449478,5,Cực kì hài lòng,"Sách hay, in đẹp, gáy sách hơi dập chút mà bỏ qua vì giá rẻ, đáng mua nha",approved,0,0,[],53660,Nhà sách Fahasa,[]
+18154037,28429054,173449478,5,Cực kì hài lòng,"bìa sách đẹp; nội dung hay, bổ ích, thú vị; hình ảnh minh hoạ đẹp, sắc nét",approved,0,0,[],53660,Nhà sách Fahasa,[]
+19555735,12001639,173449478,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+19481608,558147,173449478,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+18878031,26735468,173449478,5,Cực kì hài lòng,Bạn nhà mình rất thích cuốn này,approved,0,0,[],53660,Nhà sách Fahasa,[]
+19232926,28629618,173449478,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+17404021,14646720,173449478,5,Cực kì hài lòng,"Sách in rõ nét, giấy rất đẹp, màu sắc bắt mắt, đáng mua.",approved,0,0,[],53660,Nhà sách Fahasa,[]
+18688648,11470921,173449478,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+18321585,8697408,173449478,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+18292234,15328430,173449478,4,Hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+18281860,959009,173449478,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+17997714,12573079,173449478,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+17746277,13390494,173449478,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+19682170,133979,138888949,2,Không hài lòng,Mua sách mới mà sao giao sách cũ quá tệ!,approved,0,1,"[{'id': 4319381, 'full_path': 'https://salt.tikicdn.com/ts/review/bd/72/84/8e1035bba0522c63a6ff4e5f712c73e3.jpg', 'status': 'approved'}, {'id': 4319382, 'full_path': 'https://salt.tikicdn.com/ts/review/97/76/1f/b1cadced761315474c0425c9ff30d5ce.jpg', 'status': 'approved'}]",229023,Nhà Sách Phương Nam,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+16677703,13516299,138888949,5,Cực kì hài lòng,Sách có đóng bọc bookcare đàng hoàng. Giao nhanh và vừa giá,approved,0,0,[],229023,Nhà Sách Phương Nam,[]
+18547825,11073828,112531187,5,Cực kì hài lòng,"Sách có nội dung rất hay. Bằng tiếng anh , giúp bé lớp 4 ở nhà hiểu khoa học bằng tiếng Ạn dễ dàng!",approved,0,0,[],12696,Blue Horizon Books,[]

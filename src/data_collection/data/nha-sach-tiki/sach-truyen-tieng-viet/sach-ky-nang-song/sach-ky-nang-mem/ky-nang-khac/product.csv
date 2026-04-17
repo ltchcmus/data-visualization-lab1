@@ -1,0 +1,691 @@
+﻿id,name,price,list_price,discount_rate,rating_average,review_count,all_time_quantity_sold,authors,publisher_vn,manufacturer,isbn13,book_cover,number_of_page,publication_date,current_seller_name,inventory_status,stock,has_freeship,is_authentic,has_return_policy
+279106120,Sách Viết từ số 0,150000,165000,9,0.0,0,3,Hải Dương,Công Ty TNHH Sách Và Truyền Thông Việt Nam,Nhà Xuất Bản Lao Động,,Bìa mềm,194,2026-01-27,Tiki Trading,available,1000.0,False,True,True
+278242757,AI Agent Ứng Dụng,172080,239000,28,0.0,0,5,,1980 Books,Nhà Xuất Bản Công Thương,,,,,1980 BOOKS HCM,available,1000.0,True,True,True
+278035469,Sách Manifest Tình Yêu,104800,149000,30,0.0,0,18,Caterina Yolaine,1980 Books,Nhà Xuất Bản Hà Nội,,Bìa mềm,,,Tiki Trading,available,1000.0,False,True,True
+277834565,Combo Sách 2 Cuốn: Phương Pháp Học Tập Của Simon và Huấn Luyện Não Bộ Học Siêu Tốc - Bizbooks,100740,138000,27,0.0,0,6,nhieu tac gia,Công ty CP Sách Bizbooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,320,,BizbooksJSC,available,1000.0,True,True,True
+277816000,Sách Manifest Toàn Năng,82900,119000,30,5.0,1,34,Gill Thackray,Thái Hà,Nhà Xuất Bản Công Thương,,,132,,Tiki Trading,available,1000.0,False,True,True
+277717639,Sách Ứng Dụng AI Và Tự Động Hóa Trong Marketing,96900,129000,25,5.0,2,27,Alpha Books biên soạn,Alpha Books,Nhà Xuất Bản Lao Động,,,304,,Tiki Trading,available,1000.0,False,True,True
+277717626,Sách Không Ai Cản Được AI - Hiểu AI từ căn góc để phát triển sự nghiệp,112000,149000,25,5.0,3,64,Nguyễn Tiến Huy,Alpha Books,Nhà Xuất Bản Lao Động,,,232,,Tiki Trading,available,1000.0,False,True,True
+277715719,Sách Ứng Dụng AI Trong Thiết Kế Hình Ảnh,127000,169000,25,5.0,1,59,Julie Pallant (Tiến sĩ),Alpha Books,Nhà Xuất Bản Lao Động,,,308,,Tiki Trading,available,1000.0,False,True,True
+277361861,Sách Kiếm Tiền Bằng Video Ngắn,153000,219000,30,4.0,1,27,Ying Xiao Tie Jun,1980 Books,Nhà Xuất Bản Công Thương,,Bìa mềm,387,2025-02-18,Tiki Trading,available,1000.0,False,True,True
+276652110,Sách Thôi miên bằng ngôn từ (Tái bản),129500,185000,30,4.5,2,69,Joe Vitale,Công ty CP Sách Bizbooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,388,,Tiki Trading,available,1000.0,False,True,True
+275948804,Sách Quản Trị Sự Thay Đổi,159500,205000,22,5.0,4,64,"Curtis Bateman, Marche Pleshette, Christi Phillips, Andy Cindrich",Viện Quản lý PACE,Nhà Xuất Bản Thanh Niên,,Bìa mềm,288,,Tiki Trading,available,1000.0,False,True,True
+275782189,Sách Cẩm Nang Canva,185000,289000,36,4.8,5,71,"Alan Nguyễn Tú, Kỳ Diệu Bình",Thái Hà,Nhà Xuất Bản Công Thương,,Bìa mềm,336,2024-06-01,Tiki Trading,available,1000.0,False,True,True
+275189904,Sách Những Điều Công Ty Không Dạy Bạn – Bí Quyết Sắp Xếp Tư Duy Của Người Làm Việc Năng Suất Cao,56200,75000,25,5.0,4,57,RYUJI INOUE,NXB Phụ Nữ Việt Nam,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,208,,Tiki Trading,available,1000.0,False,True,True
+275189901,Sách Những Điều Công Ty Không Dạy Bạn – Bí Quyết Chuẩn Bị Và Lên Kế Hoạch Trong Công Việc,59200,79000,25,5.0,4,46,Iba Masayasu,NXB Phụ Nữ Việt Nam,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,220,,Tiki Trading,available,1000.0,False,True,True
+275189899,Sách Những Điều Công Ty Không Dạy Bạn - Bí Quyết Thăng Tiến Trong Công Việc,57500,76000,24,5.0,2,40,Motoaki Kurumazuka,NXB Phụ Nữ Việt Nam,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,212,,Tiki Trading,available,1000.0,False,True,True
+275189396,Sách Thay Đổi Cách Nghĩ,157900,205000,23,0.0,0,70,Roger L. Martin,Viện Quản lý PACE,Nhà Xuất Bản Thanh Niên,,Bìa mềm,312,2023-06-01,Tiki Trading,available,1000.0,False,True,True
+275155624,Sách Họp Ít - Làm Nhiều,94400,149000,37,5.0,1,20,Masumi Tani,1980 Books,Nhà Xuất Bản Công Thương,,Bìa mềm,204,2024-06-01,Tiki Trading,available,1000.0,False,True,True
+273745971,TÔI ĐÃ TRỞ THÀNH PHIÊN DỊCH CABIN NHƯ THẾ NÀO? – Vũ Thu Thủy – NXB Dân Trí,215000,224000,4,0.0,0,53,,NXB Dân Trí,NXB Dân Trí,,Bìa mềm,220,,BÌNH BÁN BOOK,available,1000.0,True,True,True
+273708851,"Sách Lập trình não bộ: Làm chủ trí nhớ, sự tập trung, cảm xúc và giải phóng thiên tài bên trong bạn",145600,208000,30,4.5,10,143,Dave Farrow,Công ty CP Sách Bizbooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,364,,Tiki Trading,available,1000.0,False,True,True
+273134999,Phương Pháp Đọc Sách Hiệu Quả,130600,179000,27,4.7,214,217,Mortimer J.Adler & Charles Van Doren,Alphabooks,Nhà Xuất Bản Lao Động Xã Hội,,Bìa mềm,360,2018-03-30,Tiki Trading,available,1000.0,False,True,True
+272349567,Sách Kẻ thua cuộc giỏi nhất sẽ giành chiến thắng,128000,188000,32,5.0,4,147,Tom Hougaard,Công ty CP Sách Bizbooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,376,2023-06-28,Tiki Trading,available,1000.0,False,True,True
+272349547,"Sách Phương pháp Simon: Cách học nhanh, nhớ lâu mọi kiến thức",146000,190000,23,5.0,15,230,Hữu Vinh Phương Lược,Công ty CP Sách Bizbooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,320,2023-06-30,Tiki Trading,available,1000.0,False,True,True
+271270199,"Sách Bản đồ về ý thức: Giải mã trường năng lượng, khai phá sức mạnh phi thường trong con người bạn",152000,198000,23,4.8,12,310,David R. Hawkins,BIZBOOKS,Nhà Xuất Bản Hồng Đức,,Bìa mềm,348,2023-04-15,Tiki Trading,available,1000.0,False,True,True
+271270156,"Sách Sống kỷ luật, biết kiềm chế, đời mới vừa ngầu vừa sang",120000,176000,32,4.8,5,109,Lương Sảng,BIZBOOKS,Nhà Xuất Bản Hồng Đức,,Bìa mềm,376,2023-03-16,Tiki Trading,available,1000.0,False,True,True
+262915960,[Tủ sách Lyceum] HỌC MỌI LÚC – John Holt – NXB Dân Trí (Bìa mềm),154000,154000,0,0.0,0,0,,Công ty TNHH Truyền Thông và Giáo Dục Lyceum,Nhà Xuất Bản Dân Trí,,Bìa mềm,200,2023-06-06,SÁCH ĐẠI NAM,available,1000.0,True,True,True
+254078215,Sách Thực Hành Chánh Niệm,77000,98000,21,4.8,4,64,Matthew sockolov,VanLangBooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,248,2022-05-12,Tiki Trading,available,1000.0,True,True,True
+217718989,Sách The Mastery Of Love - Những chỉ dẫn để làm chủ trái tim,138600,180000,23,5.0,10,256,"Janet Mills, Miguel Angel Ruiz",Saigon Books,Nhà Xuất Bản Thế Giới,,Bìa mềm,200,2023-01-01,Tiki Trading,available,1000.0,False,True,True
+213911376,Sách Đừng biện hộ cho rác! - No. More. Rubbish. Excuses,82800,115000,28,4.7,6,49,Martin Dorey,Nhã Nam,Nhà Xuất Bản Thế Giới,,Bìa mềm,256,2022-12-01,Tiki Trading,available,1000.0,False,True,True
+200727246,Tôi Tự Học,113000,120000,6,5.0,1,17,,NXB Trẻ,oem,,Bìa mềm,,,Nhân Văn,available,1000.0,True,True,True
+180396223,Sách 7 Thói Quen Hiệu Quả (The 7 Habits Of Highly Effective People)- Tặng sổ tay,237500,250000,5,5.0,50,655,Stephen R. Covey,PACE,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa cứng,536,,NHBook,available,1000.0,True,True,True
+157835256,Combo 5 Cuốn Sách Hay Về Cuộc Sống Của Thầy Thích Nhất Hạnh: Tĩnh Lặng + Con Đường Chuyển Hóa + Muốn An Được An + Gieo Trồng Hạnh Phúc + Tìm Bình Yên Trong Gia Đình,411000,411000,0,0.0,0,8,Thich Nhat Hanh,Thái Hà Book,Nhà Xuất Bản Thế Giới,,Bìa mềm,,,NHBook,available,1000.0,True,True,True
+73120237,Sách Đừng Coi Thường Sự Lười Học Của Con Người,128200,135000,5,5.0,2,5,Trần Ngọc Châu,Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,351,2020-11-15,Nhà sách Fahasa,available,1000.0,True,True,True
+35191892,Sách 21 Bài Học Cho Thế Kỷ 21,153400,236000,35,4.6,1836,20811,Yuval Noah Harari,Nhã Nam,Nhà Xuất Bản Thế Giới,,Bìa mềm,434,2019-09-01,Tiki Trading,available,1000.0,False,True,True
+15592539,Sách Vững Tâm Bền Chí Ắt Thành Công,108000,159000,32,4.6,108,1908,Angela Duckworth,Alphabooks,Nhà Xuất Bản Lao Động - Xã Hội,,Bìa mềm,320,2019-01-05,Tiki Trading,available,1000.0,False,True,True
+15225145,Combo: Suối Nguồn Tươi Trẻ 1 + Suối Nguồn Tươi Trẻ 2,171120,186000,8,5.0,9,83,Peter Kelder,First News - Trí Việt,NXB Tổng Hợp Thành Phố Hồ Chí Minh,,Bìa mềm,,,NHBook,available,1000.0,True,True,True
+13362311,"Sách Làm Việc Trực Tuyến, Quán Xuyến Tương Lai",103000,129000,20,0.0,0,1,"Jason Fried, David Heinemeier Hansson",Alphabooks,Nhà Xuất Bản Thanh Niên,,Bìa mềm,324,1900-01-04,Omega Plus Books,available,1000.0,True,True,True
+5852521,Combo Cà Phê Cùng Tony và Trên Đường Băng,157000,210000,25,5.0,1992,27230,Tony Buổi Sáng,NXB Trẻ,NXB Trẻ,,Bìa mềm,576,2017-10-01,Tiki Trading,available,1000.0,False,True,True
+5404407,Nghệ Thuật Quản Lý Con Người,79200,99000,20,5.0,1,107,Michael Armstrong,VanLangBooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,216,2018-10-10,Văn Lang Official Store,available,1000.0,True,True,True
+3738983,Sách Truyền Thông Lý Thuyết Và Kỹ Năng Cơ Bản,115000,115000,0,5.0,10,110,,Thông tin và Truyền thông,Nhà Xuất Bản Thông Tin Và Truyền Thông,,Bìa mềm,,2018-07-01,Bảo Châu Books,available,1000.0,True,True,True
+335337,Sách Tôi Tài Giỏi - Bạn Cũng Thế,129100,134500,4,4.8,158,1662,Adam Khoo,TGM Books,Nhà Xuất Bản Phụ Nữ,,,304,2010-08-14,AHABOOKS,available,1000.0,True,True,True
+279054495,Sách - Hustle thế hệ mới - Năng suất nhưng không kiệt sức,134250,179000,25,0.0,0,2,Emily M. Austen,1980 Books,Nhà Xuất Bản Lao Động,,Bìa mềm,280,,TTR Next Generation,available,1000.0,True,True,True
+278763847,Sách - Đọc Sách Để Có Nhiều Lựa Chọn - Kita Books,307000,307000,0,0.0,0,0,nhieu tac gia,Nhà Sách Hồng Ân,Nhà Xuất Bản Đồng Nai,,,,,Khanhlinhbook,available,1000.0,True,True,True
+278580397,Marketing Metrics,172080,239000,28,5.0,1,14,nhieu tac gia,1980 Books,Nhà Xuất Bản Công Thương,,,,,1980Books Official,available,1000.0,True,True,True
+278377546,Manifet Marketing,114480,159000,28,0.0,0,3,,1980 Books,Nhà Xuất Bản Công Thương,,,,,1980Books Official,available,1000.0,True,True,True
+278242759,AI Agent Thực Chiến,186480,259000,28,0.0,0,2,,1980 Books,Nhà Xuất Bản Công Thương,,,,,1980 BOOKS HCM,available,1000.0,True,True,True
+278156903,NVIDIA Gã Khổng Lồ Công Nghệ Thống Trị Chip Bán Dẫn,136080,189000,28,0.0,0,2,,1980 Books,Nhà Xuất Bản Công Thương,,,,,1980Books Official,available,1000.0,True,True,True
+278089323,AI Tạo Sinh (AI And Innovation),157680,219000,28,5.0,1,3,,1980 Books,Nhà Xuất Bản Công Thương,,,,,1980Books Official,available,1000.0,True,True,True
+278089311,Combo 2 cuốn: Chat GPT Thực Chiến + DeepSeek Thực Chiến,250560,348000,28,0.0,0,2,,1980 Books,Nhà Xuất Bản Công Thương,,,,,1980Books Official,available,1000.0,True,True,True
+278012077,Ứng Dụng AI Trong Chăm Sóc Sức Khỏe,172080,239000,28,0.0,0,11,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,1980Books Official,available,1000.0,True,True,True
+277717637,Sách Ứng Dụng AI Trong Giáo Dục,96900,129000,25,5.0,1,113,Rose Luckin,Alpha Books,Nhà Xuất Bản Lao Động,,,200,,Tiki Trading,available,1000.0,False,True,True
+276812013,Sách Kỷ Luật Tập Trung - Phương Pháp Tận Dụng Triệt Để Sức Mạnh Của Não Bộ,63500,89000,29,0.0,0,23,Đức Nhân Writer,Linh Lan Books,Nhà Xuất Bản Dân Trí,,Bìa mềm,144,,Tiki Trading,available,1000.0,False,True,True
+276652114,Sách Nghệ thuật bán hàng bằng câu chuyện (Tái Bản),159000,234000,32,5.0,2,37,Paul Smith,Công ty CP Sách Bizbooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,488,,Tiki Trading,available,1000.0,False,True,True
+275336260,Sách Diễm Trang Bìa Cứng - Ran Muội,280000,280000,0,0.0,0,11,,Dimi Book,Nhà Xuất Bản Thế Giới,,Bìa cứng áo ôm,226,,Ran Muội Book,available,1000.0,True,True,True
+275275079,Bộ Sách Cẩm Nang Tư Duy - 9 cuốn (Đặt câu hỏi bản chất - Phản Biện - Ngụy Biện - Đọc - Viết - Phân Tích - Đạo Đức - Kỹ Thuật - Lịch Sử),329000,329000,0,0.0,0,2,,Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,,856,,LITTLE BOOKS,available,1000.0,True,True,True
+275140708,Sách Make Money Online: Kiếm Thu Nhập Thụ Động Không Giới Hạn Trong Giờ Làm Việc,71190,113000,37,4.5,2,25,Lisa Johnson,Bloom Collection,Nhà Xuất Bản Thế Giới,,Bìa mềm,232,,Tiki Trading,available,1000.0,False,True,True
+274801865,"PHƯƠNG PHÁP HỌC TẬP FEYNMAN: 5 BƯỚC GIÚP BẠN HỌC NHANH, NHỚ LÂU, TIẾN BỘ VƯỢT BẬC - Âm Hồng Tín, Lý Vĩ - Ymate dịch - Ymate Books - Nhà xuất bản Dân Trí.",130500,136000,4,5.0,5,147,,Công ty Cổ phần Văn hóa và Công nghệ Tuệ Tri,Nhà Xuất Bản Dân Trí,,Bìa mềm,276,,BÌNH BÁN BOOK,available,1000.0,True,True,True
+274724166,Sách Cứ An Nhiên Rồi Sẽ Bình Yên,80800,109000,26,5.0,20,34,Shunmyo Masuno,Thái Hà,Nhà Xuất Bản Công Thương,,Bìa mềm,221,2022-01-01,Tiki Trading,available,1000.0,False,True,True
+273245046,Combo 4 Sách Word - Excel - Powerpoint - Google Sheets Unica từ cơ bản đến nâng cao kèm video bài giảng,529000,529000,0,5.0,3,28,,Tinh Văn,NXB Dân Trí,,Bìa gập,240,2023-08-31,Unica,available,1000.0,True,True,True
+273199900,Huấn Luyện Não Bộ Học Siêu Tốc: Đọc Nhanh - Nhớ Lâu - Hiểu Sâu - Phát Triển Bản Thân Mỗi Ngày  - Bản Quyền,138000,138000,0,0.0,0,0,,MCBOOKS,Nhà Xuất Bản Hồng Đức,,,,,NHBook,available,1000.0,True,True,True
+272349557,Sách Hành trình xây dựng thương hiệu cá nhân,129000,168000,23,0.0,0,44,Yasser Matter,Công ty CP Sách Bizbooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,292,2023-06-14,Tiki Trading,available,1000.0,False,True,True
+272058775,Nỗi Lo Địa Vị - Vanlangbooks,36080,44000,18,5.0,3,8,Alain de Botton,VanLangBooks,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,292,2008-11-01,Văn Lang Official Store,available,1000.0,True,True,True
+271983730,Cuốn Sách Hoàn Hỏa Về Ngôn Ngữ Cơ Thể (Tái Bản 2021) - MT198,295000,295000,0,0.0,0,1,,Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,LITTLE BOOKS,available,1000.0,True,True,True
+271220556,Cẩm Nang Kỹ Năng Nghề Phiên Dịch,110500,130000,15,5.0,1,3,Lê Huy Khoa Kanata,Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,NXB TỔNG HỢP,available,1000.0,True,True,True
+253410301,Sách Hãy Hành Động Để Làm Người Dẫn Đầu - Bản Quyền,141400,199000,29,1.0,1,1,,Alpha Books,Nhà Xuất Bản Dân Trí,,,,,Tiki Trading,available,1000.0,False,True,True
+252640111,Sách Về Nhà Ăn Cơm (Bản thường) - Bản Quyền,199000,199000,0,0.0,0,1,,Skybooks,Nhà Xuất Bản Thế Giới,,,,,NHBook,available,1000.0,True,True,True
+247945510,Sức Mạnh Tiềm Thức (Bìa Mềm) - Joseph Murphyc,128000,128000,0,0.0,0,0,Joseph Murphyc,Văn Lang,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,336,2020-03-10,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+214598578,Sách TS Thu Giang - Thuật Tư Tưởng (Ấn Bản Hoài Cổ),120000,150000,20,5.0,7,60,Thu Giang Nguyễn Duy Cần,NXB Trẻ,NXB Trẻ,,Bìa mềm,320,2023-01-01,Tiki Trading,available,1000.0,False,True,True
+209904880,Combo 3 cuốn: Nghệ Thuật PR Bản Thân + Nghệ Thuật Đánh Cắp Ý Tưởng + Cứ Làm Đi - Bản Quyền,79000,99000,20,0.0,0,5,,Alphabooks,Nhà Xuất Bản Thế Giới,,,,,Sống Official,available,1000.0,True,True,True
+208917653,Đường ngược chiều: từ bản người Dao đến học bổng Erasmus - Bản Quyền,129000,129000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+202529640,Sách - Người Dám Cho Đi - Bán Được Nhiều Hơn - NXB Trẻ,125000,125000,0,0.0,0,0,,NXB Trẻ,NXB Trẻ,,,,,FishingBook,available,1000.0,True,True,True
+195291936,Sách Tiếng Nói Của Tri Thức,100500,150000,33,5.0,14,146,"Janet Mills, Don Miguel Ruiz",Saigon Books,Nhà Xuất Bản Dân Trí,,Bìa mềm,352,2022-01-01,Tiki Trading,available,1000.0,False,True,True
+190608334,Lãnh Đạo Giỏi Phải Biết Tạo Niềm Vui,269000,269000,0,0.0,0,0,,Alphabooks,oem,,Bìa mềm,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+167613536,Grit Vững Tâm Bền Chí Ắt Thành Công,159000,159000,0,0.0,0,1,,Alphabooks,oem,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+158745336,"Sách Xé Vài Trang Thanh Xuân, Đổi Lấy Một Bản Thân Nỗ Lực",96600,138000,30,5.0,13,126,Văn Cát Nhi,BIZBOOKS,Nhà Xuất Bản Hồng Đức,,Bìa mềm,232,2022-01-01,Tiki Trading,available,1000.0,False,True,True
+127222365,Thay Đổi Cuộc Sống Với Nhân Số Học,248000,248000,0,0.0,0,1,,Nhà Sách Hồng Ân,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,,,,Bảo Châu Books,available,1000.0,True,True,True
+127033076,Sách-Làm Chủ Bình Minh Sống Đời Xuất Chúng,185000,185000,0,0.0,0,2,,NXB Trẻ,NXB Trẻ,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+92551313,Sách - Bí Quyết Học Nhanh Nhớ Lâu - First News,58000,58000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,136,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+73437397,Sách Cẩm Nang Báo Chí Trực Tuyến: Kỹ Năng Sinh Tồn Và Lớn Mạnh Trong Kỷ Nguyên Số,205000,205000,0,0.0,0,0,Paul Bradshaw,NXB Trẻ,NXB Trẻ,,Bìa mềm,578,2020-11-15,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+54790183,Combo 2 Cuốn Văn Học Giúp Cuộc Sông Bạn Tốt Hơn : Cà Phê Cùng Tony + Sức Mạnh Tiêm Thức,189000,189000,0,0.0,0,2,"Tony Buổi Sáng,  Joseph Murphyc",NXB Trẻ,NXB Trẻ,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+5404405,Sách Nâng Cao Kỹ Năng Thuyết Trình,72000,89000,19,5.0,1,67,Theo Theobald,VanLangBooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,216,2018-10-10,Văn Lang Official Store,available,1000.0,False,True,True
+279151820,Bộ 4 Cuốn Sách Kỹ Năng Toàn Diện Dành Cho Học Sinh Tiểu Học (Ở Trường - Trong Nhà - Ngoài Đường - Sức Khỏe) - Einstein Books - Alpha Books,252000,316000,20,0.0,0,0,Einstein books,Alpha Books,Nhà Xuất Bản Dân Trí,,Bìa mềm,112,2026-01-30,Alpha Books Official,available,1000.0,True,True,True
+279105169,Sách Những Tương Lai Được Đánh Thức- Giáo Dục Từ Sự Thấu Hiểu/ Giáo Dục Không Áp Lực ( NXB Phụ Nữ),102600,108000,5,0.0,0,0,Nguyễn Thị Phương Hoa,Nhà xuất bản Phụ Nữ,Nhà Xuất Bản Phụ Nữ,,,,,Bảo Châu Books,available,1000.0,True,True,True
+278790185,7 Thói Quen Của Bạn Trẻ Thành Đạt (Tái Bản 2020),99000,108000,8,0.0,0,9,Sean Covey,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,335,,Nhân Văn,available,1000.0,True,True,True
+278679512,Bạn không cần phải tỏ ra hoàn hảo đến thế + Bạn không ổn thì có làm sao,342000,360000,5,0.0,0,0,nhieu tac gia,Tinh Hoa,Nhiều Nhà Xuất Bản,,,,,Tinh Hoa,available,1000.0,True,True,True
+278448962,Ứng Dụng AI Trong Đầu Tư Tài Chính,227000,239000,5,0.0,0,0,Cris DoLoc,1980 Books,Nhà Xuất Bản Công Thương,,,,,Alpha Books Official,available,1000.0,True,True,True
+278431120,Chat GPT & Midjourney Kỹ Thuật Tạo Hình Ảnh Và Content Bằng Công Cụ AI,179000,189000,5,0.0,0,0,,1980 Books,Nhà Xuất Bản Công Thương,,,,,Alpha Books Official,available,1000.0,True,True,True
+278292330,Content AI (Wenhua Xueyuan),189000,189000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Công Thương,,,,,Bamboo Books,available,1000.0,True,True,True
+278089325,Mastering AI : Ứng Dụng Trí Tuệ Nhân Tạo Để Làm Chủ Tương Lai,157680,219000,28,0.0,0,1,,1980 Books,Nhà Xuất Bản Công Thương,,,,,1980Books Official,available,1000.0,True,True,True
+277814963,Combo Sách 2 Cuốn: Phương Pháp Học Tập Của Simon và Huấn Luyện Não Bộ Học Siêu Tốc - Bizbooks,231410,317000,27,0.0,0,0,"Hữu Vinh Phương Lược, Jonathan A. Levi",Công ty CP Sách Bizbooks,Nhà Xuất Bản Hồng Đức,,,320200,,Unibooks,available,1000.0,True,True,True
+276652869,Sách 25 thiên hướng hành vi ảnh hưởng đến quyết định mua hàng (Tái bản),106000,138000,23,0.0,0,1,Richard Shotton,Công ty CP Sách Bizbooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,270,,Tiki Trading,available,1000.0,False,True,True
+276360722,Mật Mã Tài Năng Cá Nhân,179000,179000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Lao Động,,,,,Bamboo Books,available,1000.0,True,True,True
+276108722,"ĐỌC SIÊU NHANH - Tăng Cường Trí Não, Khai Phá Tưởng Tượng, Thúc Đẩy Tư Duy và Khơi Nguồn Cảm Hứng",165000,165000,0,0.0,0,2,,Công ty CP Thương mại Puma Books Việt Nam,Nhà Xuất Bản Dân Trí,,Bìa mềm,232,2024-09-01,Taurus 1987 Books,available,1000.0,True,True,True
+275625153,Sách Tuyên Ngôn Sứ Mệnh Cuộc Đời,85760,128000,33,5.0,4,92,Stephen R. Covey,Saigon Books,Nhà Xuất Bản Thế Giới,,Bìa mềm,192,,Tiki Trading,available,1000.0,False,True,True
+273713563,Nghệ Thuật Theo Đuổi Sự Tối Giản - Bản Quyền,197000,199000,1,0.0,0,1,,Alpha Books,Nhà Xuất Bản Lao Động - Xã Hội,,,,,Gooda Official,available,1000.0,True,True,True
+273464240,Trạm Đọc | Người Thông Minh Học Tập Như Thế Nào,135000,169000,20,0.0,0,0,Ronald Gross,Alpha Books,Nhà Xuất Bản Lao Động,,Bìa mềm,412,,Alpha Books Official,available,1000.0,True,True,True
+273326859,Sách Hình dáng của sự thịnh vượng: Lựa chọn đúng quan trọng hơn nỗ lực,137000,179000,23,0.0,0,15,Brian Portnoy,Công ty CP Sách Bizbooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,316,2023-09-08,Tiki Trading,available,1000.0,False,True,True
+271410589,Sách Sáng tác kịch bản của bạn,175950,220000,20,0.0,0,18,"Andy Prentice, Matthew Oldham",Đông A,Nhà Xuất Bản Dân Trí,,Bìa cứng,96,2023-08-01,Tiki Trading,available,1000.0,False,True,True
+271270192,"Sách Mặt trái của sự không chắc chắn: Khi ""không biết"" cũng là một loại sức mạnh",144000,188000,23,0.0,0,30,Nathan Furr,BIZBOOKS,Nhà Xuất Bản Hồng Đức,,Bìa mềm,356,2023-04-22,Tiki Trading,available,1000.0,False,True,True
+270147320,Sếp ơi! tại sao không thăng chức cho tôi?,30000,30000,0,5.0,1,2,Noboru Koyama,Zenbooks,Nhà Xuất Bản Dân Trí,,Bìa mềm,240,2018-07-31,Saigon Books Official,available,1000.0,True,True,True
+246774468,Ẩn Số Mang Tên Thế Hệ Z - Gen Z @ College,89000,89000,0,0.0,0,0,,Sách điện tử Thái Hà,Nhiều Nhà Xuất Bản,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+222716507,Trí Tuệ Nhân Tạo - Học Máy Và Ứng Dụng,174250,205000,15,3.7,3,33,"TS Nguyễn Tất Bảo Thiện ,  Nguyễn Quốc Huy",Công Ty TNHH Thương Mại STK,Nhà Xuất Bản Thanh Niên,,,429,,Bảo Châu Books,available,1000.0,True,True,True
+221226529,"Sách Báo chí, truyền thông - Những góc tiếp cận (lý thuyết - kỹ năng - đạo đức)",172000,215000,20,0.0,0,4,,Không có,Không có,,,,,nxbkhoahoccongnghetruyenthong,available,1000.0,True,True,True
+215543317,[ấn bản hoài cổ 2023 Thu Giang Nguyễn Duy Cần] THUẬT TƯ TƯỞNG - Thu Giang Nguyễn Duy Cần - NXB Trẻ - bìa mềm,150000,150000,0,0.0,0,0,,NXB Trẻ,NXB Trẻ,,,,,Bamboo Books,available,1000.0,True,True,True
+209906001,Sự Xuất Sắc Luôn Chiến Thắng - Cách Dẫn Đầu Bằng Việc Không Thỏa Hiệp Với Trải Nghiệm Khách Hàng Và Nhân Sự - Bản Quyền,250000,250000,0,0.0,0,1,Horst Schulze,Alphabooks,Nhà Xuất Bản Công Thương,,Bìa mềm,272,2022-12-19,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+209902784,Kẻ Thành Công Phải Biết Lắng Nghe - Mark Goulston (TB) - Bản Quyền,159000,159000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Hồng Đức,,,,,info book,available,1000.0,True,True,True
+208906587,Sketchnote Diễn Họa Thông Tin Bằng Hình Ảnh - Combo 2 Cuốn: Lý Thuyết + Thực Hành - Bản Quyền,199000,199000,0,0.0,0,0,,Alphabooks,Nhiều Nhà Xuất Bản,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+200726628,Thuế Và Kế Toán Thuế 2022,272300,389000,30,0.0,0,3,,Sách Kinh Tế,oem,,Bìa mềm,,,Nhà Sách Kinh Tế VN,available,1000.0,True,True,True
+195542774,Kỹ Năng Học Tập Thành Công (Tập2),179000,179000,0,0.0,0,0,,Alpha Books,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,Bìa mềm,472,2022-08-07,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+192376838,Sách Lối sống tối giản khi nhà có con nhỏ,69000,99000,30,5.0,1,30,Joshua Becker,BESTBOOKS,Nhà Xuất Bản Công Thương,,Bìa mềm,232,2019-01-01,Tiki Trading,available,1000.0,False,True,True
+181978822,"Học Ăn, Học Nói, Học Gói, Học Mở",65000,65000,0,0.0,0,0,Hoàng Liên,NXB Trẻ,NXB Trẻ,,Bìa mềm,192,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+179439771,Văn hoá giảng đường - Một cẩm nang học tập tại đại học,223500,223500,0,0.0,0,4,nhieu tac gia,Quảng Văn,Nhà Xuất Bản Dân Trí,,Bìa mềm,472,,AHABOOKS,available,1000.0,True,True,True
+167614086,Khám Phá Sứ Mệnh Với Câu Hỏi Tại Sao,99000,99000,0,0.0,0,3,,Thái Hà,oem,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+158582652,"Sách - Phương Pháp Học Tập Không Giới Hạn - nâng tầm não bộ, học hỏi nhanh hơn và khai phóng cuộc sống phi thường.",254000,268000,5,4.8,9,170,Jim Kwik,Thiên Minh Book,Nhà Xuất Bản Thế Giới,,,531,,Alpha Books Official,available,1000.0,True,True,True
+137941407,Sách - NXB Trẻ - Robert Greene. Nguyên tắc 50 - Không sợ hãi,130000,130000,0,0.0,0,2,,NXB Trẻ,NXB Trẻ,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+127801974,Hướng Dẫn Kiếm Tiền Trên Tiktok,189000,189000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Công Thương,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+52673173,Sách Rich Kid - Bí Quyết Để Nuôi Dạy Con Cái Trở Nên Thành Công Và Hạnh Phúc,114000,149000,23,5.0,11,60,Tom Corley,BIZBOOKS,Nhà Xuất Bản Hồng Đức,,Bìa mềm,339,,Tiki Trading,available,1000.0,False,True,True
+50435641,Sách Tips and Tricks - Mẹo Nhỏ Có Võ Dành Cho Marketer,122550,129000,5,5.0,1,10,MEdiaz,MZ Book,Nhà Xuất Bản Thế Giới,,Bìa mềm,124,2020-01-03,Cá Chép Bookstore,available,1000.0,True,True,True
+33370613,Combo Trọn Bộ Sketchnote - Ghi chép bằng hình ảnh ( Sketchnote Lý Thuyết + Sketchnote Thực hành ) (Tặng Notebook tự thiết kế),398000,398000,0,0.0,0,0,,Alphabooks,Alphabooks,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+22047224,Combo Sách Đúng Việc và 7 Thói Quen Hiệu Quả( Tặng Kèm Sổ Tay),327750,345000,5,5.0,65,608,"Giản Tư Trung, Stephen R. Covey",Nhiều công ty phát hành,,,Bìa cứng,796,2019-07-01,NHBook,available,1000.0,True,True,True
+316417,Sách Nghệ Thuật Quyến Rũ,215000,215000,0,0.0,0,0,Robert Greene,NXB Trẻ,NXB Trẻ,,Bìa mềm,640,2010-08-26,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+279063308,Rong Ruổi Tuổi 17 - Hành Trình Du Học Trao Đổi Văn Hóa Tại Đức - Ngọc Thiên Ân - Alpha Books,101000,119000,15,0.0,0,0,Ngọc Thiên Ân,Alpha Books,Nhà Xuất Bản Thế Giới,,,,,Alpha Books Official,available,1000.0,True,True,True
+277712994,Sách - Làm Chủ Thời Gian Sống Thế Kỷ 21 – Bí Quyết Thực Chiến Của Những Người Thành Công Trên Thế Giới,149000,199000,25,0.0,0,4,,Công Ty Cổ Phần Waka,Nhà Xuất Bản Văn Học,,Bìa mềm,236,,Sách Waka,available,1000.0,True,True,True
+277504355,Power Vs Force - Trường Năng Lượng Và Những Nhân Tố Quyết Định Tinh Thần Và Sức Khỏe Con Người,179000,179000,0,0.0,0,0,David R. Hawkins,Thái Hà,Nhà Xuất Bản Văn Học,,Bìa mềm,298,2022-06-10,FishingBook,available,1000.0,True,True,True
+274358470,Sức Mạnh Của Sự Lắng Nghe (Power Listening) - Nghệ Thuật Làm Chủ Kỹ Năng Then Chốt Trong Kinh Doanh,90000,90000,0,0.0,0,0,Bernard T. Ferrari,Văn Lang,,,Bìa mềm tay gấp,168,2024-02-29,Bamboo Books,available,1000.0,True,True,True
+273709938,"Sách - Lập trình não bộ: Làm chủ trí nhớ, sự tập trung, cảm xúc và giải phóng thiên tài bên trong bạn (MC)",188000,188000,0,0.0,0,0,,Nhà Sách Hồng Ân,Nhà Xuất Bản Hồng Đức,,Bìa mềm,,,Khanhlinhbook,available,1000.0,True,True,True
+273524637,Sách Chuyện kể và số liệu,144191,219000,34,5.0,1,77,Aswath Damodaran,Nhã Nam,Nhà Xuất Bản Công Thương,,Bìa mềm,361,,Tiki Trading,available,1000.0,False,True,True
+273411044,Trồng Một Nụ Cười - Cùng Trẻ Thực Hành Chánh Niệm,159000,159000,0,0.0,0,0,Thích Nhất Hạnh,Thái Hà,Nhà Xuất Bản Hà Nội,,Bìa mềm,312,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+272392778,Combo Kỷ Luật Nội Tại + Sức Mạnh Nội Tại - Bản Quyền,384000,384000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,Bamboo Books,available,1000.0,True,True,True
+272242274,Sách Tin Vào Chính Mình (Song Ngữ),68000,68000,0,0.0,0,0,Louise L. Hay,FIRST NEWS,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,160,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+270771520,Để Thành Nhà Văn (Tái Bản 2021) (Thu Giang Nguyễn Duy Cần),50000,50000,0,0.0,0,0,,NXB Trẻ,NXB Trẻ,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+270481506,Con Gái Học Cách “Sinh Tồn” - 10 Bí Quyết Tâm Lý Để Tuổi Trẻ Của Bạn Ở Một Đẳng Cấp Khác _TRE,125000,125000,0,0.0,0,0,,NXB Trẻ,NXB Trẻ,,Bìa mềm,292,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+263455327,"Bình Tĩnh Khi Ế, Mạnh Mẽ Khi Yêu ",86000,86000,0,0.0,0,0,"Ellen Fein, Sherrie Scheneider",VanLangBooks,Nhà Xuất Bản Phụ Nữ,,Bìa mềm,,2018-06-07,Bamboo Books,available,1000.0,True,True,True
+263120810,BĂNG GIÁM - 60 CHIÊU THỨC NHẬN BIẾT TÍNH CÁCH,70000,70000,0,0.0,0,8,Tăng Quốc Phiên,Công ty TNHH TM & DV Văn Hóa Hương Trang,Nhà Xuất Bản Thời Đại,,Bìa mềm,235,2013-06-05,AN HOA BOOK,available,1000.0,True,True,True
+261834625,Công Dân Toàn Cầu - Công Dân Vũ Trụ (Gs. Phan Văn Trường),90000,90000,0,0.0,0,0,,Không có,Không có,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+258628320,[MÃ giảm 40K] Tôi đi tìm tôi - Tác giả: Nguyễn Phi Vân - Bản Quyền,160000,160000,0,5.0,1,3,,Saigon Books,Nhà Xuất Bản Văn Hóa - Văn Nghệ,,,,,Bamboo Books,available,1000.0,True,True,True
+257767902,Trí Tưởng Tượng Mở Con Đường - Bản Quyền,70000,70000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,info book,available,1000.0,True,True,True
+257763257,Cẩm Nang Phương Pháp Sư Phạm (Tái Bản 2022)  - Bản Quyền,168000,168000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,info book,available,1000.0,True,True,True
+247405832,Nghệ Thuật PR Bản Thân,76000,99000,23,0.0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,,,,,Sống Official,available,1000.0,True,True,True
+214598579,Sách Tôi Tự Học (Ấn Bản Hoài Cổ),150000,150000,0,0.0,0,0,Thu Giang Nguyễn Duy Cần,NXB Trẻ,NXB Trẻ,,Bìa mềm,320,2023-01-01,FishingBook,available,1000.0,True,True,True
+213936241,Mê Hoặc,189000,189000,0,0.0,0,0,,Phương Nam,oem,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+209610126,Câu cá trên trời - Bản Quyền,109000,109000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Thanh Niên,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+208643727,Khát Vọng Dấn Thân - Bản Quyền,139000,139000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+208643535,Mưu Hèn Kế Bẩn Nơi Công Sở - Trọn Bộ: Tập 1 + 2 (Tái Bản Mới Nhất) - Bản Quyền,139000,139000,0,4.0,1,3,,Alphabooks,Nhà Xuất Bản Lao Động Xã Hội,,,,,Gooda Official,available,1000.0,True,True,True
+203840878,Sách - Tăng cường sức mạnh não bộ,120000,120000,0,0.0,0,1,,Không có,Không có,,,,,FishingBook,available,1000.0,True,True,True
+201426596,Sách Kỷ luật bản thân - BẢN QUYỀN,189000,189000,0,0.0,0,1,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,info book,available,1000.0,True,True,True
+196338149,Cẩm Nang Tuổi Dậy Thì - Lớn Lên Thật Tuyệt - Dành Cho Bạn Trai,115000,115000,0,0.0,0,0,,Kim Đồng,oem,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+195542683,Kỹ Năng Học Tập Thành Công (Bộ 2 Cuốn),338000,338000,0,0.0,0,0,,Alpha Books,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+188659510,"Sách Không Đọc Sách Này, Chụp Xấu Đừng Buồn !",117300,138000,15,0.0,0,2,Henry Carroll,Văn Lang,Nhà Xuất Bản Hồng Đức,,Bìa mềm,128,2022-06-28,Bảo Châu Books,available,1000.0,True,True,True
+159437611,Đến nhật bản học về cuộc đời - NXB Trẻ,99000,99000,0,0.0,0,2,,NXB Trẻ,NXB Trẻ,,Bìa mềm,,,info book,available,1000.0,True,True,True
+136978479,Combo 8 Cuốn: 8 Kỹ Năng Toàn Diện Trong Cuộc Sống Và Công Việc,606000,792000,23,5.0,5,31,Dorling Kindersley,BIZBOOKS,Nhà Xuất Bản Hồng Đức,,Bìa mềm,95,2021-11-01,Tiki Trading,available,1000.0,False,True,True
+113117525,Sách - Học Cách Kiếm Tiền,139000,139000,0,0.0,0,0,,AZ Việt Nam,Nhà Xuất Bản Thế Giới,,,,,info book,available,1000.0,True,True,True
+109298447,Tự Tin Quyết Định Thần Thái,119000,119000,0,0.0,0,32,,Gieobooks,Nhà Xuất Bản Văn Học,,Bìa mềm,256,2021-06-29,Tazano Official Store,available,1000.0,True,True,True
+92010567,Sách - Trải Nghiệm Wow,159000,159000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Công Thương,,,,,info book,available,1000.0,True,True,True
+77230827, Sách - Kỹ Năng Lập Kế Hoạch Hiệu Quả,149000,149000,0,0.0,0,0,Shibamoto Hidenori,1980 Books,Nhà Xuất Bản Thế Giới,,,,,Bamboo Books,available,1000.0,True,True,True
+34380884,Combo Sách Luyện Trí Nhớ ( Bí Mật Của Một Trí Nhớ Siêu Phàm + Siêu Trí Nhớ ) (Tặng kèm Tickbook),238000,238000,0,0.0,0,5,.,Alphabooks,,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+22373014,Sách Nghệ Thuật Xử Thế Toàn Thư,139500,150000,7,5.0,1,8,Myreen Ramus Hoài Nam,Pandabooks,,,Bìa mềm,500,2019-01-07,Nhà sách Fahasa,available,1000.0,True,True,True
+871690,Sách Tự Tin - Nghệ Thuật Giúp Bạn Đạt Được Mọi Ước Muốn (Tái Bản),182100,198000,8,5.0,1,13,Rob Yeung,Nhân Trí Việt,,,Bìa mềm,276,2012-05-24,Nhà sách Fahasa,available,1000.0,True,True,True
+344709,Sách Người Giỏi Không Bởi Học Nhiều,89000,89000,0,0.0,0,0,.,Alphabooks,Nhà Xuất Bản Lao Động Xã Hội,,Bìa mềm,208,2012-02-01,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+343404,Sách Lời Vàng Của Bố,79000,79000,0,0.0,0,0,Justin Samuel Halpern,Alphabooks,Nhà Xuất Bản Lao Động Xã Hội,,Bìa mềm,200,2012-01-15,info book,available,1000.0,True,True,True
+342009,Sách Blog Cho Tâm Hồn 2 - DailyOM Learning To Live,59700,72000,17,5.0,1,1,,First News - Trí Việt,NXB Trẻ,,Bìa mềm,341,2011-10-20,Nhà sách Fahasa,available,1000.0,True,True,True
+278628026,Mượn Gà Đẻ Trứng,189000,189000,0,0.0,0,18,Futoshi Fujikawa,1980 Books,Nhà Xuất Bản Dân Trí,,,,,1980 BOOKS HCM,available,1000.0,True,True,True
+278524936,BOXSET AI Thực Chiến (Combo 6 cuốn sách hot về AI),1007280,1399000,28,0.0,0,2,nhieu tac gia,1980 Books,Nhà Xuất Bản Công Thương,,,,,1980Books Official,available,1000.0,True,True,True
+278127252,Sách - Kỷ Luật Khắc Kỷ,128880,179000,28,0.0,0,2,Nancy Sherman,1980 Books,NXB Dân Trí,,Bìa mềm,325,,TTR Next Generation,available,1000.0,True,True,True
+276586987,Sách - Nghệ thuật tư duy rành mạch (Nhã Nam HCM),130240,148000,12,0.0,0,0,Rolf Dobelli,Nhã Nam,Nhà Xuất Bản Thế Giới,,Bìa mềm,447,2018-12-01,Nhã Nam HCM,available,1000.0,True,True,True
+275122388,Thay Đổi Cách Nghĩ (A New Way to Think) - Roger L. Martin - PACE Books,172000,205000,16,5.0,1,70,Roger L. Martin,Viện Quản lý PACE,Nhà Xuất Bản Thanh Niên,,Bìa mềm,312,2024-05-27,PACE Books,available,1000.0,True,True,True
+274056556,Nghệ Thuật Lắng Nghe Và Được Lắng Nghe,128000,128000,0,0.0,0,0,Alissa Carpenter,Văn Lang,,,Bìa mềm,312,2024-01-25,Nhà sách NetaBooks,available,1000.0,True,True,True
+273725380,Thức dậy và mơ đi - BẢN QUYỀN,129000,129000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Hồng Đức,,,,,Gooda Official,available,1000.0,True,True,True
+273725374,Hành Trang Du Học - Mọi Điều Bạn Cần Biết Về Du Học - BẢN QUYỀN,79000,79000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Lao Động,,,,,Gooda Official,available,1000.0,True,True,True
+273708847,Sách Phương pháp quản trị mục tiêu - Triết lý kinh doanh của công ty tỷ đô ByteDance,144000,188000,23,5.0,2,58,Lý Dương Lâm,Công ty CP Sách Bizbooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,360,,Tiki Trading,available,1000.0,False,True,True
+273690852,Manga For Success - Mở Khóa Thành Công Với Manga - The Psychology Of Personal Growth And Better Relationships - Xây Dựng Mối Quan Hệ,125000,125000,0,0.0,0,0,,Công Ty Cổ Phần Văn Hóa Sách Sài Gòn,Nhà Xuất Bản Thế Giới,,Bìa mềm tay gấp,224,2023-12-22,info book,available,1000.0,True,True,True
+273216896,Sách Hướng dẫn thực hành Word từ cơ bản đến nâng cao kèm video bài giảng,178000,178000,0,5.0,1,15,,Tinh Văn,Nhà Xuất Bản Lao Động,,Bìa gập,244,2023-05-24,Unica,available,1000.0,True,True,True
+273203134,"Sách - Phụ nữ tự do, tình yêu và hạnh phúc - Thái Hà Books",119000,119000,0,0.0,0,0,Nhật Tuyết,Thái Hà,Nhà Xuất Bản Công Thương,,Bìa mềm,,2023-11-02,Bamboo Books,available,1000.0,True,True,True
+271319561,Sáng tác kịch bản của bạn,198000,220000,10,0.0,0,3,nhieu tac gia,Công Ty Cổ Phần Văn Hóa Đông A,Nhà Xuất Bản Dân Trí,,Bìa cứng,96,,Cá Chép Bookstore,available,1000.0,True,True,True
+270789080,Keep Calm-Điềm tĩnh làm cha - Bản Quyền,65000,65000,0,0.0,0,0,,NXB Trẻ,NXB Trẻ,,,,,info book,available,1000.0,True,True,True
+270116180,Nhà Không Rác - Bản Quyền,129000,129000,0,0.0,0,0,,Thái Hà Book,Nhà Xuất Bản Công Thương,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+262972394,"Sách mang đến cách khắc phục những mâu thuẫn ở văn phòng : ""Đối Đầu"" Nơi Công Sở",98000,98000,0,0.0,0,0,,Zenbooks,Nhà Xuất Bản Dân Trí,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+262897380,Lên mạng cũng là một nghệ thuật - Bản Quyền,89000,89000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Lao Động,,,,,info book,available,1000.0,True,True,True
+262891785,Bay trên bầu trời nước Úc - Bản Quyền,129000,129000,0,0.0,0,0,,Alpha Books,Nhà Xuất Bản Lao Động,,,,,info book,available,1000.0,True,True,True
+261957784,Văn hóa e-mail: Xây dựng hình ảnh cá nhân qua e-mail - Bản Quyền,108000,108000,0,0.0,0,0,,Saigon Books,Nhà Xuất Bản Thế Giới,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+254089691,Combo OSHO Trọn Bộ 11 Cuốn - Bản Quyền,1488000,1488000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Dân Trí,,,,,NHBook,available,1000.0,True,True,True
+252165773,Sách Sức mạnh của động lực – Nghệ thuật vượt lên những cám dỗ của cuộc sống - BizBooks - BẢN QUYỀN,129000,129000,0,0.0,0,0,,BIZBOOKS,Nhà Xuất Bản Hồng Đức,,,,,info book,available,1000.0,True,True,True
+242101899,Sách - Bước chậm lại giữa thế gian vội vã - Nhã nam,85000,85000,0,0.0,0,0,,Không có,Nhà Xuất Bản Hội Nhà Văn,,,254,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+242075273,Sách - MBO Phương pháp quản lý mục tiêu và đánh giá nhân sự chuyên nghiệp - 1980Books,169000,169000,0,0.0,0,0,Nakashima Tetsuo,Không có,Nhà Xuất Bản Công Thương,,Bìa mềm,368,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+230038112,Phương Pháp Đọc Sách Hiệu Quả- THA,143000,179000,20,0.0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,,Bìa mềm,380,2023-02-08,Alpha Books Official,available,1000.0,True,True,True
+217535561,Thức Tỉnh Tự Tin,120000,120000,0,0.0,0,0,,AZ Việt Nam,oem,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+211924853,S.E.O NGON Hiểu Đúng Làm Đúng - Tư Duy Làm SEO Từ Nguyên Lý - Bản Quyền,239000,299000,20,0.0,0,1,,Alphabooks,Nhà Xuất Bản Công Thương,,,,,Sống Official,available,1000.0,True,True,True
+209905990,Lãnh Đạo Giỏi Hỏi Câu Hỏi Hay - Bản Quyền,189000,189000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Lao Động,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+209904993,Bí Quyết Học Đâu Nhớ Đó (Tái Bản Mới Nhất) - Bản Quyền,179000,179000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Lao Động,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+202064720,Sách  Quản Lý Năng Lượng Cá Nhân Trong Công Việc - BẢN QUYỀN,159000,159000,0,0.0,0,1,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,info book,available,1000.0,True,True,True
+201842923,Sách OKR – Từ chiến lược mục tiêu đến kết quả then chốt - BẢN QUYỀN,129000,129000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+201630850,Sách  Cách Người Nhật Quản Lý Doanh Nghiệp Thành Công,129000,129000,0,0.0,0,1,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+201623953,Sách  Phương pháp tạo động lực trong công việc,158000,158000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+200725294,Tại Sao Phương Tây Vượt Trội,468000,468000,0,0.0,0,0,,Alphabooks,oem,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+196137550,T.E.T - Bồi Dưỡng Giáo Viên Hiệu Quả (Tái Bản),128700,134000,4,0.0,0,0,Thomas Gordon,Quảng Văn,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,Bìa mềm,472,2022-07-13,Minhhabooks,available,1000.0,True,True,True
+193669207,Combo 100+ Bài Tập Kích Thích Não Bộ Hiệu Quả : 40 Ngày Luyện Trí Nhớ + 40 Ngày Rèn Tư Duy,198000,258000,23,0.0,0,4,Dr Gareth Moore,Cty Công Nghệ Gamma,NXB Dân Trí,,Bìa mềm,444,2022-07-31,Alpha Books Official,available,1000.0,True,True,True
+178937379,Kỹ Năng Lập Kế Hoạch Hiệu Quả,149000,149000,0,0.0,0,0,Shibamoto Hidenori,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,Bìa mềm,264,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+177883574,Làm Chủ Bình Minh - Sống Đời Xuất Chúng,185000,185000,0,0.0,0,0,Robin Sharma,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,Bìa mềm,476,,info book,available,1000.0,True,True,True
+159390845,Combo 02 cuốn Trò chuyện cùng Tony - trên đường băng và cà phê,210000,210000,0,0.0,0,3,Tony Buổi Sáng,NXB Trẻ,NXB Trẻ,,Bìa mềm,300,2022-01-01,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+143970103,Sách - Kinh Nghiệm Từ Nước Nhật - Giải Quyết Những Trở Ngại Trong Học Tập - Nxb Kim Đồng,65000,65000,0,0.0,0,0,,NXB Kim Đồng,Nhà Xuất Bản Kim Đồng,,,,,Bamboo Books,available,1000.0,True,True,True
+77230809, Sách - Kỹ Năng Thuyết Trình Chuyên Nghiệp (Xả Kho),149000,149000,0,0.0,0,0,TS. Laura Sicola,1980 Books,Nhà Xuất Bản Công Thương,,,,,info book,available,1000.0,True,True,True
+273823576,Con Gái Học Cách Lập Trình - Không Khó Khi Có Bí Quyết Trong Tay!,90000,90000,0,0.0,0,0,Reshma Saujani,NXB Trẻ,NXB Trẻ,,Bìa mềm,208,2024-01-03,Nhà sách NetaBooks,available,1000.0,True,True,True
+273713571,50 Điều Trường Học Không Dạy Bạn Và 20 Điều Cần Làm Trước Khi Rời Ghế Nhà Trườ - Bản Quyền Bản Quyền,119000,149000,20,0.0,0,0,,Alpha Books,Nhà Xuất Bản Lao Động - Xã Hội,,,,,Omega Plus Books,available,1000.0,True,True,True
+272426273,NƯƠNG THEO DÒNG CHẢY TÂM TRÍ,128000,128000,0,0.0,0,0,,Huy Hoàng Bookstore,Nhà Xuất Bản Dân Trí,,,,,AHABOOKS,available,1000.0,True,True,True
+270992931,Khơi Dậy Sức Mạnh Tích Cực - Đánh Thức Năng Lực Bản Thân - 1980,169000,169000,0,0.0,0,0,Michael Hyatt,1980 Books,Nhà Xuất Bản Lao Động,,Bìa mềm,332,,info book,available,1000.0,True,True,True
+270183278,Phụng Sự Để Dẫn Đầu,125500,125500,0,0.0,0,1,,Thái Hà,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,,,,AHABOOKS,available,1000.0,True,True,True
+270123474,Chưa Kịp Lớn Đã Phải Trưởng Thành - Quyển 2 - Phiên Bản Mùa Hè - Bản Quyền,75000,79000,5,0.0,0,0,,Công Ty Cổ Phần Time Books,Nhà Xuất Bản Dân Trí,,,,,Alpha Books Official,available,1000.0,True,True,True
+270120727,Nhà máy sản xuất niềm vui - Bản Quyền,55000,55000,0,0.0,0,0,,Thái Hà Book,Nhà Xuất Bản Lao Động,,,,,info book,available,1000.0,True,True,True
+262469762,Atomic Habits - Thay Đổi Tí Hon Hiệu Quả Bất Ngờ - Tái Bản 2023,189000,189000,0,0.0,0,11,,Cty Bán Lẻ Phương Nam,Nhà Xuất Bản Thế Giới,,,,,Alpha Books Official,available,1000.0,True,True,True
+261973365,Hùng Mạnh Hơn Sau Khủng Hoảng,129000,129000,0,0.0,0,0,,Alphabooks,oem,,,,,info book,available,1000.0,True,True,True
+261972260,Content và nghệ thuật STORYTELLING - Bản Quyền,299000,299000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+261957053,Hình ảnh chuyên nghiệp nâng cao vị thế - Bản Quyền,130000,130000,0,0.0,0,0,,Saigon Books,Nhà Xuất Bản Thế Giới,,,,,info book,available,1000.0,True,True,True
+259512799,Thu hút bất kỳ ai - Bản Quyền,128000,128000,0,0.0,0,0,,Saigon Books,Nhà Xuất Bản Văn Hóa - Văn Nghệ,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+258752508,Đi tìm tình yêu (I Need Your Love - Is That True?) - Bản Quyền,130000,130000,0,0.0,0,0,,Saigon Books,Nhà Xuất Bản Thế Giới,,,,,info book,available,1000.0,True,True,True
+253238316,Content Đúng Là King,89000,89000,0,0.0,0,0,,Không có,Nhà Xuất Bản Công Thương,,,,,info book,available,1000.0,True,True,True
+252341208,Viết Luận Thật Giản Đơn,159000,159000,0,0.0,0,0,,Sách điện tử Thái Hà,oem,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+246774466,Ẩn Số Mang Tên Thế Hệ Z - Gen Z @ College,89000,89000,0,0.0,0,0,,Sách điện tử Thái Hà,Nhiều Nhà Xuất Bản,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+241814627,Sách Thay Đổi Cuộc Sống Với Nhân Số Học,198400,248000,20,0.0,0,0,Lê Đỗ Quỳnh Hương,Công Ty TNHH Văn Hóa Sáng Tạo Trí Việt,Nhà Xuất Bản Tổng Hợp,,,,2020-10-10,Bảo Châu Books,available,1000.0,True,True,True
+230201298,Future Wise: Điều Gì Đáng Học Cho Tương Lai,159000,159000,0,0.0,0,0,David N.Perkins,Thái Hà,Nhà Xuất Bản Lao Động,,Bìa mềm,256,2023-01-01,info book,available,1000.0,True,True,True
+220923958,Cà Phê Cùng Tony (Tái Bản 2022),105000,105000,0,0.0,0,0,Tony Buổi Sáng,NXB Trẻ,NXB Trẻ,,Bìa mềm,230,2022-08-08,info book,available,1000.0,True,True,True
+215725832,Tạo lập mối quan hệ trong kỷ nguyên số (How to Work a Room) - Tác giả: Susan RoAne,120000,120000,0,0.0,0,0,,Sách điện tử Saigon Books,Nhà Xuất Bản Thế Giới,,,,,info book,available,1000.0,True,True,True
+209867973,Tôi Phải Thi Đỗ Bằng Mọi Giá - Bản Quyền,149000,149000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Dân Trí,,,,,Gooda Official,available,1000.0,True,True,True
+209867781,Trải Nghiệm Wow - Bản Quyền,159000,159000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Công Thương,,,,,FishingBook,available,1000.0,True,True,True
+209349776,Cẩm Nang Đầu Tư Và Quản Lý Tài Chính Cá Nhân - Bản Quyền,169000,169000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Công Thương,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+202525981,Sách Đẹp Và Chân Thực - Sali Hughes - Skybooks - BẢN QUYỀN,155000,155000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Hà Nội,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+200727048,Học Tập Cũng Cần Chiến Lược,119000,119000,0,0.0,0,0,,Alphabooks,oem,,Bìa mềm,,,info book,available,1000.0,True,True,True
+200004794,Einstein cuộc đời và vũ trụ_AL,319000,319000,0,0.0,0,0,,Alpha Books,Nhà Xuất Bản Thế Giới,,Bìa mềm,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+196853836,Học Tập Cũng Cần Chiến Lược - Alpha,119000,119000,0,0.0,0,0,Joe Landsberger,Alpha Books,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,Bìa mềm,280,2022-09-14,info book,available,1000.0,True,True,True
+196338169,Phương Pháp Đọc Sách Hiệu Quả,143000,179000,20,0.0,0,0,,Alphabooks,oem,,Bìa mềm,,,Alpha Books Official,available,1000.0,True,True,True
+196021400,Kỹ Năng Tự Học Cho Trẻ Tiểu Học,199000,199000,0,0.0,0,0,,Thái Hà,oem,,Bìa mềm,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+191808196,Giúp Con Hạnh Phúc - Giúp Con Xoa Bóp Khỏe Khoắn,25000,25000,0,0.0,0,0,,NXB Trẻ,oem,,Bìa mềm,,,Nhân Văn,available,1000.0,True,True,True
+188919822,Tổ Chức Quản Lý Vệ Sinh - An Toàn Lao Động Tại Nơi Làm Việc - Kỹ Năng Kiểm Soát,80000,80000,0,0.0,0,0,Nguyễn Đức Đãn,NXB Thông Tin Và truyền Thông,Nhà Xuất Bản Thông Tin Và Truyền Thông,,Bìa mềm,2019,,Bảo Châu Books,available,1000.0,True,True,True
+163033743,Sức mạnh của động lực - Nghệ thuật vượt lên những cám dỗ của cuộc sống - Sách hay mỗi ngày ,129000,129000,0,0.0,0,0,,BIZBOOKS,hong duc,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+160691617,Làm Sao Học Ít Hiểu Nhiều,128000,128000,0,0.0,0,0,,Zenbooks,Nhà Xuất Bản Dân Trí,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+159015450,Thấu Hiểu Tiếp Thị Từ A Đến Z - NXB Trẻ,115000,115000,0,0.0,0,0,,NXB Trẻ,NXB Trẻ,,Bìa mềm,,,FishingBook,available,1000.0,True,True,True
+153037313,Combo 2 cuốn:  Sức Mạnh Của Thói Quen + Kỷ Luật Tự Giác - Thói Quen Của Người Thành Công ( Con Đường Thành Công/ Phát Triển Bản Thân/ Tặng Kèm Bookmark),328000,328000,0,0.0,0,0,,Nhiều công ty phát hành,Nhiều Nhà Xuất Bản,,,,,info book,available,1000.0,True,True,True
+92010717,Sách - Những người thành công không bao giờ trì hoãn,109000,109000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,,,50,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+77231067, Sách - Phương pháp tạo động lực trong công việc,158000,158000,0,0.0,0,0,.,1980 Books,Nhà Xuất Bản Lao Động,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+34380540,Combo Sách Luyện Trí Nhớ ( Bí Mật Của Một Trí Nhớ Siêu Phàm + Siêu Trí Nhớ ) (Tặng Notebook tự thiết kế),248000,248000,0,0.0,0,0,.,Alphabooks,,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+34362350,Combo Sách Luyện Trí Nhớ ( Bí Mật Của Một Trí Nhớ Siêu Phàm + Siêu Trí Nhớ ) Tặng Boookmark Tuyệt Đẹp,257000,257000,0,0.0,0,0,.,Alphabooks,,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+599787,Kĩ Thuật Giải Nhanh Bài Toán Hay & Khó Hình Học 11,115000,115000,0,0.0,0,0,ThS. Nguyễn Duy Hiếu,Nhà Sách Hồng Ân,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,Bìa mềm,259,2023-07-26,Bảo Châu Books,available,1000.0,True,True,True
+278024802,DeepSeek Thực Chiến,134250,179000,25,0.0,0,1,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,1980Books Official,available,1000.0,True,True,True
+277277725,SPEEDREADING: BÍ KÍP ĐỌC TỐC ĐỘ CAO - Bích Ngọc - Minh Tâm - Quỳnh Chi – Thái Hà Books - NXB Công Thương,210000,210000,0,0.0,0,0,nhieu tac gia,Thái Hà,Nhà Xuất Bản Công Thương,,Bìa mềm,240,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+274794227,Sách 5 Phút Yêu Tiếng Nhật Lại Từ Đầu,99000,99000,0,0.0,0,0,,AZ Việt Nam,Nhà Xuất Bản Thanh Niên,,,,,Bamboo Books,available,1000.0,True,True,True
+274354605,[Tiệm Sách Einstein] Tranh Biện Sao Cho Đúng?,135000,169000,20,0.0,0,0,,Alpha Books,Nhà Xuất Bản Thế Giới,,Bìa mềm,,,Alpha Books Official,available,1000.0,True,True,True
+274185333,Sách - Kỷ Luật Bản Thân Sức Mạnh Lớn Từ Hành Động Nhỏ,159000,159000,0,4.0,1,1,Matt Sandrini,1980 Books,Nhà Xuất Bản Dân Trí,,Bìa mềm,271,2024-02-10,Bamboo Books,available,1000.0,True,True,True
+273244059,Sách Một Cuốn Sách Tích Cực - Bản Quyền,115000,115000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Văn Học,,,,,NHBook,available,1000.0,True,True,True
+271959601,Kỹ Năng Mềm Nền Tảng - Z1 Nguyên Tắc Chi Phối Hành Vi - (bìa mềm),180000,180000,0,0.0,0,0,,Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,112,2023-09-01,Bamboo Books,available,1000.0,True,True,True
+270773553,Tư Vấn Tâm Lý Học Đường - Để Tự Khám Phá Và Làm Chủ Bản Thân - Bản Quyền,95000,95000,0,0.0,0,0,,NXB Trẻ,NXB Trẻ,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+270636349,Tôi Lái Máy Bay Đến Đại Học - Làm Sao Để Một Học Sinh Mất Gốc Thi Đỗ Đại Học Top Đầu? - THA,189000,189000,0,0.0,0,0,Trần Ngọc Nam,Thái Hà,Nhà Xuất Bản Lao Động,,Bìa mềm,304,,NHBook,available,1000.0,True,True,True
+259513807,"Mở cửa tương lai, Nym Tôi của tương lai - Bản Quyền",380000,380000,0,0.0,0,1,,Saigon Books,Nhà Xuất Bản Văn Hóa - Văn Nghệ,,,,,Bamboo Books,available,1000.0,True,True,True
+257859339,Làm Ít Được Nhiều - Khám Phá Sức Mạnh Tiềm Ẩn Của Sự Buông Bỏ,112100,118000,5,0.0,0,0,,Zenbooks,Nhà Xuất Bản Đà Nẵng,,Bìa mềm,229,,Cá Chép Bookstore,available,1000.0,True,True,True
+255632941,Combo Putin – Logic của quyền lực + Cách của người Đức - Bản Quyền,356000,356000,0,0.0,0,0,,First News - Trí Việt,NXB Tổng Hợp Thành Phố Hồ Chí Minh,,,,,info book,available,1000.0,True,True,True
+255612275,Để Hiệu Quả Trong Công Việc - Bản Quyền,52000,52000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,info book,available,1000.0,True,True,True
+255389203,Combo Từ nước mắt đến nụ cười + Bí ẩn của nước - Bản Quyền,246000,246000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,info book,available,1000.0,True,True,True
+253627692,"Giảm ""Xóc"" Hành Trình Cuộc Đời - Bản Quyền",52000,52000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng Hợp,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+253095749,Triết Lí Của Người Giàu Sang _1980,169000,169000,0,0.0,0,0,Jason Brennan,1980 Books,Nhà Xuất Bản Thanh Niên,,Bìa mềm,320,,NewShop Official,available,1000.0,True,True,True
+244760521,KHI HỌC TẬP HÓA NIỀM VUI - 7 THÓI QUEN GIÚP BẠN CẢI THIỆN KHẢ NĂNG HỌC TẬP,158000,158000,0,0.0,0,0,Seonghyeok Park,Văn Lang,Nhà Xuất Bản Thông Tấn,,Bìa mềm,336,2023-03-09,info book,available,1000.0,True,True,True
+222726502,Trải Lòng Về Nghề Phiên Dịch,168000,168000,0,0.0,0,0,,Huy Hoàng Bookstore,Nhà Xuất Bản Thanh Niên,,,,,Bamboo Books,available,1000.0,True,True,True
+217535547,Nghệ Thuật Tổng Kết,109000,109000,0,0.0,0,0,,AZ Việt Nam,oem,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+207970964,Content Creator - Vén Màn Hậu Trường Của Những Bước Chân 4.0,120000,120000,0,0.0,0,0,,Kim Đồng,oem,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+207732705,THỬ ĐI CHỜ CHI- Sức mạnh thay đổi số phận của “Một lần làm thử”– Kim Mintae - Vương Thuý Quỳnh Anh dịch- Thái Hà – NXB Công Thương,129000,129000,0,0.0,0,0,,Thái Hà Book,Nhà Xuất Bản Công Thương,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+207281426,Kỹ Năng Mềm Cho Người Đi Làm - Ngôn Ngữ Cơ Thể Thông Minh,85000,85000,0,0.0,0,0,,NXB Trẻ,oem,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+205723011,Thử Đi Chờ Chi - Sức Mạnh Thay Đổi Số Phận Của Một Lần Làm Thử,129000,129000,0,0.0,0,0,,Thái Hà Book,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,Bìa mềm,300,2022-11-01,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+203242201,"Sách  Càng Kỷ Luật, Càng Tự Do - Skybooks - BẢN QUYỀN",109000,109000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Hà Nội,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+203222880,Sách Không Ai Có Thể Làm Bạn Tổn Thương Trừ Khi Bạn Cho Phép - Skybooks - BẢN QUYỀN,119000,119000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Hà Nội,,,,,Bamboo Books,available,1000.0,True,True,True
+196021397,Bạn Đỡ Ngu Ngơ Rồi Đấy,129000,129000,0,0.0,0,0,,AZ Việt Nam,oem,,Bìa mềm,,,info book,available,1000.0,True,True,True
+193911063,Bạn Đang Nghịch Gì Với Đời Mình (What are you doing with your life) - J. Krishnamurti,124000,124000,0,0.0,0,5,J. Krishnamurti,First News - Trí Việt,Nhà Xuất Bản Hồng Đức,,Bìa mềm,304,,BOOKCITY.VN,available,1000.0,True,True,True
+181783147,Khả Năng Hiện Thực Hóa - Mục Tiêu,99000,99000,0,0.0,0,0,,AZ Việt Nam,oem,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+179396918,Freelance Coach - Vén màn hậu trường của những bước chân 4.0,128000,128000,0,0.0,0,1,,Kim Đồng,oem,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+174293685,Nghệ thuật quản lý nhân sự,74100,98000,24,0.0,0,0,,Văn Lang,oem,,,,,Bảo Châu Books,available,1000.0,True,True,True
+167615452,Đánh Thức Năng Lực Vô Han (Tái Bản 2019),116000,116000,0,0.0,0,0,,First News - Trí Việt,oem,,,,,Bamboo Books,available,1000.0,True,True,True
+167614080,Hugge - Hạnh Phúc Từ Những Điều Nhỏ Bé - Nghệ Thuật Sống Của Người Đan Mạch,102000,102000,0,0.0,0,4,,First News - Trí Việt,oem,,,,,Bamboo Books,available,1000.0,True,True,True
+167613963,Tư Duy Đột Phá - Tái Bản 2020,168000,168000,0,0.0,0,0,,First News - Trí Việt,oem,,,,,Bamboo Books,available,1000.0,True,True,True
+166418124,"Sách TRÌNH BÀY THUYẾT PHỤC, KẾ HOẠCH RÕ RÀNG KẾT QUẢ THỰC TẾ",139000,139000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Đại Học Kinh Tế Quốc Dân,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+163831342,Sách - Tuổi Trẻ Vượt Bão,82000,82000,0,0.0,0,0,,Công Ty TNHH Văn Hóa và Truyền Thông AZ Việt Nam,Nhà Xuất Bản Dân Trí,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+160553611, combo Ở Đây Có Thính Thơm và Coi Chừng Ở Đây Có Bả,108000,108000,0,0.0,0,0,,Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+123447227,Sách - 43 Kĩ Năng Kiểm Soát Tức Giận,62000,62000,0,0.0,0,6,"Shino Maki, Nakanawa Fumiko",NXB Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,112,2020-04-22,Bamboo Books,available,1000.0,True,True,True
+120183336,Sách - Ẩn Số Mang Tên Thế Hệ Z - Gen Z @ College,89000,89000,0,0.0,0,0,,Thái Hà,nxb thanh nien,,,,,info book,available,1000.0,True,True,True
+92551399,Sách - Thấu Hiểu & Hỗ Trợ Trẻ Tự Kỷ (Tái bản) - First News,124000,124000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,144,,Bamboo Books,available,1000.0,True,True,True
+39142259,Combo Sách Kĩ Năng Sống: Nếu Tôi Biết Được Khi Còn 20 + Hành Trình Về Phương Đông ( Sách Nghệ Thuật Sống Đẹp/ Tặng Kèm Bookmark Happy Life),198000,198000,0,0.0,0,2,"Tina Seelig, Nguyên Phong",Nhiều công ty phát hành,,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+274005394,Tư Duy Và Hiểu Biết - Bản Quyền,158400,165000,4,0.0,0,1,,NXB Trẻ,NXB Trẻ,,Bìa mềm,292,2024-01-24,TYMBooks,available,1000.0,True,True,True
+273712828,Sách - Hình dáng của sự thịnh vượng - Lựa chọn đúng quan trọng hơn nỗ lực (MC),179000,179000,0,0.0,0,0,,Nhà Sách Hồng Ân,Nhà Xuất Bản Hồng Đức,,Bìa mềm,,,Khanhlinhbook,available,1000.0,True,True,True
+273682243,Siêu ý thức - Sức mạnh dẫn lối thành công  - Bản Quyền,179000,179000,0,0.0,0,0,,Thái Hà,Nhà Xuất Bản Thế Giới,,,,,Bamboo Books,available,1000.0,True,True,True
+273636826,Marketing Hướng Nội  - Bản Quyền,129000,129000,0,0.0,0,0,,Bách Việt,Nhà Xuất Bản Dân Trí,,,,,Bamboo Books,available,1000.0,True,True,True
+272864219,Manifest - 7 Bước Để Thay Đổi Cuộc Đời Bạn Mãi Mãi,89000,89000,0,0.0,0,2,Roxie Nafousi,Công ty TNHH Thương mại và Dịch vụ Văn hóa Hà Nội,Nhà Xuất Bản Thế Giới,,Bìa mềm,200,2023-10-16,Bảo Châu Books,available,1000.0,True,True,True
+272448469,Kỹ Năng Phát Triển Bản Thân Trong Công Việc - Bản Quyền,169000,169000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Công Thương,,,,,Bamboo Books,available,1000.0,True,True,True
+272448466,Cách Người Nhật Quản Lý Hiệu Suất Công Việc  - Bản Quyền,149000,149000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Công Thương,,,,,Bamboo Books,available,1000.0,True,True,True
+271455792,"Sách - Nghệ Thuật Pha Trò Dí Dỏm : Đùa Tinh Tế, Vạn Người Mê",136000,136000,0,0.0,0,4,,BIZBOOKS,Nhà Xuất Bản Hồng Đức,,,,,NHBook,available,1000.0,True,True,True
+270131208,Thịnh Vượng Tài Chính Tuổi 30 (Tập 2) - Bản Quyền,99000,99000,0,0.0,0,0,,Thái Hà Book,Nhà Xuất Bản Lao Động - Xã Hội,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+270129201,Thịnh Vượng Tài Chính Tuổi 30 ( Tập 1 ) - Bản Quyền,109000,109000,0,0.0,0,0,,Thái Hà Book,Nhà Xuất Bản Lao Động - Xã Hội,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+269992989,"Con Gái Học Cách ""Sinh Tồn""",125000,125000,0,0.0,0,0,Lucie Hemmem. PhD,NXB Trẻ,NXB Trẻ,,Bìa mềm,292,2023-07-06,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+263956902,Tuổi 20 - Những Năm Tháng Quyết Định Cuộc Đời Bạn,83000,109000,24,0.0,0,0,Meg Jay,Alpha Books,Nhà Xuất Bản Lao Động Xã Hội,,Bìa mềm,316,2023-06-29,Alpha Books Official,available,1000.0,True,True,True
+260805929,Tư Duy Về Tư Duy - Bản Quyền,119000,119000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Thế Giới,,,,,Bamboo Books,available,1000.0,True,True,True
+258820464,Bí kíp chống tụt mood  - Bản Quyền,110000,110000,0,0.0,0,0,,Saigon Books,Nhà Xuất Bản Thế Giới,,,,,info book,available,1000.0,True,True,True
+258752530,Tạo lập mối quan hệ trong kỷ nguyên số (How to Work a Room) - Bản Quyền,120000,120000,0,0.0,0,0,,Saigon Books,Nhà Xuất Bản Thế Giới,,,,,info book,available,1000.0,True,True,True
+257763261,Sức Mạnh Của Lòng Kiên Nhẫn - Bản Quyền,88000,88000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,info book,available,1000.0,True,True,True
+255612247,Giáo Dục Não Phải (Tương Lai Cho Con Bạn) Bản Quyền,88000,88000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Thế Giới,,,,,info book,available,1000.0,True,True,True
+255605711,Hãy Là Người Lãnh Đạo Why Be A Leader? - Bản Quyền,42000,42000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,info book,available,1000.0,True,True,True
+255605491,Con Trai Ngoài Giờ Học Nói Chuyện Gì? - Bản Quyền,40000,40000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,144,,info book,available,1000.0,True,True,True
+255349554,Nghệ thuật làm Mẹ Bản Quyền,48000,48000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+255317226,Chicken Soup For The Soul Puppies For Sales 14 - Quà Tặng Từ Trái Tim (Song Ngữ) - Bản Quyền,76000,76000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,info book,available,1000.0,True,True,True
+254093491,Sức Mạnh Tiềm Thức Phiên Bản Bìa Cứng - Bản Quyền,158000,158000,0,0.0,0,0,,First News - Trí Việt,NXB Tổng Hợp Thành Phố Hồ Chí Minh,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+254093257,Cẩm Nang Con Gái (Tái bản 2021) - Bản Quyền,68000,68000,0,0.0,0,0,,First News - Trí Việt,NXB Tổng Hợp Thành Phố Hồ Chí Minh,,,,,info book,available,1000.0,True,True,True
+254078230,Combo Quyền tách khỏi đám đông + Sức bật tinh thần - Bản Quyền,336000,336000,0,0.0,0,0,,First News - Trí Việt,NXB Tổng Hợp Thành Phố Hồ Chí Minh,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+252867774,Sách Hành Tinh Của Một Kẻ Nghĩ Nhiều - Bản Quyền,86000,86000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Thế Giới,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+230039172,Việc Hôm Nay Chớ Để Ngày Mai - ALP,99000,99000,0,0.0,0,0,Richard Templar,Alphabooks,Nhà Xuất Bản Thế Giới,,Bìa mềm,204,2023-02-09,FishingBook,available,1000.0,True,True,True
+230012605,Combo Trở thành người ảnh hưởng (47688) + 17 Tố chất thiết yếu của team player (46384),182000,182000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,NHBook,available,1000.0,True,True,True
+221226545,"Cô Gái À, Yếu Đuối Cho Ai Xem - Học Cách Mạnh Mẽ, Học Cách Khôn Ngoan _MC",138000,138000,0,0.0,0,0,Tiểu Phi Ngư,MCBOOKS,Nhà Xuất Bản Hồng Đức,,Bìa mềm,246,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+213680898,Thuật đọc tâm lý Sếp - Bản Quyền,129000,129000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Thế Giới,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+208917326,Sống Sót Nơi Công Sở - English Business Writing - Viết Ư? Chuyện Nhỏ - Bản Quyền,179000,179000,0,0.0,0,0,Juliana Jiyoon Lee,Alphabooks,Nhà Xuất Bản Dân Trí,,Bìa mềm,276,2022-12-19,info book,available,1000.0,True,True,True
+207971022,Đường Xưa Mây Trắng,315800,329000,4,0.0,0,0,,Phương Nam,oem,,Bìa mềm,,,TYMBooks,available,1000.0,True,True,True
+206360718,Logic Của Tâm Trí,179000,179000,0,0.0,0,0,Michael Lewis,Nhà Xuất Bản Thế Giới,Nhà Xuất Bản Thế Giới,,Bìa mềm,359,,info book,available,1000.0,True,True,True
+200726825,Kỹ Năng Làm Sếp,67000,70000,4,0.0,0,0,,NXB Tổng Hợp,oem,,Bìa mềm,,,Nhân Văn,available,1000.0,True,True,True
+200725335,Dạy Học Không Theo Lối Mòn,189000,189000,0,0.0,0,0,,Alphabooks,oem,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+178779481,Kỹ Năng Quản Lý Hiệu Suất Công Việc Của Người Nhật,119000,119000,0,0.0,0,0,,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+160691623,"""Đối Đầu"" Nơi Công Sở",98000,98000,0,0.0,0,0,,Zenbooks,Nhà Xuất Bản Dân Trí,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+160591641,Nghệ Thuật Quyến Rũ (Tái Bản 2019),206000,215000,4,5.0,1,16,,NXB Trẻ,NXB Trẻ,,,,,Nhân Văn,available,1000.0,True,True,True
+103348157,Combo:  VỀ XÂY DỰNG KĨ NĂNG SỐNG TRONG CUỘC CÁCH MẠNG 4.0,163600,238000,31,0.0,0,1,,Tân Việt,NXB Dân Trí,,,,,Tiki Trading,available,1000.0,False,True,True
+426734,Sách Bạn Trai Tháo Vát,98000,98000,0,0.0,0,0,Martin Oliver - Simon Ecob,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,207,2015-03-06,info book,available,1000.0,True,True,True
+349582,Sách Vì Sao Bạn Chưa Giàu?,135000,135000,0,0.0,0,0,.,Công Ty Cổ Phần Văn Hóa Đông A,Nhà Xuất Bản Dân Trí,,Bìa mềm,128,2012-06-25,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+279296434,Sách Sáng Tạo Bản Thân,118000,118000,0,0.0,0,0,Lưu Dung,VanLangBooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,216,,Tiki Trading,available,1000.0,False,True,True
+278012078,Ứng Dụng AI Trong Công Việc,172080,239000,28,5.0,1,10,,1980 Books,Nhà Xuất Bản Công Thương,,,,,1980Books Official,available,1000.0,True,True,True
+275579582,Sách - NGAY VÀ LUÔN - Xóa bỏ khoảng cách giữa ý định và hành động của bạn ,68600,98000,30,0.0,0,0,Michelle Moore,Bách Việt,Nhà Xuất Bản Dân Trí,,Bìa mềm,160,,Sách Bách Việt,available,1000.0,True,True,True
+274047804,Sách Cẩm Nang Khám Phá Siêu Nhiên  - Bản Quyền,84500,89000,5,0.0,0,0,,AZ Việt Nam,Nhà Xuất Bản Thế Giới,,,,,Sống Official,available,1000.0,True,True,True
+273990934,Hoàn Thành Mọi Việc Không Hề Khó (Tái Bản Mới Nhất) - Bản Quyền,145000,189000,23,0.0,0,3,,Alphabooks,Nhà Xuất Bản Lao Động,,,,,Alpha Books Official,available,1000.0,True,True,True
+273643738,Trạm Đọc | Trước Bình Minh Luôn Là Đêm Tối,199000,199000,0,0.0,0,0,Tạ Minh Tuấn,Alpha Books,Nhà Xuất Bản Thế Giới,,Bìa mềm,,,info book,available,1000.0,True,True,True
+273643509,Trạm Đọc | Thuật Hùng Biện (Tái Bản),129000,129000,0,0.0,0,1,"Brian Tracy,  Brian Tracy, Brian Tracy",Alpha Books,Nhà Xuất Bản Thế Giới,,Bìa mềm,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+273044504,Vừa Học Vừa Chơi: Những Loài Vật Bé Nhỏ - Bản Quyền,120000,120000,0,0.0,0,0,, NXB Kim Đồng,Nhà Xuất Bản Kim Đồng,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+272856687,Sách - 50 Điều Trường Học Không Dạy Bạn Và 20 Điều Bạn Cần Làm Trước Khi Rời Ghế Nhà Trường (Tái Bản 2023) 129K,129000,129000,0,0.0,0,0,Alpha Books biên soạn,Alpha Books,Nhà Xuất Bản Lao Động,,Bìa mềm,360,2023-10-16,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+271410583,Sách Sáng tác và thiết kế tạp chí của bạn,153000,220000,30,0.0,0,10,Sarah Hull,Đông A,Nhà Xuất Bản Dân Trí,,Bìa cứng,96,2023-08-01,Tiki Trading,available,1000.0,False,True,True
+270126575,Chế Độ Ăn Giảm Cân Và Kiểm Soát Tiểu Đường - Bản Quyền,189000,189000,0,0.0,0,0,,Thái Hà Book,Nhà Xuất Bản Thế Giới,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+263627617,Người Phụ Nữ Uy Lực Nhất Ở Đây Là Bạn,189000,189000,0,0.0,0,0,Lydia Fenet,Phương Nam Book,Nhà Xuất Bản Thế Giới,,Bìa mềm,328,,Nhà Sách Phương Nam,available,1000.0,True,True,True
+262748269,"Cô Gái À Yếu Đuối Cho Ai Xem: Học Cách Mạnh Mẽ, Học Cách Khôn Ngoan - Sách Phát Triển Bản Thân Mỗi Ngày  - Bản Quyền",138000,138000,0,0.0,0,0,,MCBOOKS,Nhà Xuất Bản Hồng Đức,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+261814024,Combo sách: Nghệ thuật truyền cảm hứng trước đám đông - Nói nhiều không bằng nói đúng,342950,361000,5,0.0,0,0,,Tinh Hoa,Nhiều Nhà Xuất Bản,,,,,Tinh Hoa,available,1000.0,True,True,True
+260107993,"Kỹ Năng Học Tập Thành Công Ở Bậc Cao Đẳng, Đại Học Tập 1",159000,159000,0,0.0,0,0,,Alpha Books,NXB Dân Trí,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+258806005,Mở Lối Yêu Thương - Bản Quyền,90000,90000,0,0.0,0,0,,Saigon Books,Nhà Xuất Bản Văn Hóa - Văn Nghệ,,,,,info book,available,1000.0,True,True,True
+253238320,Content Đúng Là King,89000,89000,0,0.0,0,0,,Không có,Nhà Xuất Bản Công Thương,,,,,info book,available,1000.0,True,True,True
+252289966,"Sách Nghệ Thuật Tập Trung: Nâng Cao Năng Suất, Tối Ưu Thời Gian, Hiệu Quả Bất Ngờ - Bản Quyền",99000,99000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Thế Giới,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+248422314,"Tối không chạy deadline, sáng không ngại đi làm - Takashi Torihara",139000,139000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Đại Học Kinh Tế Quốc Dân,,Bìa mềm,204,,info book,available,1000.0,True,True,True
+247878411,"Kỹ Năng Học Tập Thành Công Ở Bậc Cao Đẳng, Đại Học (Tập 2 ) : Những kỹ năng học thuật (*** Sách Bản Quyền ***)",179000,179000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+208917743,Học Cách Tiêu Tiền (Tái Bản 2020) - Bản Quyền,119000,119000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Lao Động Xã Hội,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+208906549,Bí Mật Của Một Trí Nhớ Siêu Phàm - Eran Katz - Bản Quyền,114000,149000,23,0.0,0,2,,Alphabooks,Nhà Xuất Bản Lao Động Xã Hội,,,,,Alpha Books Official,available,1000.0,True,True,True
+205744369,Sách OSHO Thân Mật Cội Nguồn Của Hạnh Phúc - First News - BẢN QUYỀN,98000,98000,0,0.0,0,1,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+203084254,Giáo Dục Não Phải - Tương Lai Cho Con Bạn,88000,88000,0,0.0,0,0,,FIRST NEWS,oem,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+202242110,Sách  Context Marketing - BẢN QUYỀN,189000,189000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,info book,available,1000.0,True,True,True
+202217689,Sách Kỹ Năng Quản Lý Nhân Sự Chuyên Nghiệp - BẢN QUYỀN,119000,119000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+190739550,1% Mỗi Ngày - Không Ngừng Chinh Phục Bản Thân,115200,120000,4,0.0,0,0,Ngô Di Lân,NXB Trẻ,NXB Trẻ,,Bìa mềm,326,2022-07-11,TYMBooks,available,1000.0,True,True,True
+188574658,Dành Cho Bạn Gái - Bách Khoa Thư Kĩ Năng Sống - Thói Quen Tốt Của Cô Gái Tuyệt Vời,75000,75000,0,0.0,0,0,Peng Fan,Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,180,2022-06-01,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+181500814,Ẩn Số Mang Tên Thế Hệ Z @ College,89000,89000,0,0.0,0,0,,Thái Hà Book,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+177980046,Combo Trồng Một Nụ Cười + Sợ Hãi - Hóa Giải Sợ Hãi Bằng Tình Thương (2 Cuốn),308000,308000,0,0.0,0,0,Thích Nhất Hạnh,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+171292223,Chicken Soup For The Kid's Soul - Chắp Cánh Tuổi Thơ,76000,76000,0,0.0,0,0,,FIRST NEWS,oem,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+158710696,"SÁCH - Micromastery - Thành thạo kỹ năng nhỏ, vươn đến thành công lớn - Tác Giả Robert Twigger",150000,150000,0,0.0,0,0,Robert Twigger,Saigon Books,Nhà Xuất Bản Thế Giới,,Bìa mềm,216,2022-01-14,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+132302665,Sách - Combo 3 cuốn Osho Đàn Ông - Phụ Nữ - Ươm Mầm,337000,337000,0,0.0,0,0,,Thái Hà,Nhà Xuất Bản Công Thương,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+113709906,Combo Sách - HBR Guide Kỹ Năng Quản Lý Chuyên Sâu Dành Cho Người Tự Học (Bộ 10 Cuốn),1190000,1190000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Công Thương,,,,,info book,available,1000.0,True,True,True
+109298262,Sách Cao Thủ Viết Lách: Trổ Tài Viết Phỏng Vấn,24700,25000,1,0.0,0,5,"Cecilia Minden, Kate Roth",NXB Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,24,2021-06-01,Nhà sách Fahasa,available,1000.0,True,True,True
+109283072,Sách Cao Thủ Viết Lách: Múa Bút Viết Tiểu Sử,24700,25000,1,0.0,0,1,"Cecilia Minden, Kate Roth",NXB Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,24,2021-06-15,Nhà sách Fahasa,available,1000.0,True,True,True
+109283070,Sách Cao Thủ Viết Lách: Cải Biên Cổ Tích,24700,25000,1,0.0,0,1,Cecilia Minden,NXB Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,24,2021-06-15,Nhà sách Fahasa,available,1000.0,True,True,True
+92010804,Sách - Thuật Tổ Chức Hội Họp,59000,59000,0,0.0,0,7,,Alphabooks,Nhà Xuất Bản Thế Giới,,,,,info book,available,1000.0,True,True,True
+35579040,Sách Nghệ Thuật Bán Hàng Bằng Câu Chuyện,188000,188000,0,5.0,1,20,Paul Smith,BIZBOOKS,Nhà Xuất Bản Hồng Đức,,,,,trungthanh2018,available,1000.0,True,True,True
+26662416,Lý Sự Cùn,46800,46800,0,4.6,46,450,,Công ty TNHH Văn Hóa Khai Tâm,Nhà Xuất Bản Hội Nhà Văn,,Bìa mềm,56,2019-08-15,Sách Khai Tâm,available,1000.0,True,True,True
+279241191,"CẨM NANG CÔNG TÁC GIÁO DỤC MẦM NON QUY ĐỊNH VỀ CHÍNH SÁCH HỌC PHÍ, MIỄN, GIẢM, HỖ TRỢ HỌC PHÍ, HỖ TRỢ CHI PHÍ HỌC TẬP, GIÁ DỊCH VỤ VÀ PHỔ CẬP  GIÁO DỤC MẦM NON",395000,395000,0,0.0,0,0,Nguyễn Tài Thành,TRUNG TÂM SÁCH PHÁP LUẬT VIỆT NAM,Nhà xuất bản Kinh tế tài chính,,Bìa mềm,400,2025-10-01,NHÀ SÁCH CHÍNH TRỊ PHÁP LUẬT KIỂM TOÁN TÀI CHÍNH,available,1000.0,True,True,True
+275099359,Sách Hay Tổng Hợp Kiến Thức: Những Điều Trường Havard Vẫn Không Dạy Bạn,125150,125150,0,0.0,0,0,,Alpha Books,Nhà Xuất Bản Phụ Nữ,,,,,AHABOOKS,available,1000.0,True,True,True
+274024838,Cuốn Sách Văn Học Giả Tưởng Hay- Con Rít,179150,179150,0,0.0,0,0,,Nhà xuất bản Phụ Nữ Việt Nam,Nhà Xuất Bản Phụ Nữ,,,,,AHABOOKS,available,1000.0,True,True,True
+273931579,Sách - Khoa học thần kinh dành cho các nhà lãnh đạo - Thái Hà,199000,199000,0,0.0,0,0,,Thái Hà,Nhà Xuất Bản Lao Động,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+273773765,Cẩm Nang Du Học Australia-Một Góc Thế Giới Bốn Bề Đại Dương - Bản Quyền,99000,99000,0,0.0,0,1,,Alphabooks,Nhà Xuất Bản Thế Giới,,,,,Gooda Official,available,1000.0,True,True,True
+273718088,Kỹ Năng Học Đường : Mắc Lỗi Ư? Đừng Sợ! - Bản Quyền,79000,79000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Lao Động,,,,,Gooda Official,available,1000.0,True,True,True
+273199685,Khơi Nguồn Năng Lực Trực Giác,99000,110000,10,0.0,0,3,Cate Howell,Văn Lang,,,Bìa mềm,264,2023-11-02,Bảo Châu Books,available,1000.0,True,True,True
+272310395,Thử đi chờ chi – Sức mạnh thay đổi số phận của “Một lần làm thử”,129000,129000,0,0.0,0,0,,Thái Hà,Nhà Xuất Bản Công Thương,,,,,info book,available,1000.0,True,True,True
+271248875,Combo sách 50 quy tắc vàng: Kĩ năng khi đi làm (3 cuốn),114000,114000,0,0.0,0,0,,Công Ty Cổ Phần Sách Đại Học - Dạy Nghề,Nhà Xuất Bản Giáo Dục Việt Nam,,,,,Cửa hàng Sách HEVOBOOKS,available,1000.0,True,True,True
+270142472,Phớt lờ lo âu 8+ - Bản Quyền,69000,69000,0,0.0,0,0,,Thái Hà Book,Nhà Xuất Bản Lao Động,,,,,info book,available,1000.0,True,True,True
+262463628,Bất Định Về Học Thuật - Tình Trạng Học Tập Hạn Chế Trong Trường Đại Học,110000,110000,0,0.0,0,0,Richard Arum,,,,,,,,out_of_stock,,False,False,False
+261944124,Nghệ Thuật Kể Chuyện Bằng Dữ Liệu,199000,199000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Lao Động,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+258552409,Thuyết phục bằng câu hỏi (DOESN'T HUST TO ASK) - Bản Quyền,190000,190000,0,0.0,0,0,,Saigon Books,Nhà Xuất Bản Thế Giới,,,,,info book,available,1000.0,True,True,True
+252911711,Combo sách - Nghệ Thuật Lãnh Đạo Từ Trái Tim: Cầu Nối Tới Tăng Trưởng + Vì Sao Đơn Giản Lại Hiệu Quả + 12 Phương Pháp Khích Lệ Nhân Viên Tiền Không Làm Được + Lãnh Đạo Mất Thăng Bằng,319200,336000,5,0.0,0,0,,Tinh Hoa,Nhà Xuất Bản Thanh Niên,,,,,Tinh Hoa,available,1000.0,True,True,True
+252341206,Viết Luận Thật Giản Đơn,159000,159000,0,0.0,0,0,,Sách điện tử Thái Hà,oem,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+249288565,Hon da Soichiro - Thiên Tài Không Bằng Cấp -  Bessatsu Takarajima,169000,169000,0,0.0,0,0,Bessatsu Takarajima,1980 Books,Nhà Xuất Bản Thanh Niên,,Bìa mềm,328,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+247875446,"Kỹ Năng Học Tập Thành Công Ở Bậc Cao Đẳng, Đại Học: Tập 1 (*** Sách Bản Quyền ***)",159000,159000,0,0.0,0,0,,Alpha Books,NXB Dân Trí,,,,,info book,available,1000.0,True,True,True
+247862414,Sách - Điều Kỳ Diệu Của Xác Lập Mục Tiêu Chính Yếu (PD),80000,80000,0,5.0,1,2,,Không có,Không có,,,,,Pandabooks Hiệu Sách,available,1000.0,True,True,True
+246774462,Ẩn Số Mang Tên Thế Hệ Z - Gen Z @ College,89000,89000,0,0.0,0,0,,Sách điện tử Thái Hà,Nhiều Nhà Xuất Bản,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+242227400,Đời Ngắn Đừng Ngủ Dài (Bìa mềm),85000,85000,0,0.0,0,0,,NXB Trẻ,NXB Trẻ,,Bìa mềm,228,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+230012684,Combo Trở thành người ảnh hưởng (47688) + 17 Tố chất thiết yếu của team player (46384),182000,182000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,NHBook,available,1000.0,True,True,True
+213936185,Không Có Đỉnh Quá Cao - Từ Làng Quê Bước Ra Chinh Phục Thế Giới,90000,90000,0,0.0,0,0,,NXB Trẻ,oem,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+209905852,Tôi Đã Kiếm 1 Triệu Đô Đầu Tiên Trên Internet Như Thế Nào Và Bạn Cũng Có Thể Làm Như Thế (Ewen Chia) - Bản Quyền,179000,179000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Công Thương,,,,,info book,available,1000.0,True,True,True
+209902405,Your Health Your Decision - Hợp Tác Cùng Bác Sĩ Để Trở Thành Người Bệnh Thông Thái - Bản Quyền,139000,139000,0,0.0,0,0,Robert Alan Mcnutt,Alphabooks,Nhà Xuất Bản Thế Giới,,Bìa mềm,236,2022-12-16,info book,available,1000.0,True,True,True
+209610785,Nghệ thuật bán mình cho sếp - Bản Quyền,89000,89000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Lao Động Xã Hội,,,,,Gooda Official,available,1000.0,True,True,True
+208917572,Sức Mạnh Của Tập Trung - Bản Quyền,169000,169000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Lao Động Xã Hội,,,,,Gooda Official,available,1000.0,True,True,True
+208739271,Thuật Đắc Nhân Tâm - Bản Quyền,149000,149000,0,0.0,0,1,,Alphabooks,Nhà Xuất Bản Lao Động,,,,,FishingBook,available,1000.0,True,True,True
+208739235,Tinh Hoa Lãnh Đạo - Bản Quyền,159000,159000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Lao Động,,,,,Gooda Official,available,1000.0,True,True,True
+208559440,Sách Content và Nghệ thuật STORYTELLING - Alphabooks - BẢN QUYỀN,299000,299000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+207971106,Đủ Nắng Thì Hoa Nở,84550,89000,5,0.0,0,0,,Phương Nam,Nhà Xuất Bản Thế Giới,,Bìa mềm,155,,Cá Chép Bookstore,available,1000.0,True,True,True
+201856071,Sách  EQ  Từ Âm Vô Cực Đến Dương Vô Cùng,159000,159000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,info book,available,1000.0,True,True,True
+198930243,Thuật Tẩy Não ( Tái bản 2022 - Tặng kèm bookmark),189000,189000,0,0.0,0,0,Cao Đức,Alphabooks,Nhà Xuất Bản Lao Động,,Bìa mềm,400,,info book,available,1000.0,True,True,True
+196021385,Phẩm Chất Nhà Lãnh Đạo Nhí - Suy Nghĩ Cẩn Trọng - Túi Chuyện Của Bà,30000,30000,0,0.0,0,0,,NXB Trẻ,oem,,Bìa mềm,,,Nhân Văn,available,1000.0,True,True,True
+176816388,Thế Lưỡng Nan Của Nhà Lãnh Đạo - Vận Dụng Cân Bằng 12 Quy Tắc Lãnh Đạo Từ Seal,182000,182000,0,0.0,0,0,,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,,,,info book,available,1000.0,True,True,True
+167614753,Dám Nghĩ Lớn ! - Khổ Nhỏ,98000,98000,0,0.0,0,0,,First News - Trí Việt,oem,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+167613605,Dominic O’Brien - Siêu Trí Nhớ,119000,119000,0,0.0,0,0,,Alphabooks,oem,,,,,info book,available,1000.0,True,True,True
+164433304,Sức Mạnh Của Sự Khen Ngợi,110000,110000,0,0.0,0,0,Wang Hui,Minh Long,Nhà Xuất Bản Thanh Niên,,Bìa mềm,333,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+124893056,Sách - Đọc Thấu Tâm Can,129000,129000,0,0.0,0,0,,Thái Hà,Nhà Xuất Bản Công Thương,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+114944822,Sách: 30 Điều Học Sinh Tiểu Học Cần Chú Ý - TSTN,60000,60000,0,0.0,0,0,,Minh Long,Không có,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+32580328,Ẩn Số Mang Tên Thế Hệ Z - Gen Z @ College - Tặng Kèm Sổ Tay,89000,89000,0,0.0,0,2,Corey Seemiller & Meghan Grace,Thái Hà,Nhà Xuất Bản Công Thương,,Bìa mềm,266,,info book,available,1000.0,True,True,True
+274185282,"NGỦ NGON MỖI ĐÊM, SỐNG KHỎE MỖI NGÀY - Joelle Adrien - Hương Thanh, Giáng Hương,Văn Hường dịch - Nhã Nam - Nhà xuất bản Văn Học.",120000,120000,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Văn Học,,Bìa mềm,236,,Bamboo Books,available,1000.0,True,True,True
+274041442,Sách - Don't Pay For Your MBA - Học MBA theo cách của bạn,121440,138000,12,0.0,0,3,Laurie Pickard,Zenbooks,NXB Dân Trí,,Bìa mềm,326,,Đảo Sách Store,available,1000.0,True,True,True
+273825934,"Sách - Không Đọc Sách Này, Viết Dở Đừng Than ! ( VL)",114750,135000,15,0.0,0,0,,Văn Lang,Nhà Xuất Bản Hồng Đức,,Bìa mềm,132,2024-01-15,Bảo Châu Books,available,1000.0,True,True,True
+273818227,Tôn giáo - Khái lược những tư tưởng lớn,390000,390000,0,0.0,0,1,DK,Công Ty Cổ Phần Văn Hóa Đông A,NXB Dân Trí,,Bìa cứng,352,2019-01-02,MỌT Bookstore,available,1000.0,True,True,True
+273399457,Phẩm Giá Quý Cô - Trở Thành Nữ Hoàng Trên Bàn Tiệc,149000,149000,0,0.0,0,1,Sheryl Shade,Skybooks,NXB Dân Trí,,Bìa mềm,216,2023-11-15,NHBook,available,1000.0,True,True,True
+273372444,Phát Triển Các Mối Quan Hệ Khi Mắc OCD,99000,99000,0,0.0,0,2,Amy Mariaskin,NXB Dân Trí,Nhà Xuất Bản Dân Trí,,Bìa mềm,248,,Nhà Sách Phương Nam,available,1000.0,True,True,True
+273331372,NFT - Đáp Án Mới Cho Sự Thịnh Vượng,88000,88000,0,0.0,0,0,,Công Ty TNHH Văn Hóa Và Truyền Thông Skybooks Việt Nam,Nhà Xuất Bản Thế Giới,,,,,Bamboo Books,available,1000.0,True,True,True
+272155459,The Miracle Equation - Phương Trình Mầu Nhiệm,169000,169000,0,0.0,0,0,Hal Elrod,Nhã Nam,Nhà Xuất Bản Thông Tấn,,Bìa mềm,371,2023-09-20,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+270256808,Kĩ Năng Vàng Cho Teen Thế Kỉ 21 - Bí Kíp Ghi Chép Hiệu Quả,70000,70000,0,0.0,0,0,,Nhà Xuất Bản Kim Đồng,Nhà Xuất Bản Kim Đồng,,,,,Bamboo Books,available,1000.0,True,True,True
+260812483,Nghệ thuật bán mình cho sếp,89000,89000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Lao Động Xã Hội,,,,,Thang Long Book,available,1000.0,True,True,True
+258805909,One Decision - Kỹ năng ra quyết định sáng suốt - Bản Quyền,180000,180000,0,0.0,0,0,,Saigon Books,Nhà Xuất Bản Dân Trí,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+251885306,Giá Như Tôi Biết Những Điều Này Trước khi Thi Đại Học ( Phiên Bản Mới ),128000,128000,0,0.0,0,0,Đinh Tuấn Ân,NXB Phụ Nữ Việt Nam,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,302,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+249007374,Sách Giành phiếu bầu bằng mọi giá - Nhã Nam - BẢN QUYỀN,228000,228000,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Thế Giới,,,,,FishingBook,available,1000.0,True,True,True
+216288851,Sách Làm Sao Học Ít Hiểu Nhiều,128000,128000,0,0.0,0,0,,Zenbooks,Nhà Xuất Bản Đà Nẵng,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+214933088,Từ quản lý đến lãnh đạo – Sứ mệnh dẫn đầu,250000,250000,0,0.0,0,0,,Không có,Không có,,,,,Bamboo Books,available,1000.0,True,True,True
+207281384,Khoa Học Khám Phá - Cầu Vồng Của Feynman - Một Cuộc Tìm Kiếm Vẻ Đẹp Trong Vật Lý Và Trong Cuộc Sống,110000,110000,0,0.0,0,0,,NXB Trẻ,oem,,Bìa mềm,,,FishingBook,available,1000.0,True,True,True
+201569003,Sách  Tuần Làm Việc 4 Ngày - BẢN QUYỀN,159000,159000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,Bamboo Books,available,1000.0,True,True,True
+193417746,"Kỹ Năng Học Tập Thành Công Ở Bậc Cao Đẳng, Đại Học (Tập 2 ) : Những kỹ năng học thuật",179000,179000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+191807992,Thế Giới Không Rác Thải,159000,159000,0,0.0,0,0,,Thái Hà,oem,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+191217263,Cuộc Sống Vốn Khó Khăn Rất Cần 7 Tố Chất - Những Kỹ Năng Giúp Bạn Trẻ Thành Công,75000,75000,0,0.0,0,0,Megara,CÔNG TY TNHH SÁCH & TRUYỀN THÔNG VIỆT NAM,nxb thanh nien,,Bìa mềm,238,,Bảo Châu Books,available,1000.0,True,True,True
+181783092,Kích Hoạt Trí Não - Mở Rộng Bộ Nhớ,110000,110000,0,5.0,1,1,,NXB Trẻ,oem,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+178458208,Search Inside Yourself - Tạo Ra Lợi Nhuận Vượt Qua Đại Dương Và Thay Đổi Thế Giới,149000,149000,0,0.0,0,1,,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,,,,Bamboo Books,available,1000.0,True,True,True
+174491337,Sách Nghệ Thuật PR Bản Thân,99000,99000,0,0.0,0,1,Austin Kleon,Alphabooks,Nhà Xuất Bản Thế Giới,,Bìa mềm,210,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+167615630,Viết Luận Thật Giản Đơn,159000,159000,0,0.0,0,0,,Thái Hà,oem,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+167615491,Tỏa Sáng Ở Trường Đại Học,118000,118000,0,0.0,0,0,,First News - Trí Việt,oem,,,,,Bamboo Books,available,1000.0,True,True,True
+167615232,Ngôn Ngữ Và Văn Hóa Nhật Bản - Hiểu Biết Ngôn Ngữ A2 - Sơ Cấp 2,160000,160000,0,0.0,0,0,,First News - Trí Việt,oem,,,,,Bamboo Books,available,1000.0,True,True,True
+167615185,Đại Hiệp Hồng Kông - Châu Nhuận Phát,162000,162000,0,0.0,0,0,,First News - Trí Việt,oem,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+167615148,Thái Độ Quyết Định Thành Công - Tái Bản 2021,58000,58000,0,0.0,0,0,,First News - Trí Việt,oem,,,,,Bamboo Books,available,1000.0,True,True,True
+167614017,Lựa Chọn Nhiệm Màu - Thông Điệp Mới Truyền Cảm Hứng Về Hy Vọng Cho Hàng Triệu Độc Giả,88000,88000,0,0.0,0,0,,First News - Trí Việt,oem,,,,,Bamboo Books,available,1000.0,True,True,True
+167613937,Suối Nguồn Tươi Trẻ - Tập 1,68000,68000,0,0.0,0,5,,First News - Trí Việt,oem,,,,,Bamboo Books,available,1000.0,True,True,True
+167610890,Kế Hoạch Marketing Trên Một Trang Giấy - Tái Bản 2021,159000,159000,0,0.0,0,0,,Alphabooks,oem,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+158595638,Sách - Freelance Writer - Vén màn hậu trường của những bước chân 4.0,120000,120000,0,0.0,0,1,Linh Phan,NXB Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,232,,Bamboo Books,available,1000.0,True,True,True
+137751883,Binh Pháp Cưa Trai,75000,75000,0,5.0,1,18,.,Báo Sinh Viên VN - Hoa Học Trò,Báo Sinh Viên VN - Hoa Học Trò,,Bìa mềm,154,2018-04-06,Nhà Sách Phương Nam,available,1000.0,True,True,True
+129528965,Giá Như Tôi Biết Những Điều Này Trước Khi Thi Đại Học,115000,115000,0,0.0,0,0,,NXB Phụ Nữ,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,320,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+113759281,One Decision - Kỹ năng ra quyết định sáng suốt (Tặng kèm Bookmark Happy Life ),173000,173000,0,0.0,0,0,,Saigonbook,NXB Dân Trí,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+101931394,Sách - Sách đen - Bộ công cụ của Phụ nữ thành đạt (Cẩm nang tuyệt mật),79000,79000,0,0.0,0,1,Otegha Uwagba,Bloom Books,Nhà Xuất Bản Thế Giới,,,148,,Bamboo Books,available,1000.0,True,True,True
+92551632,Sách - Trải Nghiệm Sức Mạnh Hiện Tại (khổ nhỏ) - First News,98000,98000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,240,,Bamboo Books,available,1000.0,True,True,True
+92551269,Sách - Trường mẫu giáo uyên thâm - First News,92000,92000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,240,,Bamboo Books,available,1000.0,True,True,True
+66894181,Combo 2 cuốn sách: Những Nguyên Tắc Vàng Của NAPOLEON HILL + Blue ocean shift - Cuộc dich chuyển đại dương xanh,277000,277000,0,0.0,0,1,,FIRST NEWS,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+33158295,"Combo Sách: Sức Mạnh Của Ngôn Từ, Sức Mạnh Của Tập Trung",277000,277000,0,0.0,0,2,"Don Gabor, Jack Canfield, Mark Victor Hansen, Les Hewitt",First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,714,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+273786624,Manga For Success - Xây Dựng Mối Quan Hệ - Bản Quyền,125000,125000,0,0.0,0,0,,Saigonbook,Nhà Xuất Bản Thế Giới,,,,,Bamboo Books,available,1000.0,True,True,True
+273364051,Sách Combo: Bạn Đắt Giá Bao Nhiêu? + Tao Nhã Và Quyết Đoán  - Bản Quyền,239000,239000,0,0.0,0,0,,Skybooks,Nhiều Nhà Xuất Bản,,,,,NHBook,available,1000.0,True,True,True
+273218870,Chuyện Đi Làm Hết Lòng- Muôn Kiểu Sinh Tồn Nơi Công Sở,136000,136000,0,0.0,0,0,Nấm Lùn,Nhã Nam,Nhà Xuất Bản Dân Trí,,Bìa mềm,444,,info book,available,1000.0,True,True,True
+273058939,Sách Sức Mạnh Của Sự Độc Lập - Bản Quyền,109000,109000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Dân Trí,,,,,NHBook,available,1000.0,True,True,True
+272477357,Sách Kỹ Năng Thuyết Phục Hạ Gục Đối Phương - Bản Quyền,130000,130000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Văn Học,,,,,NHBook,available,1000.0,True,True,True
+272411115,Phương Pháp Quản Lý Chi Tiêu Hiệu Quả Và Đơn Giản + Nghệ Thuật Quản Lý Tài Chính Cá Nhân - Bản Quyền,354000,354000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Lao Động,,,,,Bamboo Books,available,1000.0,True,True,True
+272239604,SINH TỒN GIỮA THIÊN NHIÊN CẨM NANG TOÀN TẬP VỀ DÃ NGOẠI,228000,228000,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Thế Giới,,,,,NHBook,available,1000.0,True,True,True
+272165178,PHƯƠNG TRÌNH MẦU NHIỆM (The Miracle Equation) - Hal Elrod - Thúy Thúy dịch - (bìa mềm),169000,169000,0,0.0,0,0,Hal Elrod,Nhã Nam,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,371,2023-09-19,Bamboo Books,available,1000.0,True,True,True
+272113682,Quản Lý Công Việc Linh Hoạt Theo Phương Pháp Agile  - Bản Quyền,149000,149000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Đại Học Kinh Tế Quốc Dân,,,,,Bamboo Books,available,1000.0,True,True,True
+270478154,Phụ Nữ Tuổi 20 Thay Đổi Để Thành Công - Nghệ Thuật Sống Dành Cho Phụ Nữ - Bản Quyền,70000,70000,0,0.0,0,0,,minhlongbook,Nhà Xuất Bản Phụ Nữ,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+270470971,Sách: 28 Cách Để Trở Thành Người Phụ Nữ Giàu Có - Nghệ Thuật Quản Lý Tiền Bạc Dành Cho Bạn Gái (Tái Bản) - Bản Quyền,60000,60000,0,0.0,0,0,,minhlongbook,Nhà Xuất Bản Phụ Nữ,,,,,info book,available,1000.0,True,True,True
+270141689,Cẩm Nang Dành Cho Các Vị Phật Bán Phần - Bản Quyền,51900,59000,12,0.0,0,0,,Thái Hà Book,Nhà Xuất Bản Hà Nội,,,,,Alpha Books Official,available,1000.0,True,True,True
+263564709,Giá như tôi biết điều này trước khi thi đại học,128000,128000,0,0.0,0,0,,Nhà xuất bản Phụ Nữ Việt Nam,Nhà Xuất Bản Phụ Nữ Việt Nam,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+263098202,Sách The Book Of Answers  Đáp Án Cho Mọi Câu Hỏi Của Bạn,350000,350000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Thế Giới,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+262068243,Sách - Phương Pháp Kaizen (tặng kèm bookmark quà tặng),95000,95000,0,0.0,0,1,,Nhà Xuất Bản Tri Thức,Nhà Xuất Bản Tri Thức,,,,,Bamboo Books,available,1000.0,True,True,True
+257763305,Combo Quyền Lực Biểu Tượng + Khoảnh Khắc Thức Tỉnh + Xuyên Qua Nỗi Sợ - Bản Quyền,422000,422000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Dân Trí,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+255349780,Combo Tâm Từ + Từ Giận Dữ Đến Bình An - Bản Quyền,166000,166000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Thanh Niên,,,,,info book,available,1000.0,True,True,True
+254093438,Thái Độ Quyết Định Thành Công (Tái bản 2022) - Bản Quyền,58000,58000,0,0.0,0,0,,First News - Trí Việt,NXB Tổng Hợp Thành Phố Hồ Chí Minh,,,,,info book,available,1000.0,True,True,True
+254093267,Bước Vào Cửa Hiệu Nhiệm Màu - Bản Quyền,148000,148000,0,0.0,0,0,,First News - Trí Việt,NXB Tổng Hợp Thành Phố Hồ Chí Minh,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+254093041,Bạn Gái Khéo Tay - Nhóm Kỹ Năng Cần Thiết Cho Bạn Gái - Bản Quyền,98000,98000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,info book,available,1000.0,True,True,True
+254093032,Sức Mạnh Của Sự Quan Tâm Bản Quyền,58000,58000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+254087513,Combo Tuyển Tập Những Câu Chuyện Hay Nhất Chicken Soup + Xin Đừng Làm Mẹ Khóc - Bản Quyền,256000,256000,0,0.0,0,0,,First News - Trí Việt,NXB Tổng Hợp Thành Phố Hồ Chí Minh,,,,,info book,available,1000.0,True,True,True
+254085811,Làm Người Thú Vị Bản Quyền,128000,128000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,info book,available,1000.0,True,True,True
+254080332,Tony Buzan Bí Quyết Học Giỏi Ở Trường - Bản Quyền,126000,126000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+254079032,Thay Đổi Cuộc Sống Với Nhân Số Học - Lê Đỗ Quỳnh Hương - Bản Quyền,248000,248000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+254078662,Cửa Hiệu Triết Học - Bản Quyền,198000,198000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+253662185,Combo Nhân Duyên ... Mèo Định + Thay Đổi Cuộc Sống Với Nhân Số Học - Bản Quyền,446000,446000,0,0.0,0,0,,First News - Trí Việt,NXB Tổng Hợp Thành Phố Hồ Chí Minh,,,,,info book,available,1000.0,True,True,True
+252767457,Sách  Có Ai Ở Đó Không?  A Crazy Mind - Bản Quyền,91000,91000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Thanh Niên,,,,,info book,available,1000.0,True,True,True
+252671742,Sách Gọi Anh Là Cần Vì Anh Cần Em - Bản Quyền,125000,125000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Dân Trí,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+252671712,Sách Sức Mạnh Của 1% Thay Đổi Tích Cực Mỗi Ngày - Bản Quyền,129000,129000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Thế Giới,,,,,Bamboo Books,available,1000.0,True,True,True
+252385608,Sách Đợi Đi... Vết Thương Nào Rồi Cũng Lành (Tái Bản 2023) -Skybooks,110000,110000,0,0.0,0,2,,Skybooks,Nhà Xuất Bản Phụ Nữ Việt Nam,,,,,Nhà sách Nam Trung Yên,available,1000.0,True,True,True
+247405759,Nghệ Thuật Pr Bản Thân - Show Your Work,79000,99000,20,5.0,2,28,,Alphabooks,oem,,,,,Alpha Books Official,available,1000.0,True,True,True
+230251773,Thiền Tập Cho Con - Liệu Pháp Nuôi Dưỡng Tâm Hồn,79000,79000,0,0.0,0,0,,Sách điện tử Thái Hà,oem,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+209904980,Sức Mạnh Của Việc Đặt Câu Hỏi Đúng - Bản Quyền,99000,99000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Công Thương,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+203084493,Ayurveda – Phương Pháp Y Thuật Cổ Truyền Ấn Độ Hơn 5.000 Tuổi,229000,229000,0,0.0,0,0,,Thái Hà,oem,,Bìa mềm,,,info book,available,1000.0,True,True,True
+201856086,Sách  Nghệ Thuật Phát Triển Bản Thân,149000,149000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,Bamboo Books,available,1000.0,True,True,True
+201391388,Sách  Quản Lý Doanh Nghiệp Theo Phong Cách Người Nhật,129000,129000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,info book,available,1000.0,True,True,True
+194958478,Sách - Đại Học Đừng Học Đại,89000,89000,0,0.0,0,0,,Thái Hà,Nhà Xuất Bản Lao Động,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+192020807,Giá Như Tôi Biết Những Điều Này Trước Khi Thi Đại Học_PNU,115000,115000,0,0.0,0,1,,NXB Phụ Nữ,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,,,Bảo Châu Books,available,1000.0,True,True,True
+77231064, Sách - Nghệ Thuật Phát Triển Bản Thân,149000,149000,0,0.0,0,0,.,1980 Books,Nhà Xuất Bản Phụ Nữ,,,,,Bamboo Books,available,1000.0,True,True,True
+278890151,AI First - Dẫn Đầu Hay Là Chết,140400,195000,28,0.0,0,0,nhieu tac gia,1980 Books,Nhà Xuất Bản Công Thương,,,,,1980 BOOKS HCM,available,1000.0,True,True,True
+278865572,Sách - Dương Mưu - TTRHN,157680,219000,28,0.0,0,1,nhieu tac gia,1980 Books,Nhà Xuất Bản Lao Động,,Bìa mềm,396,,TTR Next Generation,available,1000.0,True,True,True
+278216424,Thuật Cạnh Tranh,164880,229000,28,5.0,1,5,,1980 Books,Nhà Xuất Bản Lao Động,,,,,1980Books Official,available,1000.0,True,True,True
+277771491,Sách - KỸ THUẬT GIỌNG NÓI ( Theodore Dimon),140400,195000,28,5.0,2,8,nhieu tac gia,1980 Books,Nhà Xuất Bản Lao Động,,Bìa mềm,208,,TTR Next Generation,available,1000.0,True,True,True
+275592881,Tại Sao Lại Chần Chừ? (Khổ Nhỏ),60800,64000,5,0.0,0,0,Teo Aik Cher,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,176,,Sống Official,available,1000.0,True,True,True
+274095195,Cẩm Nang Thăng Tiến Sự Nghiệp Cho Phụ Nữ Hiện Đại - Bản Quyền,129000,129000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Thế Giới,,,,,NHBook,available,1000.0,True,True,True
+274056297,Sách - Kỹ Năng Ra Quyết Định Sáng Suốt - One Decision,180000,180000,0,0.0,0,0,Mike Bayer,Saigon Books,NXB Dân Trí,,Bìa mềm,248,,info book,available,1000.0,True,True,True
+274033167,Sức Mạnh Của Sự Lắng Nghe - Vanlangbooks,73000,90000,19,0.0,0,1,,VanLangBooks,,,Bìa mềm,168,,Văn Lang Official Store,available,1000.0,True,True,True
+273462077,Trạm Đọc | Kẻ Thành Công Phải Biết Lắng Nghe,122000,159000,23,0.0,0,2,Mark Goulston,Alpha Books,Nhà Xuất Bản Lao Động - Xã Hội,,Bìa mềm,384,,Alpha Books Official,available,1000.0,True,True,True
+273459162,Trạm Đọc | NLP Căn Bản ( Tái Bản ),143000,179000,20,0.0,0,1,"John Seymour, Joseph O'Connor",Alpha Books,Nhà Xuất Bản Lao Động - Xã Hội,,Bìa mềm,452,,Alpha Books Official,available,1000.0,True,True,True
+273347416,Nụ hồn nhiên  - Bản Quyền,104600,109000,4,0.0,0,0,,Thái Hà,Nhà Xuất Bản Hà Nội,,Bìa mềm,78,,TYMBooks,available,1000.0,True,True,True
+273331063,Thực Hành Chánh Niệm,94000,98000,4,0.0,0,0,Matthew sockolov,Cty Văn Hóa Văn Lang,Nhà Xuất Bản Hồng Đức,,Bìa mềm,247,,Nhân Văn,available,1000.0,True,True,True
+273326848,"Sách I DON'T AGREE: Chấp nhận khác biệt, phản biện hiệu quả, tranh luận thành công",120000,156000,23,0.0,0,7,Michael Brown,Công ty CP Sách Bizbooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,276,2023-08-07,Tiki Trading,available,1000.0,False,True,True
+273119737,AI Công Cụ Nâng Cao Hiệu Suất Công Việc  - Bản Quyền,169000,169000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Lao Động Hà Nội,,,,,Bamboo Books,available,1000.0,True,True,True
+271958515,Cẩm Nang Thành Công Trong Công Việc,78000,116000,33,0.0,0,0,Nguyễn Hữu Thăng,VIETNAMBOOK,Nhà Xuất Bản Quân Đội Nhân Dân,,Bìa gập,176,2023-09-12,VIETNAMBOOK,available,1000.0,True,True,True
+270922920,Connection - Kết Nối - Lời Khuyên Sinh Viên Việt Nam _FN,78000,78000,0,0.0,0,0,"John Vũ,  Nguyên Phong",First News - Trí Việt,Nhà Xuất Bản Dân Trí,,Bìa mềm,176,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+270145059,Shinrin Yoku - Nghệ Thuật Tắm Rừng Của Người Nhật - Bản Quyền,139000,139000,0,0.0,0,0,,Thái Hà Book,Nhà Xuất Bản Công Thương,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+263439899,Đọc vị tâm trí,140000,148000,5,0.0,0,2,David J. Lieberman,Công Ty CP Văn Hóa Thiện Tri Thức,NXB Dân Trí,,Bìa mềm,304,,Sống Official,available,1000.0,True,True,True
+262570328,Nghệ Thuật Sống Vững Vàng,168000,168000,0,0.0,0,0,,Công Ty TNHH Văn Hóa Sáng Tạo Trí Việt,NXB Dân Trí,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+255605422,Chicken Soup For The College Soul 7 - Dành cho học sinh sinh viên - Bản Quyền,60000,60000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,info book,available,1000.0,True,True,True
+247878597,"Kỹ Năng Học Tập Thành Công Ở Bậc Cao Đẳng, Đại Học Tập 1: Quản Lý Bản Thân Tối Ưu (*** Sách Bản Quyền ***)",159000,159000,0,0.0,0,0,,Alpha Books,NXB Dân Trí,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+208686230,Học tập cũng cần chiến lược - Bản Quyền,119000,119000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Lao Động,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+205807445,Khám Phá Đứa Trẻ Bên Trong Bạn,139000,139000,0,0.0,0,0,Stefanie Stahl,Nhà Xuất Bản Thế Giới,Nhà Xuất Bản Thế Giới,,Bìa mềm,320,,Nhà Sách Phương Nam,available,1000.0,True,True,True
+200973162,(Bìa cứng in màu) KINH TẾ HỌC CHO THANH THIẾU NIÊN –  Lara Bryan và Andy Prentice – Nhã Nam – NXB Thế Giới,150000,150000,0,0.0,0,0,nhieu tac gia,Nhã Nam,Nhà Xuất Bản Thế Giới,,,126,,FishingBook,available,1000.0,True,True,True
+200726832,Người Thông Minh Học Tập Như Thế Nào,169000,169000,0,0.0,0,0,,Alphabooks,oem,,Bìa mềm,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+190608602,Bạn Trai Tháo Vát (Tái Bản 2020),98000,98000,0,0.0,0,0,,FIRST NEWS,oem,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+190608364,Sức Mạnh Của Sự Trầm Lắng,128000,128000,0,0.0,0,0,,FIRST NEWS,oem,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+185448348,Sách - MBO Phương pháp quản lý mục tiêu và đánh giá nhân sự chuyên nghiệp - Nashimaka Tetsuo,121680,169000,28,0.0,0,14,,1980 Books,Nhà Xuất Bản Công Thương,,Bìa mềm,368,,1980 BOOKS HCM,available,1000.0,True,True,True
+170384667,Yêu Con Như Thế Là Vừa Đủ - Điểm Số Không Quan Trọng - Cẩm Nang Nuôi Dạy Trẻ Lớp 3,89000,110000,19,0.0,0,0,,Văn Lang,Nhà Xuất Bản Hồng Đức,,,223,,Văn Lang Official Store,available,1000.0,True,True,True
+167615026,Bí Mật Của Người Kể Chuyện,159000,199000,20,0.0,0,1,,Alphabooks,oem,,,,,Omega Plus Books,available,1000.0,True,True,True
+167614094,Inbound Marketing - Thu Hút Thế Giới Về Với Bạn Trong Môi Trường Trực Tuyến,138000,138000,0,0.0,0,0,,First News - Trí Việt,oem,,,,,Bamboo Books,available,1000.0,True,True,True
+167613516,Ngay Bây Giờ Hoặc Không Bao Giờ - 23 Thói Quen Chống Lại Sự Trì Hoãn,79000,79000,0,0.0,0,0,,Alphabooks,oem,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+147220982,Sách Copywriter - 5 Bước Sản Xuất Content Chuẩn SEO,139000,139000,0,0.0,0,3,Ryan Wakeman,1980 Books,Nhà Xuất Bản Công Thương,,Bìa mềm,268,2021-12-01,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+58932533,Sách Sống Xanh Không Khó,103200,129000,20,5.0,1,5,Nam Kha,Alphabooks,Nhà Xuất Bản Dân Trí,,Bìa mềm,176,2020-08-01,Nhà sách Fahasa,available,1000.0,True,True,True
+56757449,Sách Hướng Dẫn Bài Bản Xây Dựng Và Chuyển Đổi Dữ Liệu Nền Tảng Thành Tiền: Tạo Ra Nội Dung Biến Người Hâm Mộ Trở Thành Khách Hàng,125500,125500,0,0.0,0,0,Wendy Keller,BIZBOOKS,Nhà Xuất Bản Hồng Đức,,Bìa mềm,288,2020-06-01,AHABOOKS,available,1000.0,True,True,True
+54782791,Cẩm Nang Chinh Phục Mục Tiêu Dành Cho Bạn: Hoàn Thành - Kết Thúc Những Gì Bạn Đã Bắt Đầu ( Những Tuyệt Chiêu Cho Bạn Thành Công Trên Mọi Con Đường),83930,109000,23,0.0,0,0,,Alpha Books,Nhà Xuất Bản Thanh Niên,,Bìa mềm,,,Alpha Books Official,available,1000.0,True,True,True
+54754717,Combo Sách Kỹ Năng Tạo Động Lực Đển Thành Công: Kẻ Thù Của Ý Chí - Tại Sao Bạn Quyết Tâm Mãi Mà Không Thành Công? + Hoàn Thành - Kết Thúc Những Gì Bạn Đã Bắt Đầu / Những Cuốn Sách Khơi Gợi và Thức Tỉnh Con Người Bạn,190000,238000,20,0.0,0,0,,Alphabooks,Nhà Xuất Bản Lao Động Xã Hội,,Bìa mềm,,,Alpha Books Official,available,1000.0,True,True,True
+49226546,"Sách Tài Liệu Bồi Dưỡng Phổ Biến Kiến Thức Phòng Cháy Và Chữa Cháy Dành Cho Người Đứng Đầu Cơ Quan, Doanh Nghiệp",250000,250000,0,0.0,0,0,Vũ Thanh,Nhà sách Lao Động,Nhà Xuất Bản Hồng Đức,,Bìa mềm,416,2020-02-02,Nhà Sách Lao Động,available,1000.0,True,True,True
+20420214,Combo 2 cuốn sách kĩ năng: Kỷ Luật Tích Cực Trong Lớp Học + Giá Như Tôi Biết Những Điều Này... Trước Khi Thi Đại Học ( Tặng kèm bookmark PD),173000,173000,0,0.0,0,2,., Phụ Nữ,Nhà Xuất Bản Phụ Nữ,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+2120373,Sách Học Cách Tiêu Tiền (Tái Bản 2018),119000,119000,0,0.0,0,0,Larry Winget,Alphabooks,Nhà Xuất Bản Lao Động Xã Hội,,Bìa mềm,210,2018-05-08,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+279296537,Sách Nói Thẳng Chẳng Sợ Mất Long,158000,158000,0,0.0,0,0,Karl James,VanLangBooks,Nhà Xuất Bản Thanh Hóa,,Bìa mềm,289,,Tiki Trading,available,1000.0,False,True,True
+279296530,Sách 100 Câu Chuyện Hay thế Giới - Những Bài Học Nhân Quả,118000,118000,0,0.0,0,0,Quách Thành,VanLangBooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,222,,Tiki Trading,available,1000.0,False,True,True
+279296432,Sách Con Sẽ Thành Công,95000,95000,0,0.0,0,0,Lưu Dung,VanLangBooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,176,,Tiki Trading,available,1000.0,False,True,True
+278775422,Sách TINH HOA NLP cấp độ nhà thực hành - NLP Practitioner,499000,499000,0,0.0,0,1,nhieu tac gia,CÔNG TY TNHH TƯ VẤN GIÁO DỤC EXPERT COACH,Nhà Xuất Bản Văn Hoá Dân Tộc,,,300,2025-09-08,Expert Book,available,1000.0,True,True,True
+278639250,Ứng Dụng Agile Marketing,140400,195000,28,5.0,1,1,Andrea Fryrear,1980 Books,Nhà Xuất Bản Công Thương,,,,,1980Books Official,available,1000.0,True,True,True
+278121805,Sách - Combo 2 cuốn: Tâm Lý Học Về Tiền + Tư Duy Đầu Tư Tiền Đẻ Ra Tiền,344160,478000,28,0.0,0,6,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,1980 BOOKS HCM,available,1000.0,True,True,True
+278089315,Combo 2 cuốn: Kỹ Thuật Đặt Câu Lệnh Cho Chat GPT + DeepSeek Thực Chiến,257760,358000,28,0.0,0,1,,1980 Books,Nhà Xuất Bản Công Thương,,,,,1980Books Official,available,1000.0,True,True,True
+273746658,Sách Nghệ Thuật Thôi Miên Nhà Tuyển Dụng - Bản Quyền,109000,109000,0,0.0,0,0,,Alpha Books,Nhà Xuất Bản Lao Động - Xã Hội,,,,,Gooda Official,available,1000.0,True,True,True
+273641777,Trạm Đọc | Sức Mạnh Thuyết Phục,169000,169000,0,0.0,0,0,Kurt W. Mortensen,Alpha Books,Nhà Xuất Bản Lao Động - Xã Hội,,Bìa mềm,452,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+273641755,Trạm Đọc | Hành Trình Viết Sách,199000,199000,0,0.0,0,0,,Alpha Books,Nhà Xuất Bản Thế Giới,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+272860184,MINDFULNESS - SỐNG TỈNH THỨC VÀ THỰC HÀNH CHÁNH NIỆM - TS. Ellen J. Langer - Nguyễn Ngọc Anh dịch - (bìa mềm),152600,159000,4,0.0,0,1,,Alpha Books,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,243,2023-10-01,TYMBooks,available,1000.0,True,True,True
+272359386,Sách - Đạo Làm Người: Học Mạnh Tử Cách Đối Nhân Xử Thế - Phát Triển Bản Thân Mỗi Ngày - MCBooks,135200,169000,20,0.0,0,0,Phan Đăng,BIZBOOKS,Nhà Xuất Bản Hồng Đức,,Bìa mềm,252,2023-08-01,Unibooks,available,1000.0,True,True,True
+272039629,Sách Làm Chủ Bình Minh - Sống Đời Xuất Chúng,185000,185000,0,0.0,0,5,Robin Sharma,Công ty cổ phần đầu tư và phát triển giáo dục quốc tế Á Châu,NXB Trẻ,,Bìa mềm,476,2020-09-09,info book,available,1000.0,True,True,True
+270715764,Nữ Quyền Cho Tất Cả Mọi Người,94000,94000,0,0.0,0,0,Bell Hooks,NXB Phụ Nữ,Nhà Xuất Bản Phụ Nữ,,Bìa mềm,246,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+270125187,Vô Ngã Vô Ưu ( Tặng postcard ) - Bản Quyền,159000,159000,0,0.0,0,1,,Thái Hà Book,Nhà Xuất Bản Lao Động,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+262897382,Lên mạng cũng là một nghệ thuật - Bản Quyền,89000,89000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Lao Động,,,,,info book,available,1000.0,True,True,True
+262052914,Mật Mã Ung Thư - Hiểu Biết Mới Đột Phá Về Bí Ẩn Ung Thư,209000,209000,0,0.0,0,0,,Alphabooks,oem,,,,,info book,available,1000.0,True,True,True
+261972272,Content và nghệ thuật STORYTELLING - Bản Quyền,299000,299000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+259483256,Bryan Tracy - Thuật Quản Trị,99000,99000,0,0.0,0,0,Brian Tracy,Alphabooks,Nhà Xuất Bản Thế Giới,,Bìa mềm,170,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+255612005,Hạt Giống Tâm Hồn tập 4 (khổ nhỏ) FirstNews - Bản Quyền,68000,68000,0,0.0,0,0,,First News - Trí Việt,NXB Tổng Hợp Thành Phố Hồ Chí Minh,,,,,info book,available,1000.0,True,True,True
+252401650,"TIẾP THỊ 4.0: DỊCH CHUYỂN TỪ TRUYỀN THỐNG SANG CÔNG NGHỆ SỐ - Philip Kotler, Hermawan Kartajaya, Iwan Setiawan - (bìa mềm)",115000,115000,0,0.0,0,0,"Philip Kotler, Hermawan Kartajaya, Iwan Setiawan",Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,264,2022-01-01,info book,available,1000.0,True,True,True
+252289180,Sách Không Sợ Đêm Đen Bởi Trong Lòng Có Ánh Sáng - Bản Quyền,88000,88000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Hà Nội,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+251235265,Sách - Sức Mạnh Tiềm Thức,128000,128000,0,0.0,0,0,Joseph Murphyc,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,336,2021-06-01,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+247408018,"	Học Ăn, Học Nói, Học Gói, Học Mở _TRE",65000,65000,0,0.0,0,0,Hoàng Liên,NXB Trẻ,NXB Trẻ,,Bìa mềm,192,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+242075345,Sách - Nói Chuyện Là Bản Năng Giữ Miệng Là Tu Dưỡng Im Lặng Là Trí Tuệ - 1980Books,189000,189000,0,0.0,0,0,Trương Tiếu Hằng,Không có,Nhà Xuất Bản Thanh Niên,,Bìa mềm,403,,info book,available,1000.0,True,True,True
+219161612,Sách Combo Sức mạnh của sự khích lệ + Mãi mãi là yêu thương + Cho những trái tim rộng mở - FirstNews - BẢN QUYỀN,200000,200000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,info book,available,1000.0,True,True,True
+215796577,Làm Sao Học Ít Hiểu Nhiều,128000,128000,0,0.0,0,0,,Zenbooks,Nhà Xuất Bản Dân Trí,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+215557273,Phép Màu Để Vượt Lên Chính Mình (SGB),128000,128000,0,0.0,0,0,,Sách điện tử Saigon Books,Nhà Xuất Bản Phụ Nữ,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+214000921,Sách - Kinh nghiệm từ nước Nhật - Giải quyết những trở ngại trong học tập,65000,65000,0,0.0,0,0,"Nonaka Shohei, Ikesue Shota", NXB Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,188,,Bamboo Books,available,1000.0,True,True,True
+213164808,"Dám Ước Mơ, Dám Sai Lầm, Dám Thành Công - Bản Quyền",139000,139000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Dân Trí,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+209901320,HBR Guide 2021: Kỹ Năng Quản Lý Chuyên Sâu Từ Harvard Business Review ( Bộ 10 Cuốn + Tặng Kèm Boxset) - Bản Quyền,1190000,1190000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Công Thương,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+209349571,Cẩm nang chọn nghề - Bản Quyền,119000,119000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Lao Động,,,,,info book,available,1000.0,True,True,True
+207971036,Cẩm Nang Nhi Khoa - Cách Chăm Sóc Trẻ Ốm Tại Nhà,119000,119000,0,0.0,0,0,,Thái Hà,oem,,Bìa mềm,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+205807460,Kết Nối - Lời Khuyên Sinh Viên Việt Nam,78000,78000,0,0.0,0,0,John Vũ,Nhà Xuất Bản Dân Trí,Nhà Xuất Bản Dân Trí,,Bìa mềm,176,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+205289153,Tinh Thần Bền Bỉ - Bí Quyết Vượt Qua Nghịch Cảnh,82000,82000,0,0.0,0,0,Damon Zahariades,Minh Long,Nhà Xuất Bản Hồng Đức,,Bìa mềm,228,2022-11-10,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+203084432,Tạm Biệt Bạn Răng Cửa,49000,49000,0,0.0,0,0,,Thái Hà,oem,,Bìa mềm,,,info book,available,1000.0,True,True,True
+201569211,Sách Từ Nhân Viên Giỏi Đến Vị Sếp Tài Ba - BẢN QUYỀN,139000,139000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+201423220,Sách OKR – Từ chiến lược mục tiêu đến kết quả then chốt - BẢN QUYỀN,129000,129000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+200013601,Cẩm nang Scrum_AL,199000,199000,0,0.0,0,0,,Alpha Books,Nhà Xuất Bản Thế Giới,,Bìa mềm,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+167615222,Sức Mạnh Của Hiện Tại (Tái Bản 2019),168000,168000,0,0.0,0,0,,First News - Trí Việt,oem,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+276238241,Chiến Thắng Con Quỷ Bên Trong - FN,110000,110000,0,0.0,0,0,Napoleon Hill,First News - Trí Việt,Nhà Xuất Bản Dân Trí,,Bìa mềm,360,,FishingBook,available,1000.0,True,True,True
+274078188,"Combo 2 Cuốn Về Tâm Lý, Kỹ Năng Sống-Khi Lời Nói Dối Là Vu Khi+  Cây Nói Dối",283500,283500,0,0.0,0,0,,Nhã Nam,Nhiều Nhà Xuất Bản,,,,,AHABOOKS,available,1000.0,True,True,True
+274078185,"Combo 2 Cuốn Về Tâm Lý, Kỹ Năng Sống-Khi Lời Nói Dối Là Vu Khi+  Cây Nói Dối",304000,304000,0,0.0,0,0,,Nhã Nam,Nhiều Nhà Xuất Bản,,,,,SÁCH ĐẠI NAM,available,1000.0,True,True,True
+273786622,Manga For Success - Tư Duy Tích Cực - Bản Quyền,125000,125000,0,0.0,0,0,,Saigonbook,Nhà Xuất Bản Thế Giới,,,,,info book,available,1000.0,True,True,True
+273714162,Lời Tiên Tri Cuối Cùng- Sách Văn Học Giả Tưởng Hay ,239000,239000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Thanh Niên,,,,,Bamboo Books,available,1000.0,True,True,True
+273444580,Trạm Đọc | Tối Đa Hóa Năng Lực Bản Thân,129000,129000,0,0.0,0,0,Jocelyn K.Glei,Alpha Books,Nhà Xuất Bản Lao Động - Xã Hội,,Bìa mềm,,,info book,available,1000.0,True,True,True
+273395981,Sách - Học Như EINSTEIN- Cách để rút ngắn thời gian trở thành chuyên gia nhanh nhất có thể -Peter Hollins- TIMES,99000,99000,0,0.0,0,0,Peter Hollins,Công ty CP Xuất bản Khoa học và Giáo dục Thời Đại (TIMES BOOKS),Nhà Xuất Bản Dân Trí,,Bìa mềm,150,2023-11-17,TIMES SÁCH THỜI ĐẠI,available,1000.0,True,True,True
+271959807,Hài Nhiều Chút Cho Đời Vui Hơn,168000,168000,0,0.0,0,0,"Jennifer Aaker, Naomi Bagdonas",Saigon Books,Nhà Xuất Bản Thế Giới,,Bìa mềm,316,2023-09-01,Nhà sách NetaBooks,available,1000.0,True,True,True
+271320490,Cẩm Nang Kỹ Năng Nghề Phiên Dịch - ThS. Lê Huy Khoa - (bìa mềm),130000,130000,0,0.0,0,3,Ths. Lê Huy Khoa,Nhà xuất bản Tổng hợp TP.HCM ,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,328,2023-08-01,Bamboo Books,available,1000.0,True,True,True
+270214272,20 Tuổi - Bạn Chọn An Nhàn Hay Phấn Đấu?,90000,90000,0,0.0,0,0,,AZ Việt Nam,oem,,,,,Bamboo Books,available,1000.0,True,True,True
+262570490,Phương Pháp Đọc Sáng Tạo Của Người Do Thái,106000,106000,0,0.0,0,0,,Cty Văn Hóa Văn Lang,NXB Trẻ,,,,,Bamboo Books,available,1000.0,True,True,True
+261957095,Chuẩn 'men' - Hơn 50 kỹ năng cần thiết cho người đàn ông - Bản Quyền,100000,100000,0,0.0,0,0,,Saigon Books,Nhà Xuất Bản Hồng Đức,,,,,Bamboo Books,available,1000.0,True,True,True
+247799379,Nghệ Thuật Kiêng Khem Tin Tức - Bí Kíp Sinh Tồn Thời Kỹ Thuật Số,128000,128000,0,0.0,0,0,,Nhã Nam,Nhà Xuất Bản Hà Nội,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+222215446,Sách Combo Kỹ năng học tập - IPER (2C: Tự Học + Văn hóa giảng đường),402000,402000,0,0.0,0,2,nhieu tac gia,Quảng Văn,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,Bìa mềm,,,Nhà sách Nam Trung Yên,available,1000.0,True,True,True
+214195651,"Sách - Chuyển đổi số đến cốt lõi: Nâng tầm năng lực lãnh đạo cho ngành nghề, doanh nghiệp và chính bản thân bạn",248000,248000,0,0.0,0,4,nhieu tac gia,NXB Thông Tin & Truyền Thông,Nhà Xuất Bản Thông Tin Và Truyền Thông,,Bìa mềm,321,,Bảo Châu Books,available,1000.0,True,True,True
+209902436,The Culture Code - Khám Phá Sức Mạnh Văn Hóa Đội Nhóm - Bản Quyền,139000,139000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,,,,,FishingBook,available,1000.0,True,True,True
+209610717,Buổi Sáng Diệu Kỳ Dành Cho Doanh Nhân - Bản Quyền,119000,119000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Lao Động,,,,,FishingBook,available,1000.0,True,True,True
+209610662,Lãnh Đạo Bản Thân - Self Leadership - Bản Quyền,129000,129000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Công Thương,,,,,FishingBook,available,1000.0,True,True,True
+209280367,Nói ra đừng sợ: Kỹ năng thuyết trình cho người mới bắt đầu (Tái bản 2018) - Bản Quyền,89000,89000,0,0.0,0,3,,Alphabooks,Nhà Xuất Bản Lao Động Xã Hội,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+207567371,Đọc Sách Và Con Đường Gian Nan Vạn Dặm,110000,110000,0,0.0,0,0,Nguyễn Quốc Vương,NXB Phụ Nữ,Nhà Xuất Bản Phụ Nữ,,Bìa mềm,408,,info book,available,1000.0,True,True,True
+203294415,Sách  Niksen  Sức Mạnh Của Việc Tạm Dừng - Skybooks - BẢN QUYỀN,109000,109000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Hà Nội,,,,,info book,available,1000.0,True,True,True
+202258922,Sách Combo 2 cuốn Rèn luyện tư duy logic trong công việc + Tư duy logic - BẢN QUYỀN,259000,259000,0,0.0,0,2,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,info book,available,1000.0,True,True,True
+201930393,"Sách  Phỏng Vấn Là Cuộc Chơi Tâm Lý, Chiến Thắng Gọi Tên Người Chủ Động - BẢN QUYỀN",139000,139000,0,0.0,0,1,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,Bamboo Books,available,1000.0,True,True,True
+196021413,Thực Hiện Ước Mơ - Giấc Mơ Đến Từ Châu Phi,25500,30000,15,0.0,0,0,,NXB Trẻ,oem,,Bìa mềm,,,Nhà Xuất Bản Trẻ,available,1000.0,True,True,True
+193668022,Nghệ thuật đào tạo cấp quản lý của Toyota,94000,94000,0,0.0,0,3,,Cty Văn Hóa Văn Lang,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,,,,info book,available,1000.0,True,True,True
+192459242,Bách Khoa Thư Kĩ Năng Sống - Dành Cho Bạn Trai - Tuyệt Chiêu Học Tập,75000,75000,0,0.0,0,3,,Kim Đồng,oem,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+191808028,Tiết Kiệm Nước For Dummies,59000,59000,0,0.0,0,0,,Thái Hà,oem,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+190608446,Đại Học Không Lạc Hướng,105000,105000,0,0.0,0,0,,Minh Long,oem,,Bìa mềm,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+190608376,Khi Mọi Điểm Tựa Đều Mất,98000,98000,0,0.0,0,0,,FIRST NEWS,oem,,Bìa mềm,,,Bamboo Books,available,1000.0,True,True,True
+188496828,Khám Phá Sức Mạnh Bản Thân - Gillian Stokes,58000,58000,0,0.0,0,0,Gillian Stokes,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,144,,BOOKCITY.VN,available,1000.0,True,True,True
+179058006,Rèn Luyện Tư Duy Trong Công Việc,129000,129000,0,0.0,0,0,Trí Tuấn Khải,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,Bìa mềm,288,,Bamboo Books,available,1000.0,True,True,True
+167615437,Osho - Từ Bi - Trên Cả Trắc Ẩn Và Yêu Thương,128000,128000,0,0.0,0,3,,First News - Trí Việt,oem,,,,,Bamboo Books,available,1000.0,True,True,True
+167613850,Bạn Đang Ở Đây - Cuốn Sách Ngắn Về Thế Giới,95000,95000,0,0.0,0,0,,Alphabooks,oem,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+167613814,Elon musk từ ước mơ đến hành trình quá giang vào Ngân hà,109000,109000,0,0.0,0,1,,Alphabooks,oem,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+167613607,Đối Phó Với Những Tên Khốn Tài Ba,109000,109000,0,0.0,0,0,,Alphabooks,oem,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+167613453,Logic rất đơn giản,149000,149000,0,0.0,0,0,,Alphabooks,oem,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+159384894,GIÀNH PHIẾU BẦU BẰNG MỌI GIÁ,228000,228000,0,0.0,0,0,Joseph Cummins,Nhã Nam,Nhà Xuất Bản Thế Giới,,Bìa mềm,480,2021-11-15,FishingBook,available,1000.0,True,True,True
+141243412,Trồng Một Nụ Cười - Cùng Trẻ Thực Hành Chánh Niệm Tặng bookmark Vadata,199000,199000,0,0.0,0,0,,Thái Hà Book,Nhà Xuất Bản Thế Giới,,,,,Bamboo Books,available,1000.0,True,True,True
+129138560,Sách-Phải Trái Đúng Sai - Cánh Cửa Mở Rộng,155000,155000,0,0.0,0,2,,NXB Trẻ,NXB Trẻ,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+116938154,Bí quyết học gì giỏi nấy (The Self Learning Blueprint) - Tác giả: Peter Hollins,109000,109000,0,0.0,0,0,Peter Hollins,Saigon Books,Nhà Xuất Bản Thế Giới,,Bìa mềm,172,2021-08-06,info book,available,1000.0,True,True,True
+277911274,Sách Cất Cánh Trên Sàn Thương Mại Điện Tử,193000,193000,0,0.0,0,0,,Tinh Hoa,Nhiều Nhà Xuất Bản,,,,,Minhhabooks,available,1000.0,True,True,True
+276079673,MBA Thực Chiến (1980),179000,179000,0,0.0,0,0,Shimada Tsuyoshi,1980 Books,Nhà Xuất Bản Công Thương,,Bìa mềm,320,,NewShop Official,available,1000.0,True,True,True
+273886169,Sức Mạnh Của Sự Trầm Lắng- Cuốn Sách Giúp Thấu Hiểu Bản Thân Hấp Dẫn,128000,128000,0,0.0,0,0,,First News - Trí Việt,NXB Dân Trí,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+273713555,Trưởng Thành Đã Lấy Đi Điều Gì? - Bản Quyền,119000,119000,0,0.0,0,0,,Alpha Books,Nhà Xuất Bản Thế Giới,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+273583717,Sách Hướng Nghiệp-Kỹ Năng Mềm-30 Tuổi - Mọi Thứ Chỉ Mới Bắt Đầu,131500,131500,0,0.0,0,1,Lý Thượng Long,Saigon Books,Nhà Xuất Bản Dân Trí,,Bìa mềm,332,,AHABOOKS,available,1000.0,True,True,True
+273216569,Sách NFT - Đáp Án Mới Cho Sự Thịnh Vượng - Bản Quyền,88000,88000,0,0.0,0,0,,Công Ty TNHH Văn Hóa Và Truyền Thông Skybooks Việt Nam,Nhà Xuất Bản Thế Giới,,,,,Bamboo Books,available,1000.0,True,True,True
+272360313,Sách - Hình Dáng Của Sự Thịnh Vượng - Lựa Chọn Đúng Quan Trọng Hơn Nỗ Lực - MCBooks,179000,179000,0,0.0,0,0,nhieu tac gia,BIZBOOKS,Nhà Xuất Bản Hồng Đức,,Bìa mềm,316,2023-08-16,NHBook,available,1000.0,True,True,True
+272209532,Sức Khỏe Tốt Học Tập Tốt - Tận Dụng Tối Đa Quãng Thời Gian Đại Học Của Bạn_ML,115000,115000,0,0.0,0,0,Gareth Hughes,Minh Long,Nhà Xuất Bản Thanh Niên,,Bìa mềm,328,,NewShop Official,available,1000.0,True,True,True
+272148822,Sách  NFT  Khi Nghệ Thuật Trở Thành Tài Sản Số - Bản Quyền,95000,95000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Thế Giới,,,,,Bamboo Books,available,1000.0,True,True,True
+271455926,Sách - Mặt Trái Của Sự Không Chắc Chắn : Khi “Không Biết” Cũng Là Một Loại Sức Mạnh,188000,188000,0,0.0,0,0,,BIZBOOKS,Nhà Xuất Bản Hồng Đức,,,,,NHBook,available,1000.0,True,True,True
+271344200,Kỹ Năng Lập Kế Hoạch Và Quản Lý Tài Chính Cá Nhân Trong 30 Ngày - Bản Quyền,159000,159000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Công Thương,,,,,Bamboo Books,available,1000.0,True,True,True
+270164467,Sống chất- Triết lý sống của huyền thoại y học Nhật Bản - Bản Quyền,99000,99000,0,0.0,0,0,,Thái Hà Book,Nhà Xuất Bản Công Thương,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+263273984,Những Ngày Cuối Cùng Của Khủng Long - Bản Quyền,139000,139000,0,0.0,0,0,,Công Ty TNHH Văn Hóa Và Truyền Thông Skybooks Việt Nam,Nhà Xuất Bản Thế Giới,,,,,Bamboo Books,available,1000.0,True,True,True
+262526502,Mặt Dày Tâm Đen - Bản Quyền,169000,169000,0,0.0,0,0,,Zenbooks,Nhà Xuất Bản Hồng Đức,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+258673246,Giải nghiệm cuộc đời - Bản Quyền,150000,150000,0,0.0,0,0,,Saigon Books,Nhà Xuất Bản Thế Giới,,,,,info book,available,1000.0,True,True,True
+258668375,Không ai nợ bạn sự xinh đẹp - Bản Quyền,150000,150000,0,0.0,0,1,,Saigon Books,Nhà Xuất Bản Thế Giới,,,,,Bamboo Books,available,1000.0,True,True,True
+257765854,Combo Sức Mạnh Của Sự Trầm Lắng + Sống Tối Giản - Bản Quyền,286000,286000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,info book,available,1000.0,True,True,True
+255612281,Combo Bí Quyết Học Nhanh Nhớ Lâu + Bí Quyết Học Giỏi Bản Quyền,156000,156000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+255427283,Trải Nghiệm Sức Mạnh Hiện Tại (khổ nhỏ) - Bản Quyền,98000,98000,0,0.0,0,0,,First News - Trí Việt,NXB Tổng Hợp Thành Phố Hồ Chí Minh,,,,,info book,available,1000.0,True,True,True
+254086487,Tâm Hồn Cao Thượng (Bìa Mềm) - Bản Quyền,158000,158000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Văn Học,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+254079018,Combo Nhân Duyên ... Mèo Định + Thay Đổi Cuộc Sống Với Nhân Số Học - Bản Quyền,446000,446000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Dân Trí,,,,,info book,available,1000.0,True,True,True
+253630786,Sức Mạnh Của Sự Trầm Lắng - Bản Quyền,128000,128000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Dân Trí,,,,,NHBook,available,1000.0,True,True,True
+252766881,Sách  Không Biết Làm Sao Để Trưởng Thành - Bản Quyền,88000,88000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Văn Học,,,,,Bamboo Books,available,1000.0,True,True,True
+252561202,Sách Tôi Từng Nghĩ Mọi Thứ Sẽ Ổn Khi Trở Thành Người Lớn - Bản Quyền,96000,96000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Văn Học,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+243089664,Thành Tích Cuộc Đời Được Quyết Định Từ Năm Học Lớp 4_PNU,109000,109000,0,0.0,0,0,,Nhà xuất bản Phụ Nữ,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,320,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+230251584,Thiền Tập Cho Con - Liệu Pháp Nuôi Dưỡng Tâm Hồn,79000,79000,0,0.0,0,0,,Sách điện tử Thái Hà,oem,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+220662861,"Sách Cảm Ơn Người Đến, Chẳng Tiếc Người Đi - Skybooks - BẢN QUYỀN",125000,125000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Văn Học,,,,,Bamboo Books,available,1000.0,True,True,True
+207762450,Sách - Future Wise: Điều Gì Đáng Học Cho Tương Lai?,159000,159000,0,0.0,0,0,,Thái Hà,Nhà Xuất Bản Lao Động,,,356,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+202878665,Sách  Đừng Làm Giọt Nước Tan Biến Giữa Đại Dương - Skybooks - BẢN QUYỀN,96000,96000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Hà Nội,,,,,Bamboo Books,available,1000.0,True,True,True
+201475379,Sách Kỹ Năng Quản Lý Hiệu Suất Công Việc Của Người Nhật,119000,119000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+197596336,Tủ sách Kaizen - Thói Quen Quyết Định Tốc Độ Công Việc,85000,85000,0,0.0,0,1,Yamamoto Noriaki,NXB Phụ Nữ Việt Nam,Nhà Xuất Bản Phụ Nữ Việt Nam,,Bìa mềm,196,2022-09-12,Nhà sách NetaBooks,available,1000.0,True,True,True
+191268669,"Kỹ Năng Học Tập Thành Công Ở Bậc Cao Đẳng, Đại Học Tập 2",179000,179000,0,0.0,0,0,Stella Cottrell,Alpha Books,NXB Dân Trí,,Bìa mềm,272,2022-05-01,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+182848918,Những Kỹ Năng Cơ Bản Trong Cuộc Sống Hằng Ngày,100000,100000,0,0.0,0,0,,Nhà xuất bản Tổng hợp TP.HCM ,oem,,Bìa mềm,,,info book,available,1000.0,True,True,True
+181783133,Lạc Bước Bên Con,99000,99000,0,0.0,0,0,,AZ Việt Nam,oem,,Bìa mềm,,,info book,available,1000.0,True,True,True
+167613913,7 Thói Quen Của Bạn Trẻ Thành Đạt (Tái Bản 2020),128000,128000,0,0.0,0,0,,First News - Trí Việt,oem,,,,,info book,available,1000.0,True,True,True
+166340913,Sách Kỹ Năng Mềm :  Nghệ Thuật Kể Chuyện Bằng Dữ Liệu,199000,199000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Lao Động,,,,,info book,available,1000.0,True,True,True
+140580879,Trồng một nụ cười : Cùng trẻ thực hành chánh niệm,199000,199000,0,0.0,0,0,Thich Nhất Hạnh,Thái Hà Book,Nhà Xuất Bản Hà Nội,,Bìa mềm,312,,Bamboo Books,available,1000.0,True,True,True
+137941689,Sách - NXB Trẻ - P.Kotler. 10 sai lầm chết người trong tiếp thị các dấu hiệu và giải pháp,55000,55000,0,0.0,0,1,,NXB Trẻ,NXB Trẻ,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+130063296,Nghỉ Hưu Là Sự Khởi Đầu - Sống vui - Khỏe - Hạnh phúc,49000,49000,0,0.0,0,0,Bác sĩ Trần Văn Năm,NXB Phụ Nữ,Nhà Xuất Bản Phụ Nữ,,,,,info book,available,1000.0,True,True,True
+66663664,Combo 2 cuốn sách: Bí Quyết Làm Giàu Của NapoLeon Hill + Made in Japan,297000,297000,0,0.0,0,0,,FIRST NEWS,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,Bamboo Books,available,1000.0,True,True,True
+278114462,Hiệu Ứng Đám Đông Trong Đầu Tư Tài Chính,164880,229000,28,0.0,0,4,,1980 Books,Nhà Xuất Bản Công Thương,,,,,1980Books Official,available,1000.0,True,True,True
+277563390,Combo 2 cuốn: Chat GPT Thực Chiến + AI Thực Chiến Cuộc Cách Mạng Toàn Diện Trong Giáo Dục,418000,418000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Dân Trí,,,,,info book,available,1000.0,True,True,True
+277515573,Combo Chất Xơ Diệu Kỳ + Hệ Miễn Dịch + Ăn Gì Bổ Não ,413000,517000,20,0.0,0,1,,Alpha Books,Nhiều Nhà Xuất Bản,,,,,Alpha Books Official,available,1000.0,True,True,True
+277515531,Combo Chất Xơ Diệu Kỳ + Hệ Miễn Dịch + Ăn Gì Bổ Não ,413000,517000,20,0.0,0,0,,Alpha Books,Nhiều Nhà Xuất Bản,,,,,Sống Official,available,1000.0,True,True,True
+276522626,Sách - Mèo Méo Meo - Kitty Language - Bí Mật Giao Tiếp Từ Cái Vẫy Đuôi Đến Tiếng Grừ Grừ,113520,129000,12,0.0,0,3,Lili Chin,Saigon Books,Nhà Xuất Bản Thế Giới,,Bìa mềm,160,2024-10-31,Saigon Books Official,available,1000.0,True,True,True
+276021146,"SẾP TỒI - Làm Gì Khi Bạn Có Một Người Sếp Tồi, Phải Quản Lý Sếp Tồi, Hay Chính Bạn Là Sếp Tồi? - Michelle Gibbings – Thanh Thảo dịch – First News – NXB Dân Trí",178000,188000,5,0.0,0,0,Michelle Gibbings,FIRST NEWS,Nhà Xuất Bản Dân Trí,,Bìa mềm,360,,Sống Official,available,1000.0,True,True,True
+273932786,Mối Quan Hệ 5.0  - Bản Quyền,199000,199000,0,0.0,0,0,,Thái Hà,Nhà Xuất Bản Công Thương,,,,,info book,available,1000.0,True,True,True
+273912576, Sách - Combo 2 Cuốn Làm Sao Học Ít Hiểu Nhiều Và Đọc Nhiều Nhớ Được Bao Nhiêu,214020,246000,13,0.0,0,4,Zion Kabasawa,Zenbooks,NXB Dân Trí,,Bìa mềm,,,Đảo Sách Store,available,1000.0,True,True,True
+273773775,Slideology: Học Cách Thiết Kế Slide - Bản Quyền,239000,239000,0,0.0,0,2,,Alphabooks,Nhà Xuất Bản Thế Giới,,,,,Gooda Official,available,1000.0,True,True,True
+273259170,"Combo 2 sách Word - Powerpoint Tin học văn phòng Unica, Hướng dẫn thực hành từ cơ bản đến nâng cao",329000,329000,0,0.0,0,3,,Tinh Văn,NXB Dân Trí,,Bìa gập,240,2023-08-31,Unica,available,1000.0,True,True,True
+272980066,Sách Bí Kíp Sinh Tồn Cho Những Trái Tim Nhạy Cảm - Bản Quyền,119000,119000,0,0.0,0,1,,Skybooks,Nhà Xuất Bản Văn Học,,,,,Bamboo Books,available,1000.0,True,True,True
+272411949,50 Điều Trường Học Không Dạy Bạn Và 20 Điều Cần Làm Trước Khi Rời Ghế Nhà Trường,99000,129000,23,0.0,0,0,Alpha Books biên soạn,Alpha Books,Nhà Xuất Bản Lao Động,,Bìa mềm,,,Alpha Books Official,available,1000.0,True,True,True
+272124496,Ý Nghĩa Của Sự Điên Loạn (Omega Plus) - Bản Quyền,83000,109000,24,0.0,0,0,,Alpha Books,Nhà Xuất Bản Dân Trí,,,,,Alpha Books Official,available,1000.0,True,True,True
+270769981,Thu giang Nguyễn Duy Cần. Tôi Tự Học ( Tái Bản 2022) - Bản Quyền,120000,120000,0,0.0,0,0,,NXB Trẻ,NXB Trẻ,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+270144971,Phụ nữ thông minh: Không ngại thăng tiến - Bản Quyền,99000,99000,0,0.0,0,0,,Thái Hà Book,Nhà Xuất Bản Công Thương,,,,,info book,available,1000.0,True,True,True
+270141789,Trồng một nụ cười – cùng trẻ thực hành chánh niệm (Bìa mềm) - Bản Quyền,159000,159000,0,0.0,0,1,,Thái Hà Book,Nhà Xuất Bản Hà Nội,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+263976114,Sách Thao Túng Tâm Lý Trong Công Việc - 1980Books - Bản Quyền,169000,169000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Công Thương,,,,,Bamboo Books,available,1000.0,True,True,True
+263303864,Hành Trang Học Trò - Tự Khích Lệ Bản Thân (Tái Bản 2023),92100,98000,6,0.0,0,1,Lưu Dung,Cty Văn Hóa Văn Lang,hong duc,,,,,Nhà sách Fahasa,available,1000.0,True,True,True
+257767667,Tôi Học Đại Học Nguyễn Ngọc Ký - Bản Quyền,98000,98000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Dân Trí,,,,,info book,available,1000.0,True,True,True
+257763346,Combo Học Giỏi Cách Nào Đây? 53818 + Hãy Là Người Lãnh Đạo 46087 - Bản Quyền,106000,106000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,,,,info book,available,1000.0,True,True,True
+255605462,Dám Tha Thứ - Dare To Forgive - - Bản Quyền,88000,88000,0,0.0,0,0,,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,240,,info book,available,1000.0,True,True,True
+255299828,"Sách Muộn Phiền Ơi, Biến Đi! - Bản Quyền",109000,109000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Thế Giới,,,240,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+252867931,Sách Niksen Sức Mạnh Của Việc Tạm Dừng - BẢN QUYỀN,109000,109000,0,0.0,0,0,,Skybooks,Nhà Xuất Bản Thế Giới,,,,,info book,available,1000.0,True,True,True
+215638099,Làm Sao Học Ít Hiểu Nhiều?,128000,128000,0,0.0,0,0,,Zenbooks,Nhà Xuất Bản Đại Học Quốc Gia Hà Nội,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+213489114,Nghệ Thuật Phát Triển Bản Thân - Bản Quyền,149000,149000,0,0.0,0,0,,1980 Books,Nhà Xuất Bản Phụ Nữ,,,,,Bamboo Books,available,1000.0,True,True,True
+209349393,Kẻ Khôn Đi Lối Khác - The Third Door (Lối đi của những người thành công nhờ tư duy phá cách và sự tinh quái) - Bản Quyền,189000,189000,0,0.0,0,0,,Alphabooks,Nhà Xuất Bản Công Thương,,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+200032358,Học Cách Học - Cách Thành Công Ở Trường Mà Không Cần Quá Nhiều Thời Gian ,159000,159000,0,0.0,0,0,,Alpha Books,Nhà Xuất Bản Thế Giới,,Bìa mềm,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000.0,True,True,True
+190619605,Tài Năng Không Tuổi,126000,180000,30,0.0,0,2,,Cty Văn Hóa Nhân Văn,oem,,Bìa mềm,,,Nhân Văn,available,1000.0,True,True,True
+185410055,OKR – Từ chiến lược mục tiêu đến kết quả then chốt - Masaru Amono,92880,129000,28,0.0,0,4,Masaru Amono,1980 Books,Nhà Xuất Bản Công Thương,,Bìa mềm,204,,1980 BOOKS HCM,available,1000.0,True,True,True
+167613971,Sức Mạnh Tiềm Thức - Tái Bản 2021,121600,128000,5,0.0,0,2,,First News - Trí Việt,oem,,,,,Bảo Châu Books,available,1000.0,True,True,True
+130440907,Học Kiểu Mỹ Tại Nhà,118000,118000,0,0.0,0,1,,Nhã Nam,Nhà Xuất Bản Thế Giới,,Bìa mềm,347,,info book,available,1000.0,True,True,True
+113672423,Sách - Mini Shark – Em Bé Tự Chủ (Sách Lược Nuôi Dạy Triệu Phú Nhí),99000,99000,0,0.0,0,0,,AZ Việt Nam,Nhà Xuất Bản Dân Trí,,,,,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+109283059,Sách Cao Thủ Viết Lách: Trổ Tài Viết Đánh Giá,24700,25000,1,0.0,0,5,"Cecilia Minden, Kate Roth",NXB Kim Đồng,Nhà Xuất Bản Kim Đồng,,Bìa mềm,24,2021-06-15,Nhà sách Fahasa,available,1000.0,True,True,True
+58268220,Sách Nghệ Thuật Đào Tạo Nhân Sự Theo Phong Cách Toyota (Tái Bản 2020),78000,78000,0,0.0,0,2,OJT Solutions,NXB Phụ Nữ Việt Nam,Nhà Xuất Bản Phụ Nữ,,Bìa mềm,188,2020-07-01,info book,available,1000.0,True,True,True
+20532327,Combo Sách Khởi Nghiệp chọn lọc: Nước Đức Trong Lòng Bàn Tay (Tái Bản 2019) + Made In Japan (Tái Bản 2018),250000,313000,20,0.0,0,0,,Alphabooks,,,Bìa mềm,,,Omega Plus Books,available,1000.0,True,True,True
+15159685,Sách Đừng Đoán Mò Nữa,75200,80000,6,4.5,2,6,Nat Greene,VanLangBooks,,,Bìa mềm,,2019-05-01,Nhà sách Fahasa,available,1000.0,True,True,True
+11856440,Sách Đại Học Không Lạc Hướng,105000,105000,0,0.0,0,0,Lý Thượng Long,Minh Long,Nhà Xuất Bản Thanh Niên,,Bìa mềm,288,2019-03-15,Nhà Sách Vĩnh Thụy,available,1000.0,True,True,True
+1746359,Sách Đi Lên Từ Thất Bại,86400,95000,9,5.0,1,6,Tavis Smiley,VanLangBooks,,,Bìa mềm,272,2018-01-01,Nhà sách Fahasa,available,1000.0,True,True,True
+548904,Sách Tại Sao Phải Hành Động? (Tái Bản 2016),50000,50000,0,0.0,0,0,Teo Aik Cher,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,,2016-09-30,info book,available,1000.0,True,True,True
+427487,Sách Bạn Gái Khéo Tay,98000,98000,0,0.0,0,0,Alexandra Johnson - Karen Donnelly,First News - Trí Việt,Nhà Xuất Bản Tổng hợp TP.HCM,,Bìa mềm,205,2015-03-13,info book,available,1000.0,True,True,True
+279296428,Sách Tự Khích Lệ Bản Thân,128000,128000,0,0.0,0,0,Lưu Dung,VanLangBooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,232,,Tiki Trading,available,1000.0,False,True,True
+279296422,Sách Tiến Bước Thành Công,118000,118000,0,0.0,0,0,Lưu Dung,VanLangBooks,Nhà Xuất Bản Hồng Đức,,Bìa mềm,216,,Tiki Trading,available,1000.0,False,True,True
+278961820,"ĐỘT QUỴ: Cách Phòng Tránh Và Phục Hồi – Tạ Thanh, Cố Lâm – Lê Tùng Dương dịch – ThaiHaBooks",138000,138000,0,0.0,0,0,"Tạ Thanh, Cố Lâm",Thái Hà,Nhà Xuất Bản Thế Giới,,Bìa mềm,200,,BÌNH BÁN BOOK,available,1000.0,True,True,True
+278130417,Voice AI : Ứng Dụng AI Trong Công Nghệ Giọng Nói,179280,249000,28,0.0,0,3,,1980 Books,Nhà Xuất Bản Công Thương,,,,,1980Books Official,available,1000.0,True,True,True
+277715717,Bộ Sách 4 cuốn AI Thực Chiến ( Ứng Dụng AI Trong Giáo Dục/ Ứng Dụng AI Và Tự Động Hóa Trong Marketing/ Ứng Dụng AI Trong Thiết Kế Hình Ảnh/Không Ai Cản Được AI),489000,576000,15,0.0,0,0,,Alpha Books,Nhà Xuất Bản Lao Động,,,200,,Omega Plus Books,available,1000.0,True,True,True
+275038680,TRỞ THÀNH NGƯỜI LỚN TỐT HƠN – Brad Montagve – Nguyễn Tú Anh dịch – Quảng Văn – NXB Phụ Nữ    ,156400,158000,1,0.0,0,0,,Quảng Văn,Nhà Xuất Bản Phụ Nữ,,Bìa mềm,320,,Minhhabooks,available,1000.0,True,True,True
+273501656,Sách - 30 Ngày Tập Trung Siêu Phàm Để Đạt Hiệu Suất Tối Ưu - MCBooks,189000,189000,0,0.0,0,0,Adachitoka,BIZBOOKS,Nhà Xuất Bản Hồng Đức,,Bìa mềm,340,2023-11-14,Unibooks,available,1000.0,True,True,True
+273216938,Sách Hướng dẫn thực hành Google Sheets từ cơ bản đến nâng cao kèm video bài giảng,169000,169000,0,3.0,2,23,,Tinh Văn,NXB Dân Trí,,Bìa gập,252,2023-07-05,Unica,available,1000.0,True,True,True
+249775251,Nghệ Thuật Phát Triển Sức Ảnh Hưởng Của Bản Thân - You’re Invited,141000,188000,25,0.0,0,0,,BIZBOOKS,Nhà Xuất Bản Hồng Đức,,,,,NVP,available,1000.0,True,True,True
+209899946,Tôi Muốn Trở Thành Nhà Lãnh Đạo - Bản Quyền,197000,199000,1,0.0,0,2,,Alphabooks,Nhà Xuất Bản Công Thương,,,,,Gooda Official,available,1000.0,True,True,True

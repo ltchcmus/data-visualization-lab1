@@ -1,0 +1,48 @@
+﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
+20079959,22856116,275746542,5,Cực kì hài lòng,,approved,0,1,[],130983,Nhà sách Quốc Việt,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+20167439,605599,274932429,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+19946123,13268981,274932429,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+20140751,7131976,274932357,5,Cực kì hài lòng,,approved,0,1,"[{'id': 4408683, 'full_path': 'https://salt.tikicdn.com/ts/review/9d/96/fc/345fc22fceceea87d5cebab08b62a2f6.jpg', 'status': 'approved'}, {'id': 4408684, 'full_path': 'https://salt.tikicdn.com/ts/review/d9/af/4b/5e51b303abccc1cdb3203c632c9d8642.jpg', 'status': 'approved'}, {'id': 4408685, 'full_path': 'https://salt.tikicdn.com/ts/review/08/a4/b1/e2b3ba78617852d7b93d1e6399305630.jpg', 'status': 'approved'}, {'id': 4408686, 'full_path': 'https://salt.tikicdn.com/ts/review/0b/8f/3b/5dd7ef2cbde76dbb3c5675ad62aee170.jpg', 'status': 'approved'}, {'id': 4408687, 'full_path': 'https://salt.tikicdn.com/ts/review/a8/09/12/f7c88c788af580a9d10aefd45d5ab569.jpg', 'status': 'approved'}]",170925,Dtpbooks,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+20164320,30477527,274932210,4,Hài lòng,,approved,0,1,[],170925,Dtpbooks,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+20147374,30435850,274932171,5,Cực kì hài lòng,hàng tốt đóng gói kĩ càng giao nhanh đúng hẹn,approved,0,1,"[{'id': 4409765, 'full_path': 'https://salt.tikicdn.com/ts/review/76/19/16/8b6460883d3f56b01f0ebec288d89297.jpg', 'status': 'approved'}]",170925,Dtpbooks,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+20166342,30481717,274932171,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+20164321,30477527,274932171,4,Hài lòng,,approved,0,1,[],170925,Dtpbooks,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+19955507,30074433,274932171,3,Bình thường,Người giao hàng điện mà đến 3 tiếng sau mới đưa hàng,approved,0,1,[],170925,Dtpbooks,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao trễ hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Không hẹn trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+17319322,720348,189598539,5,Cực kì hài lòng,"Vận chuyển nhanh chóng, cho 5 sao chất lượng. Chất lượng giấy tốt",approved,0,6,"[{'id': 3764812, 'full_path': 'https://salt.tikicdn.com/ts/review/55/c1/01/16536754c4f9f64cc00c8e9c14daa98b.jpg', 'status': 'approved'}, {'id': 3764813, 'full_path': 'https://salt.tikicdn.com/ts/review/28/04/20/607ead30e2c307d6e262493a1afc4ed5.jpg', 'status': 'approved'}, {'id': 3764814, 'full_path': 'https://salt.tikicdn.com/ts/review/74/56/ff/af55dec7d7cb6db568b95a3bea888b88.jpg', 'status': 'approved'}]",170925,Dtpbooks,[]
+19925015,28159686,189598539,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+19790978,10905314,189598539,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+19456169,24014927,189598539,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+18349994,28527966,189598539,4,Hài lòng,,approved,0,2,"[{'id': 4026625, 'full_path': 'https://salt.tikicdn.com/ts/review/6d/cd/81/7999bc49df71e62b5e51abd170128329.jpg', 'status': 'approved'}]",170925,Dtpbooks,[]
+18359810,17187422,189598539,5,Cực kì hài lòng,"Sách tốt. Hữu ích, giao hàng nhanh!",approved,0,1,[],170925,Dtpbooks,[]
+18862902,27891689,189598539,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+18762762,28795979,189598539,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+18641401,24014501,189598539,5,Cực kì hài lòng,Tốt,approved,0,1,[],170925,Dtpbooks,[]
+18711755,28699830,189598539,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+18697980,2052970,189598539,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+18669684,493566,189598539,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+18476920,837995,189598539,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+18452745,13709168,189598539,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+18399757,15421308,189598539,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+18393306,19436576,189598539,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+18222098,7854431,189598539,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+18150997,28353235,189598539,5,Cực kì hài lòng,,approved,1,1,[],170925,Dtpbooks,[]
+18145814,18637166,189598539,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+17896176,28283461,189598539,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+17529016,8625892,189598539,5,Cực kì hài lòng,Sách hay,approved,0,3,[],170925,Dtpbooks,[]
+17198979,21899633,189598539,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+19806195,16508621,189573565,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+19456172,24014927,189573565,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+17433968,22074424,189573565,5,Cực kì hài lòng,"Sách chất lượng, bài tập bám sát cấu trúc đề thi THPT Quốc gia",approved,0,1,[],170925,Dtpbooks,[]
+18359814,17187422,189573565,5,Cực kì hài lòng,"Sách hay, giao hàng nhanh",approved,0,1,[],170925,Dtpbooks,[]
+18832663,12513852,189573565,4,Hài lòng,ok,approved,0,1,[],170925,Dtpbooks,[]
+18762763,28795979,189573565,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+18641405,24014501,189573565,5,Cực kì hài lòng,Good,approved,0,1,[],170925,Dtpbooks,[]
+18697982,2052970,189573565,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+18362488,1362047,189573565,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+18349996,28527966,189573565,4,Hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+18241946,13457382,189573565,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+18044834,28353235,189573565,5,Cực kì hài lòng,Good,approved,0,1,[],170925,Dtpbooks,[]
+18145974,2231115,189573565,5,Cực kì hài lòng,,approved,0,1,[],170925,Dtpbooks,[]
+19555185,11291605,115200459,5,Cực kì hài lòng,"Đóng gói cẩn thận, chất lượng sách tốt",approved,0,0,"[{'id': 4290390, 'full_path': 'https://salt.tikicdn.com/ts/review/ca/46/3a/1bc8ad8d165b5fe0d112db1f5b0b94d2.jpg', 'status': 'approved'}, {'id': 4290391, 'full_path': 'https://salt.tikicdn.com/ts/review/3f/da/a6/bb5c4a6f3aebade2b7e9340f98022c96.jpg', 'status': 'approved'}]",208140,Hiệu sách Gen books,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Không hẹn trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+19590092,7487440,115126045,5,Cực kì hài lòng,"Sách đẹp, chỉn chu, dễ hiểu cho học sinh hoặc người cần lấy lại căn bản toán.",approved,0,0,"[{'id': 4298373, 'full_path': 'https://salt.tikicdn.com/ts/review/a4/ac/19/5189496d071ba8c649159102fd3b3cb8.jpg', 'status': 'approved'}]",208140,Hiệu sách Gen books,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+19316884,10278882,115124528,5,Cực kì hài lòng,,approved,0,0,[],208140,Hiệu sách Gen books,[]

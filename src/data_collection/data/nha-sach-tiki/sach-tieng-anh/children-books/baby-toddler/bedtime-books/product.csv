@@ -1,0 +1,31 @@
+﻿id,name,price,list_price,discount_rate,rating_average,review_count,all_time_quantity_sold,authors,publisher_vn,manufacturer,isbn13,book_cover,number_of_page,publication_date,current_seller_name,inventory_status,stock,has_freeship,is_authentic,has_return_policy
+274133611,Peekaboo! T. Rex,169000,169000,0,0,0,0,堀越 耕平,,,9781787727656,Board book,10,,Nhà Sách Phương Nam,available,1000,True,True,True
+212961695,Sách - Good Night Coast Guard,235000,235000,0,0,0,0,"Adam Gamble, Michael J. Tougias",Penguin Random House,Penguin Random House,,Board book,20,,Bamboo Books,available,1000,True,True,True
+113528312,Sách - Tủ sách nhà văn Roald Dahl: BFG - Người khổng lồ thân thiện,65000,65000,0,0,0,0,Roald Dahl,NXB Kim Đồng,Nhà Xuất Bản Kim Đồng,0,Bìa mềm,272,2021-01-18,Bamboo Books,available,1000,True,True,True
+92002650,Sách-Bộ những thói quen vàng-Để sách là bạn mình,47000,59000,20,0,0,1,,Alphabooks,Nhà Xuất Bản Dân Trí,0,,80,,Alpha Books Official,available,1000,True,True,True
+92002538,Sách - Những Bộ Óc Vĩ Đại Ông Vua Thép Nhân Hậu Andrew Carnegie,65000,65000,0,0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,0,,52,,Nhà Sách Vĩnh Thụy,available,1000,True,True,True
+91998894,Sách-Để luôn đạt điểm 10-Toán và những con số kỳ diệu (tái bản 2019),85000,85000,0,0,0,4,,Alphabooks,Nhà Xuất Bản Dân Trí,0,,,,HỆ THỐNG NHÀ SÁCH ABC,available,1000,True,False,True
+91998866,"Sách -  Những Bộ Óc Vĩ Đại: Danh Họa ""Ấn Tượng"" Van Gogh ",52000,65000,20,0,0,1,,Alphabooks,Nhà Xuất Bản Thế Giới,0,,52,,Alpha Books Official,available,1000,True,True,True
+91988577,Sách - Vũ Trụ - Trong 30 Giây ,79000,99000,20,0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,0,,96,,Omega Plus Books,available,1000,True,True,True
+91986459,Sách-bộ sách chân dung những người thay đổi thế giới-Claude Monet là ai?,47000,59000,20,0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,0,,,,ETS Books,available,1000,True,False,True
+91986248,Sách-bộ sách tri thức phổ thông những địa danh làm thay đổi lịch sử-Tam giác quỷ Bermuda ở đâu?,52000,65000,20,0,0,0,,Alphabooks,Nhà Xuất Bản Dân Trí,0,,,,Alpha Books Official,available,1000,True,True,True
+91986169,Sách - Bách Khoa Thư Thế Hệ Mới (6/9 Tuổi),279000,349000,20,0,0,0,,Alphabooks,Nhà Xuất Bản Dân Trí,0,,,,Omega Plus Books,available,1000,True,True,True
+91986132,Sách-Bộ kỹ năng mềm-Mẹ không phải người giúp việc,84000,84000,0,0,0,0,,Alphabooks,Nhà Xuất Bản Dân Trí,0,,137,,Nhà Sách Vĩnh Thụy,available,1000,True,False,True
+91985953,Sách - Cơ Thể Người - Trong 30 Giây ,79000,99000,20,0,0,11,,Alphabooks,Nhà Xuất Bản Thế Giới,0,,96,,Omega Plus Books,available,1000,True,True,True
+91985923,Sách-Stem quanh em-Kỹ thuật siêu đơn giản,47000,59000,20,0,0,2,,Alphabooks,Nhà Xuất Bản Dân Trí,0,,32,,Alpha Books Official,available,1000,True,True,True
+91985595,Sách - Những Bộ Óc Vĩ Đại Bác Học Hấp Dẫn Newton ,52000,65000,20,0,0,1,,Alphabooks,Nhà Xuất Bản Thế Giới,0,,52,,Omega Plus Books,available,1000,True,True,True
+91985588,Sách - Stem Quanh Em - Vật Lý Học Siêu Hấp Dẫn,47000,59000,20,0,0,1,,Alphabooks,Nhà Xuất Bản Thế Giới,0,,33,,Alpha Books Official,available,1000,True,True,True
+91985540,Sách - Ý Tưởng Khoa Học - Trong 30 Giây,79000,99000,20,0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,0,,96,,Omega Plus Books,available,1000,True,True,True
+91985411,Sách-chân dung những người thay đổi thế giới-Galileo là ai?tái bản 2018,59000,59000,0,0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,0,,110,,HỆ THỐNG NHÀ SÁCH ABC,available,1000,True,False,True
+91985103,Sách - Stem quanh em - Toán học siêu ứng dụng,47000,59000,20,0,0,1,,Alphabooks,Nhà Xuất Bản Thế Giới,0,,32,,Alpha Books Official,available,1000,True,True,True
+91984965,Sách - Stem Quanh Em - Địa Chất Học Siêu Độc Đáo,47000,59000,20,0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,0,,33,,Alpha Books Official,available,1000,True,True,True
+91984864,Sách - Những Bộ Óc Vĩ Đại - Danh Họa Toàn Tài Leonardo Da Vinci ,52000,65000,20,0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,0,,52,,Alpha Books Official,available,1000,True,False,True
+91984679,Sách - Những Bộ Óc Vĩ Đại: Bác Học Tiến Hóa Darwin ,52000,65000,20,0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,0,,52,,Omega Plus Books,available,1000,True,True,True
+91984657,Sách - Stem Quanh Em - Khoa Học Robot Siêu Sáng Tạo,47000,59000,20,0,0,0,,Alphabooks,Nhà Xuất Bản Dân Trí,0,,33,,Alpha Books Official,available,1000,True,True,True
+91984594,Sách - Phát Minh - Trong 30 Giây,79000,99000,20,0,0,0,,Alphabooks,Nhà Xuất Bản Thế Giới,0,,96,,Omega Plus Books,available,1000,True,True,True
+91561294,Sách - Cùng Bé Khám Phá Thế Giới Xung Quanh - Số Đếm - Sách Song Ngữ (Bìa cứng),28000,28000,0,5,1,1,Hải Phạm,Công Ty TNHH Văn Hóa Việt Thư,Nhà Xuất Bản Phụ Nữ,0,Bìa cứng,16,,Bảo Châu Books,available,1000,True,True,True
+89315354,Sách - Người Bà Tài Giỏi Vùng Saga – Tập 1 (tặng kèm bookmark),65000,65000,0,0,0,1,,AZ Việt Nam,Nhà Xuất Bản Phụ Nữ Việt Nam,0,,220,,AHABOOKS,available,1000,True,True,True
+66047477,Sách thiếu nhi tiếng Anh - Under The Sleepy Moon,288360,324000,11,0,0,0,Dubravka Kolanovic,Little Tiger Press Group,Little Tiger Press,9781788814560,Board book,16,,Blue Horizon Books,available,1000,True,True,True
+54081328,Do You Believe in Groovicorns - Em Có Tin Vào Kỳ Lân Không?,180000,180000,0,0,0,0,Stuart Lynch,MAKE BELIEVE IDEAS LTD,Make Believe Ideas,978-1788433693,Bìa cứng,12,2019-03-04,Crep Protect VN,available,1000,True,True,True
+20890867,The Children of the New Forest,130000,130000,0,0,0,4,Captain Frederick Marryat,,Wordsworth Editions Ltd,9781853261107,Paperback,304,,Xunhasaba Thế giới Sách Ngoại văn,available,1000,True,False,True
+2869181,Five Minute Sleepytime Stories,1239000,1239000,0,0,0,9,,Parragon Books,Parragon Books,9781474814997,Hardback,576,,Foreignbooks,available,1000,True,True,True

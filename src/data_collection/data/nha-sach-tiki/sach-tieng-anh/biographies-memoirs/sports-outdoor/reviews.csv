@@ -1,0 +1,4 @@
+﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
+18891128,6343453,139288552,5,Cực kì hài lòng,Rất hay,approved,0,0,[],229023,Nhà Sách Phương Nam,[]
+19039107,17747318,139288552,5,Cực kì hài lòng,,approved,0,0,[],229023,Nhà Sách Phương Nam,[]
+19743430,16840265,139248406,4,Hài lòng,"Đóng gói sơ sài, sách hơi cũ.",approved,0,0,[],229023,Nhà Sách Phương Nam,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩu thả'}]"

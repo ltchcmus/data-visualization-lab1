@@ -1,0 +1,9 @@
+﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
+14414613,26114420,526464,1,Rất không hài lòng,"sách vừa dơ vừa cũ, giao hàng 6 ngày. Quá thất vọng với cái giá 98k và Fahasa",approved,2,1,"[{'id': 3017239, 'full_path': 'https://salt.tikicdn.com/ts/review/db/c0/a5/51096c5b6cb883bbd05162c19109259e.jpg', 'status': 'approved'}, {'id': 3017240, 'full_path': 'https://salt.tikicdn.com/ts/review/0f/68/3b/cae3b18acfec5ecf7c70c51511e897d4.jpg', 'status': 'approved'}, {'id': 3017241, 'full_path': 'https://salt.tikicdn.com/ts/review/1f/48/83/0572874b883aeb813f25f177f1958e64.jpg', 'status': 'approved'}, {'id': 3017242, 'full_path': 'https://salt.tikicdn.com/ts/review/c8/5d/a9/d7f709d70308cf320f556624a8f4f9e4.jpg', 'status': 'approved'}]",53660,Nhà sách Fahasa,[]
+8012863,1818660,526464,1,Rất không hài lòng,Sản phẩm giao không đúng mô tả kích thước 98x 131x 13mm mà giao nhỏ kích thước 85 x 95x 13mm. SP có thể trả lại do ko đúng ko,approved,0,0,[],1,Tiki Trading,[]
+8777150,1895509,526464,4,Hài lòng,Sách bé xíu luôn. yêuuuuu,approved,0,0,"[{'id': 1770468, 'full_path': 'https://salt.tikicdn.com/ts/review/2c/82/39/9ba9947fc7b7679d9f38b88ac5cb499b.jpg', 'status': 'approved'}]",1,Tiki Trading,[]
+9636990,19268031,526464,5,Cực kì hài lòng,,approved,0,0,[],1,Tiki Trading,[]
+9178051,7550465,526464,5,Cực kì hài lòng,,approved,0,0,[],1,Tiki Trading,[]
+8075101,15936550,526464,5,Cực kì hài lòng,,approved,0,1,[],1,Tiki Trading,[]
+15879345,25091104,342919,5,Cực kì hài lòng,"Sách đẹp, chất lượng tốt, đóng gói cẩn thận, giao hàng siêu nhanh :)))",approved,0,0,"[{'id': 3345689, 'full_path': 'https://salt.tikicdn.com/ts/review/79/bf/3e/e51235c5dd869ea6a0003608d010f175.jpg', 'status': 'approved'}]",53660,Nhà sách Fahasa,[]
+10064242,388701,342919,5,Cực kì hài lòng,,approved,0,0,[],1,Tiki Trading,[]

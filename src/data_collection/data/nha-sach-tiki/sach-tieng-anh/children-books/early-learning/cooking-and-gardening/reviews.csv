@@ -1,0 +1,3 @@
+﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
+19248216,23692556,197897343,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+10824636,16786091,87636077,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]

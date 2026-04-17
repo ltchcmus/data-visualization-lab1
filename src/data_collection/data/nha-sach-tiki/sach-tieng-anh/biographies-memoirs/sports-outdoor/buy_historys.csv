@@ -1,0 +1,4 @@
+﻿customer_id,product_id,order_id,seller_id,seller_name,quantity,price_at_purchase,total_price,purchased_at,delivery_date,review_id
+6343453,139288552,,229023,Nhà Sách Phương Nam,4,,,2022-10-22 02:03:16+00:00,2022-10-26 10:27:38+00:00,18891128
+17747318,139288552,,229023,Nhà Sách Phương Nam,1,,,2022-10-06 00:42:31+00:00,2022-10-10 09:58:09+00:00,19039107
+16840265,139248406,,229023,Nhà Sách Phương Nam,2,,,2024-01-22 15:11:57+00:00,2024-01-24 14:46:15+00:00,19743430

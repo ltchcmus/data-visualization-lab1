@@ -1,0 +1,7 @@
+﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
+19099217,15938597,191780151,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+20188620,12192662,73385132,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+3153102,440475,2395129,5,Essential for a healthy lifestyle!,"sách được đóng gói đúng quy cách, nguyên vẹn và còn mới. Sách trình bày khoa học với nhiều thông tin bổ ích và đáng nhớ, từ những sinh tố thiết yếu đến cách bổ sung cụ thể dành cho các vấn đề sức khỏe điển hình. 
+Thời gian giao hàng khá lâu nhưng mình cũng không gấp gáp nên tạm chấp nhận được.",approved,0,0,"[{'id': 881668, 'full_path': 'https://salt.tikicdn.com/ts/review/ab/44/5a/b91c9547ef9ee917d2cdb53811f57227.jpg', 'status': 'approved'}, {'id': 881669, 'full_path': 'https://salt.tikicdn.com/ts/review/c4/e9/3b/9e807a240f5abc633ab16d060989df5a.jpg', 'status': 'approved'}]",1231,Thế giới Sách Ngoại văn,[]
+12495234,19884698,2395129,5,Cực kì hài lòng,,approved,0,0,[],1231,Xunhasaba Thế giới Sách Ngoại văn,[]
+10543687,10664340,2395129,5,Cực kì hài lòng,sách đẹp,approved,0,0,[],1231,Thế giới Sách Ngoại văn,[]

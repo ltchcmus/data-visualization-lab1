@@ -1,0 +1,12 @@
+﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
+19944872,655921,197530369,4,Hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+19622366,1501229,197530369,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+15378476,22450510,56309581,5,Cực kì hài lòng,,approved,0,0,[],9652,Crep Protect VN,[]
+7037083,16586189,56309581,5,Cực kì hài lòng,Cực kỳ hài lòng,approved,0,0,[],9652,Crep Protect VN,[]
+4998899,1367805,56309581,5,Cực kì hài lòng,,approved,0,0,[],9652,Crep Protect VN,[]
+17584695,334668,56212955,5,Cực kì hài lòng,,approved,0,0,[],9652,Crep Protect VN,[]
+12582365,838782,56212955,5,Cực kì hài lòng,Bé thích,approved,0,0,[],9652,Crep Protect VN,[]
+9720924,6432096,56212955,5,Cực kì hài lòng,,approved,0,0,[],9652,Crep Protect VN,[]
+7037058,16586189,56212955,5,Cực kì hài lòng,Cực kỳ hài lòng,approved,0,0,[],9652,Crep Protect VN,[]
+4638361,7539058,56212955,5,Cực kì hài lòng,,approved,0,0,[],9652,Crep Protect VN,[]
+9553440,1013780,489591,5,Cực kì hài lòng,,approved,0,0,[],12696,Blue Horizon Books,[]

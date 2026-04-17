@@ -1,0 +1,3 @@
+﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
+19389198,28001239,263256220,5,Cực kì hài lòng,Sách đẹp,approved,0,0,[],229023,Nhà Sách Phương Nam,[]
+20037410,17776759,2395109,5,Cực kì hài lòng,,approved,0,0,[],1231,Xunhasaba Thế giới Sách Ngoại văn,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Không hẹn trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"

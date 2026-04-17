@@ -1,0 +1,5 @@
+﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
+16716117,25764302,20578399,2,Không hài lòng,"Nội dung không hay. 
+Đọc thấy chán chán.",approved,0,0,"[{'id': 3590206, 'full_path': 'https://salt.tikicdn.com/ts/review/1a/46/62/6b35c38347f44201e365109a4febb3f7.jpg', 'status': 'approved'}, {'id': 3590207, 'full_path': 'https://salt.tikicdn.com/ts/review/a7/73/18/956a27afc85f6a3998dbedc894e387d0.jpg', 'status': 'approved'}]",1,Tiki Trading,[]
+10318184,197661,20578399,5,Cực kì hài lòng,,approved,0,0,[],1,Tiki Trading,[]
+5958565,13142513,20585379,5,Cực kì hài lòng,Sách bọc cẩn thận,approved,0,0,[],1231,Thế giới Sách Ngoại văn,[]

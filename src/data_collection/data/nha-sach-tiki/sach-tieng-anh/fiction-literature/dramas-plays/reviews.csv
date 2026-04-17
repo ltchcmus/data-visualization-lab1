@@ -1,0 +1,10 @@
+﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
+19859884,13390494,262789474,2,Không hài lòng,Không hieue sách bị trước hay do bọc mà làm nát sách,approved,0,1,"[{'id': 4354095, 'full_path': 'https://salt.tikicdn.com/ts/review/e4/7c/76/75787330a41f5988328505aa828d8cd2.jpg', 'status': 'approved'}]",229023,Nhà Sách Phương Nam,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+20140823,29610531,258897463,5,Cực kì hài lòng,,approved,0,0,[],229023,Nhà Sách Phương Nam,[]
+6286805,18465,55288478,5,Cực kì hài lòng,"Jane Austen has been one of the most popular novelists ever. Her masterpieces have proven successful since she first published her novel in 1811. Of these novels, Pride and Prejudice can be seen as her glory over time. This book will give readers a more complete picture about her life and inspiration. It's worth reading with simple vocabulary, suitable for beginners of English.",approved,0,0,"[{'id': 1386529, 'full_path': 'https://salt.tikicdn.com/ts/review/20/3a/20/c1666f16a706c3ee61a716ee5e8af2ce.jpg', 'status': 'approved'}]",53660,Nhà sách Fahasa,[]
+18626610,497566,49379237,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+11341970,1102339,49379237,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+9075129,144688,22986530,5,Cực kì hài lòng,"Bao bì tốt. Bìa sách mới nguyên, không bị bẩn hay nhăn.",approved,0,0,[],53660,Nhà sách Fahasa,[]
+11103319,16111363,22986530,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+9886388,10603715,22986530,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+5043910,17737570,22986530,5,Cực kì hài lòng,"Mất bao lâu mới tìm đc, cảm ơn các bạn",approved,1,0,[],53660,Nhà sách Fahasa,[]

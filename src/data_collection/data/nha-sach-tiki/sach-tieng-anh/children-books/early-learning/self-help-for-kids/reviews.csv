@@ -1,0 +1,5 @@
+﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
+19697691,9988372,273572744,5,Cực kì hài lòng,"Sách hay, quét mã QR ra file nghe rất tiện lợi.
+Hình ảnh vô cùng dễ thương, bé rất thích",approved,0,0,[],178049,Bùi Thị Anh,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+19740829,9988372,273572744,5,Cực kì hài lòng,Sách đẹp đóng gói tốt,approved,0,0,[],178049,Bùi Thị Anh,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+20059261,17614624,271311734,5,Cực kì hài lòng,"Sách hay và đẹp, bé thích đọc",approved,0,1,[],1,Tiki Trading,[]

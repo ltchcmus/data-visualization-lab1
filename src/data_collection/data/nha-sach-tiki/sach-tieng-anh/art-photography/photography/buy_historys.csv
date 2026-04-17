@@ -1,0 +1,4 @@
+﻿customer_id,product_id,order_id,seller_id,seller_name,quantity,price_at_purchase,total_price,purchased_at,delivery_date,review_id
+555230,149346888,,305,Artbook,3,,,2023-03-10 08:39:35+00:00,2023-03-14 12:16:37+00:00,18955290
+25858035,149346888,,305,Artbook,4,,,2022-01-12 13:42:33+00:00,2022-01-14 09:13:52+00:00,14482533
+296948,4682601,,53660,Nhà sách Fahasa,4,,,2022-02-07 11:12:08+00:00,2022-02-08 15:25:50+00:00,14896835

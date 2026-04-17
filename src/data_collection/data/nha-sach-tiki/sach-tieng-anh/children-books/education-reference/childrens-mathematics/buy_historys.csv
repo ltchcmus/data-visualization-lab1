@@ -1,0 +1,3 @@
+﻿customer_id,product_id,order_id,seller_id,seller_name,quantity,price_at_purchase,total_price,purchased_at,delivery_date,review_id
+1042067,277916322,,361459,Unibooks,1,,,2025-07-07 09:10:37+00:00,2025-07-10 16:04:04+00:00,20149544
+2184,55288027,,53660,Nhà sách Fahasa,3,,,2020-10-25 15:14:43+00:00,2020-10-27 08:46:47+00:00,6539934

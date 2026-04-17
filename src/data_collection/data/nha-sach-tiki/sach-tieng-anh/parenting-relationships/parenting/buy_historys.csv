@@ -1,0 +1,4 @@
+﻿customer_id,product_id,order_id,seller_id,seller_name,quantity,price_at_purchase,total_price,purchased_at,delivery_date,review_id
+25764302,20578399,,1,Tiki Trading,1,,,2022-06-11 01:05:09+00:00,2022-06-13 11:19:39+00:00,16716117
+197661,20578399,,1,Tiki Trading,1,,,2021-05-28 08:03:50+00:00,2021-05-28 18:06:27+00:00,10318184
+13142513,20585379,,1231,Thế giới Sách Ngoại văn,4,,,2020-12-02 11:55:05+00:00,2020-12-04 15:54:07+00:00,5958565

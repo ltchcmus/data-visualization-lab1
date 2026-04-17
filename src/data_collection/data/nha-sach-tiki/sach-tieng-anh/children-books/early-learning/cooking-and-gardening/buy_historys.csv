@@ -1,0 +1,3 @@
+﻿customer_id,product_id,order_id,seller_id,seller_name,quantity,price_at_purchase,total_price,purchased_at,delivery_date,review_id
+23692556,197897343,,53660,Nhà sách Fahasa,3,,,2023-05-27 03:29:47+00:00,2023-05-31 10:38:21+00:00,19248216
+16786091,87636077,,53660,Nhà sách Fahasa,1,,,2021-06-10 16:26:36+00:00,2021-06-13 15:25:38+00:00,10824636

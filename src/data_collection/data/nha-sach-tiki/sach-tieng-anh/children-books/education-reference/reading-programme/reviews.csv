@@ -1,0 +1,41 @@
+﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
+20118289,892838,222627639,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+19626510,17761777,149847158,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+15491434,11642670,149847158,5,Cực kì hài lòng,"bộ sách phù hợp với các bé đang học tiếng anh, có nhiều cấp độ để lựa chọn. người bán giao hàng nhanh.",approved,0,0,[],53660,Nhà sách Fahasa,[]
+16235394,468498,149847158,5,Cực kì hài lòng,Mình rất ưng ý bộ này. Lvl 3 tầm 6 tuổi đọc được.,approved,0,0,"[{'id': 3450087, 'full_path': 'https://salt.tikicdn.com/ts/review/c8/10/a9/44045ea58f0c9a81192b6ec2db0729a1.jpg', 'status': 'approved'}]",53660,Nhà sách Fahasa,[]
+15775699,7200668,149847158,5,Cực kì hài lòng,sách đẹp.,approved,0,0,[],53660,Nhà sách Fahasa,[]
+19886573,8563637,149847156,5,Cực kì hài lòng,Nhà sách đóng gói cẩn thận.,approved,0,0,"[{'id': 4358824, 'full_path': 'https://salt.tikicdn.com/ts/review/53/df/2e/37545dba9015b197c9a7df2dce8fde96.jpg', 'status': 'approved'}]",53660,Nhà sách Fahasa,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+16410566,468498,149847156,5,Cực kì hài lòng,Giao hàng đúng hẹn. Đóng gói cẩn thận. Bộ này mình chợt thấy giảm 11% nên đặt mua trước. Bé con nhà mình xem lvl 1 và 2 rất thích.,approved,0,0,"[{'id': 3500294, 'full_path': 'https://salt.tikicdn.com/ts/review/25/19/8d/f8eceb20c040c1f79ec35b4fc48a99e4.jpg', 'status': 'approved'}, {'id': 3500295, 'full_path': 'https://salt.tikicdn.com/ts/review/9d/04/fc/87ca371261a3f09b53f9c398ace0dacd.jpg', 'status': 'approved'}]",53660,Nhà sách Fahasa,[]
+15079517,6335830,149847156,5,Cực kì hài lòng,"Đúng sản phẩm, giao hàng nhanh.",approved,0,0,[],53660,Nhà sách Fahasa,[]
+16827293,928082,149847156,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+15491428,11642670,149847156,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+19886575,8563637,149847124,5,Cực kì hài lòng,Nhà sách đóng gói cẩn thận.,approved,0,0,"[{'id': 4358823, 'full_path': 'https://salt.tikicdn.com/ts/review/53/df/2e/333a99ad01394237ad1248be1ca62c5b.jpg', 'status': 'approved'}]",53660,Nhà sách Fahasa,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+20215600,943468,125089800,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+7017789,1159202,55287144,5,Cực kì hài lòng,"Câu chuyện hay, hình minh họa rất đẹp",approved,0,0,[],53660,Nhà sách Fahasa,[]
+6864613,106075,55287144,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+4199824,9688731,55287144,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+19199560,20745634,55101443,1,Rất không hài lòng,Mấy trang giấy thôi mà... giá cao thế... thất vọng.,approved,0,0,[],53660,Nhà sách Fahasa,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao trễ hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+18645030,713383,55101443,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+9071814,21227260,55101443,3,Cực kì hài lòng,"Sách hay, có kèm app. Nhưng app chỉ dùng chỉ đc 1 năm hơi chán. Chỉ tốt thôi chứ chưa ưng lắm☹",approved,0,0,"[{'id': 3157691, 'full_path': 'https://salt.tikicdn.com/ts/review/b3/e6/0e/23b9ad8db2daf92bb83133c229a55a77.jpg', 'status': 'approved'}]",53660,Nhà sách Fahasa,[]
+6593196,831198,55101426,3,Bình thường,"Set sản phẩm phù hợp với độ tuổi, nhưng quyển in hơi bé, in to thì trẻ con dễ đọc hơn",approved,0,0,"[{'id': 3640362, 'full_path': 'https://salt.tikicdn.com/ts/review/fd/f6/2c/30c05f0ba7b566707ff64120883ce44b.jpg', 'status': 'approved'}]",53660,Nhà sách Fahasa,[]
+16410580,468498,149963656,5,Cực kì hài lòng,Tiếp nối 5 bộ trước mình mua luôn bộ này để dành để khi con đủ trình độ sẽ đọc. Bộ này khuyến khích mua nhé. Mình còn thích 😁,approved,0,0,"[{'id': 3500296, 'full_path': 'https://salt.tikicdn.com/ts/review/1f/68/3d/320431fad9c646d3557e6b8a27fc0039.jpg', 'status': 'approved'}, {'id': 3500297, 'full_path': 'https://salt.tikicdn.com/ts/review/99/76/3d/1a9b4f54e409579373886c07bfa8b663.jpg', 'status': 'approved'}]",53660,Nhà sách Fahasa,[]
+19679993,17761777,149963656,5,Cực kì hài lòng,"Giao nhanh, hàng chính hãng đẹp",approved,0,0,[],53660,Nhà sách Fahasa,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
+15491433,11642670,149963656,5,Cực kì hài lòng,"bộ sách phù hợp với các bé đang học tiếng anh, có nhiều cấp độ để lựa chọn. người bán giao hàng nhanh.",approved,0,0,[],53660,Nhà sách Fahasa,[]
+12300406,546410,102132993,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+16219188,9133849,74678340,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+8560560,4215001,74678340,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+20118290,892838,73492140,5,Cực kì hài lòng,"Sách đẹp, chất lượng; thích hợp cho trẻ em bắt đầu học tiếng Anh tại nhà.",approved,0,0,[],53660,Nhà sách Fahasa,[]
+14603882,8374535,73492140,5,Cực kì hài lòng,"Sách chuẩn, đóng gói cẩn thận",approved,0,0,"[{'id': 3446209, 'full_path': 'https://salt.tikicdn.com/ts/review/24/15/aa/efcab7faf274f2e109b450a55c1f3a1e.jpg', 'status': 'approved'}]",53660,Nhà sách Fahasa,[]
+13167133,6296758,73492140,5,Cực kì hài lòng,Sách trong điều kiện rất tốt. Thanks,approved,0,0,"[{'id': 2744232, 'full_path': 'https://salt.tikicdn.com/ts/review/3b/a5/9f/361e20328c6504fc425d1c8b3bab0c59.jpg', 'status': 'approved'}]",53660,Nhà sách Fahasa,[]
+13480644,8807390,73492140,5,Cực kì hài lòng,sach day va huu ich cho be,approved,0,0,[],53660,Nhà sách Fahasa,[]
+6445808,1822063,73492140,5,Cực kì hài lòng,chất lượng rất tốt.,approved,0,0,[],53660,Nhà sách Fahasa,[]
+12167803,14844213,35856221,4,Hài lòng,,approved,0,0,[],1,Tiki Trading,[]
+8765856,6508011,32112173,5,Cực kì hài lòng,,approved,0,0,[],1,Tiki Trading,[]
+4923960,1418661,32112173,5,Cực kì hài lòng,vừa ý,approved,0,0,[],53660,Nhà sách Fahasa,[]
+4061865,5684785,32112173,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+18460253,6296758,2162201,5,Cực kì hài lòng,,approved,0,0,[],1,Tiki Trading,[]
+18725417,10808765,1664927,1,Rất không hài lòng,Sách thiếu trang từ 1-8....,approved,0,0,[],53660,Nhà sách Fahasa,[]
+18784668,338984,1664927,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
+3166870,5466701,1664927,2,Không hài lòng,"Thất vọng với nội dung lẫn hình vẽ. Câu chuyện quen thuộc vầy mà viết lại lãng xẹt, không còn ý nghĩa. Hình vẽ nhân vật không lộ “tâm lý” gì.",approved,0,0,[],53660,Nhà sách Fahasa,[]
+6374444,1857142,1664927,5,Cực kì hài lòng,,approved,0,0,"[{'id': 1398599, 'full_path': 'https://salt.tikicdn.com/ts/review/f9/57/7e/23cc01c7074272638a49f10fc1e93442.jpg', 'status': 'approved'}]",53660,Nhà sách Fahasa,[]
+3227180,1757088,1664927,5,Cực kì hài lòng,"Nội dung dễ thương, chữ to bợp với bé mới tâoj đọc",approved,0,0,[],53660,Nhà sách Fahasa,[]
