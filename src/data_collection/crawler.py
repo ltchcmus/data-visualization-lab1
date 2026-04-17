@@ -1,9 +1,11 @@
 import requests
 import json
 import csv
+import os
 from pathlib import Path
 import random
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 import pytz
 import pandas as pd
@@ -22,6 +24,10 @@ product_url = "https://tiki.vn/api/v2/products/{}"
 headers = {
     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36"
 }
+ENABLE_REVIEW_CRAWL = False
+LOG_FILE = Path("crawl_tiki.log")
+MAX_WORKERS = 8
+CATEGORY_PAGE_DELAY_RANGE = (0.1, 0.25)
 
 # Hàm request với retry
 @retry(
@@ -33,21 +39,99 @@ headers = {
     )
 )
 def safe_request(url, headers):
-    response = requests.get(url, headers=headers)
+    response = requests.get(url, headers=headers, timeout=30)
     response.raise_for_status()
     return response
 
+def maybe_sleep(delay_range):
+    if delay_range:
+        time.sleep(random.uniform(*delay_range))
+
 # Hàm lưu và tải checkpoint
 def save_checkpoint(crawled_ids, checkpoint_file):
-    with open(checkpoint_file, "w") as f:
-        json.dump(list(crawled_ids), f)
+    checkpoint_path = Path(checkpoint_file)
+    checkpoint_path.parent.mkdir(parents=True, exist_ok=True)
+    temp_path = checkpoint_path.with_name(f"{checkpoint_path.name}.tmp")
+    with open(temp_path, "w", encoding="utf-8") as file:
+        json.dump(list(crawled_ids), file, ensure_ascii=False)
+        file.flush()
+        os.fsync(file.fileno())
+    temp_path.replace(checkpoint_path)
+    with open(checkpoint_path, "r+b") as file:
+        os.fsync(file.fileno())
 
-def load_checkpoint(checkpoint_file):
+def load_checkpoint(checkpoint_file, cast=str):
     try:
-        with open(checkpoint_file, "r") as f:
-            return set(json.load(f))
-    except FileNotFoundError:
+        with open(checkpoint_file, "r", encoding="utf-8") as f:
+            raw = json.load(f)
+        if not isinstance(raw, list):
+            return set()
+        return {cast(item) for item in raw}
+    except (FileNotFoundError, json.JSONDecodeError, TypeError, ValueError):
         return set()
+
+def bootstrap_product_checkpoint(product_id_file, product_checkpoint_file):
+    """
+    Khoi tao product checkpoint tu product-id.txt cho cac folder du lieu cu.
+    """
+    product_checkpoint_path = Path(product_checkpoint_file)
+    if product_checkpoint_path.exists():
+        return
+
+    product_id_path = Path(product_id_file)
+    if not product_id_path.exists():
+        return
+
+    existing_ids = {
+        line.strip()
+        for line in product_id_path.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    }
+    if existing_ids:
+        save_checkpoint(existing_ids, product_checkpoint_file)
+
+def _write_text_atomic(file_path, content, encoding="utf-8"):
+    target_path = Path(file_path)
+    target_path.parent.mkdir(parents=True, exist_ok=True)
+    temp_path = target_path.with_name(f"{target_path.name}.tmp")
+    with open(temp_path, "w", encoding=encoding) as file:
+        file.write(content)
+        file.flush()
+        os.fsync(file.fileno())
+    temp_path.replace(target_path)
+    with open(target_path, "r+b") as file:
+        os.fsync(file.fileno())
+
+def _write_csv_atomic(file_path, dataframe, *, index=False, encoding="utf-8-sig"):
+    target_path = Path(file_path)
+    target_path.parent.mkdir(parents=True, exist_ok=True)
+    temp_path = target_path.with_name(f"{target_path.name}.tmp")
+    dataframe.to_csv(temp_path, index=index, encoding=encoding)
+    with open(temp_path, "r+b") as file:
+        os.fsync(file.fileno())
+    temp_path.replace(target_path)
+    with open(target_path, "r+b") as file:
+        os.fsync(file.fileno())
+
+def _merge_csv_atomic(file_path, new_df, dedupe_keys, *, encoding="utf-8-sig"):
+    target_path = Path(file_path)
+    if target_path.exists():
+        existing_df = pd.read_csv(target_path)
+        merged_df = pd.concat([existing_df, new_df], ignore_index=True)
+        merged_df = merged_df.drop_duplicates(subset=dedupe_keys, keep="last")
+    else:
+        merged_df = new_df
+    _write_csv_atomic(file_path, merged_df, index=False, encoding=encoding)
+
+def _merge_unique_lines(existing_file_path, new_lines, *, encoding="utf-8"):
+    target_path = Path(existing_file_path)
+    if target_path.exists():
+        existing_lines = target_path.read_text(encoding=encoding).splitlines()
+    else:
+        existing_lines = []
+
+    combined_lines = list(dict.fromkeys(existing_lines + list(new_lines)))
+    _write_text_atomic(target_path, "\n".join(combined_lines), encoding=encoding)
 
 def fetch_product_ids(url):
     """
@@ -68,7 +152,7 @@ def fetch_product_ids(url):
                 product_id = str(product["id"])
                 product_list.append(product_id)
             i += 1
-            time.sleep(random.uniform(0.5, 1))
+            maybe_sleep(CATEGORY_PAGE_DELAY_RANGE)
         except Exception as e:
             logging.error(f"Loi crawl danh muc, trang {i}: {e}")
             break
@@ -79,16 +163,30 @@ def fetch_product_details(product_list=[]):
     """
     Lấy thông tin chi tiết sản phẩm từ Tiki API.
     """
-    product_detail_list = []
-    for product_id in product_list:
+    def fetch_one(product_id):
         logging.info(f"Crawl chi tiet san pham {product_id}")
         try:
             response = safe_request(product_url.format(product_id), headers=headers)
-            product_detail_list.append(response.text)
-            time.sleep(random.uniform(0.5, 1))
+            return product_id, response.text
         except Exception as e:
             logging.error(f"Lỗi crawl sản phẩm {product_id} sau 3 lần thử: {e}")
-            continue  # Chuyển sang sản phẩm tiếp theo
+            return product_id, None
+
+    product_detail_map = {}
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        future_map = {
+            executor.submit(fetch_one, product_id): product_id for product_id in product_list
+        }
+        for future in as_completed(future_map):
+            product_id, response_text = future.result()
+            if response_text is not None:
+                product_detail_map[product_id] = response_text
+
+    product_detail_list = [
+        (product_id, product_detail_map[product_id])
+        for product_id in product_list
+        if product_id in product_detail_map
+    ]
     logging.info(f"Crawl duoc {len(product_detail_list)} chi tiết san pham")
     return product_detail_list
 
@@ -223,13 +321,11 @@ def normalize_product_data(product):
     return data_product, e["id"]
 
 def save_product_id(product_id_file, product_list=[]):
-    with open(product_id_file, "w") as file:
-        file.write("\n".join(product_list))
+    _write_text_atomic(product_id_file, "\n".join(product_list))
     logging.info(f"Lưu file: {product_id_file}")
 
 def save_raw_product(product_data_file, product_detail_list=[]):
-    with open(product_data_file, "w", encoding="utf-8") as file:
-        file.write("\n".join(product_detail_list))
+    _write_text_atomic(product_data_file, "\n".join(product_detail_list), encoding="utf-8")
     logging.info(f"Lưu file: {product_data_file}")
 
 def save_product_list_incremental(product_file, product_json):
@@ -243,144 +339,40 @@ def save_product_list_incremental(product_file, product_json):
         df.to_csv(product_file, mode="a", header=False, index=False, encoding="utf-8-sig")
     logging.info(f"da them 1 san pham vào {product_file}")
 
+def save_product_batch(product_file, product_json_list):
+    """
+    Ghi nhiều sản phẩm cùng lúc để giảm chi phí IO.
+    """
+    if not product_json_list:
+        return
+
+    df = pd.DataFrame(product_json_list)
+    product_path = Path(product_file)
+    if product_path.exists():
+        existing_df = pd.read_csv(product_path)
+        df = pd.concat([existing_df, df], ignore_index=True).drop_duplicates(subset=["id"], keep="last")
+    _write_csv_atomic(product_file, df, index=False, encoding="utf-8-sig")
+
+    for _ in product_json_list:
+        logging.info(f"da them 1 san pham vào {product_file}")
+
 def load_raw_product(product_data_file):
     with open(product_data_file, "r") as file:
         return file.readlines()
 
-def map_json_to_customers(json_data):
-    customers = {}
-    for review in json_data.get("data", []):
-        created_by = review.get("created_by") or {}
-        contribute_info = (created_by.get("contribute_info") or {}).get("summary") or {}
-        customer_id = created_by.get("id")
-        if not customer_id:
-            continue
-        if customer_id not in customers:
-            purchased_at = created_by.get("purchased_at")
-            customers[customer_id] = {
-                "id": customer_id,
-                "full_name": created_by.get("full_name", ""),
-                "avatar_url": created_by.get("avatar_url", ""),
-                "joined_time": contribute_info.get("joined_time", ""),
-                "total_review": contribute_info.get("total_review", 0),
-                "total_thank": contribute_info.get("total_thank", 0),
-                "purchased": created_by.get("purchased", False),
-                "purchased_at": datetime.fromtimestamp(purchased_at, pytz.UTC) if isinstance(purchased_at, (int, float)) else None,
-                "group_id": created_by.get("group_id")
-            }
-    return list(customers.values())
-
-def map_json_to_review(json_data):
-    reviews = []
-    for review in json_data.get("data", []):
-        created_by = review.get("created_by") or {}
-        timeline = review.get("timeline") or {}
-        created_at = timeline.get("review_created_date")
-        try:
-            created_at = datetime.strptime(created_at, "%Y-%m-%d %H:%M:%S").replace(tzinfo=pytz.UTC) if created_at else None
-        except ValueError:
-            created_at = None
-        review_data = {
-            "id": review.get("id"),
-            "customer_id": created_by.get("id"),
-            "product_id": review.get("product_id"),
-            "rating": review.get("rating", 0),
-            "title": review.get("title", ""),
-            "content": review.get("content", ""),
-            "status": review.get("status", "unknown"),
-            "thank_count": review.get("thank_count", 0),
-            "comment_count": review.get("comment_count", 0),
-            "images": review.get("images", []),
-            "seller_id": review.get("seller", {}).get("id"),
-            "seller_name": review.get("seller", {}).get("name", ""),
-            "delivery_rating": review.get("delivery_rating", [])
-        }
-        reviews.append(review_data)
-    return reviews
-
-def map_json_to_buy_history(json_data):
-    buy_histories = []
-    for review in json_data.get("data", []):
-        timeline = review.get("timeline") or {}
-        customer_info = review.get("created_by") or {}
-        purchased_at = customer_info.get("purchased_at")
-        delivery_date = timeline.get("delivery_date")
-        try:
-            purchased_at = datetime.fromtimestamp(purchased_at, pytz.UTC) if isinstance(purchased_at, (int, float)) else None
-        except ValueError:
-            purchased_at = None
-        try:
-            delivery_date = datetime.strptime(delivery_date, "%Y-%m-%d %H:%M:%S").replace(tzinfo=pytz.UTC) if delivery_date else None
-        except ValueError:
-            delivery_date = None
-        buy_history_data = {
-            "customer_id": customer_info.get("id"),
-            "product_id": review.get("product_id"),
-            "order_id": None,
-            "seller_id": review.get("seller", {}).get("id"),
-            "seller_name": review.get("seller", {}).get("name", ""),
-            "quantity": random.randint(1, 4),
-            "price_at_purchase": None,
-            "total_price": None,
-            "purchased_at": purchased_at,
-            "delivery_date": delivery_date,
-            "review_id": review.get("id")
-        }
-        buy_histories.append(buy_history_data)
-    return buy_histories
-
-def fetch_user_reviews_data(folder_parent_path, product_id_list):
-    """
-    Thu thập dữ liệu dánh giá, thông tin khách hàng và lịch sử mua hàng.
-    """
-    API_cmt = "https://tiki.vn/api/v2/reviews?product_id={}&page={}&limit=20"
-    reviews = []
-    customers = []
-    buy_historys = []
-
-    reviews_file = f"./data/{folder_parent_path}/reviews.csv"
-    customers_file = f"./data/{folder_parent_path}/customers.csv"
-    buy_historys_file = f"./data/{folder_parent_path}/buy_historys.csv"
-
-    # Checkpoint cho dánh giá
-    checkpoint_file = f"./data/{folder_parent_path}/reviews_checkpoint.json"
-    crawled_reviews = load_checkpoint(checkpoint_file)
-
-    for product_id in product_id_list:
-        if product_id in crawled_reviews:
-            logging.info(f"Bo qua san pham da crawl danh gia: {product_id}")
-            continue
-        i = 1
-        while True:
-            logging.info(f"Crawl danh gia san pham {product_id}, trang {i}")
-            try:
-                response = safe_request(API_cmt.format(product_id, i), headers=headers)
-                e = json.loads(response.text)
-                if e["reviews_count"] == 0 or (i-1) * 20 > e["reviews_count"]:
-                    logging.info(f"Hoan thanh crawl san pham {product_id}: {e['reviews_count']} danh gia")
-                    crawled_reviews.add(product_id)
-                    save_checkpoint(crawled_reviews, checkpoint_file)
-                    break
-                reviews += map_json_to_review(e)
-                customers += map_json_to_customers(e)
-                buy_historys += map_json_to_buy_history(e)
-                i += 1
-                time.sleep(random.uniform(0.5, 1))
-            except Exception as e:
-                logging.error(f"Loi crawl san pham {product_id}, trang {i} sau 3 lan thu: {e}")
-                i += 1  # Chuyển sang trang tiếp theo
-                continue
-        crawled_reviews.add(product_id)
-        save_checkpoint(crawled_reviews, checkpoint_file)
-
-    if reviews:
-        pd.DataFrame(reviews).to_csv(reviews_file, index=False, encoding="utf-8-sig")
-    if customers:
-        pd.DataFrame(customers).to_csv(customers_file, index=False, encoding="utf-8-sig")
-    if buy_historys:
-        pd.DataFrame(buy_historys).to_csv(buy_historys_file, index=False, encoding="utf-8-sig")
-
-    logging.info(f"Hoan thanh crawl: {len(reviews)} danh gia, {len(customers)} khach hang, {len(buy_historys)} lich su mua")
+# TAM THOI COMMENT CUM HAM REVIEW/CUSTOMER/BUY HISTORY
+#
+# def map_json_to_customers(json_data):
+#     ...
+#
+# def map_json_to_review(json_data):
+#     ...
+#
+# def map_json_to_buy_history(json_data):
+#     ...
+#
+# def fetch_user_reviews_data(folder_parent_path, product_id_list):
+#     ...
 
 def fetch_and_save_product_data(folder, product_list_id):
     """
@@ -391,29 +383,35 @@ def fetch_and_save_product_data(folder, product_list_id):
     product_file = f"./data/{folder}/product.csv"
     checkpoint_file = f"./data/{folder}/product_checkpoint.json"
 
-    crawled_ids = load_checkpoint(checkpoint_file)
-    product_list_id = [pid for pid in product_list_id if int(pid) not in crawled_ids]
+    bootstrap_product_checkpoint(product_id_file, checkpoint_file)
+    crawled_ids = load_checkpoint(checkpoint_file, cast=str)
+    product_list_id = [str(pid) for pid in product_list_id if str(pid) not in crawled_ids]
 
     product_list = fetch_product_details(product_list_id)
     logging.info(f"Crawl duoc {len(product_list)} san pham")
 
-    error_query = []
-    for i, product in enumerate(product_list):
+    normalized_products = []
+    successful_ids = []
+    successful_products = []
+
+    for requested_product_id, product in product_list:
         temp = normalize_product_data(product)
-        if temp is not None:
-            product_json, product_id = temp
-            save_product_list_incremental(product_file, product_json)
-            crawled_ids.add(product_id)
-            save_checkpoint(crawled_ids, checkpoint_file)
-        else:
-            error_query.append(i)
+        if temp is None:
+            continue
 
-    logging.info(f"Co {len(error_query)} loi query")
-    product_list_id = [val for i, val in enumerate(product_list_id) if i not in error_query]
-    product_list = [val for i, val in enumerate(product_list) if i not in error_query]
+        product_json, product_id = temp
+        normalized_products.append(product_json)
+        successful_ids.append(str(product_id))
+        successful_products.append(product)
+        crawled_ids.add(str(product_id))
 
-    save_product_id(product_id_file, product_list_id)
-    save_raw_product(product_data_file, product_list)
+    logging.info(f"Co {len(product_list_id) - len(successful_ids)} loi query")
+
+    save_product_batch(product_file, normalized_products)
+    _merge_unique_lines(product_id_file, successful_ids)
+    _merge_unique_lines(product_data_file, successful_products)
+    save_checkpoint(crawled_ids, checkpoint_file)
+    return len(successful_ids) == len(product_list_id)
 
 def fetch_category_data(parent, data, check=False):
     """
@@ -427,6 +425,12 @@ def fetch_category_data(parent, data, check=False):
     folder_parent_path = parent if check else f"{parent}/{data['url_key'].strip()}"
     folder_path = Path(f"data/{folder_parent_path}")
     folder_path.mkdir(parents=True, exist_ok=True)
+    checkpoint_file = folder_path / "checkpoint.json"
+
+    crawled_ids = load_checkpoint(checkpoint_file)
+    if str(data["id"]) in crawled_ids:
+        logging.info(f"Bo qua danh muc da crawl: {folder_parent_path}")
+        return True
 
     id_childen_list = []
     i = 1
@@ -445,15 +449,24 @@ def fetch_category_data(parent, data, check=False):
                 product_id = str(product["id"])
                 id_childen_list.append(product_id)
             i += 1
-            time.sleep(random.uniform(0.5, 1))
+            maybe_sleep(CATEGORY_PAGE_DELAY_RANGE)
         except Exception as e:
             logging.error(f"Loi crawl danh muc {data['url_key']}, trang {i} sau 3 lan thu: {e}")
             break
 
-    fetch_and_save_product_data(folder_parent_path, id_childen_list)
-    fetch_user_reviews_data(folder_parent_path, id_childen_list)
-    logging.info(f"Hoan thanh danh muc {data['url_key']}")
-    time.sleep(random.uniform(0.5, 1))
+    products_complete = fetch_and_save_product_data(folder_parent_path, id_childen_list)
+    # TAM THOI BO QUA HOAN TOAN PHAN REVIEW/CUSTOMER/BUY HISTORY
+    reviews_complete = True
+
+    if products_complete and reviews_complete:
+        crawled_ids.add(str(data["id"]))
+        save_checkpoint(crawled_ids, checkpoint_file)
+        logging.info(f"Hoan thanh danh muc {data['url_key']}")
+    else:
+        logging.warning(f"Danh muc {data['url_key']} chua hoan thanh, khong luu checkpoint")
+        return False
+    maybe_sleep(CATEGORY_PAGE_DELAY_RANGE)
+    return True
 
 def fetch_and_traverse_categories(name, category_id, parent=None):
     """
@@ -463,7 +476,7 @@ def fetch_and_traverse_categories(name, category_id, parent=None):
     crawled_ids = load_checkpoint(checkpoint_file)
     if str(category_id) in crawled_ids:
         logging.info(f"Bo qua danh muc da crawl: {name}")
-        return
+        return True
 
     url = f"https://tiki.vn/api/v2/categories?include=children&parent_id={category_id}"
     try:
@@ -471,28 +484,31 @@ def fetch_and_traverse_categories(name, category_id, parent=None):
         data = response.json()
     except Exception as e:
         logging.error(f"Loi crawl danh muc {name} sau 3 lan thu: {e}")
-        return
+        return False
 
     if "data" not in data or not isinstance(data["data"], list):
         logging.warning(f"Khong tim thay danh sach danh muc con: {url}")
-        return
+        return False
     categors.append({
         "id": category_id,
         "name": name,
         "parent": parent
     })
     e = data["data"]
+    success = True
     if not e:
-        fetch_category_data(name, {"url_key": name, "id": category_id}, True)
+        success = fetch_category_data(name, {"url_key": name, "id": category_id}, True)
     else:
         for data in e:
             if "children" in data:
-                fetch_and_traverse_categories(f"{name}/{data['url_key'].strip()}", data["id"], category_id)
+                success = fetch_and_traverse_categories(f"{name}/{data['url_key'].strip()}", data["id"], category_id) and success
             else:
-                fetch_category_data(name, data)
+                success = fetch_category_data(name, data) and success
 
-    crawled_ids.add(str(category_id))
-    save_checkpoint(crawled_ids, checkpoint_file)
+    if success:
+        crawled_ids.add(str(category_id))
+        save_checkpoint(crawled_ids, checkpoint_file)
+    return success
 
 def fetch_and_save_categories(category_name, category_id, output_folder="./data"):
     """
@@ -500,10 +516,12 @@ def fetch_and_save_categories(category_name, category_id, output_folder="./data"
     """
     global categors
     categors = []
-    fetch_and_traverse_categories(category_name, category_id)
+    traversal_complete = fetch_and_traverse_categories(category_name, category_id)
     df = pd.DataFrame(categors)
     category_csv_path = f"{output_folder}/{category_name}/category.csv"
-    df.to_csv(category_csv_path, index=False, encoding="utf-8-sig")
+    _write_csv_atomic(category_csv_path, df, index=False, encoding="utf-8-sig")
+    if traversal_complete:
+        save_checkpoint({str(category_id)}, f"{output_folder}/{category_name}/checkpoint.json")
     logging.info(f"Luu file danh muc: {category_csv_path}")
 
 if __name__ == "__main__":
