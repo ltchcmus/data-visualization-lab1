@@ -1,4 +1,0 @@
-﻿customer_id,product_id,order_id,seller_id,seller_name,quantity,price_at_purchase,total_price,purchased_at,delivery_date,review_id
-1903392,275107743,,305,Artbook,4,,,2025-02-24 05:12:33+00:00,2025-02-26 17:45:37+00:00,20088607
-7446691,161395963,,305,Artbook,4,,,2023-01-15 14:25:39+00:00,2023-01-18 16:26:29+00:00,18679715
-6810200,114671480,,305,Artbook,3,,,2023-12-11 01:31:14+00:00,2023-12-13 17:32:13+00:00,19697207

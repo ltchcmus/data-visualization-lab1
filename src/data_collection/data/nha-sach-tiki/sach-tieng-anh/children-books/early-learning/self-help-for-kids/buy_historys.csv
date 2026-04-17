@@ -1,4 +1,0 @@
-﻿customer_id,product_id,order_id,seller_id,seller_name,quantity,price_at_purchase,total_price,purchased_at,delivery_date,review_id
-9988372,273572744,,178049,Bùi Thị Anh,4,,,2023-12-22 07:11:10+00:00,2023-12-26 09:41:30+00:00,19697691
-9988372,273572744,,178049,Bùi Thị Anh,3,,,2024-01-20 02:58:10+00:00,2024-01-21 17:35:10+00:00,19740829
-17614624,271311734,,1,Tiki Trading,2,,,2024-12-26 02:43:11+00:00,2024-12-27 09:28:55+00:00,20059261

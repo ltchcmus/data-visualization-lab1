@@ -1,4 +1,0 @@
-﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
-19876556,7788381,247570608,5,Cực kì hài lòng,"Sách siêu chất lượng. Ship nhanh, đặt 2 hôm đã về. Rất hài lòng!",approved,0,0,"[{'id': 4357111, 'full_path': 'https://salt.tikicdn.com/ts/review/08/0c/7c/3c7dfe25a4edda03a8b31e0b5351b76d.jpg', 'status': 'approved'}, {'id': 4357112, 'full_path': 'https://salt.tikicdn.com/ts/review/69/26/ec/05d85aba12d4f60421925741a518ad54.jpg', 'status': 'approved'}]",53660,Nhà sách Fahasa,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
-20110138,22114765,247570608,4,Hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
-19616846,7172929,247570608,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]

@@ -1,4 +1,0 @@
-﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
-20088607,1903392,275107743,5,Cực kì hài lòng,,approved,0,0,[],305,Artbook,[]
-18679715,7446691,161395963,5,Cực kì hài lòng,In đẹp,approved,0,0,[],305,Artbook,[]
-19697207,6810200,114671480,5,Cực kì hài lòng,"Sách rất đẹp, nhà sách đóng gói rất cẩn thận, giao hàng nhanh, tư vấn nhiệt tình",approved,0,0,"[{'id': 4322690, 'full_path': 'https://salt.tikicdn.com/ts/review/16/53/02/421cd983cfc0b6056e8c82dec3b33882.jpg', 'status': 'approved'}]",305,Artbook,[]

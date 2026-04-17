@@ -1,9 +1,0 @@
-﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
-15484459,8965478,435277,5,Cực kì hài lòng,Sách gói đẹp và giao đúng dự kiến lắm ạ,approved,0,0,"[{'id': 3247644, 'full_path': 'https://salt.tikicdn.com/ts/review/78/68/06/aa3ce39790f9b4413f3bf69ba671589a.jpg', 'status': 'approved'}, {'id': 3247645, 'full_path': 'https://salt.tikicdn.com/ts/review/b7/a1/15/dafe948f332af223b3afaa7bc8f02730.jpg', 'status': 'approved'}]",6337,Foreignbooks,[]
-15750312,14229939,435277,3,Bình thường,"những việc trong sách giống 1 trò chơi hơn, giống kiểu nhiệm vụ cần đạt được",approved,1,0,[],1231,Xunhasaba Thế giới Sách Ngoại văn,[]
-15432097,16898427,435277,5,Cực kì hài lòng,Sách đẹp đóng gói đẹp,approved,0,0,[],1231,Xunhasaba Thế giới Sách Ngoại văn,[]
-5157672,9017047,435277,5,Cực kì hài lòng,Hài lòng nhe cam ơn ạ,approved,0,0,[],6337,Foreignbooks,[]
-6786494,13213538,435277,5,Cực kì hài lòng,,approved,0,0,[],6337,Foreignbooks,[]
-6781196,8099502,435277,5,Cực kì hài lòng,,approved,0,0,[],6337,Foreignbooks,[]
-3627976,7939607,435277,5,Cực kì hài lòng,"Sách hữu ích và dí dỏm , bé nhà thích",approved,0,0,[],6337,Foreignbooks,[]
-3357192,6104746,435277,5,Cực kì hài lòng,Sản phẩm thú vị cho người đang buồn chán,approved,1,0,[],6337,Foreignbooks,[]

@@ -1,5 +1,0 @@
-﻿customer_id,product_id,order_id,seller_id,seller_name,quantity,price_at_purchase,total_price,purchased_at,delivery_date,review_id
-19440720,7183131,,12696,Blue Horizon Books,4,,,2020-12-16 05:30:59+00:00,2020-12-21 12:00:39+00:00,6392115
-19843834,7182665,,12696,Blue Horizon Books,3,,,2021-01-10 11:05:29+00:00,2021-01-16 11:42:04+00:00,7000758
-11191628,7182665,,12696,Blue Horizon Books,4,,,2021-01-12 07:34:11+00:00,2021-01-14 11:20:15+00:00,7636160
-19440720,7182665,,12696,Blue Horizon Books,3,,,2020-12-16 05:30:59+00:00,2020-12-21 12:00:39+00:00,6392128

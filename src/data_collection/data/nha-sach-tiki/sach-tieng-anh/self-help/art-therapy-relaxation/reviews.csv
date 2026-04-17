@@ -1,9 +1,0 @@
-﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
-19836318,10781891,185278547,5,Cực kì hài lòng,Huu ich,approved,0,0,"[{'id': 4349968, 'full_path': 'https://salt.tikicdn.com/ts/review/81/3a/72/c946839238e7fbe1f2a31ca86cc2bab4.jpg', 'status': 'approved'}]",12696,Blue Horizon Books,[]
-19724081,10903670,185278547,5,Cực kì hài lòng,,approved,0,0,[],12696,Blue Horizon Books,[]
-19612982,741689,185278547,5,Cực kì hài lòng,,approved,0,0,[],12696,Blue Horizon Books,[]
-18744351,9641594,185278547,2,Không hài lòng,Không phải bìa cứng mà giá bằng giá cuốn bìa cứng,approved,1,2,[],12696,Blue Horizon Books,[]
-18789781,27073795,185278547,5,Cực kì hài lòng,,approved,1,0,[],12696,Blue Horizon Books,[]
-18674634,21383301,185278547,5,Cực kì hài lòng,,approved,1,0,[],12696,Blue Horizon Books,[]
-18482430,2178039,185278547,5,Cực kì hài lòng,,approved,1,0,[],12696,Blue Horizon Books,[]
-16774778,20506772,185278547,5,Cực kì hài lòng,,approved,1,2,[],12696,Blue Horizon Books,[]

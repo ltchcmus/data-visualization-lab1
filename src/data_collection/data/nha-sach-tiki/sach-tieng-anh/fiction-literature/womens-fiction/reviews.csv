@@ -1,6 +1,0 @@
-﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
-19895763,996098,274384972,5,Cực kì hài lòng,,approved,0,1,[],1,Tiki Trading,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
-19984190,11707856,272367350,5,Cực kì hài lòng,,approved,0,1,[],1,Tiki Trading,[]
-19523590,451687,271234795,5,Cực kì hài lòng,Giao sớm hơn dự kiến,approved,0,0,[],1231,Xunhasaba Thế giới Sách Ngoại văn,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Không hẹn trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
-12881013,7730651,56225099,5,Cực kì hài lòng,,approved,0,0,[],12696,Blue Horizon Books,[]
-4979139,16719311,56225099,5,Cực kì hài lòng,,approved,0,0,[],12696,Blue Horizon Books,[]

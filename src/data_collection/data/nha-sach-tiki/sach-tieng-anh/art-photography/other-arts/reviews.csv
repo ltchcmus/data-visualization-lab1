@@ -1,7 +1,0 @@
-﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
-20194494,7175687,274142457,5,Cực kì hài lòng,Sản phầm là sách ngoại văn . Tốt,approved,0,0,[],229023,Nhà Sách Phương Nam,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
-20217020,506599,261798518,5,Cực kì hài lòng,,approved,0,1,[],229023,Nhà Sách Phương Nam,[]
-20072596,776531,261798518,5,Cực kì hài lòng,,approved,0,0,[],229023,Nhà Sách Phương Nam,[]
-15320048,1537331,99375051,4,Hài lòng,"Hơi nhăn ở nếp sau sách, còn cũng dc",approved,0,0,"[{'id': 3207909, 'full_path': 'https://salt.tikicdn.com/ts/review/4d/5f/4b/982f9372b165ed8d51972c5c0f847746.jpg', 'status': 'approved'}]",305,Artbook,[]
-10215459,1110064,99375051,5,Cực kì hài lòng,,approved,0,0,[],305,Artbook,[]
-20219568,8227537,278795386,5,Cực kì hài lòng,,approved,0,0,[],229023,Nhà Sách Phương Nam,[]

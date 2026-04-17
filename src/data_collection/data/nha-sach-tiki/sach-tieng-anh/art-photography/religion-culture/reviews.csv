@@ -1,9 +1,0 @@
-﻿id,customer_id,product_id,rating,title,content,status,thank_count,comment_count,images,seller_id,seller_name,delivery_rating
-16008085,10025671.0,91998808,5,Cực kì hài lòng,,approved,0,1,[],145814,Omega Plus Books,[]
-18423913,594367.0,91986414,5,Cực kì hài lòng,,approved,0,1,[],146243,ETS Books,[]
-5995634,14573063.0,4682633,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
-3692161,7084088.0,4682633,5,Cực kì hài lòng,,approved,0,0,[],1,Tiki Trading,[]
-3378998,,4682621,3,Bình thường,"Thất vọng, dù đã mua với giá giảm sâu. Đinh ninh đây là sách “nghệ thuật” nhưng thực tế nó giống sách du lịch hơn. Sách trả lời “là gì?” nhiều hơn là cho thấy ấn tượng của tác giả về chủ đề. Xem xong không buồn xem lại và chẳng biết làm gì với nó...",approved,0,0,[],1,Tiki Trading,[]
-3746452,12233.0,4682621,5,Cực kì hài lòng,Anh rat dep nhung co le phu hop voi nguoi nuoc ngoai,approved,0,0,[],53660,Nhà sách Fahasa,[]
-5959565,572689.0,4682621,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,[]
-19640461,22038852.0,4682613,5,Cực kì hài lòng,,approved,0,0,[],53660,Nhà sách Fahasa,"[{'question': 'Thời gian giao hàng?', 'option': 'Giao đúng hẹn'}, {'question': 'Thái độ của shipper?', 'option': 'Lịch sự'}, {'question': 'Giờ giao hàng?', 'option': 'Có hẹn giờ trước'}, {'question': 'Cách đóng gói sản phẩm?', 'option': 'Cẩn thận'}]"
