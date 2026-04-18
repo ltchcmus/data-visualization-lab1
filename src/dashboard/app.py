@@ -24,6 +24,8 @@ if __package__ in {None, ""}:
         render_filter_panel,
         reset_filter_widgets,
     )
+    from dashboard.components.shared_data import set_dashboard_data_state
+    from dashboard.tabs.sample_dashboard import render_sample_dashboard_page
 else:
     from .components.data_loader import default_data_path, load_dataset
     from .components.filter_engine import (
@@ -37,6 +39,8 @@ else:
         render_filter_panel,
         reset_filter_widgets,
     )
+    from .components.shared_data import set_dashboard_data_state
+    from .tabs.sample_dashboard import render_sample_dashboard_page
 
 
 def _clone_state(data: dict[str, Any]) -> dict[str, Any]:
@@ -105,11 +109,13 @@ def main() -> None:
         defaults,
     )
 
-    st.session_state["raw_df"] = raw_df
-    st.session_state["filtered_df"] = filtered_rows_df
-    st.session_state["shared_df"] = shared_df
-    st.session_state["filter_state"] = cleaned_filter_state
-    st.session_state["filter_meta"] = filter_meta
+    set_dashboard_data_state(
+        raw_df=raw_df,
+        filtered_df=filtered_rows_df,
+        shared_df=shared_df,
+        filter_state=cleaned_filter_state,
+        filter_meta=filter_meta,
+    )
 
     col_a, col_b, col_c, col_d = st.columns(4)
     col_a.metric("Rows before filter", f"{filter_meta['row_before']:,}")
@@ -137,6 +143,9 @@ def main() -> None:
             st.warning("Current filters returned no rows. Adjust filters to continue.")
         else:
             st.dataframe(shared_df.head(50), use_container_width=True)
+
+    st.divider()
+    render_sample_dashboard_page()
 
 
 if __name__ == "__main__":
