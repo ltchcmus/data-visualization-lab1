@@ -1,5 +1,6 @@
+src/data_collection/data/
 *.log
-CLAUDE.md
+CLAUDE.md   
 .claude
 imgs/
 __pycache__/
