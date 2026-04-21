@@ -6,3 +6,5 @@ imgs/
 __pycache__/
 .vscode
 cong
+.github/
+.venv/
