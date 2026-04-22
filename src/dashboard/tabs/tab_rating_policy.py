@@ -72,8 +72,15 @@ def _prepare_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def _render_filters(df: pd.DataFrame) -> tuple[pd.DataFrame, tuple[float, float], list[str]]:
-    st.markdown("### Bộ lọc Tab 4")
-    c1, c2 = st.columns([2, 1])
+    st.markdown("<div class='tab4-filter-card'>", unsafe_allow_html=True)
+    c0, c1, c2 = st.columns([1.25, 1.7, 1.15])
+
+    with c0:
+        st.markdown("<div class='tab4-filter-title'>Bộ lọc tương tác</div>", unsafe_allow_html=True)
+        st.markdown(
+            "<div class='tab4-filter-sub'>Lọc nhanh theo rating và chính sách freeship để so sánh hành vi doanh số.</div>",
+            unsafe_allow_html=True,
+        )
 
     rating_valid = df["rating_average"].dropna().clip(lower=0, upper=5)
     default_range = (0.0, 5.0)
@@ -109,6 +116,11 @@ def _render_filters(df: pd.DataFrame) -> tuple[pd.DataFrame, tuple[float, float]
         filtered = filtered[filtered["has_freeship"].isin(allowed)]
     else:
         filtered = filtered.iloc[0:0]
+
+    with c0:
+        st.metric("Bản ghi sau lọc", f"{len(filtered):,}")
+
+    st.markdown("</div>", unsafe_allow_html=True)
 
     return filtered, rating_range, freeship_choice
 
@@ -388,7 +400,7 @@ def render_rating_policy_tab(
     if fig11 is None:
         st.caption("Không đủ dữ liệu để vẽ Biểu đồ 1.1.")
     else:
-        st.plotly_chart(fig11, use_container_width=True)
+        st.plotly_chart(fig11, width="stretch")
 
     c1, c2 = st.columns(2)
     with c1:
@@ -396,20 +408,20 @@ def render_rating_policy_tab(
         if fig12 is None:
             st.caption("Không đủ dữ liệu để vẽ Biểu đồ 1.2.")
         else:
-            st.plotly_chart(fig12, use_container_width=True)
+            st.plotly_chart(fig12, width="stretch")
     with c2:
         fig13 = _chart_13_review_bin_line(filtered_df, colors)
         if fig13 is None:
             st.caption("Không đủ dữ liệu để vẽ Biểu đồ 1.3.")
         else:
-            st.plotly_chart(fig13, use_container_width=True)
+            st.plotly_chart(fig13, width="stretch")
 
     st.header("Phần 2: Phân tích Nhà cung cấp & Dịch vụ")
     fig21 = _chart_21_freeship_box(filtered_df, colors)
     if fig21 is None:
         st.caption("Không đủ dữ liệu để vẽ Biểu đồ 2.1.")
     else:
-        st.plotly_chart(fig21, use_container_width=True)
+        st.plotly_chart(fig21, width="stretch")
 
     c3, c4 = st.columns(2)
     with c3:
@@ -417,10 +429,10 @@ def render_rating_policy_tab(
         if fig22 is None:
             st.caption("Không đủ dữ liệu để vẽ Biểu đồ 2.2.")
         else:
-            st.plotly_chart(fig22, use_container_width=True)
+            st.plotly_chart(fig22, width="stretch")
     with c4:
         fig23 = _chart_23_grouped_top5(filtered_df, colors)
         if fig23 is None:
             st.caption("Không đủ dữ liệu để vẽ Biểu đồ 2.3.")
         else:
-            st.plotly_chart(fig23, use_container_width=True)
+            st.plotly_chart(fig23, width="stretch")
