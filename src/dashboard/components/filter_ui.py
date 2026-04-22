@@ -392,21 +392,21 @@ def render_top_filters(df: pd.DataFrame) -> pd.DataFrame:
         """
         <style>
         .top-filter-title {
-            color: #000000 !important;
+            color: #1E293B !important;
             font-weight: 700;
             display: inline-block;
-            border: 1px solid #cfe0f2;
-            border-radius: 8px;
-            background: linear-gradient(105deg, #dcedff 0%, #eff6ff 52%, #ffffff 100%);
-            box-shadow: 0 8px 18px rgba(31, 79, 125, 0.12);
+            border: 1px solid #dbe7f2;
+            border-radius: 10px;
+            background: #ffffff;
+            box-shadow: 0 6px 14px rgba(9, 18, 34, 0.06);
             padding: 4px 10px;
             margin-bottom: 0.25rem;
         }
         [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] {
             background: #ffffff !important;
             border: 1px solid #d8e6f3 !important;
-            border-radius: 12px !important;
-            box-shadow: 0 5px 14px rgba(19, 45, 76, 0.08) !important;
+            border-radius: 10px !important;
+            box-shadow: 0 5px 14px rgba(9, 18, 34, 0.06) !important;
         }
         [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] * {
             background-color: transparent !important;
@@ -418,20 +418,24 @@ def render_top_filters(df: pd.DataFrame) -> pd.DataFrame:
         [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] span,
         [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] div,
         [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] input {
-            color: #334155 !important;
-            -webkit-text-fill-color: #334155 !important;
+            color: #1E293B !important;
+            -webkit-text-fill-color: #1E293B !important;
         }
         [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] input::placeholder {
-            color: #94a3b8 !important;
-            -webkit-text-fill-color: #94a3b8 !important;
+            color: #64748B !important;
+            -webkit-text-fill-color: #64748B !important;
         }
         [data-testid="column"]:has(.top-filter-title) [data-baseweb="tag"] {
-            background: #f8fbff !important;
+            background: #F8FAFC !important;
             border: 1px solid #d6e3f0 !important;
-            border-radius: 999px !important;
+            border-radius: 10px !important;
         }
         [data-testid="column"]:has(.top-filter-title) [data-baseweb="tag"] span {
-            color: #173a5e !important;
+            color: #1E293B !important;
+        }
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] svg {
+            color: #64748B !important;
+            fill: #64748B !important;
         }
         </style>
         """,
