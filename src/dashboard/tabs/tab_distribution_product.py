@@ -74,6 +74,14 @@ def _q1_long_tail(df: pd.DataFrame, colors: list[str]) -> None:
     )
     _apply_black_text(fig)
     st.plotly_chart(fig, use_container_width=True)
+    with st.expander(":material/notes: Nhận xét"):
+        st.markdown(
+            """
+- Phân bổ doanh số cho thấy hiệu ứng **Long-tail** rõ rệt: đa số sách bán rất ít, chỉ một số ít bán chạy vượt trội.
+- Thang log giúp nhận diện các "tầng" doanh số khác nhau mà thang tuyến tính khó thấy.
+- Đây là cơ sở quan trọng để phân nhóm sách theo mức độ bán chạy.
+"""
+        )
 
 
 def _q2_category_boxplot(df: pd.DataFrame, colors: list[str]) -> None:
@@ -109,6 +117,14 @@ def _q2_category_boxplot(df: pd.DataFrame, colors: list[str]) -> None:
     )
     _apply_black_text(fig)
     st.plotly_chart(fig, use_container_width=True)
+    with st.expander(":material/notes: Nhận xét"):
+        st.markdown(
+            """
+- Boxplot cho thấy **phân phối doanh số** thực sự trong từng thể loại, bao gồm cả outlier.
+- Thể loại có hộp (box) rộng → doanh số dao động lớn; hộp hẹp → đồng đều hơn.
+- So sánh median (đường ngang trong hộp) giữa các thể loại để tìm nhóm tiềm năng.
+"""
+        )
 
 
 def _q10_pages_vs_sold(df: pd.DataFrame, colors: list[str]) -> None:
@@ -156,6 +172,14 @@ def _q10_pages_vs_sold(df: pd.DataFrame, colors: list[str]) -> None:
     )
     _apply_black_text(fig)
     st.plotly_chart(fig, use_container_width=True)
+    with st.expander(":material/notes: Nhận xét"):
+        st.markdown(
+            """
+- Scatter plot cho thấy mối quan hệ giữa **độ dày sách** và **doanh số bán**.
+- Đường hồi quy (trendline) giúp nhận diện xu hướng chung: sách dày hơn có bán tốt hơn không?
+- Nhóm màu theo khoảng trang giúp phân biệt rõ ràng các phân khúc sản phẩm.
+"""
+        )
 
 
 def render_distribution_product_tab(
