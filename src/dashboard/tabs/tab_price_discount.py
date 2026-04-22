@@ -49,57 +49,128 @@ def _q5_discount_threshold(df: pd.DataFrame, colors: list[str]) -> None:
     sold_df = sold_df[disc.notna()].copy()
     sold_df["discount_rate"] = disc[disc.notna()].values
 
-    bins = [-1, 0, 10, 20, 30, 50, 100]
-    labels = ["0%", "1–10%", "11–20%", "21–30%", "31–50%", ">50%"]
+    if "price" in sold_df.columns:
+        price = pd.to_numeric(sold_df["price"], errors="coerce").fillna(0)
+        sold_df["revenue"] = price * sold_df["all_time_quantity_sold"]
+    else:
+        sold_df["revenue"] = 0
+
+    bins = [-1, 0, 10, 20, 30, 50, 75, 100]
+    labels = ["0%", "1–10%", "11–20%", "21–30%", "31–50%", "51–75%", ">75%"]
     sold_df["discount_bin"] = pd.cut(
         sold_df["discount_rate"], bins=bins, labels=labels, right=True
     )
 
     agg = (
         sold_df.groupby("discount_bin", observed=True)
-        .agg(avg_sold=("all_time_quantity_sold", "mean"), count=("all_time_quantity_sold", "size"))
+        .agg(
+            avg_sold=("all_time_quantity_sold", "mean"),
+            total_sold=("all_time_quantity_sold", "sum"),
+            total_revenue=("revenue", "sum"),
+            count=("all_time_quantity_sold", "size")
+        )
         .reset_index()
     )
     agg["pct_books"] = agg["count"] / agg["count"].sum() * 100
+    total_rev_sum = agg["total_revenue"].sum()
+    agg["pct_revenue"] = (agg["total_revenue"] / total_rev_sum * 100) if total_rev_sum > 0 else 0
+
+    c1 = colors[0] if len(colors) > 0 else "#3b82f6"
+    c2 = colors[1] if len(colors) > 1 else "#ef4444"
+    c3 = colors[2] if len(colors) > 2 else "#10b981"
 
     fig = make_subplots(specs=[[{"secondary_y": True}]])
+    
+    def format_k_m(n):
+        if pd.isna(n): return ""
+        if n >= 1e6: return f"{n/1e6:.1f}M"
+        if n >= 1e3: return f"{n/1e3:.1f}K"
+        return f"{n:.0f}"
+
+    # 1. Bar chart 1: Lượng bán TB (Trục trái)
     fig.add_trace(
         go.Bar(
             x=agg["discount_bin"].astype(str),
             y=agg["avg_sold"],
             name="Lượng bán TB",
-            marker_color=colors[0],
+            marker_color=c1,
             opacity=0.85,
+            text=agg["avg_sold"].apply(format_k_m),
+            textposition="outside",
+            textfont=dict(size=11),
+            hovertemplate="<b>Mức giảm: %{x}</b><br>Lượng bán TB: %{y:,.0f} cuốn<extra></extra>"
         ),
         secondary_y=False,
     )
+
+    # 2. Bar chart 2: Tổng lượng bán (Trục trái)
+    c4 = colors[3] if len(colors) > 3 else "#f59e0b"
+    fig.add_trace(
+        go.Bar(
+            x=agg["discount_bin"].astype(str),
+            y=agg["total_sold"],
+            name="Tổng lượng bán",
+            marker_color=c4,
+            opacity=0.85,
+            text=agg["total_sold"].apply(format_k_m),
+            textposition="outside",
+            textfont=dict(size=11),
+            hovertemplate="<b>Mức giảm: %{x}</b><br>Tổng lượng bán: %{y:,.0f} cuốn<extra></extra>"
+        ),
+        secondary_y=False,
+    )
+    
+    # 3. Line chart 1: % Số lượng sách (Trục phải)
     fig.add_trace(
         go.Scatter(
             x=agg["discount_bin"].astype(str),
             y=agg["pct_books"],
-            name="% số sách",
+            name="% Số lượng sách",
             mode="lines+markers",
-            line={"color": colors[1], "width": 2},
+            line={"color": c2, "width": 2},
             marker={"size": 7},
+            hovertemplate="Tỷ trọng sách: %{y:.1f}%<extra></extra>"
         ),
         secondary_y=True,
     )
+
+    # 4. Line chart 2: % Tổng doanh thu (Trục phải)
+    fig.add_trace(
+        go.Scatter(
+            x=agg["discount_bin"].astype(str),
+            y=agg["pct_revenue"],
+            name="% Doanh thu",
+            mode="lines+markers",
+            line={"color": c3, "width": 2, "dash": "dot"},
+            marker={"size": 7, "symbol": "diamond"},
+            hovertemplate="Tỷ trọng doanh thu: %{y:.1f}%<br>(Tổng giá trị: %{customdata:,.0f} ₫)<extra></extra>",
+            customdata=agg["total_revenue"]
+        ),
+        secondary_y=True,
+    )
+
     fig.update_layout(
-        title="Q5 — Ngưỡng giảm giá & Doanh số",
+        title="Tương quan giữa Mức giảm giá, Doanh số & Doanh thu",
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
         legend={"orientation": "h", "y": -0.2},
+        hovermode="x unified",
+        barmode="group",
+        margin=dict(t=50, b=0)
     )
-    fig.update_yaxes(title_text="Lượng bán trung bình", secondary_y=False)
-    fig.update_yaxes(title_text="% số sách trong nhóm", secondary_y=True)
+    # Using log scale for left Y-axis since Total Sold (M) and Avg Sold (K) have large magnitude difference
+    fig.update_yaxes(title_text="Lượng bán (cuốn) - Log Scale", type="log", secondary_y=False)
+    fig.update_yaxes(title_text="Tỷ trọng (%)", secondary_y=True)
     _apply_black_text(fig)
     st.plotly_chart(fig, use_container_width=True)
+
     with st.expander("Nhận xét"):
         st.markdown(
             """
-- Biểu đồ kết hợp Bar–Line giúp xem đồng thời **mức doanh số trung bình** và **mật độ** sách trong từng nhóm discount.
+- Biểu đồ kết hợp Bar-Line giúp xem đồng thời **mức doanh số trung bình** (Bar) và sự phân bổ **Mật độ sách** cùng **Tổng doanh thu** (Line) trong từng nhóm discount.
 - Nhóm có discount cao không nhất thiết bán tốt nhất — có thể phản ánh sách cũ/tồn kho được giảm giá.
-- Ngưỡng "điểm bùng phát" (nếu có) sẽ là nhóm có avg_sold tăng vọt bất thường so với nhóm kề cận.
+- Ngưỡng "điểm bùng phát" (nếu có) sẽ là nhóm có lượng bán trung bình tăng vọt bất thường.
+- Đường % Doanh thu cho phép đánh giá xem phần lớn dòng tiền đến từ ngưỡng giảm giá nào, qua đó tìm ra mức giảm giá tối ưu nhất để tối đa hoá doanh thu.
 """
         )
 
@@ -111,8 +182,8 @@ def _q9_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
         return
 
     year_col = pd.to_numeric(sold_df["publication_year"], errors="coerce")
-    valid = sold_df[year_col.between(1900, 2025)].copy()
-    valid["publication_year"] = year_col[year_col.between(1900, 2025)].astype(int).values
+    valid = sold_df[year_col.between(2000, 2025)].copy()
+    valid["publication_year"] = year_col[year_col.between(2000, 2025)].astype(int).values
 
     yearly = (
         valid.groupby("publication_year")["all_time_quantity_sold"]

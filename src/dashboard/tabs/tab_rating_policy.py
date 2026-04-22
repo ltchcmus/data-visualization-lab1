@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 import streamlit as st
 
 
@@ -131,45 +132,137 @@ def _q7_correlation_heatmap(df: pd.DataFrame, heatmap_scale: str) -> None:
         )
 
 
-def _q8_freeship_violin(df: pd.DataFrame, colors: list[str]) -> None:
+def _q8_competitive_advantage(df: pd.DataFrame, colors: list[str]) -> None:
     sold_df = _filter_sold(df)
-    if "has_freeship" not in sold_df.columns:
-        st.info("Không có cột has_freeship.")
-        return
+    
+    st.markdown("<h5 style='text-align: center; color: #0f2740; font-weight: bold; margin-bottom: 20px;'>Q8 — Lợi thế cạnh tranh: Nhà phân phối & Freeship</h5>", unsafe_allow_html=True)
+    
+    col1, col2 = st.columns(2)
+    
+    c1 = colors[0] if len(colors) > 0 else "#3b82f6"
+    c2 = colors[1] if len(colors) > 1 else "#ef4444"
+    c_other = "#94a3b8"
 
-    valid = sold_df[sold_df["has_freeship"].notna()].copy()
-    valid["freeship_label"] = valid["has_freeship"].map(
-        {True: "Có freeship", False: "Không freeship", 1: "Có freeship", 0: "Không freeship"}
-    ).fillna("Không xác định")
-    valid = valid[valid["freeship_label"] != "Không xác định"]
+    # 1. Donut Chart for Freeship
+    if "has_freeship" in sold_df.columns:
+        valid_fs = sold_df[sold_df["has_freeship"].notna()].copy()
+        valid_fs["freeship_label"] = valid_fs["has_freeship"].map(
+            {True: "Có Freeship", False: "Không Freeship", 1: "Có Freeship", 0: "Không Freeship"}
+        ).fillna("Không xác định")
+        valid_fs = valid_fs[valid_fs["freeship_label"] != "Không xác định"]
+        
+        fs_counts = valid_fs["freeship_label"].value_counts().reset_index()
+        fs_counts.columns = ["freeship_label", "count"]
+        
+        fig1 = go.Figure(data=[go.Pie(
+            labels=fs_counts["freeship_label"], 
+            values=fs_counts["count"], 
+            hole=.55,
+            marker=dict(colors=[c1, c_other]),
+            textinfo='percent+label',
+            hovertemplate="%{label}<br>Số đầu sách: %{value:,.0f}<extra></extra>"
+        )])
+        fig1.update_layout(
+            title={"text": "Tỷ trọng sách theo Chính sách Freeship", "font": {"size": 14}},
+            plot_bgcolor="rgba(0,0,0,0)",
+            paper_bgcolor="rgba(0,0,0,0)",
+            margin=dict(t=40, b=20, l=20, r=20),
+            showlegend=False
+        )
+        _apply_black_text(fig1)
+        with col1:
+            st.plotly_chart(fig1, use_container_width=True)
+    else:
+        with col1:
+            st.caption("Không có dữ liệu Freeship.")
 
-    fig = px.violin(
-        valid,
-        x="freeship_label",
-        y="all_time_quantity_sold",
-        color="freeship_label",
-        color_discrete_sequence=[colors[0], colors[1]],
-        box=True,
-        log_y=True,
-        labels={
-            "freeship_label": "Chính sách freeship",
-            "all_time_quantity_sold": "Lượng bán (log)",
-        },
-        title="Q8 — Freeship & Doanh số (Violin + Boxplot)",
-    )
-    fig.update_layout(
-        showlegend=False,
-        plot_bgcolor="rgba(0,0,0,0)",
-        paper_bgcolor="rgba(0,0,0,0)",
-    )
-    _apply_black_text(fig)
-    st.plotly_chart(fig, use_container_width=True)
-    with st.expander("Nhận xét"):
+    # 2. Bar chart for Tiki Trading vs Others
+    if "current_seller_name" in sold_df.columns:
+        valid_seller = sold_df[sold_df["current_seller_name"].notna()].copy()
+        valid_seller["seller_group"] = valid_seller["current_seller_name"].apply(
+            lambda x: "Tiki Trading" if "tiki trading" in str(x).lower() else "Nhà bán khác"
+        )
+        
+        seller_agg = valid_seller.groupby("seller_group").agg(
+            avg_sold=("all_time_quantity_sold", "mean")
+        ).reset_index()
+        
+        seller_agg = seller_agg.sort_values("avg_sold", ascending=False)
+        
+        fig2 = go.Figure(data=[go.Bar(
+            x=seller_agg["seller_group"],
+            y=seller_agg["avg_sold"],
+            marker_color=[c2 if g == "Tiki Trading" else c_other for g in seller_agg["seller_group"]],
+            text=seller_agg["avg_sold"].apply(lambda x: f"{x:,.0f}"),
+            textposition="outside",
+            hovertemplate="<b>%{x}</b><br>Lượng bán TB: %{y:,.0f}<extra></extra>"
+        )])
+        fig2.update_layout(
+            title={"text": "Lượng bán TB: Tiki Trading vs Nhà bán khác", "font": {"size": 14}},
+            plot_bgcolor="rgba(0,0,0,0)",
+            paper_bgcolor="rgba(0,0,0,0)",
+            margin=dict(t=40, b=20, l=20, r=20),
+            yaxis_title="Lượng bán trung bình",
+            xaxis_title="",
+            yaxis_range=[0, seller_agg["avg_sold"].max() * 1.25]
+        )
+        _apply_black_text(fig2)
+        with col2:
+            st.plotly_chart(fig2, use_container_width=True)
+    else:
+        with col2:
+            st.caption("Không có dữ liệu Nhà bán.")
+
+    # 3. Combined Grouped Bar chart
+    if "has_freeship" in sold_df.columns and "current_seller_name" in sold_df.columns:
+        valid_combo = sold_df.dropna(subset=["has_freeship", "current_seller_name"]).copy()
+        valid_combo["freeship_label"] = valid_combo["has_freeship"].map(
+            {True: "Có Freeship", False: "Không Freeship", 1: "Có Freeship", 0: "Không Freeship"}
+        )
+        valid_combo["seller_group"] = valid_combo["current_seller_name"].apply(
+            lambda x: "Tiki Trading" if "tiki trading" in str(x).lower() else "Nhà bán khác"
+        )
+        valid_combo = valid_combo[valid_combo["freeship_label"].notna()]
+        
+        combo_agg = valid_combo.groupby(["seller_group", "freeship_label"]).agg(
+            avg_sold=("all_time_quantity_sold", "mean")
+        ).reset_index()
+        
+        fig3 = px.bar(
+            combo_agg, 
+            x="seller_group", 
+            y="avg_sold", 
+            color="freeship_label",
+            barmode="group",
+            color_discrete_sequence=[c1, c_other],
+            text_auto=".0f",
+            labels={
+                "seller_group": "Nhóm nhà phân phối",
+                "avg_sold": "Lượng bán trung bình",
+                "freeship_label": "Chính sách"
+            },
+            title="Tác động kép: Sự kết hợp giữa Nhà phân phối lớn & Freeship"
+        )
+        fig3.update_traces(
+            textposition="outside",
+            hovertemplate="<b>%{x}</b><br>Chính sách: %{data.name}<br>Lượng bán TB: %{y:,.0f}<extra></extra>"
+        )
+        fig3.update_layout(
+            plot_bgcolor="rgba(0,0,0,0)",
+            paper_bgcolor="rgba(0,0,0,0)",
+            legend=dict(orientation="h", y=1.15, x=0.5, xanchor="center", yanchor="bottom"),
+            margin=dict(t=50, b=20),
+            yaxis_range=[0, combo_agg["avg_sold"].max() * 1.25]
+        )
+        _apply_black_text(fig3)
+        st.plotly_chart(fig3, use_container_width=True)
+
+    with st.expander("Nhận xét", icon=":material/insights:"):
         st.markdown(
             """
-- Violin cho thấy **toàn bộ phân phối** — không chỉ trung vị như boxplot thông thường.
-- Nếu nhóm "Có freeship" có violin rộng hơn ở phần trên → freeship gắn với sản phẩm bán chạy nhiều hơn.
-- Thang log giúp so sánh nhóm có outlier cực lớn mà không bị méo hình dạng violin.
+- **Độ phủ Freeship**: Biểu đồ Donut cho thấy tỷ trọng áp dụng chính sách giao hàng miễn phí trên toàn bộ danh mục sách. Freeship hiện nay là một tiêu chuẩn ngầm giúp kích thích người mua chốt đơn.
+- **Sức mạnh của Tiki Trading**: Biểu đồ cột bên phải phản ánh chênh lệch doanh số khổng lồ giữa Tiki Trading và các nhà bán bên thứ 3. Sách do Tiki Trading bán đạt doanh số cao vượt trội nhờ lợi thế về uy tín (100% chính hãng), tốc độ giao hàng (TikiNOW), và các ưu đãi đi kèm.
+- **Lợi thế cạnh tranh kép**: Khi kết hợp cả hai yếu tố (Biểu đồ nhóm), dễ dàng thấy một cuốn sách vừa được phân phối bởi Tiki Trading, vừa có Freeship sẽ tạo ra một **hào cản cạnh tranh tuyệt đối** về lượng bán, bỏ xa hoàn toàn các nhà bán nhỏ lẻ không có Freeship.
 """
         )
 
@@ -208,5 +301,5 @@ def render_rating_policy_tab(
     st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("<div class='section-card'>", unsafe_allow_html=True)
-    _q8_freeship_violin(df, colors)
+    _q8_competitive_advantage(df, colors)
     st.markdown("</div>", unsafe_allow_html=True)
