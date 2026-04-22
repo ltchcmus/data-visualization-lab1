@@ -107,16 +107,14 @@ def _render_fixed_header(active_tab: str, colorblind_mode: bool, total_books: in
             <div class="hdr-left">
                 <div class="hdr-logo">📚</div>
                 <div>
-                    <div class="hdr-school">PlotTwist · Nhóm phân tích dữ liệu</div>
-                    <div class="hdr-title">Phân tích các yếu tố ảnh hưởng đến hiệu quả bán hàng sách</div>
+                    <div class="hdr-title">Phân tích các yếu tố ảnh hưởng đến hiệu quả bán hàng sách trên nền tảng trực tuyến Nhà sách Tiki</div>
                 </div>
             </div>
             <div class="hdr-right">
-                <div class="hdr-meta">Nhóm PlotTwist · Cập nhật {updated_at}</div>
                 <div class="hdr-actions">
                     <div class="hdr-stat">
-                        <div class="hdr-stat-val">{format_vn(total_books)}</div>
-                        <div class="hdr-stat-lbl">Đầu sách</div>
+                        <div class="hdr-stat-val"></div>
+                        <div class="hdr-stat-lbl"></div>
                     </div>
                     <a class="hdr-badge" href="{toggle_href}" target="_self">
                         <div class="hdr-badge-val">👁</div>
