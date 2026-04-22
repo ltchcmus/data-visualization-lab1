@@ -5,280 +5,351 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
-from ..format_utils import format_vn
-from ..ui_cards import render_metric_strip
+FREE_TRUE_LABEL = "Có Freeship"
+FREE_FALSE_LABEL = "Không Freeship"
 
 
-def _filter_sold(df: pd.DataFrame) -> pd.DataFrame:
-    sold = pd.to_numeric(df["all_time_quantity_sold"], errors="coerce")
-    mask = sold > 0
-    sub = df[mask].copy()
-    cap = sold[mask].quantile(0.99)
-    sub["all_time_quantity_sold"] = sold[mask].clip(upper=cap).values
-    return sub
+def _resolve_seller_column(df: pd.DataFrame) -> str | None:
+    for col in ["current_seller", "current_seller_name"]:
+        if col in df.columns:
+            return col
+    return None
 
 
-def _apply_black_text(fig) -> None:
+def _to_bool(series: pd.Series) -> pd.Series:
+    normalized = series.astype("string").str.strip().str.lower()
+    mapped = normalized.map(
+        {
+            "true": True,
+            "1": True,
+            "yes": True,
+            "y": True,
+            "co": True,
+            "có": True,
+            "false": False,
+            "0": False,
+            "no": False,
+            "n": False,
+            "khong": False,
+            "không": False,
+        }
+    )
+    return mapped
+
+
+def _freeship_label(series: pd.Series) -> pd.Series:
+    return series.map({True: FREE_TRUE_LABEL, False: FREE_FALSE_LABEL})
+
+
+def _format_chart(fig, *, height: int = 380, x_grid: bool = False, y_grid: bool = True) -> None:
     fig.update_layout(
-        font={"color": "#000000"},
-        title={"font": {"color": "#000000"}},
+        template="plotly_white",
+        height=height,
+        margin={"l": 14, "r": 14, "t": 58, "b": 14},
+        font={"color": "#0f172a"},
+        title={"font": {"size": 16, "color": "#0f172a"}},
+        legend={"orientation": "h", "y": 1.1, "x": 1.0, "xanchor": "right", "yanchor": "bottom"},
     )
-    fig.update_xaxes(
-        title_font={"color": "#000000"},
-        tickfont={"color": "#000000"},
-        showgrid=True,
-        gridcolor="#e7edf5",
-        zerolinecolor="#dbe7f2",
-        linecolor="#dbe7f2",
-    )
-    fig.update_yaxes(
-        title_font={"color": "#000000"},
-        tickfont={"color": "#000000"},
-        showgrid=True,
-        gridcolor="#e7edf5",
-        zerolinecolor="#dbe7f2",
-        linecolor="#dbe7f2",
-    )
+    fig.update_xaxes(showgrid=x_grid, gridcolor="#e2e8f0", zeroline=False)
+    fig.update_yaxes(showgrid=y_grid, gridcolor="#e2e8f0", zeroline=False)
 
 
-def _render_kpi_row(items: list[tuple[str, str, str, str]]) -> None:
-    render_metric_strip(
-        [
-            {"label": label, "value": value, "icon": icon, "tone": tone}
-            for label, value, icon, tone in items
-        ],
-        compact=True,
-    )
+def _prepare_dataframe(df: pd.DataFrame) -> pd.DataFrame:
+    work = df.copy()
+    work["rating_average"] = pd.to_numeric(work.get("rating_average"), errors="coerce")
+    work["review_count"] = pd.to_numeric(work.get("review_count"), errors="coerce")
+    work["all_time_quantity_sold"] = pd.to_numeric(work.get("all_time_quantity_sold"), errors="coerce")
+    work["has_freeship"] = _to_bool(work.get("has_freeship", pd.Series(dtype=object)))
+
+    seller_col = _resolve_seller_column(work)
+    if seller_col is None:
+        work["seller_name"] = "Không rõ"
+    else:
+        work["seller_name"] = work[seller_col].astype("string").str.strip().fillna("Không rõ")
+        work.loc[work["seller_name"].isin(["", "<NA>"]), "seller_name"] = "Không rõ"
+
+    return work
 
 
-def _q7_bubble_chart(df: pd.DataFrame, colors: list[str]) -> None:
-    sold_df = _filter_sold(df)
-    needed = {"rating_average", "review_count", "all_time_quantity_sold"}
-    if not needed.issubset(sold_df.columns):
-        st.info("Thiếu cột rating_average hoặc review_count.")
-        return
+def _render_filters(df: pd.DataFrame) -> tuple[pd.DataFrame, tuple[float, float], list[str]]:
+    st.markdown("### Bộ lọc Tab 4")
+    c1, c2 = st.columns([2, 1])
 
-    review = pd.to_numeric(sold_df["review_count"], errors="coerce")
-    rating = pd.to_numeric(sold_df["rating_average"], errors="coerce")
-    valid = sold_df[review.notna() & rating.notna() & (review > 0)].copy()
-    valid["review_count"] = review[review.notna() & rating.notna() & (review > 0)].values
-    valid["rating_average"] = rating[review.notna() & rating.notna() & (review > 0)].values
+    rating_valid = df["rating_average"].dropna().clip(lower=0, upper=5)
+    default_range = (0.0, 5.0)
+    if not rating_valid.empty:
+        default_range = (float(rating_valid.min()), float(rating_valid.max()))
 
-    review_cap = float(valid["review_count"].quantile(0.95))
-    valid["review_count"] = valid["review_count"].clip(upper=review_cap)
+    with c1:
+        rating_range = st.slider(
+            "Lọc theo khoảng rating",
+            min_value=0.0,
+            max_value=5.0,
+            value=default_range,
+            step=0.1,
+            key="tab4_rating_range",
+        )
+
+    with c2:
+        freeship_choice = st.multiselect(
+            "Lọc theo freeship",
+            options=[FREE_TRUE_LABEL, FREE_FALSE_LABEL],
+            default=[FREE_TRUE_LABEL, FREE_FALSE_LABEL],
+            key="tab4_freeship_options",
+        )
+
+    filtered = df[df["rating_average"].between(rating_range[0], rating_range[1], inclusive="both")].copy()
+
+    if freeship_choice:
+        allowed = []
+        if FREE_TRUE_LABEL in freeship_choice:
+            allowed.append(True)
+        if FREE_FALSE_LABEL in freeship_choice:
+            allowed.append(False)
+        filtered = filtered[filtered["has_freeship"].isin(allowed)]
+    else:
+        filtered = filtered.iloc[0:0]
+
+    return filtered, rating_range, freeship_choice
+
+
+def _chart_11_scatter(df: pd.DataFrame, colors: list[str]):
+    data = df[(df["rating_average"].notna()) & (df["review_count"] > 0) & (df["all_time_quantity_sold"] > 0)].copy()
+    if data.empty:
+        return None
+
+    data["freeship_label"] = _freeship_label(data["has_freeship"]).fillna("Không xác định")
+    color_map = {
+        FREE_TRUE_LABEL: colors[0] if colors else "#2563eb",
+        FREE_FALSE_LABEL: colors[1] if len(colors) > 1 else "#f97316",
+        "Không xác định": "#94a3b8",
+    }
 
     fig = px.scatter(
-        valid,
+        data,
         x="rating_average",
         y="review_count",
         size="all_time_quantity_sold",
-        color="all_time_quantity_sold",
-        color_continuous_scale=[[0, colors[0]], [0.5, colors[2]], [1, colors[1]]],
+        color="freeship_label",
+        color_discrete_map=color_map,
+        size_max=44,
         log_y=True,
-        opacity=0.6,
-        size_max=35,
-        labels={
-            "rating_average": "Điểm rating",
-            "review_count": "Số lượt đánh giá (log)",
-            "all_time_quantity_sold": "Lượng bán",
+        opacity=0.68,
+        hover_data={
+            "rating_average": ":.2f",
+            "review_count": ":,.0f",
+            "all_time_quantity_sold": ":,.0f",
+            "seller_name": True,
+            "freeship_label": True,
         },
-        title="Q7 — Rating × Review → Doanh số (Bubble Chart)",
+        labels={
+            "rating_average": "Rating Average",
+            "review_count": "Review Count (log)",
+            "all_time_quantity_sold": "Số lượng bán",
+            "freeship_label": "Freeship",
+        },
+        title="Biểu đồ 1.1: Rating vs Review (log), kích thước theo doanh số",
+    )
+    _format_chart(fig, height=430)
+    fig.update_xaxes(range=[2.4, 5.05])
+    return fig
+
+
+def _chart_12_rating_bin(df: pd.DataFrame, colors: list[str]):
+    data = df[(df["rating_average"].notna()) & (df["all_time_quantity_sold"].notna())].copy()
+    if data.empty:
+        return None
+
+    labels = ["<3", "3-4", "4-4.8", "4.8-5"]
+    bins = [-0.001, 3, 4, 4.8, 5.001]
+    data["rating_bin"] = pd.cut(data["rating_average"], bins=bins, labels=labels, include_lowest=True, right=True)
+
+    agg = (
+        data.groupby("rating_bin", observed=False)["all_time_quantity_sold"]
+        .mean()
+        .reindex(labels)
+        .reset_index()
+        .rename(columns={"all_time_quantity_sold": "avg_sold"})
+    )
+
+    fig = px.bar(
+        agg,
+        x="rating_bin",
+        y="avg_sold",
+        color="rating_bin",
+        color_discrete_sequence=colors if colors else ["#2563eb", "#0ea5e9", "#22c55e", "#f97316"],
+        hover_data={"avg_sold": ":,.0f"},
+        labels={"rating_bin": "Nhóm rating", "avg_sold": "Doanh số trung bình"},
+        title="Biểu đồ 1.2: Doanh số trung bình theo nhóm rating",
+    )
+    fig.update_traces(texttemplate="%{y:,.0f}", textposition="outside")
+    _format_chart(fig, height=340, y_grid=True)
+    fig.update_layout(showlegend=False)
+    return fig
+
+
+def _chart_13_review_bin_line(df: pd.DataFrame, colors: list[str]):
+    data = df[(df["review_count"].notna()) & (df["all_time_quantity_sold"].notna())].copy()
+    if data.empty:
+        return None
+
+    labels = ["0-10", "11-50", "50-100", ">100"]
+    bins = [-0.001, 10, 50, 100, float("inf")]
+    data["review_bin"] = pd.cut(data["review_count"], bins=bins, labels=labels, include_lowest=True, right=True)
+
+    agg = (
+        data.groupby("review_bin", observed=False)
+        .agg(
+            avg_sold=("all_time_quantity_sold", "mean"),
+            total_sold=("all_time_quantity_sold", "sum"),
+            book_count=("all_time_quantity_sold", "size"),
+        )
+        .reindex(labels)
+        .reset_index()
+    )
+
+    fig = go.Figure()
+    fig.add_trace(
+        go.Scatter(
+            x=agg["review_bin"],
+            y=agg["avg_sold"],
+            mode="lines+markers",
+            line={"width": 3, "color": colors[0] if colors else "#2563eb"},
+            marker={"size": 9, "color": colors[1] if len(colors) > 1 else "#f97316"},
+            customdata=agg[["total_sold", "book_count"]],
+            hovertemplate=(
+                "Nhóm review: %{x}<br>"
+                "Doanh số trung bình: %{y:,.0f}<br>"
+                "Tổng doanh số: %{customdata[0]:,.0f}<br>"
+                "Số đầu sách: %{customdata[1]:,.0f}<extra></extra>"
+            ),
+            name="Doanh số trung bình",
+        )
     )
     fig.update_layout(
-        plot_bgcolor="rgba(0,0,0,0)",
-        paper_bgcolor="rgba(0,0,0,0)",
-        coloraxis_colorbar={"title": "Lượng bán"},
+        title="Biểu đồ 1.3: Điểm bùng phát doanh số theo nhóm review",
+        xaxis_title="Nhóm review_count",
+        yaxis_title="Doanh số trung bình",
     )
-    _apply_black_text(fig)
-    st.plotly_chart(fig, use_container_width=True)
-    with st.expander("Nhận xét"):
-        st.markdown(
-            """
-- Kích thước bong bóng tỉ lệ với **lượng bán** — bong bóng lớn ở góc trên phải = sách vừa được đánh giá cao vừa có nhiều review → doanh số tốt nhất.
-- Review count thường có tương quan mạnh hơn với doanh số so với rating vì nó phản ánh **lượng người đã mua thực tế**.
-- Sách có rating cao nhưng ít review có thể là sách mới hoặc niche — tiềm năng nếu được quảng bá thêm.
-"""
-        )
+    _format_chart(fig, height=340)
+    return fig
 
 
-def _q7_correlation_heatmap(df: pd.DataFrame, heatmap_scale: str) -> None:
-    cols = ["price", "discount_rate", "rating_average", "review_count", "all_time_quantity_sold"]
-    available = [c for c in cols if c in df.columns]
-    if len(available) < 2:
-        st.info("Không đủ cột để tính heatmap tương quan.")
-        return
+def _chart_21_freeship_box(df: pd.DataFrame, colors: list[str]):
+    data = df[(df["has_freeship"].notna()) & (df["all_time_quantity_sold"] > 0)].copy()
+    if data.empty:
+        return None
 
-    corr = df[available].apply(pd.to_numeric, errors="coerce").corr()
-
-    labels_vn = {
-        "price": "Giá",
-        "discount_rate": "Discount",
-        "rating_average": "Rating",
-        "review_count": "Số review",
-        "all_time_quantity_sold": "Lượng bán",
+    data["freeship_label"] = _freeship_label(data["has_freeship"])
+    color_map = {
+        FREE_TRUE_LABEL: colors[0] if colors else "#2563eb",
+        FREE_FALSE_LABEL: colors[1] if len(colors) > 1 else "#f97316",
     }
-    corr.index = [labels_vn.get(c, c) for c in corr.index]
-    corr.columns = [labels_vn.get(c, c) for c in corr.columns]
 
-    fig = px.imshow(
-        corr,
-        text_auto=".2f",
-        color_continuous_scale=heatmap_scale,
-        zmin=-1,
-        zmax=1,
-        title="Q7 — Ma trận tương quan các biến số lượng",
+    fig = px.box(
+        data,
+        x="freeship_label",
+        y="all_time_quantity_sold",
+        color="freeship_label",
+        color_discrete_map=color_map,
+        points=False,
+        hover_data={"all_time_quantity_sold": ":,.0f", "seller_name": True},
+        labels={"freeship_label": "Chính sách freeship", "all_time_quantity_sold": "Doanh số (log)"},
+        title="Biểu đồ 2.1: Phân phối doanh số theo freeship (Boxplot, log scale)",
+    )
+    fig.update_yaxes(type="log")
+    _format_chart(fig, height=430)
+    fig.update_layout(showlegend=False)
+    return fig
+
+
+def _top_seller_table(df: pd.DataFrame, n: int) -> pd.DataFrame:
+    data = df[(df["seller_name"].notna()) & (df["all_time_quantity_sold"] > 0)].copy()
+    if data.empty:
+        return pd.DataFrame(columns=["seller_name", "total_sold"])
+
+    top = (
+        data.groupby("seller_name", as_index=False)["all_time_quantity_sold"]
+        .sum()
+        .rename(columns={"all_time_quantity_sold": "total_sold"})
+        .sort_values("total_sold", ascending=False)
+        .head(n)
+    )
+    return top
+
+
+def _chart_22_top_seller_bar(df: pd.DataFrame, colors: list[str]):
+    top10 = _top_seller_table(df, n=10)
+    if top10.empty:
+        return None
+
+    fig = px.bar(
+        top10.sort_values("total_sold", ascending=True),
+        x="total_sold",
+        y="seller_name",
+        orientation="h",
+        text="total_sold",
+        color="total_sold",
+        color_continuous_scale=[[0, "#cbd5e1"], [1, colors[0] if colors else "#2563eb"]],
+        labels={"total_sold": "Tổng doanh số", "seller_name": "Nhà cung cấp"},
+        hover_data={"total_sold": ":,.0f"},
+        title="Biểu đồ 2.2: Top 10 nhà cung cấp theo tổng doanh số",
+    )
+    fig.update_traces(texttemplate="%{text:,.0f}", textposition="outside")
+    _format_chart(fig, height=360, x_grid=True, y_grid=False)
+    fig.update_layout(coloraxis_showscale=False)
+    return fig
+
+
+def _chart_23_grouped_top5(df: pd.DataFrame, colors: list[str]):
+    top5 = _top_seller_table(df, n=5)
+    if top5.empty:
+        return None
+
+    data = df[df["seller_name"].isin(top5["seller_name"])].copy()
+    data = data[(data["all_time_quantity_sold"] > 0) & (data["has_freeship"].notna())]
+    if data.empty:
+        return None
+
+    data["freeship_label"] = _freeship_label(data["has_freeship"])
+    grouped = (
+        data.groupby(["seller_name", "freeship_label"], as_index=False)["all_time_quantity_sold"]
+        .sum()
+        .rename(columns={"all_time_quantity_sold": "total_sold"})
+    )
+
+    seller_order = top5["seller_name"].tolist()
+    pivot = grouped.pivot(index="seller_name", columns="freeship_label", values="total_sold").fillna(0)
+    pivot = pivot.reindex(seller_order)
+
+    fig = go.Figure()
+    fig.add_trace(
+        go.Bar(
+            x=seller_order,
+            y=pivot.get(FREE_TRUE_LABEL, pd.Series(index=seller_order, dtype=float)).fillna(0),
+            name=FREE_TRUE_LABEL,
+            marker_color=colors[0] if colors else "#2563eb",
+            hovertemplate="Nhà cung cấp: %{x}<br>Freeship: Có<br>Tổng doanh số: %{y:,.0f}<extra></extra>",
+        )
+    )
+    fig.add_trace(
+        go.Bar(
+            x=seller_order,
+            y=pivot.get(FREE_FALSE_LABEL, pd.Series(index=seller_order, dtype=float)).fillna(0),
+            name=FREE_FALSE_LABEL,
+            marker_color=colors[1] if len(colors) > 1 else "#f97316",
+            hovertemplate="Nhà cung cấp: %{x}<br>Freeship: Không<br>Tổng doanh số: %{y:,.0f}<extra></extra>",
+        )
     )
     fig.update_layout(
-        plot_bgcolor="rgba(0,0,0,0)",
-        paper_bgcolor="rgba(0,0,0,0)",
+        barmode="group",
+        title="Biểu đồ 2.3: Top 5 seller theo trạng thái freeship",
+        xaxis_title="Nhà cung cấp",
+        yaxis_title="Tổng doanh số",
     )
-    _apply_black_text(fig)
-    st.plotly_chart(fig, use_container_width=True)
-    with st.expander("Nhận xét"):
-        st.markdown(
-            """
-- Heatmap cho cái nhìn tổng quát về **hướng và độ mạnh** của các mối quan hệ.
-- Giá trị gần **+1** = tương quan dương mạnh; gần **-1** = tương quan âm mạnh; gần **0** = ít liên hệ.
-- Kết hợp với bubble chart để xác nhận biến nào thực sự "dẫn dắt" doanh số.
-"""
-        )
-
-
-def _q8_competitive_advantage(df: pd.DataFrame, colors: list[str]) -> None:
-    sold_df = _filter_sold(df)
-    
-    st.markdown("<h5 style='text-align: center; color: #0f2740; font-weight: bold; margin-bottom: 20px;'>Q8 — Lợi thế cạnh tranh: Nhà phân phối & Freeship</h5>", unsafe_allow_html=True)
-    
-    col1, col2 = st.columns(2)
-    
-    c1 = colors[0] if len(colors) > 0 else "#3b82f6"
-    c2 = colors[1] if len(colors) > 1 else "#ef4444"
-    c_other = "#94a3b8"
-
-    # 1. Donut Chart for Freeship
-    if "has_freeship" in sold_df.columns:
-        valid_fs = sold_df[sold_df["has_freeship"].notna()].copy()
-        valid_fs["freeship_label"] = valid_fs["has_freeship"].map(
-            {True: "Có Freeship", False: "Không Freeship", 1: "Có Freeship", 0: "Không Freeship"}
-        ).fillna("Không xác định")
-        valid_fs = valid_fs[valid_fs["freeship_label"] != "Không xác định"]
-        
-        fs_counts = valid_fs["freeship_label"].value_counts().reset_index()
-        fs_counts.columns = ["freeship_label", "count"]
-        
-        fig1 = go.Figure(data=[go.Pie(
-            labels=fs_counts["freeship_label"], 
-            values=fs_counts["count"], 
-            hole=.55,
-            marker=dict(colors=[c1, c_other]),
-            textinfo='percent+label',
-            hovertemplate="%{label}<br>Số đầu sách: %{value:,.0f}<extra></extra>"
-        )])
-        fig1.update_layout(
-            title={"text": "Tỷ trọng sách theo Chính sách Freeship", "font": {"size": 14}},
-            plot_bgcolor="rgba(0,0,0,0)",
-            paper_bgcolor="rgba(0,0,0,0)",
-            margin=dict(t=40, b=20, l=20, r=20),
-            showlegend=False
-        )
-        _apply_black_text(fig1)
-        with col1:
-            st.plotly_chart(fig1, use_container_width=True)
-    else:
-        with col1:
-            st.caption("Không có dữ liệu Freeship.")
-
-    # 2. Bar chart for Tiki Trading vs Others
-    if "current_seller_name" in sold_df.columns:
-        valid_seller = sold_df[sold_df["current_seller_name"].notna()].copy()
-        valid_seller["seller_group"] = valid_seller["current_seller_name"].apply(
-            lambda x: "Tiki Trading" if "tiki trading" in str(x).lower() else "Nhà bán khác"
-        )
-        
-        seller_agg = valid_seller.groupby("seller_group").agg(
-            avg_sold=("all_time_quantity_sold", "mean")
-        ).reset_index()
-        
-        seller_agg = seller_agg.sort_values("avg_sold", ascending=False)
-        
-        fig2 = go.Figure(data=[go.Bar(
-            x=seller_agg["seller_group"],
-            y=seller_agg["avg_sold"],
-            marker_color=[c2 if g == "Tiki Trading" else c_other for g in seller_agg["seller_group"]],
-            text=seller_agg["avg_sold"].apply(lambda x: format_vn(x)),
-            textposition="outside",
-            hovertemplate="<b>%{x}</b><br>Lượng bán TB: %{y:,.0f}<extra></extra>"
-        )])
-        fig2.update_layout(
-            title={"text": "Lượng bán TB: Tiki Trading vs Nhà bán khác", "font": {"size": 14}},
-            plot_bgcolor="rgba(0,0,0,0)",
-            paper_bgcolor="rgba(0,0,0,0)",
-            margin=dict(t=40, b=20, l=20, r=20),
-            yaxis_title="Lượng bán trung bình",
-            xaxis_title="",
-            yaxis_range=[0, seller_agg["avg_sold"].max() * 1.25]
-        )
-        _apply_black_text(fig2)
-        with col2:
-            st.plotly_chart(fig2, use_container_width=True)
-    else:
-        with col2:
-            st.caption("Không có dữ liệu Nhà bán.")
-
-    # 3. Combined Grouped Bar chart
-    if "has_freeship" in sold_df.columns and "current_seller_name" in sold_df.columns:
-        valid_combo = sold_df.dropna(subset=["has_freeship", "current_seller_name"]).copy()
-        valid_combo["freeship_label"] = valid_combo["has_freeship"].map(
-            {True: "Có Freeship", False: "Không Freeship", 1: "Có Freeship", 0: "Không Freeship"}
-        )
-        valid_combo["seller_group"] = valid_combo["current_seller_name"].apply(
-            lambda x: "Tiki Trading" if "tiki trading" in str(x).lower() else "Nhà bán khác"
-        )
-        valid_combo = valid_combo[valid_combo["freeship_label"].notna()]
-        
-        combo_agg = valid_combo.groupby(["seller_group", "freeship_label"]).agg(
-            avg_sold=("all_time_quantity_sold", "mean")
-        ).reset_index()
-        
-        fig3 = px.bar(
-            combo_agg, 
-            x="seller_group", 
-            y="avg_sold", 
-            color="freeship_label",
-            barmode="group",
-            color_discrete_sequence=[c1, c_other],
-            labels={
-                "seller_group": "Nhóm nhà phân phối",
-                "avg_sold": "Lượng bán trung bình",
-                "freeship_label": "Chính sách"
-            },
-            title="Tác động kép: Sự kết hợp giữa Nhà phân phối lớn & Freeship"
-        )
-        fig3.for_each_trace(
-            lambda trace: trace.update(
-                text=[format_vn(v) for v in trace.y],
-                textposition="outside",
-                hovertemplate="<b>%{x}</b><br>Chính sách: %{data.name}<br>Lượng bán TB: %{y:,.0f}<extra></extra>",
-            )
-        )
-        fig3.update_layout(
-            plot_bgcolor="rgba(0,0,0,0)",
-            paper_bgcolor="rgba(0,0,0,0)",
-            legend=dict(orientation="h", y=1.15, x=0.5, xanchor="center", yanchor="bottom"),
-            margin=dict(t=50, b=20),
-            yaxis_range=[0, combo_agg["avg_sold"].max() * 1.25]
-        )
-        _apply_black_text(fig3)
-        st.plotly_chart(fig3, use_container_width=True)
-
-    with st.expander("Nhận xét", icon=":material/insights:"):
-        st.markdown(
-            """
-- **Độ phủ Freeship**: Biểu đồ Donut cho thấy tỷ trọng áp dụng chính sách giao hàng miễn phí trên toàn bộ danh mục sách. Freeship hiện nay là một tiêu chuẩn ngầm giúp kích thích người mua chốt đơn.
-- **Sức mạnh của Tiki Trading**: Biểu đồ cột bên phải phản ánh chênh lệch doanh số khổng lồ giữa Tiki Trading và các nhà bán bên thứ 3. Sách do Tiki Trading bán đạt doanh số cao vượt trội nhờ lợi thế về uy tín (100% chính hãng), tốc độ giao hàng (TikiNOW), và các ưu đãi đi kèm.
-- **Lợi thế cạnh tranh kép**: Khi kết hợp cả hai yếu tố (Biểu đồ nhóm), dễ dàng thấy một cuốn sách vừa được phân phối bởi Tiki Trading, vừa có Freeship sẽ tạo ra một **hào cản cạnh tranh tuyệt đối** về lượng bán, bỏ xa hoàn toàn các nhà bán nhỏ lẻ không có Freeship.
-"""
-        )
+    _format_chart(fig, height=360, x_grid=False, y_grid=True)
+    fig.update_xaxes(tickangle=-18)
+    return fig
 
 
 def render_rating_policy_tab(
@@ -287,34 +358,69 @@ def render_rating_policy_tab(
     colors: list[str],
     heatmap_scale: str,
 ) -> None:
-    st.markdown("<div class='tab-page-header'>Tab 4 — Đánh giá & Chính sách</div>", unsafe_allow_html=True)
+    del heatmap_scale
 
-    rating = pd.to_numeric(df.get("rating_average", pd.Series(dtype=float)), errors="coerce")
-    review = pd.to_numeric(df.get("review_count", pd.Series(dtype=float)), errors="coerce")
+    required_cols = {
+        "rating_average",
+        "review_count",
+        "all_time_quantity_sold",
+        "has_freeship",
+    }
+    missing = [c for c in required_cols if c not in df.columns]
+    if missing:
+        st.warning("Tab 4 thiếu cột dữ liệu bắt buộc: " + ", ".join(missing))
+        return
 
-    avg_rating = float(rating.dropna().mean()) if rating.notna().any() else 0.0
-    avg_review = float(review.dropna().mean()) if review.notna().any() else 0.0
-    freeship_col = df.get("has_freeship")
-    pct_free = 0.0
-    if freeship_col is not None:
-        pct_free = float(freeship_col.eq(True).sum() / freeship_col.notna().sum() * 100)
-    rating_tone = "red" if avg_rating < 4.0 else "blue"
-    _render_kpi_row(
-        [
-            ("Rating trung bình", f"{format_vn(avg_rating, 2)} ⭐", "star", rating_tone),
-            ("Số review TB", format_vn(avg_review), "message", "amber"),
-            ("Tỷ lệ có freeship", f"{format_vn(pct_free, 1)}%", "ship", "blue"),
-        ]
-    )
+    st.markdown("<div class='tab-page-header'>Tab 4 — Đánh giá & Chính sách Dịch vụ</div>", unsafe_allow_html=True)
 
-    st.markdown("<div class='section-card'>", unsafe_allow_html=True)
-    col_a, col_b = st.columns(2)
-    with col_a:
-        _q7_bubble_chart(df, colors)
-    with col_b:
-        _q7_correlation_heatmap(df, heatmap_scale)
-    st.markdown("</div>", unsafe_allow_html=True)
+    base_df = _prepare_dataframe(df)
+    filtered_df, _, freeship_choice = _render_filters(base_df)
 
-    st.markdown("<div class='section-card'>", unsafe_allow_html=True)
-    _q8_competitive_advantage(df, colors)
-    st.markdown("</div>", unsafe_allow_html=True)
+    if not freeship_choice:
+        st.info("Hãy chọn ít nhất một trạng thái freeship để hiển thị biểu đồ.")
+        return
+    if filtered_df.empty:
+        st.info("Không có dữ liệu sau khi lọc. Hãy mở rộng bộ lọc rating hoặc freeship.")
+        return
+
+    st.header("Phần 1: Hiệu ứng đám đông")
+    fig11 = _chart_11_scatter(filtered_df, colors)
+    if fig11 is None:
+        st.caption("Không đủ dữ liệu để vẽ Biểu đồ 1.1.")
+    else:
+        st.plotly_chart(fig11, use_container_width=True)
+
+    c1, c2 = st.columns(2)
+    with c1:
+        fig12 = _chart_12_rating_bin(filtered_df, colors)
+        if fig12 is None:
+            st.caption("Không đủ dữ liệu để vẽ Biểu đồ 1.2.")
+        else:
+            st.plotly_chart(fig12, use_container_width=True)
+    with c2:
+        fig13 = _chart_13_review_bin_line(filtered_df, colors)
+        if fig13 is None:
+            st.caption("Không đủ dữ liệu để vẽ Biểu đồ 1.3.")
+        else:
+            st.plotly_chart(fig13, use_container_width=True)
+
+    st.header("Phần 2: Phân tích Nhà cung cấp & Dịch vụ")
+    fig21 = _chart_21_freeship_box(filtered_df, colors)
+    if fig21 is None:
+        st.caption("Không đủ dữ liệu để vẽ Biểu đồ 2.1.")
+    else:
+        st.plotly_chart(fig21, use_container_width=True)
+
+    c3, c4 = st.columns(2)
+    with c3:
+        fig22 = _chart_22_top_seller_bar(filtered_df, colors)
+        if fig22 is None:
+            st.caption("Không đủ dữ liệu để vẽ Biểu đồ 2.2.")
+        else:
+            st.plotly_chart(fig22, use_container_width=True)
+    with c4:
+        fig23 = _chart_23_grouped_top5(filtered_df, colors)
+        if fig23 is None:
+            st.caption("Không đủ dữ liệu để vẽ Biểu đồ 2.3.")
+        else:
+            st.plotly_chart(fig23, use_container_width=True)
