@@ -411,6 +411,10 @@ def render_top_filters(df: pd.DataFrame) -> pd.DataFrame:
         [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] * {
             background-color: transparent !important;
         }
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] > div,
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] > div > div {
+            background: #ffffff !important;
+        }
         [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] span,
         [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] div,
         [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] input {
@@ -420,6 +424,14 @@ def render_top_filters(df: pd.DataFrame) -> pd.DataFrame:
         [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] input::placeholder {
             color: #94a3b8 !important;
             -webkit-text-fill-color: #94a3b8 !important;
+        }
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="tag"] {
+            background: #f8fbff !important;
+            border: 1px solid #d6e3f0 !important;
+            border-radius: 999px !important;
+        }
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="tag"] span {
+            color: #173a5e !important;
         }
         </style>
         """,

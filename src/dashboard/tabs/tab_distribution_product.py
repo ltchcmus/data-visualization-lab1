@@ -5,24 +5,20 @@ import plotly.express as px
 import streamlit as st
 
 from ..format_utils import format_vn
+from ..ui_cards import render_metric_strip
 
 
 COOL_TONE_COLORS = ["#1E3A8A", "#1D4ED8", "#2563EB", "#3B82F6", "#60A5FA", "#93C5FD"]
 
 
-def _render_kpi_row(items: list[tuple[str, str]]) -> None:
-    cols = st.columns(len(items))
-    for col, (label, value) in zip(cols, items):
-        with col:
-            st.markdown(
-                f"""
-                <div style="background:linear-gradient(105deg,#dcedff 0%,#eff6ff 52%,#ffffff 100%);border:1px solid #cfe0f2;border-radius:10px;padding:10px 12px;box-shadow:0 8px 18px rgba(31,79,125,0.12);">
-                    <div style="font-size:0.78rem;font-weight:700;color:#173a5e;opacity:0.9;">{label}</div>
-                    <div style="margin-top:4px;font-size:1.25rem;font-weight:800;color:#000000;">{value}</div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
+def _render_kpi_row(items: list[tuple[str, str, str, str]]) -> None:
+    render_metric_strip(
+        [
+            {"label": label, "value": value, "icon": icon, "tone": tone}
+            for label, value, icon, tone in items
+        ],
+        compact=True,
+    )
 
 
 def _filter_sold(df: pd.DataFrame) -> pd.DataFrame:
@@ -40,8 +36,22 @@ def _apply_black_text(fig) -> None:
         title={"font": {"color": "#000000"}},
         margin={"t": 56},
     )
-    fig.update_xaxes(title_font={"color": "#000000"}, tickfont={"color": "#000000"})
-    fig.update_yaxes(title_font={"color": "#000000"}, tickfont={"color": "#000000"})
+    fig.update_xaxes(
+        title_font={"color": "#000000"},
+        tickfont={"color": "#000000"},
+        showgrid=True,
+        gridcolor="#e7edf5",
+        zerolinecolor="#dbe7f2",
+        linecolor="#dbe7f2",
+    )
+    fig.update_yaxes(
+        title_font={"color": "#000000"},
+        tickfont={"color": "#000000"},
+        showgrid=True,
+        gridcolor="#e7edf5",
+        zerolinecolor="#dbe7f2",
+        linecolor="#dbe7f2",
+    )
 
 
 def _q1_long_tail(df: pd.DataFrame, colors: list[str]) -> None:
@@ -167,12 +177,13 @@ def render_distribution_product_tab(
     )
     _render_kpi_row(
         [
-            ("Sách có doanh số > 0", format_vn(len(sold_df))),
-            ("Doanh số trung vị", format_vn(median_sold)),
-            ("Top 1% sách chiếm", f"{format_vn(top1_pct, 1)}% doanh số"),
+            ("Sách có doanh số > 0", format_vn(len(sold_df)), "book", "blue"),
+            ("Doanh số trung vị", format_vn(median_sold), "chart", "amber"),
+            ("Top 1% sách chiếm", f"{format_vn(top1_pct, 1)}% doanh số", "target", "red"),
         ]
     )
 
+    st.caption("Lưu ý: Q1 và Q2 dùng thang log ở trục tung để giảm ảnh hưởng của outliers.")
     col_a, col_b = st.columns(2)
     with col_a:
         st.markdown("<div class='section-card'>", unsafe_allow_html=True)

@@ -6,6 +6,7 @@ import streamlit as st
 from plotly.subplots import make_subplots
 
 from ..format_utils import format_vn
+from ..ui_cards import render_metric_strip
 
 
 def _filter_sold(df: pd.DataFrame) -> pd.DataFrame:
@@ -22,23 +23,32 @@ def _apply_black_text(fig) -> None:
         font={"color": "#000000"},
         title={"font": {"color": "#000000"}},
     )
-    fig.update_xaxes(title_font={"color": "#000000"}, tickfont={"color": "#000000"})
-    fig.update_yaxes(title_font={"color": "#000000"}, tickfont={"color": "#000000"})
+    fig.update_xaxes(
+        title_font={"color": "#000000"},
+        tickfont={"color": "#000000"},
+        showgrid=True,
+        gridcolor="#e7edf5",
+        zerolinecolor="#dbe7f2",
+        linecolor="#dbe7f2",
+    )
+    fig.update_yaxes(
+        title_font={"color": "#000000"},
+        tickfont={"color": "#000000"},
+        showgrid=True,
+        gridcolor="#e7edf5",
+        zerolinecolor="#dbe7f2",
+        linecolor="#dbe7f2",
+    )
 
 
-def _render_kpi_row(items: list[tuple[str, str]]) -> None:
-    cols = st.columns(len(items))
-    for col, (label, value) in zip(cols, items):
-        with col:
-            st.markdown(
-                f"""
-                <div style="background:linear-gradient(105deg,#dcedff 0%,#eff6ff 52%,#ffffff 100%);border:1px solid #cfe0f2;border-radius:10px;padding:10px 12px;box-shadow:0 8px 18px rgba(31,79,125,0.12);">
-                    <div style="font-size:0.78rem;font-weight:700;color:#173a5e;opacity:0.9;">{label}</div>
-                    <div style="margin-top:4px;font-size:1.25rem;font-weight:800;color:#000000;">{value}</div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
+def _render_kpi_row(items: list[tuple[str, str, str, str]]) -> None:
+    render_metric_strip(
+        [
+            {"label": label, "value": value, "icon": icon, "tone": tone}
+            for label, value, icon, tone in items
+        ],
+        compact=True,
+    )
 
 
 def _q5_discount_threshold(df: pd.DataFrame, colors: list[str]) -> None:
@@ -252,9 +262,9 @@ def render_price_discount_tab(
     pct_discounted = float((disc > 0).sum() / len(disc) * 100) if len(disc) > 0 else 0.0
     _render_kpi_row(
         [
-            ("Sách có doanh số > 0", format_vn(len(sold_df))),
-            ("Discount trung bình", f"{format_vn(avg_disc, 1)}%"),
-            ("Tỷ lệ có giảm giá", f"{format_vn(pct_discounted, 1)}%"),
+            ("Sách có doanh số > 0", format_vn(len(sold_df)), "book", "blue"),
+            ("Discount trung bình", f"{format_vn(avg_disc, 1)}%", "tag", "amber"),
+            ("Tỷ lệ có giảm giá", f"{format_vn(pct_discounted, 1)}%", "percent", "red"),
         ]
     )
 

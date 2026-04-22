@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import datetime
 import sys
 from pathlib import Path
 
@@ -16,6 +17,7 @@ if __package__ in {None, ""}:
     from dashboard.components.data_loader import default_data_path, load_dataset
     from dashboard.components.filter_ui import render_top_filters
     from dashboard.format_utils import format_vn
+    from dashboard.ui_cards import render_metric_strip
     from dashboard.tabs import (
         render_distribution_product_tab,
         render_price_discount_tab,
@@ -26,6 +28,7 @@ else:
     from .components.data_loader import default_data_path, load_dataset
     from .components.filter_ui import render_top_filters
     from .format_utils import format_vn
+    from .ui_cards import render_metric_strip
     from .tabs import (
         render_distribution_product_tab,
         render_price_discount_tab,
@@ -96,6 +99,7 @@ def _render_fixed_header(active_tab: str, colorblind_mode: bool, total_books: in
     target_state = "0" if colorblind_mode else "1"
     toggle_label = "Bật chế độ mù màu" if not colorblind_mode else "Tắt chế độ mù màu"
     toggle_href = f"?tab={active_tab}&cb={target_state}"
+    updated_at = datetime.now().strftime("%H:%M %d/%m/%Y")
 
     st.markdown(
         f"""
@@ -108,14 +112,17 @@ def _render_fixed_header(active_tab: str, colorblind_mode: bool, total_books: in
                 </div>
             </div>
             <div class="hdr-right">
-                <div class="hdr-stat">
-                    <div class="hdr-stat-val">{format_vn(total_books)}</div>
-                    <div class="hdr-stat-lbl">Đầu sách</div>
+                <div class="hdr-meta">Nhóm PlotTwist · Cập nhật {updated_at}</div>
+                <div class="hdr-actions">
+                    <div class="hdr-stat">
+                        <div class="hdr-stat-val">{format_vn(total_books)}</div>
+                        <div class="hdr-stat-lbl">Đầu sách</div>
+                    </div>
+                    <a class="hdr-badge" href="{toggle_href}" target="_self">
+                        <div class="hdr-badge-val">👁</div>
+                        <div class="hdr-badge-lbl">{toggle_label}</div>
+                    </a>
                 </div>
-                <a class="hdr-badge" href="{toggle_href}" target="_self">
-                    <div class="hdr-badge-val">👁</div>
-                    <div class="hdr-badge-lbl">{toggle_label}</div>
-                </a>
             </div>
         </div>
         """,
@@ -162,28 +169,33 @@ def _render_kpis(df: pd.DataFrame) -> None:
     avg_sold_fmt = format_vn(avg_sold, 1)
     avg_rating_fmt = format_vn(avg_rating, 2)
 
-    st.markdown(
-        f"""
-        <div class="kpi-strip">
-            <div class="kpi-box accent-blue">
-                <div class="kpi-lbl">Tổng doanh thu ước tính</div>
-                <div class="kpi-val">{revenue_fmt} <span class="u">VND</span></div>
-            </div>
-            <div class="kpi-box accent-amber">
-                <div class="kpi-lbl">Lượng bán trung bình</div>
-                <div class="kpi-val">{avg_sold_fmt}</div>
-            </div>
-            <div class="kpi-box accent-red">
-                <div class="kpi-lbl">Điểm rating trung bình</div>
-                <div class="kpi-val">{avg_rating_fmt}</div>
-            </div>
-            <div class="kpi-box accent-slate">
-                <div class="kpi-lbl">Số nhà xuất bản</div>
-                <div class="kpi-val">{format_vn(n_publishers)}</div>
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
+    render_metric_strip(
+        [
+            {
+                "label": "Tổng doanh thu ước tính",
+                "value": f"{revenue_fmt} <span class='u'>VND</span>",
+                "icon": "money",
+                "tone": "blue",
+            },
+            {
+                "label": "Lượng bán trung bình",
+                "value": avg_sold_fmt,
+                "icon": "chart",
+                "tone": "amber",
+            },
+            {
+                "label": "Điểm rating trung bình",
+                "value": avg_rating_fmt,
+                "icon": "star",
+                "tone": "red",
+            },
+            {
+                "label": "Số nhà xuất bản",
+                "value": format_vn(n_publishers),
+                "icon": "book",
+                "tone": "slate",
+            },
+        ]
     )
 
 
