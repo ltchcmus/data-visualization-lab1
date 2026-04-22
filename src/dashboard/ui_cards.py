@@ -169,6 +169,33 @@ def render_metric_strip(
     *,
     compact: bool = False,
 ) -> None:
+    _render_card_grid(items, compact=compact)
+
+
+def render_kpi_section(
+    items: Iterable[dict[str, str]],
+    *,
+    title: str,
+    summary: str,
+    footnote: str,
+) -> None:
+    blocks: list[str] = [
+        '<div class="kpi-section">',
+        f'<div class="kpi-section-title">{escape(title)}</div>',
+        f'<div class="kpi-section-summary">{escape(summary)}</div>',
+        '<div class="kpi-section-rule"></div>',
+    ]
+    blocks.append(_build_card_grid(items, compact=False))
+    blocks.extend(
+        [
+            f'<div class="kpi-section-footnote">{escape(footnote)}</div>',
+            "</div>",
+        ]
+    )
+    st.markdown("".join(blocks), unsafe_allow_html=True)
+
+
+def _build_card_grid(items: Iterable[dict[str, str]], *, compact: bool) -> str:
     classes = "kpi-strip" + (" compact" if compact else "")
     blocks: list[str] = [f'<div class="{classes}">']
     for item in items:
@@ -178,15 +205,26 @@ def render_metric_strip(
         label = escape(str(item.get("label", "")))
         value = item.get("value", "")
         value_html = str(value)
+        subtitle = item.get("subtitle", "")
+        subtitle_html = escape(str(subtitle)) if subtitle else ""
         accent = f" accent-{tone}" if tone else ""
-        blocks.append(
-            (
-                f'<div class="kpi-box{accent}">'
-                f'<div class="kpi-icon" style="color:{color};">{icon}</div>'
-                f'<div class="kpi-lbl">{label}</div>'
-                f'<div class="kpi-val">{value_html}</div>'
-                f'</div>'
-            )
-        )
+        card_parts = [
+            f'<div class="kpi-box{accent}">',
+            f'<div class="kpi-icon" style="color:{color};">{icon}</div>',
+            f'<div class="kpi-lbl">{label}</div>',
+            f'<div class="kpi-val">{value_html}</div>',
+        ]
+        if subtitle_html:
+            card_parts.append(f'<div class="kpi-sub">{subtitle_html}</div>')
+        card_parts.append("</div>")
+        blocks.append("".join(card_parts))
     blocks.append("</div>")
-    st.markdown("".join(blocks), unsafe_allow_html=True)
+    return "".join(blocks)
+
+
+def _render_card_grid(
+    items: Iterable[dict[str, str]],
+    *,
+    compact: bool = False,
+) -> None:
+    st.markdown(_build_card_grid(items, compact=compact), unsafe_allow_html=True)

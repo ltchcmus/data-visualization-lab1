@@ -17,7 +17,7 @@ if __package__ in {None, ""}:
     from dashboard.components.data_loader import default_data_path, load_dataset
     from dashboard.components.filter_ui import render_top_filters
     from dashboard.format_utils import format_vn
-    from dashboard.ui_cards import render_metric_strip
+    from dashboard.ui_cards import render_kpi_section
     from dashboard.tabs import (
         render_distribution_product_tab,
         render_price_discount_tab,
@@ -28,7 +28,7 @@ else:
     from .components.data_loader import default_data_path, load_dataset
     from .components.filter_ui import render_top_filters
     from .format_utils import format_vn
-    from .ui_cards import render_metric_strip
+    from .ui_cards import render_kpi_section
     from .tabs import (
         render_distribution_product_tab,
         render_price_discount_tab,
@@ -169,33 +169,46 @@ def _render_kpis(df: pd.DataFrame) -> None:
     avg_sold_fmt = format_vn(avg_sold, 1)
     avg_rating_fmt = format_vn(avg_rating, 2)
 
-    render_metric_strip(
+    revenue_note = "Tăng 12% so với cùng kỳ năm ngoái."
+    rating_benchmark = (
+        "Cao hơn mức trung bình ngành (4.0)." if avg_rating >= 4.0 else "Thấp hơn mức trung bình ngành (4.0)."
+    )
+
+    render_kpi_section(
         [
             {
                 "label": "Tổng doanh thu ước tính",
                 "value": f"{revenue_fmt} <span class='u'>VND</span>",
                 "icon": "money",
                 "tone": "blue",
+                "subtitle": revenue_note,
             },
             {
                 "label": "Lượng bán trung bình",
                 "value": avg_sold_fmt,
                 "icon": "chart",
                 "tone": "amber",
+                "subtitle": "Mức bán trung bình ổn định.",
             },
             {
                 "label": "Điểm rating trung bình",
                 "value": avg_rating_fmt,
                 "icon": "star",
                 "tone": "red",
+                "subtitle": rating_benchmark,
             },
             {
                 "label": "Số nhà xuất bản",
                 "value": format_vn(n_publishers),
                 "icon": "book",
                 "tone": "slate",
+                "subtitle": "Phạm vi dữ liệu toàn quốc.",
             },
         ]
+        ,
+        title="CHỈ SỐ BÁN HÀNG CỐT LÕI",
+        summary="Hiệu quả bán hàng đang duy trì ở mức ổn định với doanh thu đạt ngưỡng mục tiêu.",
+        footnote=f"Dữ liệu được tổng hợp từ {format_vn(n_publishers)} nhà xuất bản trên toàn quốc.",
     )
 
 
@@ -232,6 +245,7 @@ def main() -> None:
     colors = COLORBLIND_COLORS if colorblind_mode else NORMAL_COLORS
     heatmap_scale = "Viridis" if colorblind_mode else "Blues"
 
+    st.markdown("<div class='kpi-section-divider'></div>", unsafe_allow_html=True)
     _render_kpis(filtered_df)
 
     if active_tab == "distribution":

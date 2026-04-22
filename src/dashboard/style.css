@@ -298,6 +298,13 @@ html, body, [class*="css"] {
     line-height: 1;
 }
 
+.kpi-sub {
+    margin-top: 8px;
+    color: #64748b;
+    font-size: 0.75rem;
+    line-height: 1.35;
+}
+
 .kpi-strip.compact .kpi-box {
     padding: 14px 16px;
     min-height: 76px;
@@ -309,6 +316,10 @@ html, body, [class*="css"] {
 
 .kpi-strip.compact .kpi-val {
     font-size: 1.18rem;
+}
+
+.kpi-strip.compact .kpi-sub {
+    font-size: 0.7rem;
 }
 
 .kpi-icon {
@@ -428,6 +439,50 @@ html, body, [class*="css"] {
     box-shadow: var(--shadow-soft);
     background: #ffffff;
     padding: 6px;
+}
+
+.kpi-section {
+    background: #f8fafc;
+    border: 1px solid #dbe7f2;
+    border-radius: 16px;
+    box-shadow: 0 6px 14px rgba(26, 54, 93, 0.05);
+    padding: 18px 20px 16px;
+    margin-top: 10px;
+    margin-bottom: 12px;
+}
+
+.kpi-section-divider {
+    height: 1px;
+    background: #dbe7f2;
+    margin: 6px 0 12px;
+}
+
+.kpi-section-title {
+    color: #0f2740;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.kpi-section-summary {
+    color: #475569;
+    font-size: 0.92rem;
+    margin-top: 6px;
+    line-height: 1.45;
+}
+
+.kpi-section-rule {
+    height: 1px;
+    background: #dbe7f2;
+    margin: 14px 0 16px;
+}
+
+.kpi-section-footnote {
+    color: #64748b;
+    font-size: 0.75rem;
+    margin-top: 12px;
+    text-align: right;
 }
 
 /* widget labels */
