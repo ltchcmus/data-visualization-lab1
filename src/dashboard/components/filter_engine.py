@@ -17,6 +17,21 @@ RANGE_FILTER_COLS = ["discount_rate", "rating_average", "number_of_page"]
 BOOL_FILTER_COL = "has_freeship"
 
 
+BOOK_TYPE_MAP: dict[str, str | None] = {
+    "Tất cả": None,
+    "Sách tiếng Việt": "sach-truyen-tieng-viet",
+    "Sách tiếng Anh": "sach-tieng-anh",
+}
+
+YEAR_PRESET_MAP: dict[str, tuple[int, int] | None] = {
+    "Tất cả năm": None,
+    "2020 – nay": (2020, 9999),
+    "2015 – 2019": (2015, 2019),
+    "2010 – 2014": (2010, 2014),
+    "Trước 2010": (0, 2009),
+}
+
+
 def _numeric_bounds(df: pd.DataFrame, col: str, as_int: bool = False) -> tuple[float, float]:
     if col not in df.columns:
         return (0.0, 0.0)
@@ -189,3 +204,30 @@ def apply_filters(
     }
 
     return filtered_rows_df, shared_df, meta
+
+
+def apply_top_filters(
+    df: pd.DataFrame,
+    *,
+    lang_label: str,
+    selected_genres: list[str],
+    year_label: str,
+) -> pd.DataFrame:
+    lang_val = BOOK_TYPE_MAP.get(lang_label)
+    if lang_val is not None and "cat_level_2" in df.columns:
+        lang_filtered = df[df["cat_level_2"] == lang_val]
+    else:
+        lang_filtered = df
+
+    filtered = lang_filtered.copy()
+
+    if selected_genres and "cat_level_3" in filtered.columns:
+        filtered = filtered[filtered["cat_level_3"].isin(selected_genres)]
+
+    year_range = YEAR_PRESET_MAP.get(year_label)
+    if year_range is not None and "publication_year" in filtered.columns:
+        low, high = year_range
+        years = pd.to_numeric(filtered["publication_year"], errors="coerce")
+        filtered = filtered[years.between(low, high, inclusive="both")]
+
+    return filtered

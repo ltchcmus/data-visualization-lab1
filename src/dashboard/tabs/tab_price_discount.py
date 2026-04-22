@@ -15,6 +15,30 @@ def _filter_sold(df: pd.DataFrame) -> pd.DataFrame:
     return sub
 
 
+def _apply_black_text(fig) -> None:
+    fig.update_layout(
+        font={"color": "#000000"},
+        title={"font": {"color": "#000000"}},
+    )
+    fig.update_xaxes(title_font={"color": "#000000"}, tickfont={"color": "#000000"})
+    fig.update_yaxes(title_font={"color": "#000000"}, tickfont={"color": "#000000"})
+
+
+def _render_kpi_row(items: list[tuple[str, str]]) -> None:
+    cols = st.columns(len(items))
+    for col, (label, value) in zip(cols, items):
+        with col:
+            st.markdown(
+                f"""
+                <div style="background:linear-gradient(105deg,#dcedff 0%,#eff6ff 52%,#ffffff 100%);border:1px solid #cfe0f2;border-radius:10px;padding:10px 12px;box-shadow:0 8px 18px rgba(31,79,125,0.12);">
+                    <div style="font-size:0.78rem;font-weight:700;color:#173a5e;opacity:0.9;">{label}</div>
+                    <div style="margin-top:4px;font-size:1.25rem;font-weight:800;color:#000000;">{value}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+
 def _q5_discount_threshold(df: pd.DataFrame, colors: list[str]) -> None:
     sold_df = _filter_sold(df)
     if "discount_rate" not in sold_df.columns:
@@ -68,6 +92,7 @@ def _q5_discount_threshold(df: pd.DataFrame, colors: list[str]) -> None:
     )
     fig.update_yaxes(title_text="Lượng bán trung bình", secondary_y=False)
     fig.update_yaxes(title_text="% số sách trong nhóm", secondary_y=True)
+    _apply_black_text(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander("Nhận xét"):
         st.markdown(
@@ -124,6 +149,7 @@ def _q9_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
         paper_bgcolor="rgba(0,0,0,0)",
         legend={"orientation": "h", "y": -0.2},
     )
+    _apply_black_text(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander("Nhận xét"):
         st.markdown(
@@ -141,20 +167,20 @@ def render_price_discount_tab(
     colors: list[str],
     heatmap_scale: str,
 ) -> None:
-    st.markdown("### Tab 2 — Giá & Chiết khấu")
+    st.markdown("<div class='tab-page-header'>Tab 2 — Giá & Chiết khấu</div>", unsafe_allow_html=True)
 
     sold_df = _filter_sold(df)
     disc = pd.to_numeric(sold_df.get("discount_rate", pd.Series(dtype=float)), errors="coerce")
 
-    k1, k2, k3 = st.columns(3)
-    with k1:
-        st.metric("Sách có doanh số > 0", f"{len(sold_df):,}")
-    with k2:
-        avg_disc = float(disc.dropna().mean()) if disc.notna().any() else 0.0
-        st.metric("Discount trung bình", f"{avg_disc:.1f}%")
-    with k3:
-        pct_discounted = float((disc > 0).sum() / len(disc) * 100) if len(disc) > 0 else 0.0
-        st.metric("Tỷ lệ có giảm giá", f"{pct_discounted:.1f}%")
+    avg_disc = float(disc.dropna().mean()) if disc.notna().any() else 0.0
+    pct_discounted = float((disc > 0).sum() / len(disc) * 100) if len(disc) > 0 else 0.0
+    _render_kpi_row(
+        [
+            ("Sách có doanh số > 0", f"{len(sold_df):,}"),
+            ("Discount trung bình", f"{avg_disc:.1f}%"),
+            ("Tỷ lệ có giảm giá", f"{pct_discounted:.1f}%"),
+        ]
+    )
 
     st.markdown("<div class='section-card'>", unsafe_allow_html=True)
     _q5_discount_threshold(df, colors)

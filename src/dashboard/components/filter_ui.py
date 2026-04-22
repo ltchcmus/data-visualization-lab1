@@ -5,6 +5,8 @@ from typing import Any
 import pandas as pd
 import streamlit as st
 
+from .filter_engine import BOOK_TYPE_MAP, YEAR_PRESET_MAP, apply_top_filters
+
 
 WIDGET_KEYS = {
     "selected_columns": "global_selected_columns",
@@ -154,11 +156,12 @@ def render_filter_panel(df: pd.DataFrame, defaults: dict[str, Any]) -> None:
         """
         <style>
         .filter-card {
-            border: 1px solid #d9e1ec;
+            border: 1px solid #cfe0f2;
             border-radius: 16px;
             padding: 14px 18px;
-            background: linear-gradient(180deg, #f9fbfe 0%, #f3f7fc 100%);
+            background: linear-gradient(105deg, #dcedff 0%, #eff6ff 52%, #ffffff 100%);
             margin-bottom: 12px;
+            box-shadow: 0 8px 18px rgba(31, 79, 125, 0.12);
         }
         .filter-title {
             font-size: 1.05rem;
@@ -382,3 +385,69 @@ def collect_filter_state_from_widgets() -> dict[str, Any]:
         ),
         "has_freeship": st.session_state[WIDGET_KEYS["has_freeship"]],
     }
+
+
+def render_top_filters(df: pd.DataFrame) -> pd.DataFrame:
+    st.markdown(
+        """
+        <style>
+        .top-filter-title {
+            color: #000000 !important;
+            font-weight: 700;
+            display: inline-block;
+            border: 1px solid #cfe0f2;
+            border-radius: 8px;
+            background: linear-gradient(105deg, #dcedff 0%, #eff6ff 52%, #ffffff 100%);
+            box-shadow: 0 8px 18px rgba(31, 79, 125, 0.12);
+            padding: 4px 10px;
+            margin-bottom: 0.25rem;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    col_lang, col_genre, col_year = st.columns([1.8, 2.5, 1.3])
+
+    with col_lang:
+        st.markdown("<div class='top-filter-title'>Loại sách</div>", unsafe_allow_html=True)
+        lang_label = st.selectbox(
+            "Loại sách",
+            options=list(BOOK_TYPE_MAP.keys()),
+            index=0,
+            label_visibility="collapsed",
+        )
+
+    lang_val = BOOK_TYPE_MAP.get(lang_label)
+    if lang_val is not None and "cat_level_2" in df.columns:
+        genre_df = df[df["cat_level_2"] == lang_val]
+    else:
+        genre_df = df
+
+    with col_genre:
+        st.markdown("<div class='top-filter-title'>Thể loại</div>", unsafe_allow_html=True)
+        if "cat_level_3" in genre_df.columns:
+            genre_options = sorted(genre_df["cat_level_3"].dropna().unique().tolist())
+        else:
+            genre_options = []
+        selected_genres = st.multiselect(
+            "Thể loại",
+            options=genre_options,
+            default=[],
+            label_visibility="collapsed",
+        )
+
+    with col_year:
+        st.markdown("<div class='top-filter-title'>Năm xuất bản</div>", unsafe_allow_html=True)
+        year_label = st.selectbox(
+            "Năm xuất bản",
+            options=list(YEAR_PRESET_MAP.keys()),
+            label_visibility="collapsed",
+        )
+
+    return apply_top_filters(
+        df,
+        lang_label=lang_label,
+        selected_genres=selected_genres,
+        year_label=year_label,
+    )

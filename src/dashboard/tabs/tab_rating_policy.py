@@ -14,6 +14,30 @@ def _filter_sold(df: pd.DataFrame) -> pd.DataFrame:
     return sub
 
 
+def _apply_black_text(fig) -> None:
+    fig.update_layout(
+        font={"color": "#000000"},
+        title={"font": {"color": "#000000"}},
+    )
+    fig.update_xaxes(title_font={"color": "#000000"}, tickfont={"color": "#000000"})
+    fig.update_yaxes(title_font={"color": "#000000"}, tickfont={"color": "#000000"})
+
+
+def _render_kpi_row(items: list[tuple[str, str]]) -> None:
+    cols = st.columns(len(items))
+    for col, (label, value) in zip(cols, items):
+        with col:
+            st.markdown(
+                f"""
+                <div style="background:linear-gradient(105deg,#dcedff 0%,#eff6ff 52%,#ffffff 100%);border:1px solid #cfe0f2;border-radius:10px;padding:10px 12px;box-shadow:0 8px 18px rgba(31,79,125,0.12);">
+                    <div style="font-size:0.78rem;font-weight:700;color:#173a5e;opacity:0.9;">{label}</div>
+                    <div style="margin-top:4px;font-size:1.25rem;font-weight:800;color:#000000;">{value}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+
 def _q7_bubble_chart(df: pd.DataFrame, colors: list[str]) -> None:
     sold_df = _filter_sold(df)
     needed = {"rating_average", "review_count", "all_time_quantity_sold"}
@@ -52,6 +76,7 @@ def _q7_bubble_chart(df: pd.DataFrame, colors: list[str]) -> None:
         paper_bgcolor="rgba(0,0,0,0)",
         coloraxis_colorbar={"title": "Lượng bán"},
     )
+    _apply_black_text(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander("Nhận xét"):
         st.markdown(
@@ -94,6 +119,7 @@ def _q7_correlation_heatmap(df: pd.DataFrame, heatmap_scale: str) -> None:
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
     )
+    _apply_black_text(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander("Nhận xét"):
         st.markdown(
@@ -136,6 +162,7 @@ def _q8_freeship_violin(df: pd.DataFrame, colors: list[str]) -> None:
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
     )
+    _apply_black_text(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander("Nhận xét"):
         st.markdown(
@@ -153,24 +180,24 @@ def render_rating_policy_tab(
     colors: list[str],
     heatmap_scale: str,
 ) -> None:
-    st.markdown("### Tab 4 — Đánh giá & Chính sách")
+    st.markdown("<div class='tab-page-header'>Tab 4 — Đánh giá & Chính sách</div>", unsafe_allow_html=True)
 
     rating = pd.to_numeric(df.get("rating_average", pd.Series(dtype=float)), errors="coerce")
     review = pd.to_numeric(df.get("review_count", pd.Series(dtype=float)), errors="coerce")
 
-    k1, k2, k3 = st.columns(3)
-    with k1:
-        avg_rating = float(rating.dropna().mean()) if rating.notna().any() else 0.0
-        st.metric("Rating trung bình", f"{avg_rating:.2f} ⭐")
-    with k2:
-        avg_review = float(review.dropna().mean()) if review.notna().any() else 0.0
-        st.metric("Số review TB", f"{avg_review:,.0f}")
-    with k3:
-        freeship_col = df.get("has_freeship")
-        pct_free = 0.0
-        if freeship_col is not None:
-            pct_free = float(freeship_col.eq(True).sum() / freeship_col.notna().sum() * 100)
-        st.metric("Tỷ lệ có freeship", f"{pct_free:.1f}%")
+    avg_rating = float(rating.dropna().mean()) if rating.notna().any() else 0.0
+    avg_review = float(review.dropna().mean()) if review.notna().any() else 0.0
+    freeship_col = df.get("has_freeship")
+    pct_free = 0.0
+    if freeship_col is not None:
+        pct_free = float(freeship_col.eq(True).sum() / freeship_col.notna().sum() * 100)
+    _render_kpi_row(
+        [
+            ("Rating trung bình", f"{avg_rating:.2f} ⭐"),
+            ("Số review TB", f"{avg_review:,.0f}"),
+            ("Tỷ lệ có freeship", f"{pct_free:.1f}%"),
+        ]
+    )
 
     st.markdown("<div class='section-card'>", unsafe_allow_html=True)
     col_a, col_b = st.columns(2)

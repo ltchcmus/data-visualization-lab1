@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pandas as pd
 import plotly.express as px
+import plotly.io as pio
 import streamlit as st
 
 if __package__ in {None, ""}:
@@ -13,6 +14,7 @@ if __package__ in {None, ""}:
         sys.path.insert(0, str(src_dir))
 
     from dashboard.components.data_loader import default_data_path, load_dataset
+    from dashboard.components.filter_ui import render_top_filters
     from dashboard.tabs import (
         render_distribution_product_tab,
         render_price_discount_tab,
@@ -21,6 +23,7 @@ if __package__ in {None, ""}:
     )
 else:
     from .components.data_loader import default_data_path, load_dataset
+    from .components.filter_ui import render_top_filters
     from .tabs import (
         render_distribution_product_tab,
         render_price_discount_tab,
@@ -66,6 +69,12 @@ def _inject_style() -> None:
             --line-200: #dbe7f2;
             --left-sidebar-width: 100px;
             --content-left-gap: 14px;
+            --shadow-soft: 0 8px 22px rgba(26, 54, 93, 0.08);
+            --shadow-medium: 0 12px 28px rgba(23, 52, 88, 0.12);
+            --shadow-strong: 0 18px 36px rgba(14, 38, 70, 0.18);
+            --fx-border: #cfe0f2;
+            --fx-gradient: linear-gradient(105deg, #dcedff 0%, #eff6ff 52%, #ffffff 100%);
+            --fx-shadow: 0 8px 18px rgba(31, 79, 125, 0.12);
         }
 
         html, body, [class*="css"] {
@@ -111,6 +120,21 @@ def _inject_style() -> None:
             overflow: visible !important;
         }
 
+        /* Streamlit still allocates space for markdown blocks that host fixed UI; collapse that space */
+        .element-container:has(.book-tab-rail),
+        .element-container:has(.dashboard-head) {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .element-container:has(.book-tab-rail) [data-testid="stMarkdownContainer"],
+        .element-container:has(.dashboard-head) [data-testid="stMarkdownContainer"] {
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: 0 !important;
+            line-height: 0 !important;
+        }
+
         [data-testid="stSidebar"] [data-testid="stSidebarUserContent"] {
             padding-top: 0.4rem;
             padding-left: 0.35rem;
@@ -124,7 +148,12 @@ def _inject_style() -> None:
         .stApp [data-testid="stAppViewContainer"] .main .block-container {
             margin-left: 0 !important;
             padding-left: var(--content-left-gap) !important;
-            padding-top: 3.8rem;
+            padding-top: 0.45rem !important;
+        }
+
+        /* Ensure the first filter row is visually pulled upward */
+        [data-testid="stHorizontalBlock"]:has(.top-filter-title) {
+            margin-top: -0.65rem !important;
         }
 
         /* ── HEADER ── */
@@ -134,11 +163,11 @@ def _inject_style() -> None:
             left: calc(var(--left-sidebar-width) + var(--content-left-gap));
             right: 14px;
             z-index: 1001;
-            border-radius: 10px;
-            background: var(--pri-800);
-            color: #ecf6ff;
-            box-shadow: 0 4px 12px rgba(15, 47, 83, 0.22);
-            border: 1px solid rgba(187, 216, 244, 0.15);
+            border-radius: 12px;
+            background: var(--fx-gradient);
+            color: #0f2740;
+            box-shadow: var(--fx-shadow);
+            border: 1px solid var(--fx-border);
             display: grid;
             grid-template-columns: 1fr auto;
             align-items: center;
@@ -156,20 +185,20 @@ def _inject_style() -> None:
         .hdr-logo {
             width: 38px;
             height: 38px;
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.7);
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid #c6dbef;
             font-size: 1.15rem;
             line-height: 1;
         }
 
         .hdr-school {
             font-size: 0.6rem;
-            color: #93afc9;
+            color: #5f7b97;
             line-height: 1.5;
             white-space: nowrap;
         }
@@ -177,7 +206,7 @@ def _inject_style() -> None:
         .hdr-title {
             font-size: 0.92rem;
             font-weight: 700;
-            color: #ffffff;
+            color: #0f2740;
             line-height: 1.3;
             white-space: nowrap;
             overflow: hidden;
@@ -198,31 +227,33 @@ def _inject_style() -> None:
         .hdr-stat-val {
             font-size: 1.05rem;
             font-weight: 700;
-            color: #ffffff;
+            color: #173a5e;
             line-height: 1;
         }
 
         .hdr-stat-lbl {
             font-size: 0.58rem;
-            color: #7da4c0;
+            color: #5f7a95;
             margin-top: 2px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .hdr-badge {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.74);
+            border: 1px solid #bfd8ed;
             border-radius: 8px;
             padding: 6px 12px;
             text-align: center;
             text-decoration: none;
             display: block;
-            transition: background 0.2s ease;
+            transition: background 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 6px 14px rgba(31, 79, 125, 0.12);
         }
 
         .hdr-badge:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: #ffffff;
+            transform: translateY(-1px);
         }
 
         .hdr-badge-val {
@@ -232,11 +263,24 @@ def _inject_style() -> None:
 
         .hdr-badge-lbl {
             font-size: 0.55rem;
-            color: #93afc9;
+            color: #4f6783;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-top: 2px;
             white-space: nowrap;
+        }
+
+        .tab-page-header {
+            border: 1px solid var(--fx-border);
+            border-radius: 10px;
+            background: var(--fx-gradient);
+            box-shadow: var(--fx-shadow);
+            color: #0f2740 !important;
+            font-size: 1.02rem;
+            font-weight: 700;
+            line-height: 1.35;
+            padding: 10px 12px;
+            margin: 6px 0 10px;
         }
 
         /* ── KPI STRIP ── */
@@ -248,11 +292,12 @@ def _inject_style() -> None:
         }
 
         .kpi-box {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
+            background: var(--fx-gradient);
+            border: 1px solid var(--fx-border);
             border-top: 3px solid #e2e8f0;
             border-radius: 8px;
             padding: 12px 14px;
+            box-shadow: var(--fx-shadow);
         }
 
         .kpi-box.accent-blue  { border-top-color: #2563eb; }
@@ -282,25 +327,103 @@ def _inject_style() -> None:
             color: #64748b;
         }
 
+        /* Force black text in main content area */
+        .stApp [data-testid="stAppViewContainer"] .main .block-container,
+        .stApp [data-testid="stAppViewContainer"] .main .block-container p,
+        .stApp [data-testid="stAppViewContainer"] .main .block-container span,
+        .stApp [data-testid="stAppViewContainer"] .main .block-container div,
+        .stApp [data-testid="stAppViewContainer"] .main .block-container label,
+        .stApp [data-testid="stAppViewContainer"] .main .block-container li,
+        .stApp [data-testid="stAppViewContainer"] .main .block-container h1,
+        .stApp [data-testid="stAppViewContainer"] .main .block-container h2,
+        .stApp [data-testid="stAppViewContainer"] .main .block-container h3,
+        .stApp [data-testid="stAppViewContainer"] .main .block-container h4,
+        .stApp [data-testid="stAppViewContainer"] .main .block-container h5,
+        .stApp [data-testid="stAppViewContainer"] .main .block-container h6 {
+            color: #000000 !important;
+        }
+
+        .stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetricLabel"],
+        .stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetricLabel"] *,
+        .stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetricValue"],
+        .stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetricValue"] *,
+        .stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetricDelta"],
+        .stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetricDelta"] * {
+            color: #000000 !important;
+            -webkit-text-fill-color: #000000 !important;
+            opacity: 1 !important;
+        }
+
+        .stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetric"],
+        .stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetric"] *,
+        .stApp [data-testid="stAppViewContainer"] .main [data-testid="metric-container"],
+        .stApp [data-testid="stAppViewContainer"] .main [data-testid="metric-container"] *,
+        .stApp [data-testid="stAppViewContainer"] .main div[data-testid*="Metric"],
+        .stApp [data-testid="stAppViewContainer"] .main div[data-testid*="Metric"] * {
+            color: #000000 !important;
+            fill: #000000 !important;
+            stroke: #000000 !important;
+            -webkit-text-fill-color: #000000 !important;
+            text-shadow: none !important;
+            opacity: 1 !important;
+        }
+
+        .stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .gtitle,
+        .stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .xtitle,
+        .stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .ytitle,
+        .stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .legend text,
+        .stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .xtick text,
+        .stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .ytick text,
+        .stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .annotation text,
+        .stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .cbtitle,
+        .stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .g-gtitle text {
+            fill: #000000 !important;
+            color: #000000 !important;
+        }
+
         /* ── SECTION CARDS ── */
         .section-card {
-            border: 1px solid #dbe7f2;
+            border: 1px solid var(--fx-border);
             border-radius: 14px;
-            background: #ffffff;
+            background: var(--fx-gradient);
             padding: 14px;
             margin-top: 6px;
             margin-bottom: 8px;
-            box-shadow: 0 6px 16px rgba(24, 59, 94, 0.08);
+            box-shadow: var(--fx-shadow);
         }
 
         /* ── FILTER BAR ── */
         .control-card {
-            border: 1px solid #d8e6f3;
+            border: 1px solid var(--fx-border);
             border-radius: 12px;
-            background: #ffffff;
+            background: var(--fx-gradient);
             padding: 10px 16px 6px;
             margin-bottom: 12px;
-            box-shadow: 0 2px 8px rgba(30, 66, 104, 0.07);
+            box-shadow: var(--fx-shadow);
+        }
+
+        .stApp [data-testid="stAppViewContainer"] .main [data-testid="stAlert"] {
+            border: 1px solid var(--fx-border) !important;
+            border-radius: 10px !important;
+            background: var(--fx-gradient) !important;
+            box-shadow: var(--fx-shadow) !important;
+        }
+
+        .stApp [data-testid="stAppViewContainer"] .main [data-testid="stAlert"] p {
+            color: #173a5e !important;
+        }
+
+        .stApp [data-testid="stAppViewContainer"] .main [data-baseweb="select"],
+        .stApp [data-testid="stAppViewContainer"] .main [data-baseweb="radio"] {
+            box-shadow: 0 5px 14px rgba(19, 45, 76, 0.1) !important;
+        }
+
+        .stApp [data-testid="stAppViewContainer"] .main [data-testid="stPlotlyChart"] > div {
+            border: 1px solid #d6e3f0;
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+            background: #ffffff;
+            padding: 6px;
         }
 
         /* widget labels */
@@ -384,9 +507,9 @@ def _inject_style() -> None:
             width: 66px;
             padding: 10px 8px;
             border-radius: 22px;
-            border: 1px solid #c7daee;
-            background: linear-gradient(180deg, #e9f3fd 0%, #deebf8 100%);
-            box-shadow: 0 10px 24px rgba(45, 102, 156, 0.14);
+            border: 1px solid var(--fx-border);
+            background: var(--fx-gradient);
+            box-shadow: var(--fx-shadow);
             transition: width 0.2s ease;
             overflow: hidden;
         }
@@ -403,9 +526,9 @@ def _inject_style() -> None:
             margin: 8px 0;
             height: 46px;
             border-radius: 14px;
-            border: 1px solid #c6d9ec;
-            background: #ffffff;
-            box-shadow: 0 3px 10px rgba(30, 66, 104, 0.09);
+            border: 1px solid var(--fx-border);
+            background: var(--fx-gradient);
+            box-shadow: 0 6px 14px rgba(31, 79, 125, 0.12);
             color: #2d5f8f;
             font-weight: 700;
             padding: 0 14px;
@@ -415,6 +538,7 @@ def _inject_style() -> None:
         .book-tab-link:hover {
             border-color: #6fb2e7;
             transform: translateY(-1px);
+            box-shadow: 0 8px 16px rgba(31, 79, 125, 0.16);
         }
 
         .book-tab-link.is-active {
@@ -462,7 +586,7 @@ def _inject_style() -> None:
 
             .stApp [data-testid="stAppViewContainer"] .main .block-container {
                 padding-left: 1rem;
-                padding-top: 3rem;
+                padding-top: 0.25rem !important;
             }
 
             .book-tab-rail,
@@ -584,64 +708,6 @@ def _prepare_data(df: pd.DataFrame) -> pd.DataFrame:
     return view
 
 
-_BOOK_TYPE_MAP: dict[str, str | None] = {
-    "Tất cả": None,
-    "Sách tiếng Việt": "sach-truyen-tieng-viet",
-    "Sách tiếng Anh": "sach-tieng-anh",
-}
-
-_YEAR_PRESET_MAP: dict[str, tuple[int, int] | None] = {
-    "Tất cả năm": None,
-    "2020 – nay": (2020, 9999),
-    "2015 – 2019": (2015, 2019),
-    "2010 – 2014": (2010, 2014),
-    "Trước 2010": (0, 2009),
-}
-
-
-def _render_top_filters(df: pd.DataFrame) -> pd.DataFrame:
-    col_lang, col_genre, col_year = st.columns([1.8, 2.5, 1.3])
-
-    with col_lang:
-        lang_label = st.radio(
-            "Loại sách",
-            options=list(_BOOK_TYPE_MAP.keys()),
-            horizontal=True,
-        )
-
-    lang_val = _BOOK_TYPE_MAP[lang_label]
-    if lang_val is not None and "cat_level_2" in df.columns:
-        lang_filtered = df[df["cat_level_2"] == lang_val]
-    else:
-        lang_filtered = df
-
-    with col_genre:
-        if "cat_level_3" in lang_filtered.columns:
-            genre_options = sorted(lang_filtered["cat_level_3"].dropna().unique().tolist())
-        else:
-            genre_options = []
-        selected_genres = st.multiselect("Thể loại", options=genre_options, default=[])
-
-    with col_year:
-        year_label = st.selectbox(
-            "Năm xuất bản",
-            options=list(_YEAR_PRESET_MAP.keys()),
-        )
-
-    filtered = lang_filtered.copy()
-
-    if selected_genres and "cat_level_3" in filtered.columns:
-        filtered = filtered[filtered["cat_level_3"].isin(selected_genres)]
-
-    year_range = _YEAR_PRESET_MAP[year_label]
-    if year_range is not None and "publication_year" in filtered.columns:
-        low, high = year_range
-        years = pd.to_numeric(filtered["publication_year"], errors="coerce")
-        filtered = filtered[years.between(low, high, inclusive="both")]
-
-    return filtered
-
-
 def _render_kpis(df: pd.DataFrame) -> None:
     sold = pd.to_numeric(df.get("all_time_quantity_sold"), errors="coerce")
     price = pd.to_numeric(df.get("price"), errors="coerce")
@@ -693,6 +759,7 @@ def main() -> None:
         layout="wide",
         initial_sidebar_state="expanded",
     )
+    pio.templates.default = "plotly_white"
     _inject_style()
     active_tab = _get_active_tab()
     colorblind_mode = _get_colorblind_mode()
@@ -708,7 +775,8 @@ def main() -> None:
     _render_fixed_header(active_tab, colorblind_mode, total_books=len(raw_df))
 
     df = _prepare_data(raw_df)
-    filtered_df = _render_top_filters(df)
+    st.markdown("<div style='margin-top:-1.35rem;'></div>", unsafe_allow_html=True)
+    filtered_df = render_top_filters(df)
 
     if filtered_df.empty:
         st.warning("Bộ lọc hiện tại không có dữ liệu. Hãy mở rộng phạm vi lọc để tiếp tục.")

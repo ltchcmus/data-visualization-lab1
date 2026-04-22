@@ -15,6 +15,30 @@ def _filter_sold(df: pd.DataFrame) -> pd.DataFrame:
     return sub
 
 
+def _apply_black_text(fig) -> None:
+    fig.update_layout(
+        font={"color": "#000000"},
+        title={"font": {"color": "#000000"}},
+    )
+    fig.update_xaxes(title_font={"color": "#000000"}, tickfont={"color": "#000000"})
+    fig.update_yaxes(title_font={"color": "#000000"}, tickfont={"color": "#000000"})
+
+
+def _render_kpi_row(items: list[tuple[str, str]]) -> None:
+    cols = st.columns(len(items))
+    for col, (label, value) in zip(cols, items):
+        with col:
+            st.markdown(
+                f"""
+                <div style="background:linear-gradient(105deg,#dcedff 0%,#eff6ff 52%,#ffffff 100%);border:1px solid #cfe0f2;border-radius:10px;padding:10px 12px;box-shadow:0 8px 18px rgba(31,79,125,0.12);">
+                    <div style="font-size:0.78rem;font-weight:700;color:#173a5e;opacity:0.9;">{label}</div>
+                    <div style="margin-top:4px;font-size:1.25rem;font-weight:800;color:#000000;">{value}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+
 def _q3_top_publishers(df: pd.DataFrame, colors: list[str]) -> None:
     sold_df = _filter_sold(df)
     if "publisher_vn" not in sold_df.columns:
@@ -55,6 +79,7 @@ def _q3_top_publishers(df: pd.DataFrame, colors: list[str]) -> None:
         paper_bgcolor="rgba(0,0,0,0)",
         yaxis={"categoryorder": "total ascending"},
     )
+    _apply_black_text(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander("Nhận xét"):
         st.markdown(
@@ -124,6 +149,7 @@ def _q4_author_pareto(df: pd.DataFrame, colors: list[str]) -> None:
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
     )
+    _apply_black_text(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander("Nhận xét"):
         st.markdown(
@@ -141,19 +167,19 @@ def render_publisher_author_tab(
     colors: list[str],
     heatmap_scale: str,
 ) -> None:
-    st.markdown("### Tab 3 — NXB & Tác giả")
+    st.markdown("<div class='tab-page-header'>Tab 3 — NXB & Tác giả</div>", unsafe_allow_html=True)
 
     sold_df = _filter_sold(df)
-    k1, k2, k3 = st.columns(3)
-    with k1:
-        n_pub = int(df["publisher_vn"].nunique()) if "publisher_vn" in df.columns else 0
-        st.metric("Số NXB", f"{n_pub:,}")
-    with k2:
-        n_authors = int(df["authors"].nunique()) if "authors" in df.columns else 0
-        st.metric("Số tác giả", f"{n_authors:,}")
-    with k3:
-        avg_sold = float(sold_df["all_time_quantity_sold"].mean())
-        st.metric("Doanh số TB", f"{avg_sold:,.0f}")
+    n_pub = int(df["publisher_vn"].nunique()) if "publisher_vn" in df.columns else 0
+    n_authors = int(df["authors"].nunique()) if "authors" in df.columns else 0
+    avg_sold = float(sold_df["all_time_quantity_sold"].mean())
+    _render_kpi_row(
+        [
+            ("Số NXB", f"{n_pub:,}"),
+            ("Số tác giả", f"{n_authors:,}"),
+            ("Doanh số TB", f"{avg_sold:,.0f}"),
+        ]
+    )
 
     st.markdown("<div class='section-card'>", unsafe_allow_html=True)
     _q3_top_publishers(df, colors)
