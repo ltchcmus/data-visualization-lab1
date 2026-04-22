@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
@@ -130,40 +131,51 @@ def _chart_11_scatter(df: pd.DataFrame, colors: list[str]):
     if data.empty:
         return None
 
-    data["freeship_label"] = _freeship_label(data["has_freeship"]).fillna("Không xác định")
-    color_map = {
-        FREE_TRUE_LABEL: colors[0] if colors else "#2563eb",
-        FREE_FALSE_LABEL: colors[1] if len(colors) > 1 else "#f97316",
-        "Không xác định": "#94a3b8",
-    }
+    data["review_count_log10"] = np.log10(data["review_count"])
 
-    fig = px.scatter(
+    x_min = float(data["rating_average"].min())
+    x_max = float(data["rating_average"].max())
+    x_pad = 0.06
+    x_range = [max(0.0, x_min - x_pad), min(5.0, x_max + x_pad)]
+
+    fig = px.density_heatmap(
         data,
         x="rating_average",
-        y="review_count",
-        size="all_time_quantity_sold",
-        color="freeship_label",
-        color_discrete_map=color_map,
-        size_max=44,
-        log_y=True,
-        opacity=0.68,
+        y="review_count_log10",
+        z="all_time_quantity_sold",
+        histfunc="sum",
+        nbinsx=34,
+        nbinsy=26,
+        color_continuous_scale="Blues",
         hover_data={
             "rating_average": ":.2f",
             "review_count": ":,.0f",
             "all_time_quantity_sold": ":,.0f",
             "seller_name": True,
-            "freeship_label": True,
+            "review_count_log10": False,
         },
         labels={
             "rating_average": "Rating Average",
-            "review_count": "Review Count (log)",
-            "all_time_quantity_sold": "Số lượng bán",
-            "freeship_label": "Freeship",
+            "review_count_log10": "Review Count (log10)",
+            "all_time_quantity_sold": "Tổng doanh số",
         },
-        title="Biểu đồ 1.1: Rating vs Review (log), kích thước theo doanh số",
+        title="Biểu đồ 1.1: Density Heatmap Rating vs Review (log), màu theo tổng doanh số",
     )
     _format_chart(fig, height=430)
-    fig.update_xaxes(range=[2.4, 5.05])
+
+    y_tick_raw = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000]
+    y_tick_vals = [np.log10(v) for v in y_tick_raw]
+    y_min = float(data["review_count_log10"].min())
+    y_max = float(data["review_count_log10"].max())
+    y_ticks_in_range = [v for v in y_tick_vals if y_min - 0.08 <= v <= y_max + 0.08]
+    y_tick_text = [f"{int(10 ** v):,}" for v in y_ticks_in_range]
+
+    fig.update_layout(
+        coloraxis_colorbar={"title": "Tổng doanh số"},
+        bargap=0.02,
+    )
+    fig.update_xaxes(range=x_range, dtick=0.2)
+    fig.update_yaxes(tickmode="array", tickvals=y_ticks_in_range, ticktext=y_tick_text)
     return fig
 
 
