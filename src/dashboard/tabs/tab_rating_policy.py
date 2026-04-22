@@ -287,7 +287,13 @@ def render_rating_policy_tab(
     colors: list[str],
     heatmap_scale: str,
 ) -> None:
-    st.markdown("<div class='tab-page-header'>Tab 4 — Đánh giá & Chính sách</div>", unsafe_allow_html=True)
+    st.markdown(
+        "<div class='tab-page-header'>"
+        "<p class='tph-title'>Phân tích Đánh giá & Chính sách sản phẩm</p>"
+        "<p class='tph-sub'>Tìm hiểu mối liên hệ giữa điểm rating, số lượng review và các chính sách bán hàng đến quyết định mua của độc giả.</p>"
+        "</div>",
+        unsafe_allow_html=True,
+    )
 
     rating = pd.to_numeric(df.get("rating_average", pd.Series(dtype=float)), errors="coerce")
     review = pd.to_numeric(df.get("review_count", pd.Series(dtype=float)), errors="coerce")

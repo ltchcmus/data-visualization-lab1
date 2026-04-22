@@ -347,7 +347,13 @@ def _chart_publisher_revenue(df, colors):
 def render_publisher_author_tab(
     df: pd.DataFrame, *, colors: list[str], heatmap_scale: str,
 ) -> None:
-    st.markdown("<div class='tab-page-header'>Tab 3 — NXB & Tác giả</div>", unsafe_allow_html=True)
+    st.markdown(
+        "<div class='tab-page-header'>"
+        "<p class='tph-title'>Phân tích Nhà xuất bản & Tác giả</p>"
+        "<p class='tph-sub'>So sánh hiệu suất giữa các nhà xuất bản và tác giả — xác định đơn vị dẫn đầu về doanh số và mức độ tin tưởng của độc giả.</p>"
+        "</div>",
+        unsafe_allow_html=True,
+    )
 
     # --- KPI ---
     sold_df = _filter_sold(df)

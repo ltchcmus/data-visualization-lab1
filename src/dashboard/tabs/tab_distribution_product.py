@@ -54,36 +54,6 @@ def _apply_black_text(fig) -> None:
     )
 
 
-def _q1_long_tail(df: pd.DataFrame, colors: list[str]) -> None:
-    sold_df = _filter_sold(df)
-    fig = px.histogram(
-        sold_df,
-        x="all_time_quantity_sold",
-        nbins=80,
-        log_y=True,
-        color_discrete_sequence=[colors[0]],
-        labels={"all_time_quantity_sold": "Lượng bán (all-time)", "count": "Số đầu sách (log)"},
-    )
-    fig.update_layout(
-        title="Q1 — Phân bổ doanh số: Hiệu ứng Long-tail",
-        bargap=0.05,
-        xaxis_title="Lượng bán (all-time)",
-        yaxis_title="Số đầu sách (thang log)",
-        plot_bgcolor="rgba(0,0,0,0)",
-        paper_bgcolor="rgba(0,0,0,0)",
-    )
-    _apply_black_text(fig)
-    st.plotly_chart(fig, use_container_width=True)
-    with st.expander(":material/notes: Nhận xét"):
-        st.markdown(
-            """
-- Phân bổ doanh số cho thấy hiệu ứng **Long-tail** rõ rệt: đa số sách bán rất ít, chỉ một số ít bán chạy vượt trội.
-- Thang log giúp nhận diện các "tầng" doanh số khác nhau mà thang tuyến tính khó thấy.
-- Đây là cơ sở quan trọng để phân nhóm sách theo mức độ bán chạy.
-"""
-        )
-
-
 def _q2_category_boxplot(df: pd.DataFrame, colors: list[str]) -> None:
     sold_df = _filter_sold(df)
     col = "cat_level_3" if "cat_level_3" in sold_df.columns else "cat_level_2"
@@ -109,7 +79,7 @@ def _q2_category_boxplot(df: pd.DataFrame, colors: list[str]) -> None:
         labels={col: "Thể loại", "all_time_quantity_sold": "Lượng bán (log)"},
     )
     fig.update_layout(
-        title="Q2 — Hiệu quả bán hàng theo thể loại (Top 15)",
+        title="Hiệu quả bán hàng theo thể loại (Top 15)",
         showlegend=False,
         xaxis_tickangle=-35,
         plot_bgcolor="rgba(0,0,0,0)",
@@ -166,7 +136,7 @@ def _q10_pages_vs_sold(df: pd.DataFrame, colors: list[str]) -> None:
         },
     )
     fig.update_layout(
-        title="Q10 — Độ dày sách vs Doanh số",
+        title="Độ dày sách vs Doanh số",
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
     )
@@ -182,13 +152,102 @@ def _q10_pages_vs_sold(df: pd.DataFrame, colors: list[str]) -> None:
         )
 
 
+def _q12_niche_market(df: pd.DataFrame, colors: list[str]) -> None:
+    sold_df = _filter_sold(df)
+    col = "cat_level_3" if "cat_level_3" in sold_df.columns else "cat_level_2"
+    if col not in sold_df.columns:
+        st.info("Không có cột danh mục để vẽ quadrant chart.")
+        return
+
+    rating = pd.to_numeric(sold_df.get("rating_average"), errors="coerce")
+    sold_df = sold_df[rating.notna() & (rating > 0)].copy()
+    sold_df["rating_average"] = pd.to_numeric(sold_df["rating_average"], errors="coerce")
+
+    agg = (
+        sold_df.groupby(col)
+        .agg(
+            avg_sold=("all_time_quantity_sold", "mean"),
+            avg_rating=("rating_average", "mean"),
+            count=(col, "count"),
+        )
+        .reset_index()
+    )
+    agg = agg[agg["count"] >= 5]
+
+    med_sold = agg["avg_sold"].median()
+    med_rating = agg["avg_rating"].median()
+
+    def _quadrant(row) -> str:
+        high_s = row["avg_sold"] >= med_sold
+        high_r = row["avg_rating"] >= med_rating
+        if high_s and high_r:
+            return "Ngôi sao"
+        if not high_s and high_r:
+            return "Tiềm năng (Niche)"
+        if high_s and not high_r:
+            return "Phổ thông"
+        return "Cần cải thiện"
+
+    agg["quadrant"] = agg.apply(_quadrant, axis=1)
+
+    quadrant_colors = {
+        "Ngôi sao": "#2563EB",
+        "Tiềm năng (Niche)": "#16A34A",
+        "Phổ thông": "#F59E0B",
+        "Cần cải thiện": "#DC2626",
+    }
+
+    fig = px.scatter(
+        agg,
+        x="avg_sold",
+        y="avg_rating",
+        color="quadrant",
+        color_discrete_map=quadrant_colors,
+        size="count",
+        size_max=40,
+        text=col,
+        labels={
+            "avg_sold": "Doanh số trung bình",
+            "avg_rating": "Rating trung bình",
+            "quadrant": "Phân vùng",
+            "count": "Số đầu sách",
+        },
+    )
+    fig.add_vline(x=med_sold, line_dash="dash", line_color="#94A3B8", line_width=1)
+    fig.add_hline(y=med_rating, line_dash="dash", line_color="#94A3B8", line_width=1)
+    fig.update_traces(textposition="top center", textfont_size=9)
+    fig.update_layout(
+        title="Thị trường ngách: Phân vùng danh mục (Sales vs Rating)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor="rgba(0,0,0,0)",
+    )
+    _apply_black_text(fig)
+    st.plotly_chart(fig, use_container_width=True)
+    with st.expander(":material/notes: Nhận xét"):
+        st.markdown(
+            """
+- **Ngôi sao** (High Sales / High Rating): thể loại phổ biến và được yêu thích — ưu tiên duy trì.
+- **Tiềm năng (Niche)** (Low Sales / High Rating): sách chất lượng cao nhưng ít người biết — cơ hội marketing.
+- **Phổ thông** (High Sales / Low Rating): bán chạy dù rating thấp — thường là sách giáo khoa, từ điển.
+- **Cần cải thiện** (Low Sales / Low Rating): cần xem xét lại chiến lược sản phẩm.
+- Kích thước điểm thể hiện số lượng đầu sách trong danh mục.
+"""
+        )
+
+
 def render_distribution_product_tab(
     df: pd.DataFrame,
     *,
     colors: list[str],
     heatmap_scale: str,
 ) -> None:
-    st.markdown("<div class='tab-page-header'>Tab 1 — Phân bổ & Sản phẩm</div>", unsafe_allow_html=True)
+    st.markdown(
+        "<div class='tab-page-header'>"
+        "<p class='tph-title'>Phân tích Đặc tính Sản phẩm</p>"
+        "<p class='tph-sub'>Khám phá mối tương quan giữa thể loại, độ dày và hiệu quả kinh doanh của các đầu sách.</p>"
+        "</div>",
+        unsafe_allow_html=True,
+    )
 
     sold_df = _filter_sold(df)
     median_sold = int(sold_df["all_time_quantity_sold"].median())
@@ -207,14 +266,10 @@ def render_distribution_product_tab(
         ]
     )
 
-    st.caption("Lưu ý: Q1 và Q2 dùng thang log ở trục tung để giảm ảnh hưởng của outliers.")
     col_a, col_b = st.columns(2)
     with col_a:
-        _q1_long_tail(df, colors)
-        st.markdown("</div>", unsafe_allow_html=True)
-    with col_b:
         _q2_category_boxplot(df, colors)
-        st.markdown("</div>", unsafe_allow_html=True)
+    with col_b:
+        _q10_pages_vs_sold(df, colors)
 
-    _q10_pages_vs_sold(df, colors)
-    st.markdown("</div>", unsafe_allow_html=True)
+    _q12_niche_market(df, colors)

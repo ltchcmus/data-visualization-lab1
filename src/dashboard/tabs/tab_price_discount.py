@@ -344,7 +344,13 @@ def render_price_discount_tab(
     colors: list[str],
     heatmap_scale: str,
 ) -> None:
-    st.markdown("<div class='tab-page-header'>Tab 2 — Giá & Chiết khấu</div>", unsafe_allow_html=True)
+    st.markdown(
+        "<div class='tab-page-header'>"
+        "<p class='tph-title'>Phân tích Giá & Chiết khấu</p>"
+        "<p class='tph-sub'>Đánh giá tác động của mức giá và mức chiết khấu đến doanh số — tìm ngưỡng tối ưu để tối đa hoá hiệu quả bán hàng.</p>"
+        "</div>",
+        unsafe_allow_html=True,
+    )
 
     sold_df = _filter_sold(df)
     disc = pd.to_numeric(sold_df.get("discount_rate", pd.Series(dtype=float)), errors="coerce")

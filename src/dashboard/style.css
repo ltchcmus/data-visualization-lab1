@@ -255,12 +255,22 @@ div[data-testid="stMultiSelect"] {
     border-radius: 10px;
     background: var(--fx-gradient);
     box-shadow: var(--fx-shadow);
-    color: #1E293B !important;
-    font-size: 1.02rem;
+    padding: 12px 16px;
+    margin: 24px 0 24px;
+}
+.tab-page-header .tph-title {
+    color: #1E293B;
+    font-size: 1.05rem;
     font-weight: 700;
     line-height: 1.35;
-    padding: 10px 12px;
-    margin: 24px 0 24px;
+    margin: 0 0 3px;
+}
+.tab-page-header .tph-sub {
+    color: #64748B;
+    font-size: 0.82rem;
+    font-weight: 400;
+    line-height: 1.4;
+    margin: 0;
 }
 
 /* -- KPI STRIP -- */
@@ -282,6 +292,7 @@ div[data-testid="stMultiSelect"] {
     border-top: 3px solid #1E40AF;
     border-radius: 12px;
     padding: 18px 20px;
+    margin: 12px 0 30px;
     box-shadow: 0 10px 22px rgba(9, 18, 34, 0.06);
     min-height: 88px;
 }
@@ -405,17 +416,6 @@ div[data-testid="stMultiSelect"] {
     fill: #1E293B !important;
     color: #1E293B !important;
 }
-
-/* -- SECTION CARDS -- */
-/* .section-card {
-    border: 1px solid var(--fx-border);
-    border-radius: 14px;
-    background: linear-gradient(105deg, #ffffff 0%, #f8fbff 100%);
-    padding: 14px;
-    margin-top: 6px;
-    margin-bottom: 8px;
-    box-shadow: 0 6px 14px rgba(30, 64, 175, 0.06);
-} */
 
 /* -- FILTER BAR -- */
 .control-card {
@@ -628,7 +628,8 @@ div[data-testid="stMultiSelect"] {
 }
 
 .book-tab-rail:hover {
-    width: 290px;
+    width: 230px;
+    background: linear-gradient(180deg, #b6d4f1 0%, #EEF2FF 100%);
 }
 
 .book-tab-link {

@@ -149,13 +149,26 @@
 
 **Ghi chú:** Dùng log scale cho trục Y do phân phối lệch. Scatter plot thể hiện xu hướng tổng thể, đường hồi quy cho thấy chiều hướng tương quan (dương/âm/không rõ).
 
+## Câu 11 — Hiệu quả của "Combo" (Giá & Rating)
+
+Câu hỏi: Phân khúc giá nào là "điểm ngọt" (sweet spot) mà khách hàng sẵn sàng bỏ qua yếu tố Rating thấp? Hay nói cách khác, giá rẻ có bù đắp được cho chất lượng kém không?
+
+Biểu đồ: Heatmap (X: Khoảng giá, Y: Khoảng Rating, Màu sắc: Tổng lượng bán).
+
+## Câu 12 — Phân tích "Sách kén người đọc" (Niche Market)
+
+Câu hỏi: Có những danh mục nào có lượng bán thấp nhưng Rating lại rất cao? Đây có phải là thị trường ngách tiềm năng để đầu tư marketing không?
+
+Biểu đồ: Scatter Plot với đường trung bình (Quadrant Chart) chia làm 4 vùng: Ngôi sao (High Sales/High Rating), Tiềm năng (Low Sales/High Rating), Phổ thông (High Sales/Low Rating) và Cần cải thiện.
+
 ---
 
 ## Tổ chức theo Tab Dashboard
 
 | Tab | Câu hỏi | Chủ đề |
 |-----|---------|--------|
-| Tab 1 — Phân bổ & Sản phẩm | Q1, Q2, Q10 | Phân bổ doanh số, danh mục, độ dày sách |
-| Tab 2 — Giá & Chiết khấu | Q5, Q9 | Tác động của giá, chiết khấu, thời gian |
+| Tab 0 — Tổng quan | Q1 | Tổng quan thị trường & KPI chính |
+| Tab 1 — Sản phẩm | Q2, Q10, Q12 | Đặc tính vật lý & Phân loại |
+| Tab 2 — Giá & Chiết khấu | Q5, Q9, Q11 | Tác động của giá, chiết khấu, thời gian |
 | Tab 3 — NXB & Tác giả | Q3, Q4/Q6 | Nhà xuất bản, tác giả |
 | Tab 4 — Đánh giá & Chính sách | Q7, Q8 | Rating, review, freeship, seller |

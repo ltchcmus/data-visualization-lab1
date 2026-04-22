@@ -16,10 +16,9 @@ if __package__ in {None, ""}:
 
     from dashboard.components.data_loader import default_data_path, load_dataset
     from dashboard.components.filter_ui import render_top_filters
-    from dashboard.format_utils import format_vn
-    from dashboard.ui_cards import render_kpi_section
     from dashboard.tabs import (
         render_distribution_product_tab,
+        render_overview_tab,
         render_price_discount_tab,
         render_publisher_author_tab,
         render_rating_policy_tab,
@@ -27,10 +26,9 @@ if __package__ in {None, ""}:
 else:
     from .components.data_loader import default_data_path, load_dataset
     from .components.filter_ui import render_top_filters
-    from .format_utils import format_vn
-    from .ui_cards import render_kpi_section
     from .tabs import (
         render_distribution_product_tab,
+        render_overview_tab,
         render_price_discount_tab,
         render_publisher_author_tab,
         render_rating_policy_tab,
@@ -49,21 +47,26 @@ COLORBLIND_COLORS = [
 ]
 
 TAB_OPTIONS = {
-    "distribution": {"icon": "⌂", "label": "Phân bổ & Sản phẩm"},
-    "price": {"icon": "◔", "label": "Giá & Chiết khấu"},
-    "publisher": {"icon": "◎", "label": "NXB & Tác giả"},
-    "rating": {"icon": "✦", "label": "Đánh giá & Chính sách"},
+    "overview": {"icon": '<i class="fa-solid fa-chart-pie"></i>', "label": "Tổng quan"},
+    "distribution": {"icon": '<i class="fa-solid fa-layer-group"></i>', "label": "Sản phẩm"},
+    "price": {"icon": '<i class="fa-solid fa-tags"></i>', "label": "Giá & Chiết khấu"},
+    "publisher": {"icon": '<i class="fa-solid fa-building-columns"></i>', "label": "NXB & Tác giả"},
+    "rating": {"icon": '<i class="fa-solid fa-star-half-stroke"></i>', "label": "Đánh giá & Chính sách"},
 }
 
 
 def _inject_style() -> None:
+    st.markdown(
+        '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>',
+        unsafe_allow_html=True,
+    )
     css_path = Path(__file__).with_name("style.css")
     css_content = css_path.read_text(encoding="utf-8")
     st.markdown(f"<style>{css_content}</style>", unsafe_allow_html=True)
 
 
 def _get_active_tab() -> str:
-    raw_value = st.query_params.get("tab", "distribution")
+    raw_value = st.query_params.get("tab", "overview")
     selected = raw_value[0] if isinstance(raw_value, list) else raw_value
     if selected not in TAB_OPTIONS:
         selected = "distribution"
@@ -148,67 +151,6 @@ def _prepare_data(df: pd.DataFrame) -> pd.DataFrame:
     return view
 
 
-def _render_kpis(df: pd.DataFrame) -> None:
-    sold = pd.to_numeric(df.get("all_time_quantity_sold"), errors="coerce")
-    price = pd.to_numeric(df.get("price"), errors="coerce")
-    rating = pd.to_numeric(df.get("rating_average"), errors="coerce")
-
-    sold_non_null = sold.dropna() if sold is not None else pd.Series(dtype=float)
-    revenue = float((price.fillna(0) * sold.fillna(0)).sum()) if price is not None else 0.0
-    avg_sold = float(sold_non_null.mean()) if not sold_non_null.empty else 0.0
-    avg_rating = float(rating.dropna().mean()) if rating is not None and rating.notna().any() else 0.0
-
-    if "publisher_vn" in df.columns:
-        n_publishers = int(df["publisher_vn"].nunique())
-    else:
-        n_publishers = 0
-
-    revenue_fmt = format_vn(revenue, 0)
-    avg_sold_fmt = format_vn(avg_sold, 1)
-    avg_rating_fmt = format_vn(avg_rating, 2)
-
-    revenue_note = "Tăng 12% so với cùng kỳ năm ngoái."
-    rating_benchmark = (
-        "Cao hơn mức trung bình ngành (4.0)." if avg_rating >= 4.0 else "Thấp hơn mức trung bình ngành (4.0)."
-    )
-    rating_tone = "red" if avg_rating < 4.0 else "blue"
-
-    render_kpi_section(
-        [
-            {
-                "label": "Tổng doanh thu ước tính",
-                "value": f"{revenue_fmt} <span class='u'>VND</span>",
-                "icon": "money",
-                "tone": "blue",
-                "subtitle": revenue_note,
-            },
-            {
-                "label": "Lượng bán trung bình",
-                "value": avg_sold_fmt,
-                "icon": "chart",
-                "tone": "amber",
-                "subtitle": "Mức bán trung bình ổn định.",
-            },
-            {
-                "label": "Điểm rating trung bình",
-                "value": avg_rating_fmt,
-                "icon": "star",
-                "tone": rating_tone,
-                "subtitle": rating_benchmark,
-            },
-            {
-                "label": "Số nhà xuất bản",
-                "value": format_vn(n_publishers),
-                "icon": "book",
-                "tone": "slate",
-                "subtitle": "Phạm vi dữ liệu toàn quốc.",
-            },
-        ],
-        title="CHỈ SỐ BÁN HÀNG CỐT LÕI",
-        summary="Hiệu quả bán hàng đang duy trì ở mức ổn định với doanh thu đạt ngưỡng mục tiêu.",
-        footnote=f"Dữ liệu được tổng hợp từ {format_vn(n_publishers)} nhà xuất bản trên toàn quốc.",
-    )
-
 
 def main() -> None:
     st.set_page_config(
@@ -243,10 +185,9 @@ def main() -> None:
     colors = COLORBLIND_COLORS if colorblind_mode else NORMAL_COLORS
     heatmap_scale = "Viridis" if colorblind_mode else "Blues"
 
-    st.markdown("<div class='kpi-section-divider'></div>", unsafe_allow_html=True)
-    _render_kpis(filtered_df)
-
-    if active_tab == "distribution":
+    if active_tab == "overview":
+        render_overview_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+    elif active_tab == "distribution":
         render_distribution_product_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
     elif active_tab == "price":
         render_price_discount_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
