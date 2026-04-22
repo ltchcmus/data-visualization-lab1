@@ -407,7 +407,7 @@ div[data-testid="stMultiSelect"] {
 }
 
 /* -- SECTION CARDS -- */
-.section-card {
+/* .section-card {
     border: 1px solid var(--fx-border);
     border-radius: 14px;
     background: linear-gradient(105deg, #ffffff 0%, #f8fbff 100%);
@@ -415,7 +415,7 @@ div[data-testid="stMultiSelect"] {
     margin-top: 6px;
     margin-bottom: 8px;
     box-shadow: 0 6px 14px rgba(30, 64, 175, 0.06);
-}
+} */
 
 /* -- FILTER BAR -- */
 .control-card {

@@ -186,14 +186,11 @@ def render_distribution_product_tab(
     st.caption("Lưu ý: Q1 và Q2 dùng thang log ở trục tung để giảm ảnh hưởng của outliers.")
     col_a, col_b = st.columns(2)
     with col_a:
-        st.markdown("<div class='section-card'>", unsafe_allow_html=True)
         _q1_long_tail(df, colors)
         st.markdown("</div>", unsafe_allow_html=True)
     with col_b:
-        st.markdown("<div class='section-card'>", unsafe_allow_html=True)
         _q2_category_boxplot(df, colors)
         st.markdown("</div>", unsafe_allow_html=True)
 
-    st.markdown("<div class='section-card'>", unsafe_allow_html=True)
     _q10_pages_vs_sold(df, colors)
     st.markdown("</div>", unsafe_allow_html=True)
