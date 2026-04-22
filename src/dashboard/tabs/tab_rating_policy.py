@@ -127,55 +127,97 @@ def _render_filters(df: pd.DataFrame) -> tuple[pd.DataFrame, tuple[float, float]
 
 
 def _chart_11_scatter(df: pd.DataFrame, colors: list[str]):
-    data = df[(df["rating_average"].notna()) & (df["review_count"] > 0) & (df["all_time_quantity_sold"] > 0)].copy()
+    data = df[
+        (df["rating_average"].notna())
+        & (df["rating_average"] >= 2)
+        & (df["review_count"] > 0)
+        & (df["all_time_quantity_sold"] > 0)
+    ].copy()
     if data.empty:
         return None
 
-    data["review_count_log10"] = np.log10(data["review_count"])
+    del colors
+    x_values = np.sort(data["rating_average"].round(1).unique())
 
-    x_min = float(data["rating_average"].min())
-    x_max = float(data["rating_average"].max())
-    x_pad = 0.06
-    x_range = [max(0.0, x_min - x_pad), min(5.0, x_max + x_pad)]
+    y_min = int(max(1, data["review_count"].min()))
+    y_max = int(data["review_count"].max())
+    y_edges = np.geomspace(y_min, y_max + 1, num=26)
+    y_edges = np.unique(np.floor(y_edges).astype(int))
+    y_edges = y_edges[y_edges >= 1]
+    if len(y_edges) < 8:
+        y_edges = np.array([1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765])
+        y_edges = y_edges[y_edges <= y_max + 1]
+    if y_edges[0] != 1:
+        y_edges = np.insert(y_edges, 0, 1)
+    if y_edges[-1] <= y_max:
+        y_edges = np.append(y_edges, y_max + 1)
 
-    fig = px.density_heatmap(
-        data,
-        x="rating_average",
-        y="review_count_log10",
-        z="all_time_quantity_sold",
-        histfunc="sum",
-        nbinsx=34,
-        nbinsy=26,
-        color_continuous_scale="Blues",
-        hover_data={
-            "rating_average": ":.2f",
-            "review_count": ":,.0f",
-            "all_time_quantity_sold": ":,.0f",
-            "seller_name": True,
-            "review_count_log10": False,
-        },
-        labels={
-            "rating_average": "Rating Average",
-            "review_count_log10": "Review Count (log10)",
-            "all_time_quantity_sold": "Tổng doanh số",
-        },
-        title="Biểu đồ 1.1: Density Heatmap Rating vs Review (log), màu theo tổng doanh số",
+    data["rating_bin"] = data["rating_average"].round(1)
+    data["review_bin"] = pd.cut(data["review_count"], bins=y_edges, include_lowest=True, right=False)
+    data = data[data["review_bin"].notna()].copy()
+
+    grouped = (
+        data.groupby(["review_bin", "rating_bin"], observed=False)
+        .agg(
+            sold_sum=("all_time_quantity_sold", "sum"),
+            n_books=("all_time_quantity_sold", "size"),
+        )
+        .reset_index()
     )
-    _format_chart(fig, height=430)
 
-    y_tick_raw = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000]
-    y_tick_vals = [np.log10(v) for v in y_tick_raw]
-    y_min = float(data["review_count_log10"].min())
-    y_max = float(data["review_count_log10"].max())
-    y_ticks_in_range = [v for v in y_tick_vals if y_min - 0.08 <= v <= y_max + 0.08]
-    y_tick_text = [f"{int(10 ** v):,}" for v in y_ticks_in_range]
+    review_order = sorted(grouped["review_bin"].dropna().unique(), key=lambda i: i.left)
+    y_labels = [f"{int(iv.left):,} - {int(iv.right - 1):,}" for iv in review_order]
+    y_map = {iv: lab for iv, lab in zip(review_order, y_labels)}
 
-    fig.update_layout(
-        coloraxis_colorbar={"title": "Tổng doanh số"},
-        bargap=0.02,
+    grouped["review_label"] = grouped["review_bin"].map(y_map)
+    grouped = grouped[grouped["review_label"].notna()]
+
+    sold_pivot = grouped.pivot(index="review_label", columns="rating_bin", values="sold_sum").reindex(index=y_labels, columns=x_values)
+    count_pivot = grouped.pivot(index="review_label", columns="rating_bin", values="n_books").reindex(index=y_labels, columns=x_values)
+
+    sold_matrix = sold_pivot.to_numpy(dtype=float)
+    count_matrix = count_pivot.to_numpy(dtype=float)
+    z_log = np.where(sold_matrix > 0, np.log10(sold_matrix + 1.0), np.nan)
+
+    custom = np.dstack([np.nan_to_num(sold_matrix, nan=0.0), np.nan_to_num(count_matrix, nan=0.0)])
+    x_labels = [f"{x:.1f}" for x in x_values]
+
+    fig = go.Figure(
+        data=go.Heatmap(
+            x=x_labels,
+            y=y_labels,
+            z=z_log,
+            customdata=custom,
+            zsmooth=False,
+            colorscale="Blues",
+            hovertemplate=(
+                "Rating Average: %{x}<br>"
+                "Review Count: %{y}<br>"
+                "Tổng doanh số: %{customdata[0]:,.0f}<br>"
+                "Số đầu sách: %{customdata[1]:,.0f}<extra></extra>"
+            ),
+        )
     )
-    fig.update_xaxes(range=x_range, dtick=0.2)
-    fig.update_yaxes(tickmode="array", tickvals=y_ticks_in_range, ticktext=y_tick_text)
+
+    finite_z = z_log[np.isfinite(z_log)]
+    z_max = float(finite_z.max()) if finite_z.size else 1.0
+    cb_ticks = list(range(0, int(np.floor(z_max)) + 1))
+    if z_max > cb_ticks[-1] + 0.2:
+        cb_ticks.append(round(z_max, 2))
+    cb_tick_text = [f"{int(round(10 ** v - 1)):,.0f}" for v in cb_ticks]
+
+    fig.update_traces(
+        colorbar={
+            "title": "Tổng doanh số (thang log màu)",
+            "tickvals": cb_ticks,
+            "ticktext": cb_tick_text,
+        }
+    )
+
+    _format_chart(fig, height=440)
+    fig.update_layout(title="Biểu đồ 1.1: 2D Density Heatmap Rating vs Review Count (lọc rating >= 2)")
+    fig.update_xaxes(title="Rating Average", type="category", categoryorder="array", categoryarray=x_labels)
+    fig.update_yaxes(title="Khoảng Review Count (log-binned)", type="category", categoryorder="array", categoryarray=y_labels)
     return fig
 
 
