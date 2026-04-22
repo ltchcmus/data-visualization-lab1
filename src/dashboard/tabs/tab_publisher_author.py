@@ -42,7 +42,7 @@ def _render_kpi_row(items: list[tuple[str, str]]) -> None:
 def _q3_top_publishers(df: pd.DataFrame, colors: list[str]) -> None:
     sold_df = _filter_sold(df)
     if "publisher_vn" not in sold_df.columns:
-        st.info("Không có cột publisher_vn.")
+        st.caption("Không có cột publisher_vn.")
         return
 
     pub_agg = (
@@ -62,17 +62,10 @@ def _q3_top_publishers(df: pd.DataFrame, colors: list[str]) -> None:
         color="avg_sold",
         color_continuous_scale=[[0, colors[0]], [1, colors[1]]],
         labels={"avg_sold": "Lượng bán trung bình", "publisher_vn": "Nhà xuất bản"},
-        title="Q3 — Top 15 NXB theo doanh số trung bình (≥5 đầu sách)",
+        title="Top 15 NXB theo doanh số trung bình (≥5 đầu sách)",
         text="avg_sold",
     )
     fig.update_traces(texttemplate="%{x:,.0f}", textposition="outside")
-    fig.add_vline(
-        x=overall_avg,
-        line_dash="dash",
-        line_color="gray",
-        annotation_text=f"TB toàn dataset: {overall_avg:,.0f}",
-        annotation_position="top right",
-    )
     fig.update_layout(
         coloraxis_showscale=False,
         plot_bgcolor="rgba(0,0,0,0)",
@@ -81,11 +74,10 @@ def _q3_top_publishers(df: pd.DataFrame, colors: list[str]) -> None:
     )
     _apply_black_text(fig)
     st.plotly_chart(fig, use_container_width=True)
-    with st.expander("Nhận xét"):
+    with st.expander("Nhận xét", icon=":material/analytics:"):
         st.markdown(
             """
 - Chỉ lấy NXB có **≥5 đầu sách** để tránh bias từ NXB có 1–2 cuốn may mắn bán chạy.
-- Đường trung bình dataset phân tách rõ nhóm NXB "trên ngưỡng" và "dưới ngưỡng" thị trường.
 - NXB dẫn đầu thường là đơn vị lớn có hệ thống phân phối, marketing, hoặc tập trung vào thể loại hot (sách giáo dục, self-help).
 """
         )
@@ -94,8 +86,23 @@ def _q3_top_publishers(df: pd.DataFrame, colors: list[str]) -> None:
 def _q4_author_pareto(df: pd.DataFrame, colors: list[str]) -> None:
     sold_df = _filter_sold(df)
     if "authors" not in sold_df.columns:
-        st.info("Không có cột authors.")
+        st.caption("Không có cột authors.")
         return
+
+    if "price" in sold_df.columns:
+        price = pd.to_numeric(sold_df["price"], errors="coerce").fillna(0)
+        sold_df["revenue"] = price * sold_df["all_time_quantity_sold"]
+    else:
+        sold_df["revenue"] = sold_df["all_time_quantity_sold"]
+
+    def _clean(x):
+        if pd.isna(x): return "Ẩn danh"
+        s = str(x).strip()
+        if s in ["", ".", ",", "-", "Unknown"]: return "Ẩn danh"
+        if s.lower() in ["nhiều tác giả", "nhiều tac gia"]: return "Nhiều tác giả"
+        return s
+
+    sold_df["authors"] = sold_df["authors"].apply(_clean)
 
     author_agg = (
         sold_df.groupby("authors")["all_time_quantity_sold"]
@@ -141,17 +148,18 @@ def _q4_author_pareto(df: pd.DataFrame, colors: list[str]) -> None:
         yref="y2",
     )
     fig.update_layout(
-        title="Q4/Q6 — Biểu đồ Pareto: Tác giả & Doanh số (Top 30)",
-        xaxis={"tickangle": -40},
+        title="Biểu đồ Pareto: Tác giả & doanh số (top 30)",
+        xaxis={"tickangle": -45},
         yaxis={"title": "Tổng lượng bán"},
         yaxis2={"title": "% tích lũy", "overlaying": "y", "side": "right", "range": [0, 105]},
-        legend={"orientation": "h", "y": -0.25},
+        legend={"orientation": "h", "y": 1.15, "x": 0.5, "xanchor": "center", "yanchor": "bottom"},
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
+        margin=dict(t=50, b=80),
     )
     _apply_black_text(fig)
     st.plotly_chart(fig, use_container_width=True)
-    with st.expander("Nhận xét"):
+    with st.expander("Nhận xét", icon=":material/analytics:"):
         st.markdown(
             """
 - Đường tích lũy qua ngưỡng **80%** cho thấy cần bao nhiêu tác giả hàng đầu để chiếm 80% tổng doanh số.
@@ -160,6 +168,67 @@ def _q4_author_pareto(df: pd.DataFrame, colors: list[str]) -> None:
 """
         )
 
+def _q4_top_books(df: pd.DataFrame, colors: list[str]) -> None:
+    sold_col = pd.to_numeric(df["all_time_quantity_sold"], errors="coerce")
+    valid_df = df[sold_col > 0].copy()
+    valid_df["quantity"] = pd.to_numeric(valid_df["all_time_quantity_sold"], errors="coerce")
+    
+    title_col = next((col for col in ["name", "title", "product_name", "book_name"] if col in df.columns), None)
+    if "authors" not in valid_df.columns or not title_col:
+        st.caption("Không có cột authors hoặc cột tên sách để hiển thị chi tiết.")
+        return
+        
+    def _clean(x):
+        if pd.isna(x): return "Ẩn danh"
+        s = str(x).strip()
+        if s in ["", ".", ",", "-", "Unknown"]: return "Ẩn danh"
+        if s.lower() in ["nhiều tác giả", "nhiều tac gia"]: return "Nhiều tác giả"
+        return s
+
+    valid_df["authors"] = valid_df["authors"].apply(_clean)
+        
+    top_books = valid_df.sort_values("quantity", ascending=False).head(15).copy()
+    
+    # Rút gọn tên sách để trục Y không bị quá dài
+    top_books["short_title"] = top_books[title_col].astype(str).apply(lambda x: x[:45] + "..." if len(x) > 45 else x)
+    # Chèn ký tự tàng hình (zero-width non-joiner) để đảm bảo tên sách là duy nhất (không bị Plotly gộp)
+    top_books["short_title"] = [f"{t}{chr(8204)*i}" for i, t in enumerate(top_books["short_title"])]
+    
+    # Đưa tên tác giả và lượng bán vào bên trong thanh Bar
+    top_books["bar_text"] = "✍️ <b>" + top_books["authors"] + "</b> &nbsp;|&nbsp; " + top_books["quantity"].apply(lambda x: f"{x:,.0f}")
+    
+    fig = go.Figure()
+    fig.add_trace(
+        go.Bar(
+            y=top_books["short_title"],
+            x=top_books["quantity"],
+            orientation="h",
+            marker_color=colors[0] if colors else "#3b82f6",
+            text=top_books["bar_text"],
+            textposition="outside",
+            cliponaxis=False,
+            textfont=dict(color="#0f2740"),
+            customdata=top_books["authors"],
+            hovertemplate="<b>%{y}</b><br>Tác giả: %{customdata}<br>Lượng bán: %{x:,.0f}<extra></extra>"
+        )
+    )
+    fig.update_layout(
+        title="Top 15 tác phẩm bán chạy nhất & Tác giả tương ứng",
+        yaxis={"categoryorder": "total ascending", "title": ""},
+        xaxis={"title": "Lượng bán (không loại trừ outlier)"},
+        plot_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor="rgba(0,0,0,0)",
+        margin=dict(l=10, r=40, t=50, b=10)
+    )
+    _apply_black_text(fig)
+    st.plotly_chart(fig, use_container_width=True)
+    with st.expander("Nhận xét", icon=":material/insights:"):
+        st.markdown(
+            """
+- Biểu đồ này chỉ ra chính xác các **"siêu phẩm" (blockbusters)** đang dẫn đầu doanh số của toàn hệ thống.
+- **Phân tích kết hợp**: Bằng cách đối chiếu các tác giả ở đây với biểu đồ Pareto bên trên, bạn có thể thấy rõ tác giả nào lọt top Pareto nhờ 1-2 siêu phẩm ở đây, và tác giả nào không hề có siêu phẩm nhưng vẫn lọt top nhờ danh mục sách khổng lồ bán đều đặn (ổn định).
+"""
+        )
 
 def render_publisher_author_tab(
     df: pd.DataFrame,
@@ -187,4 +256,8 @@ def render_publisher_author_tab(
 
     st.markdown("<div class='section-card'>", unsafe_allow_html=True)
     _q4_author_pareto(df, colors)
+    st.markdown("</div>", unsafe_allow_html=True)
+
+    st.markdown("<div class='section-card'>", unsafe_allow_html=True)
+    _q4_top_books(df, colors)
     st.markdown("</div>", unsafe_allow_html=True)
