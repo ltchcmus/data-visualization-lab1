@@ -5,6 +5,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
+from ..format_utils import format_vn
+
 
 def _filter_sold(df: pd.DataFrame) -> pd.DataFrame:
     sold = pd.to_numeric(df["all_time_quantity_sold"], errors="coerce")
@@ -193,7 +195,7 @@ def _q8_competitive_advantage(df: pd.DataFrame, colors: list[str]) -> None:
             x=seller_agg["seller_group"],
             y=seller_agg["avg_sold"],
             marker_color=[c2 if g == "Tiki Trading" else c_other for g in seller_agg["seller_group"]],
-            text=seller_agg["avg_sold"].apply(lambda x: f"{x:,.0f}"),
+            text=seller_agg["avg_sold"].apply(lambda x: format_vn(x)),
             textposition="outside",
             hovertemplate="<b>%{x}</b><br>Lượng bán TB: %{y:,.0f}<extra></extra>"
         )])
@@ -235,7 +237,6 @@ def _q8_competitive_advantage(df: pd.DataFrame, colors: list[str]) -> None:
             color="freeship_label",
             barmode="group",
             color_discrete_sequence=[c1, c_other],
-            text_auto=".0f",
             labels={
                 "seller_group": "Nhóm nhà phân phối",
                 "avg_sold": "Lượng bán trung bình",
@@ -243,9 +244,12 @@ def _q8_competitive_advantage(df: pd.DataFrame, colors: list[str]) -> None:
             },
             title="Tác động kép: Sự kết hợp giữa Nhà phân phối lớn & Freeship"
         )
-        fig3.update_traces(
-            textposition="outside",
-            hovertemplate="<b>%{x}</b><br>Chính sách: %{data.name}<br>Lượng bán TB: %{y:,.0f}<extra></extra>"
+        fig3.for_each_trace(
+            lambda trace: trace.update(
+                text=[format_vn(v) for v in trace.y],
+                textposition="outside",
+                hovertemplate="<b>%{x}</b><br>Chính sách: %{data.name}<br>Lượng bán TB: %{y:,.0f}<extra></extra>",
+            )
         )
         fig3.update_layout(
             plot_bgcolor="rgba(0,0,0,0)",
@@ -286,9 +290,9 @@ def render_rating_policy_tab(
         pct_free = float(freeship_col.eq(True).sum() / freeship_col.notna().sum() * 100)
     _render_kpi_row(
         [
-            ("Rating trung bình", f"{avg_rating:.2f} ⭐"),
-            ("Số review TB", f"{avg_review:,.0f}"),
-            ("Tỷ lệ có freeship", f"{pct_free:.1f}%"),
+            ("Rating trung bình", f"{format_vn(avg_rating, 2)} ⭐"),
+            ("Số review TB", format_vn(avg_review)),
+            ("Tỷ lệ có freeship", f"{format_vn(pct_free, 1)}%"),
         ]
     )
 

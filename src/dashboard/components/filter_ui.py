@@ -402,6 +402,25 @@ def render_top_filters(df: pd.DataFrame) -> pd.DataFrame:
             padding: 4px 10px;
             margin-bottom: 0.25rem;
         }
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] {
+            background: #ffffff !important;
+            border: 1px solid #d8e6f3 !important;
+            border-radius: 12px !important;
+            box-shadow: 0 5px 14px rgba(19, 45, 76, 0.08) !important;
+        }
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] * {
+            background-color: transparent !important;
+        }
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] span,
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] div,
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] input {
+            color: #334155 !important;
+            -webkit-text-fill-color: #334155 !important;
+        }
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] input::placeholder {
+            color: #94a3b8 !important;
+            -webkit-text-fill-color: #94a3b8 !important;
+        }
         </style>
         """,
         unsafe_allow_html=True,

@@ -66,6 +66,12 @@ html, body, [class*="css"] {
 /* Streamlit still allocates space for markdown blocks that host fixed UI; collapse that space */
 .element-container:has(.book-tab-rail),
 .element-container:has(.dashboard-head) {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
     margin: 0 !important;
     padding: 0 !important;
 }
@@ -76,6 +82,12 @@ html, body, [class*="css"] {
     padding: 0 !important;
     min-height: 0 !important;
     line-height: 0 !important;
+}
+
+/* Hide style-only markdown wrappers so they do not create extra vertical gaps */
+.element-container:has(> [data-testid="stMarkdownContainer"] > style:only-child),
+.element-container:has(> [data-testid="stMarkdownContainer"]:empty) {
+    display: none !important;
 }
 
 [data-testid="stSidebar"] [data-testid="stSidebarUserContent"] {
@@ -91,7 +103,7 @@ html, body, [class*="css"] {
 .stApp [data-testid="stAppViewContainer"] .main .block-container {
     margin-left: 0 !important;
     padding-left: var(--content-left-gap) !important;
-    padding-top: 0.45rem !important;
+    padding-top: 88px !important;
 }
 
 /* Ensure the first filter row is visually pulled upward */
@@ -438,6 +450,25 @@ html, body, [class*="css"] {
 .control-card .stSelectbox [data-baseweb="select"]:focus-within {
     border-color: var(--pri-500) !important;
     box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.15) !important;
+}
+
+/* top filter row: light multiselect/select placeholders */
+[data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] {
+    background: #ffffff !important;
+    border: 1px solid #d8e6f3 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 5px 14px rgba(19, 45, 76, 0.08) !important;
+}
+
+[data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] * {
+    background-color: transparent !important;
+}
+
+[data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] span,
+[data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] div,
+[data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] input {
+    color: #334155 !important;
+    -webkit-text-fill-color: #334155 !important;
 }
 
 /* -- FLOATING TAB RAIL -- */

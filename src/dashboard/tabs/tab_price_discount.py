@@ -5,6 +5,8 @@ import plotly.graph_objects as go
 import streamlit as st
 from plotly.subplots import make_subplots
 
+from ..format_utils import format_vn
+
 
 def _filter_sold(df: pd.DataFrame) -> pd.DataFrame:
     sold = pd.to_numeric(df["all_time_quantity_sold"], errors="coerce")
@@ -82,10 +84,13 @@ def _q5_discount_threshold(df: pd.DataFrame, colors: list[str]) -> None:
     fig = make_subplots(specs=[[{"secondary_y": True}]])
     
     def format_k_m(n):
-        if pd.isna(n): return ""
-        if n >= 1e6: return f"{n/1e6:.1f}M"
-        if n >= 1e3: return f"{n/1e3:.1f}K"
-        return f"{n:.0f}"
+        if pd.isna(n):
+            return ""
+        if n >= 1e6:
+            return f"{format_vn(n / 1e6, 1)}M"
+        if n >= 1e3:
+            return f"{format_vn(n / 1e3, 1)}K"
+        return format_vn(n)
 
     # 1. Bar chart 1: Lượng bán TB (Trục trái)
     fig.add_trace(
@@ -247,9 +252,9 @@ def render_price_discount_tab(
     pct_discounted = float((disc > 0).sum() / len(disc) * 100) if len(disc) > 0 else 0.0
     _render_kpi_row(
         [
-            ("Sách có doanh số > 0", f"{len(sold_df):,}"),
-            ("Discount trung bình", f"{avg_disc:.1f}%"),
-            ("Tỷ lệ có giảm giá", f"{pct_discounted:.1f}%"),
+            ("Sách có doanh số > 0", format_vn(len(sold_df))),
+            ("Discount trung bình", f"{format_vn(avg_disc, 1)}%"),
+            ("Tỷ lệ có giảm giá", f"{format_vn(pct_discounted, 1)}%"),
         ]
     )
 

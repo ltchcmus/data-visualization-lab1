@@ -15,6 +15,7 @@ if __package__ in {None, ""}:
 
     from dashboard.components.data_loader import default_data_path, load_dataset
     from dashboard.components.filter_ui import render_top_filters
+    from dashboard.format_utils import format_vn
     from dashboard.tabs import (
         render_distribution_product_tab,
         render_price_discount_tab,
@@ -24,6 +25,7 @@ if __package__ in {None, ""}:
 else:
     from .components.data_loader import default_data_path, load_dataset
     from .components.filter_ui import render_top_filters
+    from .format_utils import format_vn
     from .tabs import (
         render_distribution_product_tab,
         render_price_discount_tab,
@@ -107,7 +109,7 @@ def _render_fixed_header(active_tab: str, colorblind_mode: bool, total_books: in
             </div>
             <div class="hdr-right">
                 <div class="hdr-stat">
-                    <div class="hdr-stat-val">{total_books:,}</div>
+                    <div class="hdr-stat-val">{format_vn(total_books)}</div>
                     <div class="hdr-stat-lbl">Đầu sách</div>
                 </div>
                 <a class="hdr-badge" href="{toggle_href}" target="_self">
@@ -156,9 +158,9 @@ def _render_kpis(df: pd.DataFrame) -> None:
     else:
         n_publishers = 0
 
-    revenue_fmt = f"{revenue:,.0f}"
-    avg_sold_fmt = f"{avg_sold:,.1f}"
-    avg_rating_fmt = f"{avg_rating:.2f}"
+    revenue_fmt = format_vn(revenue, 0)
+    avg_sold_fmt = format_vn(avg_sold, 1)
+    avg_rating_fmt = format_vn(avg_rating, 2)
 
     st.markdown(
         f"""
@@ -177,7 +179,7 @@ def _render_kpis(df: pd.DataFrame) -> None:
             </div>
             <div class="kpi-box accent-slate">
                 <div class="kpi-lbl">Số nhà xuất bản</div>
-                <div class="kpi-val">{n_publishers:,}</div>
+                <div class="kpi-val">{format_vn(n_publishers)}</div>
             </div>
         </div>
         """,

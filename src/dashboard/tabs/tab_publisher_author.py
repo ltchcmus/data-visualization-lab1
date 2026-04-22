@@ -5,6 +5,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
+from ..format_utils import format_vn
+
 
 def _filter_sold(df: pd.DataFrame) -> pd.DataFrame:
     sold = pd.to_numeric(df["all_time_quantity_sold"], errors="coerce")
@@ -63,9 +65,9 @@ def _q3_top_publishers(df: pd.DataFrame, colors: list[str]) -> None:
         color_continuous_scale=[[0, colors[0]], [1, colors[1]]],
         labels={"avg_sold": "Lượng bán trung bình", "publisher_vn": "Nhà xuất bản"},
         title="Top 15 NXB theo doanh số trung bình (≥5 đầu sách)",
-        text="avg_sold",
+        text=pub_agg["avg_sold"].apply(lambda x: format_vn(x)),
     )
-    fig.update_traces(texttemplate="%{x:,.0f}", textposition="outside")
+    fig.update_traces(texttemplate="%{text}", textposition="outside")
     fig.update_layout(
         coloraxis_showscale=False,
         plot_bgcolor="rgba(0,0,0,0)",
@@ -195,7 +197,12 @@ def _q4_top_books(df: pd.DataFrame, colors: list[str]) -> None:
     top_books["short_title"] = [f"{t}{chr(8204)*i}" for i, t in enumerate(top_books["short_title"])]
     
     # Đưa tên tác giả và lượng bán vào bên trong thanh Bar
-    top_books["bar_text"] = "✍️ <b>" + top_books["authors"] + "</b> &nbsp;|&nbsp; " + top_books["quantity"].apply(lambda x: f"{x:,.0f}")
+    top_books["bar_text"] = (
+        "✍️ <b>"
+        + top_books["authors"]
+        + "</b> &nbsp;|&nbsp; "
+        + top_books["quantity"].apply(lambda x: format_vn(x))
+    )
     
     fig = go.Figure()
     fig.add_trace(
@@ -244,9 +251,9 @@ def render_publisher_author_tab(
     avg_sold = float(sold_df["all_time_quantity_sold"].mean())
     _render_kpi_row(
         [
-            ("Số NXB", f"{n_pub:,}"),
-            ("Số tác giả", f"{n_authors:,}"),
-            ("Doanh số TB", f"{avg_sold:,.0f}"),
+            ("Số NXB", format_vn(n_pub)),
+            ("Số tác giả", format_vn(n_authors)),
+            ("Doanh số TB", format_vn(avg_sold, 0)),
         ]
     )
 

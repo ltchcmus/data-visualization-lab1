@@ -4,6 +4,8 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
+from ..format_utils import format_vn
+
 
 COOL_TONE_COLORS = ["#1E3A8A", "#1D4ED8", "#2563EB", "#3B82F6", "#60A5FA", "#93C5FD"]
 
@@ -165,9 +167,9 @@ def render_distribution_product_tab(
     )
     _render_kpi_row(
         [
-            ("Sách có doanh số > 0", f"{len(sold_df):,}"),
-            ("Doanh số trung vị", f"{median_sold:,}"),
-            ("Top 1% sách chiếm", f"{top1_pct:.1f}% doanh số"),
+            ("Sách có doanh số > 0", format_vn(len(sold_df))),
+            ("Doanh số trung vị", format_vn(median_sold)),
+            ("Top 1% sách chiếm", f"{format_vn(top1_pct, 1)}% doanh số"),
         ]
     )
 
