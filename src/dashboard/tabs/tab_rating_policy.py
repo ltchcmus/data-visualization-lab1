@@ -91,7 +91,7 @@ def _q7_bubble_chart(df: pd.DataFrame, colors: list[str]) -> None:
     )
     _apply_black_text(fig)
     st.plotly_chart(fig, use_container_width=True)
-    with st.expander("Nhận xét"):
+    with st.expander(":material/notes: Nhận xét"):
         st.markdown(
             """
 - Kích thước bong bóng tỉ lệ với **lượng bán** — bong bóng lớn ở góc trên phải = sách vừa được đánh giá cao vừa có nhiều review → doanh số tốt nhất.
@@ -134,7 +134,7 @@ def _q7_correlation_heatmap(df: pd.DataFrame, heatmap_scale: str) -> None:
     )
     _apply_black_text(fig)
     st.plotly_chart(fig, use_container_width=True)
-    with st.expander("Nhận xét"):
+    with st.expander(":material/notes: Nhận xét"):
         st.markdown(
             """
 - Heatmap cho cái nhìn tổng quát về **hướng và độ mạnh** của các mối quan hệ.

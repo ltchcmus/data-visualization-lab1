@@ -179,7 +179,7 @@ def _q5_discount_threshold(df: pd.DataFrame, colors: list[str]) -> None:
     _apply_black_text(fig)
     st.plotly_chart(fig, use_container_width=True)
 
-    with st.expander("Nhận xét"):
+    with st.expander(":material/notes: Nhận xét"):
         st.markdown(
             """
 - Biểu đồ kết hợp Bar-Line giúp xem đồng thời **mức doanh số trung bình** (Bar) và sự phân bổ **Mật độ sách** cùng **Tổng doanh thu** (Line) trong từng nhóm discount.
@@ -228,21 +228,112 @@ def _q9_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
         )
     )
     fig.update_layout(
-        title="Q9 — Doanh số trung bình theo năm xuất bản",
+        title="Doanh số trung bình theo năm xuất bản",
         xaxis_title="Năm xuất bản",
         yaxis_title="Lượng bán trung bình",
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
         legend={"orientation": "h", "y": -0.2},
+        margin=dict(t=50, b=0),
     )
     _apply_black_text(fig)
     st.plotly_chart(fig, use_container_width=True)
-    with st.expander("Nhận xét"):
+    with st.expander(":material/notes: Nhận xét"):
         st.markdown(
             """
 - Sách **xuất bản gần đây** có thể có doanh số cao hơn do được đặt trên kệ nổi bật hơn, nhưng sách cũ có nhiều thời gian tích lũy đơn hàng.
 - Đường trung bình động (3 năm) làm mịn biến động ngẫu nhiên, giúp thấy **xu hướng dài hạn** rõ hơn.
 - Nếu sách cổ điển (>10 năm) vẫn duy trì doanh số, đó là dấu hiệu của "sách vượt thời gian" đáng đầu tư dài hạn.
+"""
+        )
+
+
+def _q10_price_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
+    """Biểu đồ giá trung bình & số lượng sách theo năm xuất bản."""
+    if "publication_year" not in df.columns:
+        st.info("Không có cột publication_year.")
+        return
+    if "price" not in df.columns:
+        st.info("Không có cột price.")
+        return
+
+    year_col = pd.to_numeric(df["publication_year"], errors="coerce")
+    price_col = pd.to_numeric(df["price"], errors="coerce")
+    mask = year_col.between(2000, 2025) & price_col.notna()
+    valid = df[mask].copy()
+    valid["publication_year"] = year_col[mask].astype(int).values
+    valid["price"] = price_col[mask].values
+
+    yearly = (
+        valid.groupby("publication_year")
+        .agg(
+            avg_price=("price", "mean"),
+            count=("price", "size"),
+        )
+        .reset_index()
+        .sort_values("publication_year")
+    )
+    yearly["price_rolling"] = yearly["avg_price"].rolling(3, center=True, min_periods=1).mean()
+
+    c_bar = colors[2] if len(colors) > 2 else "#10b981"
+    c_line = colors[3] if len(colors) > 3 else "#f59e0b"
+
+    fig = make_subplots(specs=[[{"secondary_y": True}]])
+
+    fig.add_trace(
+        go.Bar(
+            x=yearly["publication_year"],
+            y=yearly["count"],
+            name="Số đầu sách",
+            marker_color=c_bar,
+            opacity=0.7,
+        ),
+        secondary_y=False,
+    )
+
+    fig.add_trace(
+        go.Scatter(
+            x=yearly["publication_year"],
+            y=yearly["avg_price"],
+            name="Giá TB",
+            mode="markers",
+            marker={"color": c_line, "size": 5},
+            hovertemplate="Giá TB: %{y:,.0f} ₫<extra></extra>",
+        ),
+        secondary_y=True,
+    )
+    fig.add_trace(
+        go.Scatter(
+            x=yearly["publication_year"],
+            y=yearly["price_rolling"],
+            name="Giá TB động (3 năm)",
+            mode="lines",
+            line={"color": c_line, "width": 2.5},
+            hovertemplate="Giá TB động: %{y:,.0f} ₫<extra></extra>",
+        ),
+        secondary_y=True,
+    )
+
+    fig.update_layout(
+        title="Giá trung bình & số đầu sách theo năm xuất bản",
+        plot_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor="rgba(0,0,0,0)",
+        legend={"orientation": "h", "y": -0.2},
+        margin=dict(t=50, b=0),
+        hovermode="x unified",
+    )
+    fig.update_yaxes(title_text="Số đầu sách", secondary_y=False)
+    fig.update_yaxes(title_text="Giá trung bình (₫)", secondary_y=True)
+    _apply_black_text(fig)
+    st.plotly_chart(fig, use_container_width=True)
+
+    with st.expander(":material/notes: Nhận xét"):
+        st.markdown(
+            """
+- Biểu đồ cho thấy **xu hướng giá bán** sách thay đổi như thế nào qua từng năm, kết hợp với **khối lượng xuất bản**.
+- Nếu giá tăng nhưng số lượng sách giảm, có thể thị trường đang **chuyển sang phân khúc cao cấp hơn**.
+- Đường trung bình động giúp loại bỏ biến động ngắn hạn, cho thấy **xu hướng giá dài hạn** rõ ràng hơn.
+- Năm có nhiều đầu sách nhưng giá thấp có thể phản ánh giai đoạn **cạnh tranh giá gay gắt**.
 """
         )
 
@@ -272,6 +363,12 @@ def render_price_discount_tab(
     _q5_discount_threshold(df, colors)
     st.markdown("</div>", unsafe_allow_html=True)
 
-    st.markdown("<div class='section-card'>", unsafe_allow_html=True)
-    _q9_year_trend(df, colors)
-    st.markdown("</div>", unsafe_allow_html=True)
+    col_left, col_right = st.columns(2)
+    with col_left:
+        st.markdown("<div class='section-card'>", unsafe_allow_html=True)
+        _q9_year_trend(df, colors)
+        st.markdown("</div>", unsafe_allow_html=True)
+    with col_right:
+        st.markdown("<div class='section-card'>", unsafe_allow_html=True)
+        _q10_price_year_trend(df, colors)
+        st.markdown("</div>", unsafe_allow_html=True)
