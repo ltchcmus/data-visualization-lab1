@@ -1,4 +1,4 @@
-# Danh sách câu hỏi phân tích — PlotTwist
+# Danh sách câu hỏi phân tích
 
 **Bài toán chung:** Phân tích các yếu tố ảnh hưởng đến hiệu quả bán hàng của sách trên shop
 
