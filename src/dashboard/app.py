@@ -77,7 +77,7 @@ def _render_floating_tab_rail(active_tab: str) -> None:
         active_class = " is-active" if tab_key == active_tab else ""
         item_blocks.append(
             (
-                f'<a class="book-tab-link{active_class}" href="?tab={tab_key}">'
+                f'<a class="book-tab-link{active_class}" href="?tab={tab_key}" target="_self">'
                 f'<span class="book-tab-icon">{tab_meta["icon"]}</span>'
                 f'<span class="book-tab-label">{tab_meta["label"]}</span>'
                 "</a>"
@@ -110,7 +110,7 @@ def _render_fixed_header(active_tab: str, colorblind_mode: bool, total_books: in
                     <div class="hdr-stat-val">{total_books:,}</div>
                     <div class="hdr-stat-lbl">Đầu sách</div>
                 </div>
-                <a class="hdr-badge" href="{toggle_href}">
+                <a class="hdr-badge" href="{toggle_href}" target="_self">
                     <div class="hdr-badge-val">👁</div>
                     <div class="hdr-badge-lbl">{toggle_label}</div>
                 </a>
