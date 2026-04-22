@@ -298,11 +298,12 @@ def render_rating_policy_tab(
     pct_free = 0.0
     if freeship_col is not None:
         pct_free = float(freeship_col.eq(True).sum() / freeship_col.notna().sum() * 100)
+    rating_tone = "red" if avg_rating < 4.0 else "blue"
     _render_kpi_row(
         [
-            ("Rating trung bình", f"{format_vn(avg_rating, 2)} ⭐", "star", "blue"),
+            ("Rating trung bình", f"{format_vn(avg_rating, 2)} ⭐", "star", rating_tone),
             ("Số review TB", format_vn(avg_review), "message", "amber"),
-            ("Tỷ lệ có freeship", f"{format_vn(pct_free, 1)}%", "ship", "red"),
+            ("Tỷ lệ có freeship", f"{format_vn(pct_free, 1)}%", "ship", "blue"),
         ]
     )
 

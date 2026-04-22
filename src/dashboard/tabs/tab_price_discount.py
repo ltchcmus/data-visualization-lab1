@@ -264,7 +264,7 @@ def render_price_discount_tab(
         [
             ("Sách có doanh số > 0", format_vn(len(sold_df)), "book", "blue"),
             ("Discount trung bình", f"{format_vn(avg_disc, 1)}%", "tag", "amber"),
-            ("Tỷ lệ có giảm giá", f"{format_vn(pct_discounted, 1)}%", "percent", "red"),
+            ("Tỷ lệ có giảm giá", f"{format_vn(pct_discounted, 1)}%", "percent", "blue"),
         ]
     )
 

@@ -173,6 +173,7 @@ def _render_kpis(df: pd.DataFrame) -> None:
     rating_benchmark = (
         "Cao hơn mức trung bình ngành (4.0)." if avg_rating >= 4.0 else "Thấp hơn mức trung bình ngành (4.0)."
     )
+    rating_tone = "red" if avg_rating < 4.0 else "blue"
 
     render_kpi_section(
         [
@@ -194,7 +195,7 @@ def _render_kpis(df: pd.DataFrame) -> None:
                 "label": "Điểm rating trung bình",
                 "value": avg_rating_fmt,
                 "icon": "star",
-                "tone": "red",
+                "tone": rating_tone,
                 "subtitle": rating_benchmark,
             },
             {
@@ -204,8 +205,7 @@ def _render_kpis(df: pd.DataFrame) -> None:
                 "tone": "slate",
                 "subtitle": "Phạm vi dữ liệu toàn quốc.",
             },
-        ]
-        ,
+        ],
         title="CHỈ SỐ BÁN HÀNG CỐT LÕI",
         summary="Hiệu quả bán hàng đang duy trì ở mức ổn định với doanh thu đạt ngưỡng mục tiêu.",
         footnote=f"Dữ liệu được tổng hợp từ {format_vn(n_publishers)} nhà xuất bản trên toàn quốc.",

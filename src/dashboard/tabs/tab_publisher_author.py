@@ -154,7 +154,7 @@ def _q4_author_pareto(df: pd.DataFrame, colors: list[str]) -> None:
     fig.add_hline(
         y=80,
         line_dash="dot",
-        line_color="red",
+        line_color="#1E40AF",
         annotation_text="80%",
         annotation_position="right",
         yref="y2",
@@ -263,7 +263,7 @@ def render_publisher_author_tab(
         [
             ("Số NXB", format_vn(n_pub), "building", "blue"),
             ("Số tác giả", format_vn(n_authors), "users", "amber"),
-            ("Doanh số TB", format_vn(avg_sold, 0), "chart", "red"),
+            ("Doanh số TB", format_vn(avg_sold, 0), "chart", "blue"),
         ]
     )
 

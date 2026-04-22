@@ -179,7 +179,7 @@ def render_distribution_product_tab(
         [
             ("Sách có doanh số > 0", format_vn(len(sold_df)), "book", "blue"),
             ("Doanh số trung vị", format_vn(median_sold), "chart", "amber"),
-            ("Top 1% sách chiếm", f"{format_vn(top1_pct, 1)}% doanh số", "target", "red"),
+            ("Top 1% sách chiếm", f"{format_vn(top1_pct, 1)}% doanh số", "target", "blue"),
         ]
     )
 
