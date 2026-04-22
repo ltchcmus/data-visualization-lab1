@@ -139,18 +139,17 @@ def _chart_11_scatter(df: pd.DataFrame, colors: list[str]):
     del colors
     x_values = np.sort(data["rating_average"].round(1).unique())
 
-    y_min = int(max(1, data["review_count"].min()))
     y_max = int(data["review_count"].max())
-    y_edges = np.geomspace(y_min, y_max + 1, num=26)
-    y_edges = np.unique(np.floor(y_edges).astype(int))
-    y_edges = y_edges[y_edges >= 1]
-    if len(y_edges) < 8:
-        y_edges = np.array([1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765])
-        y_edges = y_edges[y_edges <= y_max + 1]
-    if y_edges[0] != 1:
-        y_edges = np.insert(y_edges, 0, 1)
-    if y_edges[-1] <= y_max:
-        y_edges = np.append(y_edges, y_max + 1)
+    # Human-friendly review buckets are easier to read than auto-generated intervals.
+    # Using right-open bins keeps each value assigned to exactly one intuitive range.
+    base_edges = [1, 2, 4, 6, 11, 21, 51, 101, 201, 501, 1001, 2001, 5001, 10001]
+    y_edges = [edge for edge in base_edges if edge <= y_max + 1]
+    if not y_edges:
+        y_edges = [1, y_max + 1]
+    elif y_edges[-1] <= y_max:
+        y_edges.append(y_max + 1)
+
+    y_edges = np.array(y_edges, dtype=int)
 
     data["rating_bin"] = data["rating_average"].round(1)
     data["review_bin"] = pd.cut(data["review_count"], bins=y_edges, include_lowest=True, right=False)
@@ -166,7 +165,14 @@ def _chart_11_scatter(df: pd.DataFrame, colors: list[str]):
     )
 
     review_order = sorted(grouped["review_bin"].dropna().unique(), key=lambda i: i.left)
-    y_labels = [f"{int(iv.left):,} - {int(iv.right - 1):,}" for iv in review_order]
+    y_labels = []
+    for iv in review_order:
+        left = int(iv.left)
+        right = int(iv.right - 1)
+        if right >= y_max:
+            y_labels.append(f"{left:,}+")
+        else:
+            y_labels.append(f"{left:,} - {right:,}")
     y_map = {iv: lab for iv, lab in zip(review_order, y_labels)}
 
     grouped["review_label"] = grouped["review_bin"].map(y_map)
@@ -217,7 +223,7 @@ def _chart_11_scatter(df: pd.DataFrame, colors: list[str]):
     _format_chart(fig, height=440)
     fig.update_layout(title="Biểu đồ 1.1: 2D Density Heatmap Rating vs Review Count (lọc rating >= 2)")
     fig.update_xaxes(title="Rating Average", type="category", categoryorder="array", categoryarray=x_labels)
-    fig.update_yaxes(title="Khoảng Review Count (log-binned)", type="category", categoryorder="array", categoryarray=y_labels)
+    fig.update_yaxes(title="Nhóm Review Count", type="category", categoryorder="array", categoryarray=y_labels)
     return fig
 
 
