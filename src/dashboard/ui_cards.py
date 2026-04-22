@@ -9,12 +9,12 @@ import streamlit as st
 
 _TONE_COLORS = {
     "blue": "#1E40AF",
-    "amber": "#1E40AF",
+    "amber": "#D97706",
     "red": "#EF4444",
     "slate": "#64748B",
-    "violet": "#1E40AF",
-    "emerald": "#1E40AF",
-    "cyan": "#1E40AF",
+    "violet": "#7C3AED",
+    "emerald": "#059669",
+    "cyan": "#0891B2",
 }
 
 

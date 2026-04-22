@@ -41,20 +41,33 @@ def _apply_black_text(fig) -> None:
     )
 
 
+def _fmt_ty(value: float) -> str:
+    """Format large VND value in tỷ (billion), e.g. 728.4 Tỷ."""
+    ty = value / 1_000_000_000
+    return format_vn(ty, 1) + " Tỷ"
+
+
 def _render_kpis(df: pd.DataFrame) -> None:
     sold = pd.to_numeric(df.get("all_time_quantity_sold"), errors="coerce")
     price = pd.to_numeric(df.get("price"), errors="coerce")
     rating = pd.to_numeric(df.get("rating_average"), errors="coerce")
 
-    sold_non_null = sold.dropna() if sold is not None else pd.Series(dtype=float)
     revenue = float((price.fillna(0) * sold.fillna(0)).sum()) if price is not None else 0.0
-    avg_sold = float(sold_non_null.mean()) if not sold_non_null.empty else 0.0
 
     valid_ratings = rating.dropna() if rating is not None else pd.Series(dtype=float)
-    valid_ratings = valid_ratings[valid_ratings > 0]
     avg_rating = float(valid_ratings.mean()) if not valid_ratings.empty else 0.0
 
     n_publishers = int(df["publisher_vn"].nunique()) if "publisher_vn" in df.columns else 0
+
+    author_col = next((c for c in ("primary_author", "authors") if c in df.columns), None)
+    n_authors = int(df[author_col].nunique()) if author_col else 0
+
+    pct_authentic = 0.0
+    if "is_authentic" in df.columns:
+        auth = df["is_authentic"]
+        valid_auth = auth.notna()
+        if valid_auth.any():
+            pct_authentic = float(auth[valid_auth].eq(True).sum() / valid_auth.sum() * 100)
 
     rating_benchmark = (
         "Cao hơn mức trung bình ngành (4.0)." if avg_rating >= 4.0 else "Thấp hơn mức trung bình ngành (4.0)."
@@ -64,18 +77,25 @@ def _render_kpis(df: pd.DataFrame) -> None:
     render_kpi_section(
         [
             {
-                "label": "Tổng doanh thu ước tính",
-                "value": f"{format_vn(revenue, 0)} <span class='u'>VND</span>",
+                "label": "Tổng doanh thu (Est.)",
+                "value": f"{_fmt_ty(revenue)} <span class='u'>VND</span>",
                 "icon": "money",
                 "tone": "blue",
                 "subtitle": "Ước tính từ giá × lượng bán.",
             },
             {
-                "label": "Lượng bán trung bình",
-                "value": format_vn(avg_sold, 1),
-                "icon": "chart",
+                "label": "Tổng số đầu sách",
+                "value": format_vn(len(df)),
+                "icon": "book",
+                "tone": "slate",
+                "subtitle": f"Từ {format_vn(n_publishers)} NXB trên toàn quốc.",
+            },
+            {
+                "label": "Số tác giả",
+                "value": format_vn(n_authors),
+                "icon": "users",
                 "tone": "amber",
-                "subtitle": "Mức bán trung bình ổn định.",
+                "subtitle": "Tổng số tác giả trong danh mục.",
             },
             {
                 "label": "Điểm rating trung bình",
@@ -85,16 +105,16 @@ def _render_kpis(df: pd.DataFrame) -> None:
                 "subtitle": rating_benchmark,
             },
             {
-                "label": "Số nhà xuất bản",
-                "value": format_vn(n_publishers),
-                "icon": "book",
-                "tone": "slate",
-                "subtitle": "Phạm vi dữ liệu toàn quốc.",
+                "label": "% Sách chính hãng",
+                "value": f"{format_vn(pct_authentic, 1)}%",
+                "icon": "target",
+                "tone": "emerald",
+                "subtitle": "Tỷ lệ sách có nguồn gốc chính hãng.",
             },
         ],
-        title="CHỈ SỐ BÁN HÀNG CỐT LÕI",
-        summary="Hiệu quả bán hàng đang duy trì ở mức ổn định với doanh thu đạt ngưỡng mục tiêu.",
-        footnote=f"Dữ liệu được tổng hợp từ {format_vn(n_publishers)} nhà xuất bản trên toàn quốc.",
+        title="CHỈ SỐ TỔNG QUAN",
+        summary="Cái nhìn toàn cảnh về quy mô danh mục, hiệu quả kinh doanh và chất lượng sản phẩm.",
+        footnote=f"Dữ liệu được tổng hợp từ {format_vn(n_publishers)} nhà xuất bản, {format_vn(n_authors)} tác giả.",
     )
 
 
@@ -155,11 +175,21 @@ def render_overview_tab(
         * 100
     ) if n_sold > 0 else 0.0
 
+    pct_freeship = 0.0
+    if "has_freeship" in df.columns:
+        fs = df["has_freeship"]
+        valid_fs = fs.notna()
+        if valid_fs.any():
+            pct_freeship = float(fs[valid_fs].eq(True).sum() / valid_fs.sum() * 100)
+
+    n_sellers = int(df["current_seller_name"].nunique()) if "current_seller_name" in df.columns else 0
+
     render_metric_strip(
         [
             {"label": "Sách có doanh số > 0", "value": format_vn(n_sold), "icon": "book", "tone": "blue"},
             {"label": "Doanh số trung vị", "value": format_vn(median_sold), "icon": "chart", "tone": "amber"},
             {"label": "Top 1% sách chiếm", "value": f"{format_vn(top1_pct, 1)}% doanh số", "icon": "target", "tone": "blue"},
+            {"label": "Số người bán", "value": format_vn(n_sellers), "icon": "building", "tone": "slate"},
         ],
         compact=True,
     )
