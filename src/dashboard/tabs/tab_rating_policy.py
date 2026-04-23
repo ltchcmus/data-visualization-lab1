@@ -693,7 +693,14 @@ def _chart_23_grouped_top5(df: pd.DataFrame, colors: list[str]):
     if top5.empty:
         return None
 
-    data = df[df["seller_name"].isin(top5["seller_name"])].copy()
+    # Keep seller normalization consistent with chart 2.2, otherwise Top 5 matching can be empty.
+    seller_col = "current_seller" if "current_seller" in df.columns else "seller_name"
+    data = df.copy()
+    data["seller_name"] = data[seller_col].astype("string").str.strip().fillna("Không Rõ")
+    data.loc[data["seller_name"].isin(["", "<NA>"]), "seller_name"] = "Không Rõ"
+    data["seller_name"] = data["seller_name"].str.title()
+
+    data = data[data["seller_name"].isin(top5["seller_name"])].copy()
     data = data[(data["all_time_quantity_sold"] > 0) & (data["has_freeship"].notna())]
     if data.empty:
         return None
