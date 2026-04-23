@@ -382,6 +382,10 @@ def _chart_13_review_bin_line(df: pd.DataFrame, colors: list[str]):
     agg["avg_sold"] = agg["avg_sold"].fillna(0)
     agg["book_count"] = agg["book_count"].fillna(0)
 
+    # Log-scale bars cannot plot zero, so keep only positive counts on y while preserving labels.
+    bar_y = agg["book_count"].where(agg["book_count"] > 0, np.nan)
+    positive_counts = agg.loc[agg["book_count"] > 0, "book_count"]
+
     # Surge point = bin with the largest positive step-up in average sold.
     delta = agg["avg_sold"].diff().fillna(0)
     surge_idx = int(delta.idxmax()) if len(delta) > 0 else 0
@@ -393,10 +397,13 @@ def _chart_13_review_bin_line(df: pd.DataFrame, colors: list[str]):
     fig.add_trace(
         go.Bar(
             x=agg["review_bin"],
-            y=agg["book_count"],
+            y=bar_y,
             name="Số lượng đầu sách",
-            marker={"color": "#94a3b8"},
-            opacity=0.3,
+            marker={"color": "#9E9E9E"},
+            opacity=0.4,
+            text=agg["book_count"],
+            texttemplate="%{text:,.0f}",
+            textposition="auto",
             yaxis="y2",
             hovertemplate="Nhóm review: %{x}<br>Số lượng đầu sách: %{y:,.0f}<extra></extra>",
         )
@@ -452,6 +459,15 @@ def _chart_13_review_bin_line(df: pd.DataFrame, colors: list[str]):
         borderpad=3,
     )
 
+    y2_range = None
+    if not positive_counts.empty:
+        y2_min = float(positive_counts.min())
+        y2_max = float(positive_counts.max())
+        if y2_max > y2_min:
+            y2_range = [np.log10(y2_min) - 0.05, np.log10(y2_max) + 0.08]
+        else:
+            y2_range = [np.log10(max(1.0, y2_min)) - 0.3, np.log10(max(1.0, y2_max)) + 0.3]
+
     fig.update_layout(
         title="Biểu đồ 1.3: Hành trình Bùng phát: Cần bao nhiêu Review để tạo ra cú hích doanh số?",
         xaxis={"title": "Nhóm review_count", "showgrid": False},
@@ -459,6 +475,7 @@ def _chart_13_review_bin_line(df: pd.DataFrame, colors: list[str]):
             "title": "Doanh số trung bình",
             "showgrid": True,
             "gridcolor": "#e2e8f0",
+            "nticks": 7,
             "tickformat": ",.0f",
             "rangemode": "tozero",
         },
@@ -466,13 +483,19 @@ def _chart_13_review_bin_line(df: pd.DataFrame, colors: list[str]):
             "title": "Số lượng đầu sách",
             "overlaying": "y",
             "side": "right",
+            "type": "log",
             "showgrid": False,
             "tickformat": ",.0f",
-            "rangemode": "tozero",
+            "range": y2_range,
         },
         barmode="overlay",
     )
-    _format_chart(fig, height=360, x_grid=False, y_grid=True)
+    # Keep only primary horizontal gridlines; hide secondary-axis grid to reduce clutter.
+    _format_chart(fig, height=360, x_grid=False, y_grid=False)
+    fig.update_layout(
+        yaxis={**fig.layout.yaxis.to_plotly_json(), "showgrid": True, "gridcolor": "#e2e8f0", "nticks": 7},
+        yaxis2={**fig.layout.yaxis2.to_plotly_json(), "showgrid": False},
+    )
     return fig
 
 
