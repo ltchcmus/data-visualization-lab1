@@ -310,14 +310,12 @@ div[data-testid="stElementContainer"] {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
+    padding: 8px;
     margin-bottom: 12px;
 }
 
 .kpi-strip.kpi-4col {
     grid-template-columns: repeat(4, 1fr);
-    display: grid;
-    gap: 12px;
-    margin-bottom: 12px;
 }
 
 .kpi-strip.compact {

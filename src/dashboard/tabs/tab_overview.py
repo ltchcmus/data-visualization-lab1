@@ -164,7 +164,6 @@ def render_overview_tab(
         cols=4,
     )
 
-    st.caption("Biểu đồ dùng thang log ở trục tung để giảm ảnh hưởng của outliers.")
     _q1_long_tail(df, colors)
     st.markdown('<div style="margin-top: 50px;"></div>', unsafe_allow_html=True)
     with st.expander(":material/notes: Kết luận"):
