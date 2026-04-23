@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-from ..format_utils import format_vn
+from ..format_utils import apply_chart_style, format_vn
 from ..ui_cards import render_kpi_section, render_metric_strip
 
 
@@ -16,29 +16,6 @@ def _filter_sold(df: pd.DataFrame) -> pd.DataFrame:
     sub["all_time_quantity_sold"] = sold[mask].clip(upper=cap).values
     return sub
 
-
-def _apply_black_text(fig) -> None:
-    fig.update_layout(
-        font={"color": "#000000"},
-        title={"font": {"color": "#000000"}},
-        margin={"t": 56},
-    )
-    fig.update_xaxes(
-        title_font={"color": "#000000"},
-        tickfont={"color": "#000000"},
-        showgrid=True,
-        gridcolor="#e7edf5",
-        zerolinecolor="#dbe7f2",
-        linecolor="#dbe7f2",
-    )
-    fig.update_yaxes(
-        title_font={"color": "#000000"},
-        tickfont={"color": "#000000"},
-        showgrid=True,
-        gridcolor="#e7edf5",
-        zerolinecolor="#dbe7f2",
-        linecolor="#dbe7f2",
-    )
 
 
 def _fmt_ty(value: float) -> str:
@@ -136,7 +113,7 @@ def _q1_long_tail(df: pd.DataFrame, colors: list[str]) -> None:
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
     )
-    _apply_black_text(fig)
+    apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander(":material/notes: Nhận xét từ biểu đồ"):
         st.info(
@@ -153,13 +130,13 @@ def render_overview_tab(
     colors: list[str],
     heatmap_scale: str,
 ) -> None:
-    st.markdown(
-        "<div class='tab-page-header'>"
-        "<p class='tph-title'>Tổng quan thị trường sách</p>"
-        "<p class='tph-sub'>Nhìn toàn cảnh hiệu suất kinh doanh — doanh thu, lượng bán và phân bổ doanh số trên toàn bộ danh mục.</p>"
-        "</div>",
-        unsafe_allow_html=True,
-    )
+    # st.markdown(
+    #     "<div class='tab-page-header'>"
+    #     "<p class='tph-title'>Tổng quan thị trường sách</p>"
+    #     "<p class='tph-sub'>Nhìn toàn cảnh hiệu suất kinh doanh — doanh thu, lượng bán và phân bổ doanh số trên toàn bộ danh mục.</p>"
+    #     "</div>",
+    #     unsafe_allow_html=True,
+    # )
 
     _render_kpis(df)
 
@@ -191,6 +168,7 @@ def render_overview_tab(
             {"label": "Số người bán", "value": format_vn(n_sellers), "icon": "building", "tone": "slate"},
         ],
         compact=True,
+        cols=4,
     )
 
     st.caption("Biểu đồ dùng thang log ở trục tung để giảm ảnh hưởng của outliers.")

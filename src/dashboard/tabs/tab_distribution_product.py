@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-from ..format_utils import format_vn
+from ..format_utils import apply_chart_style, format_vn
 from ..ui_cards import render_metric_strip
 
 
@@ -29,29 +29,6 @@ def _filter_sold(df: pd.DataFrame) -> pd.DataFrame:
     sub["all_time_quantity_sold"] = sold[mask].clip(upper=cap).values
     return sub
 
-
-def _apply_black_text(fig) -> None:
-    fig.update_layout(
-        font={"color": "#000000"},
-        title={"font": {"color": "#000000"}},
-        margin={"t": 56},
-    )
-    fig.update_xaxes(
-        title_font={"color": "#000000"},
-        tickfont={"color": "#000000"},
-        showgrid=True,
-        gridcolor="#e7edf5",
-        zerolinecolor="#dbe7f2",
-        linecolor="#dbe7f2",
-    )
-    fig.update_yaxes(
-        title_font={"color": "#000000"},
-        tickfont={"color": "#000000"},
-        showgrid=True,
-        gridcolor="#e7edf5",
-        zerolinecolor="#dbe7f2",
-        linecolor="#dbe7f2",
-    )
 
 
 def _q2_category_boxplot(df: pd.DataFrame, colors: list[str]) -> None:
@@ -85,7 +62,7 @@ def _q2_category_boxplot(df: pd.DataFrame, colors: list[str]) -> None:
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
     )
-    _apply_black_text(fig)
+    apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander(":material/notes: Nhận xét"):
         st.markdown(
@@ -140,7 +117,7 @@ def _q10_pages_vs_sold(df: pd.DataFrame, colors: list[str]) -> None:
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
     )
-    _apply_black_text(fig)
+    apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander(":material/notes: Nhận xét"):
         st.markdown(
@@ -221,7 +198,7 @@ def _q12_niche_market(df: pd.DataFrame, colors: list[str]) -> None:
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
     )
-    _apply_black_text(fig)
+    apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander(":material/notes: Nhận xét"):
         st.markdown(
@@ -241,13 +218,13 @@ def render_distribution_product_tab(
     colors: list[str],
     heatmap_scale: str,
 ) -> None:
-    st.markdown(
-        "<div class='tab-page-header'>"
-        "<p class='tph-title'>Phân tích Đặc tính Sản phẩm</p>"
-        "<p class='tph-sub'>Khám phá mối tương quan giữa thể loại, độ dày và hiệu quả kinh doanh của các đầu sách.</p>"
-        "</div>",
-        unsafe_allow_html=True,
-    )
+    # st.markdown(
+    #     "<div class='tab-page-header'>"
+    #     "<p class='tph-title'>Phân tích Đặc tính Sản phẩm</p>"
+    #     "<p class='tph-sub'>Khám phá mối tương quan giữa thể loại, độ dày và hiệu quả kinh doanh của các đầu sách.</p>"
+    #     "</div>",
+    #     unsafe_allow_html=True,
+    # )
 
     sold_df = _filter_sold(df)
     median_sold = int(sold_df["all_time_quantity_sold"].median())
@@ -260,7 +237,7 @@ def render_distribution_product_tab(
     )
     _render_kpi_row(
         [
-            ("Sách có doanh số > 0", format_vn(len(sold_df)), "book", "blue"),
+            ("Tổng số thể loại", format_vn(len(sold_df)), "book", "blue"),
             ("Doanh số trung vị", format_vn(median_sold), "chart", "amber"),
             ("Top 1% sách chiếm", f"{format_vn(top1_pct, 1)}% doanh số", "target", "blue"),
         ]

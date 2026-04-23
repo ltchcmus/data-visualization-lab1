@@ -168,8 +168,9 @@ def render_metric_strip(
     items: Iterable[dict[str, str]],
     *,
     compact: bool = False,
+    cols: int = 3
 ) -> None:
-    _render_card_grid(items, compact=compact)
+    _render_card_grid(items, compact=compact, cols=cols)
 
 
 def render_kpi_section(
@@ -194,30 +195,37 @@ def render_kpi_section(
     )
     st.markdown("".join(blocks), unsafe_allow_html=True)
 
+def _build_card_grid(
+    items: Iterable[dict[str, str]], 
+    *, 
+    compact: bool,
+    cols: int = 3
+) -> str:
+    col_class = f" kpi-{cols}col" if cols != 3 else ""
+    classes = "kpi-strip" + col_class + (" compact" if compact else "")
 
-def _build_card_grid(items: Iterable[dict[str, str]], *, compact: bool) -> str:
-    classes = "kpi-strip" + (" compact" if compact else "")
     blocks: list[str] = [f'<div class="{classes}">']
+
     for item in items:
         tone = item.get("tone", "blue")
-        color = _TONE_COLORS.get(tone, _TONE_COLORS["blue"])
-        icon = _icon_svg(item.get("icon", "dot"), color)
         label = escape(str(item.get("label", "")))
         value = item.get("value", "")
         value_html = str(value)
         subtitle = item.get("subtitle", "")
         subtitle_html = escape(str(subtitle)) if subtitle else ""
         accent = f" accent-{tone}" if tone else ""
+
         card_parts = [
             f'<div class="kpi-box{accent}">',
-            f'<div class="kpi-icon" style="color:{color};">{icon}</div>',
-            f'<div class="kpi-lbl">{label}</div>',
-            f'<div class="kpi-val">{value_html}</div>',
+            f'<div class="kpi-row"><span class="kpi-lbl">{label}: </span><span class="kpi-val">{value_html}</span></div>',
         ]
+
         if subtitle_html:
             card_parts.append(f'<div class="kpi-sub">{subtitle_html}</div>')
+
         card_parts.append("</div>")
         blocks.append("".join(card_parts))
+
     blocks.append("</div>")
     return "".join(blocks)
 
@@ -226,5 +234,6 @@ def _render_card_grid(
     items: Iterable[dict[str, str]],
     *,
     compact: bool = False,
+    cols: int = 3,
 ) -> None:
-    st.markdown(_build_card_grid(items, compact=compact), unsafe_allow_html=True)
+    st.markdown(_build_card_grid(items, compact=compact, cols=cols), unsafe_allow_html=True)

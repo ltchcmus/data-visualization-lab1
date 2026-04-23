@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import streamlit as st
 
-from ..format_utils import format_vn
+from ..format_utils import apply_chart_style, format_vn
 from ..ui_cards import render_metric_strip
 
 # ---------------------------------------------------------------------------
@@ -33,13 +33,6 @@ def _clean_author(x):
         return "Nhiều tác giả"
     return s
 
-
-def _apply_black_text(fig) -> None:
-    fig.update_layout(font={"color": "#000"}, title={"font": {"color": "#000"}})
-    fig.update_xaxes(title_font_color="#000", tickfont_color="#000",
-                     showgrid=True, gridcolor="#e7edf5", zerolinecolor="#dbe7f2", linecolor="#dbe7f2")
-    fig.update_yaxes(title_font_color="#000", tickfont_color="#000",
-                     showgrid=True, gridcolor="#e7edf5", zerolinecolor="#dbe7f2", linecolor="#dbe7f2")
 
 
 def _render_kpi_row(items):
@@ -83,7 +76,7 @@ def _chart_top_publishers(df, colors):
     fig.update_layout(coloraxis_showscale=False, plot_bgcolor="rgba(0,0,0,0)",
                       paper_bgcolor="rgba(0,0,0,0)", yaxis_categoryorder="total ascending",
                       margin=dict(t=50,b=10))
-    _apply_black_text(fig)
+    apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander(":material/notes: Nhận xét"):
         st.markdown("- Chỉ lấy NXB có **≥5 đầu sách** để tránh bias.\n- NXB dẫn đầu thường có hệ thống phân phối mạnh hoặc tập trung vào thể loại hot.")
@@ -112,7 +105,7 @@ def _chart_publisher_donut(df, colors):
                       plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
                       showlegend=True, legend=dict(font_size=10),
                       margin=dict(t=50,b=10,l=10,r=10))
-    _apply_black_text(fig)
+    apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander(":material/notes: Nhận xét"):
         st.markdown("- Nếu 2-3 NXB chiếm >50% → thị trường **tập trung cao**, ít cạnh tranh.\n- Phần \"Khác\" lớn → nhiều NXB nhỏ cùng chia sẻ thị phần.")
@@ -138,7 +131,7 @@ def _chart_publisher_bubble(df, colors):
                      title="NXB: Quy mô danh mục vs Hiệu quả bán hàng")
     fig.update_layout(plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
                       coloraxis_colorbar_title="DS TB", margin=dict(t=50,b=10))
-    _apply_black_text(fig)
+    apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander(":material/notes: Nhận xét"):
         st.markdown("- Bong bóng lớn + nằm cao → NXB **vừa nhiều sách, vừa bán tốt**.\n- NXB nhỏ nằm cao → niche nhưng hiệu quả.\n- NXB lớn nằm thấp → cần xem lại chiến lược.")
@@ -172,7 +165,7 @@ def _chart_author_pareto(df, colors):
         legend=dict(orientation="h",y=1.12,x=0.5,xanchor="center"),
         plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
         margin=dict(t=50,b=80))
-    _apply_black_text(fig)
+    apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander(":material/notes: Nhận xét"):
         st.markdown("- Đường cắt **80%** sớm → thị trường tập trung vào ít tác giả.\n- Tác giả bar cao + nhiều đầu sách → bán đều tay, ổn định.")
@@ -204,7 +197,7 @@ def _chart_top_books(df, colors):
                       yaxis_categoryorder="total ascending", yaxis_title="",
                       xaxis_title="Lượng bán", plot_bgcolor="rgba(0,0,0,0)",
                       paper_bgcolor="rgba(0,0,0,0)", margin=dict(l=10,r=40,t=50,b=10))
-    _apply_black_text(fig)
+    apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander(":material/notes: Nhận xét"):
         st.markdown("- Đối chiếu với Pareto: tác giả top nhờ **siêu phẩm** hay nhờ **bán đều tay** trên nhiều tựa.")
@@ -237,7 +230,7 @@ def _chart_author_consistency(df, colors):
                   annotation_text="50% — Ngưỡng phụ thuộc", annotation_position="top left")
     fig.update_layout(plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
                       margin=dict(t=50,b=10))
-    _apply_black_text(fig)
+    apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander(":material/notes: Nhận xét"):
         st.markdown("- **Dưới 50%**: tác giả bán đều tay → ít rủi ro.\n- **Trên 50%**: phụ thuộc 1 cuốn → rủi ro cao nếu cuốn đó hết trend.\n- Bong bóng lớn + thấp = tác giả **ổn định và mạnh**.")
@@ -268,7 +261,7 @@ def _chart_publisher_rating(df, colors):
                      title="NXB: Chất lượng đánh giá vs Hiệu quả bán hàng")
     fig.update_layout(plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
                       coloraxis_colorbar_title="DS TB", margin=dict(t=50,b=10))
-    _apply_black_text(fig)
+    apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander(":material/notes: Nhận xét"):
         st.markdown("- NXB nằm **phải + cao** → vừa chất lượng, vừa bán tốt.\n- Rating cao nhưng doanh số thấp → sách tốt nhưng chưa được tiếp cận rộng.")
@@ -296,7 +289,7 @@ def _chart_publisher_price_box(df, colors):
     fig.update_layout(showlegend=False, xaxis_tickangle=-30,
                       plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
                       margin=dict(t=50,b=10))
-    _apply_black_text(fig)
+    apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander(":material/notes: Nhận xét"):
         st.markdown("- NXB có box hẹp → chiến lược giá **đồng nhất**.\n- Box rộng → danh mục đa dạng từ bình dân đến cao cấp.\n- Median thấp + doanh số cao → chiến lược **giá rẻ hút khách**.")
@@ -334,26 +327,21 @@ def _chart_publisher_revenue(df, colors):
                       margin=dict(t=55,b=80))
     fig.update_yaxes(title_text="Doanh thu (₫)", secondary_y=False)
     fig.update_yaxes(title_text="Tổng lượng bán", secondary_y=True)
-    _apply_black_text(fig)
+    apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander(":material/notes: Nhận xét"):
         st.markdown("- NXB doanh thu cao nhưng lượng bán thấp → bán sách **giá cao**.\n- NXB lượng bán cao nhưng doanh thu thấp → chiến lược **số lượng lớn, giá thấp**.")
 
-
-# ===========================================================================
-# MAIN RENDER
-# ===========================================================================
-
 def render_publisher_author_tab(
     df: pd.DataFrame, *, colors: list[str], heatmap_scale: str,
 ) -> None:
-    st.markdown(
-        "<div class='tab-page-header'>"
-        "<p class='tph-title'>Phân tích Nhà xuất bản & Tác giả</p>"
-        "<p class='tph-sub'>So sánh hiệu suất giữa các nhà xuất bản và tác giả — xác định đơn vị dẫn đầu về doanh số và mức độ tin tưởng của độc giả.</p>"
-        "</div>",
-        unsafe_allow_html=True,
-    )
+    # st.markdown(
+    #     "<div class='tab-page-header'>"
+    #     "<p class='tph-title'>Phân tích Nhà xuất bản & Tác giả</p>"
+    #     "<p class='tph-sub'>So sánh hiệu suất giữa các nhà xuất bản và tác giả — xác định đơn vị dẫn đầu về doanh số và mức độ tin tưởng của độc giả.</p>"
+    #     "</div>",
+    #     unsafe_allow_html=True,
+    # )
 
     # --- KPI ---
     sold_df = _filter_sold(df)

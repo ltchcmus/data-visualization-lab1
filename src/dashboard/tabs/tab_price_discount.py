@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 import streamlit as st
 from plotly.subplots import make_subplots
 
-from ..format_utils import format_vn
+from ..format_utils import apply_chart_style, format_vn
 from ..ui_cards import render_metric_strip
 
 
@@ -17,28 +17,6 @@ def _filter_sold(df: pd.DataFrame) -> pd.DataFrame:
     sub["all_time_quantity_sold"] = sold[mask].clip(upper=cap).values
     return sub
 
-
-def _apply_black_text(fig) -> None:
-    fig.update_layout(
-        font={"color": "#000000"},
-        title={"font": {"color": "#000000"}},
-    )
-    fig.update_xaxes(
-        title_font={"color": "#000000"},
-        tickfont={"color": "#000000"},
-        showgrid=True,
-        gridcolor="#e7edf5",
-        zerolinecolor="#dbe7f2",
-        linecolor="#dbe7f2",
-    )
-    fig.update_yaxes(
-        title_font={"color": "#000000"},
-        tickfont={"color": "#000000"},
-        showgrid=True,
-        gridcolor="#e7edf5",
-        zerolinecolor="#dbe7f2",
-        linecolor="#dbe7f2",
-    )
 
 
 def _render_kpi_row(items: list[tuple[str, str, str, str]]) -> None:
@@ -176,7 +154,7 @@ def _q5_discount_threshold(df: pd.DataFrame, colors: list[str]) -> None:
     # Using log scale for left Y-axis since Total Sold (M) and Avg Sold (K) have large magnitude difference
     fig.update_yaxes(title_text="Lượng bán (cuốn) - Log Scale", type="log", secondary_y=False)
     fig.update_yaxes(title_text="Tỷ trọng (%)", secondary_y=True)
-    _apply_black_text(fig)
+    apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
 
     with st.expander(":material/notes: Nhận xét"):
@@ -236,7 +214,7 @@ def _q9_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
         legend={"orientation": "h", "y": -0.2},
         margin=dict(t=50, b=0),
     )
-    _apply_black_text(fig)
+    apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander(":material/notes: Nhận xét"):
         st.markdown(
@@ -324,7 +302,7 @@ def _q10_price_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
     )
     fig.update_yaxes(title_text="Số đầu sách", secondary_y=False)
     fig.update_yaxes(title_text="Giá trung bình (₫)", secondary_y=True)
-    _apply_black_text(fig)
+    apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
 
     with st.expander(":material/notes: Nhận xét"):
@@ -344,13 +322,13 @@ def render_price_discount_tab(
     colors: list[str],
     heatmap_scale: str,
 ) -> None:
-    st.markdown(
-        "<div class='tab-page-header'>"
-        "<p class='tph-title'>Phân tích Giá & Chiết khấu</p>"
-        "<p class='tph-sub'>Đánh giá tác động của mức giá và mức chiết khấu đến doanh số — tìm ngưỡng tối ưu để tối đa hoá hiệu quả bán hàng.</p>"
-        "</div>",
-        unsafe_allow_html=True,
-    )
+    # st.markdown(
+    #     "<div class='tab-page-header'>"
+    #     "<p class='tph-title'>Phân tích Giá & Chiết khấu</p>"
+    #     "<p class='tph-sub'>Đánh giá tác động của mức giá và mức chiết khấu đến doanh số — tìm ngưỡng tối ưu để tối đa hoá hiệu quả bán hàng.</p>"
+    #     "</div>",
+    #     unsafe_allow_html=True,
+    # )
 
     sold_df = _filter_sold(df)
     disc = pd.to_numeric(sold_df.get("discount_rate", pd.Series(dtype=float)), errors="coerce")
