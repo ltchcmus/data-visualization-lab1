@@ -1,0 +1,17 @@
+[theme]
+primaryColor = "#1d4ed8"
+backgroundColor = "#f8fafc"
+secondaryBackgroundColor = "#eef4ff"
+textColor = "#1e293b"
+linkColor = "#2563eb"
+borderColor = "#d6e3f0"
+codeBackgroundColor = "#f1f5f9"
+codeTextColor = "#1e293b"
+
+showWidgetBorder = true
+showSidebarBorder = true
+baseRadius = "8px"
+buttonRadius = "8px"
+
+font = "sans serif"
+codeFont = "monospace"
