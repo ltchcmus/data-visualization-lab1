@@ -460,6 +460,8 @@ def _chart_13_review_bin_line(df: pd.DataFrame, colors: list[str]):
     )
 
     y2_range = None
+    y2_tick_vals = None
+    y2_tick_text = None
     if not positive_counts.empty:
         y2_min = float(positive_counts.min())
         y2_max = float(positive_counts.max())
@@ -467,6 +469,18 @@ def _chart_13_review_bin_line(df: pd.DataFrame, colors: list[str]):
             y2_range = [np.log10(y2_min) - 0.05, np.log10(y2_max) + 0.08]
         else:
             y2_range = [np.log10(max(1.0, y2_min)) - 0.3, np.log10(max(1.0, y2_max)) + 0.3]
+
+        # Keep secondary log ticks sparse so zooming does not flood labels.
+        exp_min = int(np.floor(np.log10(max(1.0, y2_min))))
+        exp_max = int(np.ceil(np.log10(max(1.0, y2_max))))
+        raw_ticks = [float(10**e) for e in range(exp_min, exp_max + 1)]
+        if len(raw_ticks) > 5:
+            step = int(np.ceil(len(raw_ticks) / 5))
+            raw_ticks = raw_ticks[::step]
+            if raw_ticks[-1] != float(10**exp_max):
+                raw_ticks.append(float(10**exp_max))
+        y2_tick_vals = raw_ticks
+        y2_tick_text = [f"{v:,.0f}" for v in raw_ticks]
 
     fig.update_layout(
         title="Biểu đồ 1.3: Hành trình Bùng phát: Cần bao nhiêu Review để tạo ra cú hích doanh số?",
@@ -487,6 +501,9 @@ def _chart_13_review_bin_line(df: pd.DataFrame, colors: list[str]):
             "showgrid": False,
             "tickformat": ",.0f",
             "range": y2_range,
+            "tickmode": "array" if y2_tick_vals else "auto",
+            "tickvals": y2_tick_vals,
+            "ticktext": y2_tick_text,
         },
         barmode="overlay",
     )
