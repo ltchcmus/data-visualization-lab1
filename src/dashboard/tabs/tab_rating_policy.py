@@ -220,6 +220,66 @@ def _chart_11_scatter(df: pd.DataFrame, colors: list[str]):
         }
     )
 
+    # Keep original criterion: pop out top 1-2 cells by absolute total sold.
+    # Visual method: subtle red square-outline to frame the hot cell itself.
+    sold_for_rank = np.nan_to_num(sold_matrix, nan=0.0)
+    if sold_for_rank.size > 0 and sold_for_rank.max() > 0:
+        top_count = min(2, int(np.count_nonzero(sold_for_rank > 0)))
+        flat_idx = np.argsort(sold_for_rank.ravel())[::-1][:top_count]
+
+        hot_points = []
+        for rank, idx in enumerate(flat_idx, start=1):
+            row, col = np.unravel_index(idx, sold_for_rank.shape)
+            hot_points.append(
+                {
+                    "rank": rank,
+                    "x": x_labels[col],
+                    "y": y_labels[row],
+                    "sold": float(sold_for_rank[row, col]),
+                    "books": float(count_matrix[row, col]),
+                }
+            )
+
+        # Arrow callout overlay: anchored at exact cell center (category x/y),
+        # then offset in pixels so labels stay clear and readable.
+        arrow_offsets = [(-26, -34), (30, -24)]
+        for i, p in enumerate(hot_points):
+            ax, ay = arrow_offsets[i] if i < len(arrow_offsets) else (32, -24)
+
+            # For category axes, numeric-looking labels (e.g. "4.8") can be parsed as numbers
+            # by annotations and drift left/right. Use category indices to lock the arrow tip
+            # exactly to the same heatmap cell.
+            x_cat = x_labels.index(p["x"])
+            y_cat = y_labels.index(p["y"])
+
+            fig.add_annotation(
+                x=x_cat,
+                y=y_cat,
+                xref="x",
+                yref="y",
+                text=f"Hot {p['rank']}",
+                showarrow=True,
+                arrowhead=2,
+                arrowsize=1,
+                arrowwidth=1.4,
+                arrowcolor="rgba(185,28,28,0.88)",
+                ax=ax,
+                ay=ay,
+                bgcolor="rgba(255,255,255,0.92)",
+                bordercolor="rgba(185,28,28,0.55)",
+                borderwidth=1,
+                borderpad=3,
+                font={"size": 10, "color": "#7f1d1d"},
+                align="center",
+                hovertext=(
+                    f"Hot zone {p['rank']}<br>"
+                    f"Rating: {p['x']}<br>"
+                    f"Review: {p['y']}<br>"
+                    f"Tổng doanh số: {p['sold']:,.0f}<br>"
+                    f"Số đầu sách: {p['books']:,.0f}"
+                ),
+            )
+
     _format_chart(fig, height=440)
     fig.update_layout(title="Biểu đồ 1.1: 2D Density Heatmap Rating vs Review Count (lọc rating >= 2)")
     fig.update_xaxes(title="Rating Average", type="category", categoryorder="array", categoryarray=x_labels)
@@ -237,26 +297,64 @@ def _chart_12_rating_bin(df: pd.DataFrame, colors: list[str]):
     data["rating_bin"] = pd.cut(data["rating_average"], bins=bins, labels=labels, include_lowest=True, right=True)
 
     agg = (
-        data.groupby("rating_bin", observed=False)["all_time_quantity_sold"]
-        .mean()
+        data.groupby("rating_bin", observed=False)
+        .agg(
+            avg_sold=("all_time_quantity_sold", "mean"),
+            book_count=("all_time_quantity_sold", "size"),
+        )
         .reindex(labels)
         .reset_index()
-        .rename(columns={"all_time_quantity_sold": "avg_sold"})
     )
 
-    fig = px.bar(
-        agg,
-        x="rating_bin",
-        y="avg_sold",
-        color="rating_bin",
-        color_discrete_sequence=colors if colors else ["#2563eb", "#0ea5e9", "#22c55e", "#f97316"],
-        hover_data={"avg_sold": ":,.0f"},
-        labels={"rating_bin": "Nhóm rating", "avg_sold": "Doanh số trung bình"},
-        title="Biểu đồ 1.2: Doanh số trung bình theo nhóm rating",
+    bar_color = colors[0] if colors else "#4f6d8a"
+    line_color = "#d97706"
+
+    fig = go.Figure()
+    fig.add_trace(
+        go.Bar(
+            x=agg["rating_bin"],
+            y=agg["avg_sold"],
+            name="Doanh số trung bình",
+            marker={"color": bar_color},
+            opacity=0.7,
+            text=agg["avg_sold"],
+            texttemplate="%{text:,.0f}",
+            textposition="outside",
+            hovertemplate="Nhóm rating: %{x}<br>Doanh số trung bình: %{y:,.0f}<extra></extra>",
+            yaxis="y",
+        )
     )
-    fig.update_traces(texttemplate="%{y:,.0f}", textposition="outside")
-    _format_chart(fig, height=340, y_grid=True)
-    fig.update_layout(showlegend=False)
+
+    fig.add_trace(
+        go.Scatter(
+            x=agg["rating_bin"],
+            y=agg["book_count"],
+            mode="lines+markers+text",
+            name="Số lượng đầu sách",
+            line={"color": line_color, "width": 2.6},
+            marker={"size": 8, "color": line_color},
+            text=agg["book_count"],
+            texttemplate="%{text:,.0f}",
+            textposition="top center",
+            hovertemplate="Nhóm rating: %{x}<br>Số lượng đầu sách: %{y:,.0f}<extra></extra>",
+            yaxis="y2",
+        )
+    )
+
+    _format_chart(fig, height=360, y_grid=True, x_grid=False)
+    fig.update_layout(
+        title="Biểu đồ 1.2: Sức mạnh của Rating: Hiệu quả bán hàng và Quy mô nhóm",
+        xaxis={"title": "Nhóm rating", "showgrid": False},
+        yaxis={"title": "Doanh số trung bình", "showgrid": True, "gridcolor": "#e2e8f0"},
+        yaxis2={
+            "title": "Số lượng đầu sách",
+            "overlaying": "y",
+            "side": "right",
+            "showgrid": False,
+            "rangemode": "tozero",
+        },
+        legend={"orientation": "h", "y": 1.14, "x": 1.0, "xanchor": "right", "yanchor": "bottom"},
+    )
     return fig
 
 
