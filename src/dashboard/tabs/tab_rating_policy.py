@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import numpy as np
 import pandas as pd
-import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
@@ -606,7 +605,14 @@ def _chart_21_freeship_box(df: pd.DataFrame, colors: list[str]):
 
 
 def _top_seller_table(df: pd.DataFrame, n: int) -> pd.DataFrame:
-    data = df[(df["seller_name"].notna()) & (df["all_time_quantity_sold"] > 0)].copy()
+    # Priority: normalize current_seller for charting; fallback to prepared seller_name.
+    seller_col = "current_seller" if "current_seller" in df.columns else "seller_name"
+    data = df.copy()
+    data["seller_name"] = data[seller_col].astype("string").str.strip().fillna("Không Rõ")
+    data.loc[data["seller_name"].isin(["", "<NA>"]), "seller_name"] = "Không Rõ"
+    data["seller_name"] = data["seller_name"].str.title()
+
+    data = data[(data["seller_name"].notna()) & (data["all_time_quantity_sold"] > 0)].copy()
     if data.empty:
         return pd.DataFrame(columns=["seller_name", "total_sold"])
 
@@ -625,21 +631,60 @@ def _chart_22_top_seller_bar(df: pd.DataFrame, colors: list[str]):
     if top10.empty:
         return None
 
-    fig = px.bar(
-        top10.sort_values("total_sold", ascending=True),
-        x="total_sold",
-        y="seller_name",
-        orientation="h",
-        text="total_sold",
-        color="total_sold",
-        color_continuous_scale=[[0, "#cbd5e1"], [1, colors[0] if colors else "#2563eb"]],
-        labels={"total_sold": "Tổng doanh số", "seller_name": "Nhà cung cấp"},
-        hover_data={"total_sold": ":,.0f"},
-        title="Biểu đồ 2.2: Top 10 nhà cung cấp theo tổng doanh số",
+    total_top10 = float(top10["total_sold"].sum())
+    if total_top10 <= 0:
+        return None
+
+    top10 = top10.copy()
+    top10["share_pct"] = (top10["total_sold"] / total_top10) * 100.0
+
+    def _compact_number(value: float) -> str:
+        abs_val = abs(float(value))
+        if abs_val >= 1_000_000_000:
+            return f"{value / 1_000_000_000:.2f}B"
+        if abs_val >= 1_000_000:
+            return f"{value / 1_000_000:.2f}M"
+        if abs_val >= 1_000:
+            return f"{value / 1_000:.0f}K"
+        return f"{value:.0f}"
+
+    # Label format example: 4.66M (85%)
+    top10["label_text"] = top10.apply(
+        lambda r: f"{_compact_number(r['total_sold'])} ({r['share_pct']:.0f}%)",
+        axis=1,
     )
-    fig.update_traces(texttemplate="%{text:,.0f}", textposition="outside")
-    _format_chart(fig, height=360, x_grid=True, y_grid=False)
-    fig.update_layout(coloraxis_showscale=False)
+
+    plot_df = top10.sort_values("total_sold", ascending=False)
+    bar_color = colors[0] if colors else "#2563eb"
+
+    fig = go.Figure(
+        data=[
+            go.Bar(
+                x=plot_df["total_sold"],
+                y=plot_df["seller_name"],
+                orientation="h",
+                marker={"color": bar_color},
+                text=plot_df["label_text"],
+                textposition="outside",
+                hovertemplate=(
+                    "Nhà cung cấp: %{y}<br>"
+                    "Tổng doanh số: %{x:,.0f}<br>"
+                    "Thị phần trong Top 10: %{customdata:.2f}%<extra></extra>"
+                ),
+                customdata=plot_df["share_pct"],
+                cliponaxis=False,
+            )
+        ]
+    )
+
+    _format_chart(fig, height=390, x_grid=True, y_grid=False)
+    fig.update_layout(
+        title="Biểu đồ 2.2: Sự thống trị thị trường: Tiki Trading áp đảo hoàn toàn Top 10 nhà cung cấp",
+        xaxis_title="Tổng doanh số",
+        yaxis_title="Nhà cung cấp",
+    )
+    # Reverse category order so the longest bar is shown at the top.
+    fig.update_yaxes(autorange="reversed")
     return fig
 
 
