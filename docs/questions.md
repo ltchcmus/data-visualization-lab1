@@ -39,6 +39,7 @@ sự cạnh tranh giữa các đầu sách trở nên ít hơn nhưng giá trị
 ## Câu 2 — Hiệu quả bán hàng theo danh mục (Công)
 
 **Câu hỏi:** Phân tích sự khác biệt về hiệu quả bán hàng giữa các mục (categories) nhằm xác định xem mục nào sẽ tiềm năng doanh số trên dataset này.
+**Mục tiêu:** Phân tích hiệu quả bán hàng của 15 thể loại sách hàng đầu để xác định ít nhất 2 danh mục 'Tiềm năng (Niche)' có mức Rating trung bình >4.8 và doanh số ổn định (thể hiện qua biểu đồ phân vùng danh mục) nhằm đề xuất chiến lược nhập hàng tập trung trước cuối kỳ
 
 **Biểu đồ:** Boxplot
 
@@ -84,6 +85,8 @@ sự cạnh tranh giữa các đầu sách trở nên ít hơn nhưng giá trị
 ## Câu 5 — Ngưỡng giảm giá tác động đến doanh số (Hiểu)
 
 **Câu hỏi:** Có tồn tại một ngưỡng giảm giá nào mà tại đó doanh số tăng vọt không? Hay sự tương quan giữa Tỷ lệ giảm giá (`discount_rate`) và Doanh số (`all_time_quantity_sold`) là tuyến tính?
+
+**Mục tiêu:** Xác định ngưỡng giảm giá tối ưu trong các dải từ 0% đến >75% để tìm ra mức chiết khấu giúp đạt tỷ trọng doanh thu cao nhất và đánh giá tính phi tuyến tính của mối quan hệ này trước khi kết thúc giai đoạn phân tích dữ liệu.
 
 **Biểu đồ:** Bar + Line (dual axis)
 
@@ -140,6 +143,8 @@ sự cạnh tranh giữa các đầu sách trở nên ít hơn nhưng giá trị
 
 **Câu hỏi:** Phân tích sự ảnh hưởng của discount đến sales: Discount có thực sự làm sách xuất bản gần đây có lợi thế doanh số hơn sách cũ không? Xu hướng lượng bán thay đổi theo năm xuất bản (`publication_date`) như thế nào?
 
+**Mục tiêu:** So sánh hiệu quả doanh số của nhóm sách mới xuất bản (2020–2025) so với nhóm sách cũ dựa trên xu hướng lượng bán và giá bán trung bình, nhằm chứng minh liệu việc giảm giá bán (đang có xu hướng giảm ở biểu đồ 3) có thực sự tạo ra ưu thế doanh số vượt trội cho sách mới hay không.
+
 **Biểu đồ:** Bar Chart theo năm + đường trung bình động
 
 | Trục | Cột |
@@ -154,6 +159,7 @@ sự cạnh tranh giữa các đầu sách trở nên ít hơn nhưng giá trị
 ## Câu 10 — Độ dày sách vs Doanh số (Đề)
 
 **Câu hỏi:** Độ dày của sách (`number_of_page`) có tương quan với doanh số không? Người mua có xu hướng chọn sách ngắn gọn hay sách dài nội dung?
+Xác định mối tương quan giữa số trang và doanh số để kết luận liệu nhóm sách có độ dày từ 100–300 trang có chiếm ưu thế về lượng bán (doanh số >1000 bản) so với các nhóm khác hay không, từ đó tối ưu hóa tiêu chí chọn lựa sản phẩm
 
 **Biểu đồ:** Scatter Plot + đường hồi quy
 

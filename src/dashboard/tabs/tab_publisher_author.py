@@ -38,7 +38,7 @@ def _clean_author(x):
 def _render_kpi_row(items):
     render_metric_strip(
         [{"label": l, "value": v, "icon": i, "tone": t} for l, v, i, t in items],
-        compact=True,
+        compact=True, cols=4
     )
 
 
@@ -208,11 +208,9 @@ def render_publisher_author_tab(
 
     col_a, col_b = st.columns(2)
     with col_a:
-        st.markdown("<div class='section-card'>", unsafe_allow_html=True)
         _chart_author_pareto(df, colors)
         st.markdown("</div>", unsafe_allow_html=True)
     with col_b:
-        st.markdown("<div class='section-card'>", unsafe_allow_html=True)
         _chart_author_consistency(df, colors)
         st.markdown("</div>", unsafe_allow_html=True)
 
@@ -220,11 +218,9 @@ def render_publisher_author_tab(
 
     col_c, col_d = st.columns(2)
     with col_c:
-        st.markdown("<div class='section-card'>", unsafe_allow_html=True)
         _chart_top_publishers(df, colors)
         st.markdown("</div>", unsafe_allow_html=True)
     with col_d:
-        st.markdown("<div class='section-card'>", unsafe_allow_html=True)
         _chart_publisher_donut(df, colors)
         st.markdown("</div>", unsafe_allow_html=True)
 

@@ -18,13 +18,13 @@ BOOL_FILTER_COL = "has_freeship"
 
 
 BOOK_TYPE_MAP: dict[str, str | None] = {
-    "Loại sách": None,
+    "Tất cả loại": None,
     "Sách tiếng Việt": "sach-truyen-tieng-viet",
     "Sách tiếng Anh": "sach-tieng-anh",
 }
 
 YEAR_PRESET_MAP: dict[str, tuple[int, int] | None] = {
-    "Năm xuất bản": None,
+    "Tất cả năm": None,
     "2020 – nay": (2020, 9999),
     "2015 – 2019": (2015, 2019),
     "2010 – 2014": (2010, 2014),

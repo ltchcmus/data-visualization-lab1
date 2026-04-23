@@ -227,7 +227,7 @@ def _q9_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
         go.Scatter(
             x=yearly["publication_year"],
             y=yearly["rolling_avg"],
-            name="Trung bình động (3 năm)",
+            name="Xu hướng lượng bán (3 năm)",
             mode="lines",
             line={"color": colors[1], "width": 2.5},
         )
@@ -255,34 +255,34 @@ def _q9_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
 
 
 def _q10_price_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
-    """Biểu đồ giá trung bình & số lượng sách theo năm xuất bản."""
+    """Biểu đồ chiết khấu trung bình động & số lượng sách theo năm xuất bản."""
     if "publication_year" not in df.columns:
         st.info("Không có cột publication_year.")
         return
-    if "price" not in df.columns:
-        st.info("Không có cột price.")
+    if "discount_rate" not in df.columns:
+        st.info("Không có cột discount_rate.")
         return
 
     year_col = pd.to_numeric(df["publication_year"], errors="coerce")
-    price_col = pd.to_numeric(df["price"], errors="coerce")
-    mask = year_col.between(2000, 2025) & price_col.notna()
+    disc_col = pd.to_numeric(df["discount_rate"], errors="coerce")
+    mask = year_col.between(2000, 2025) & disc_col.notna()
     valid = df[mask].copy()
     valid["publication_year"] = year_col[mask].astype(int).values
-    valid["price"] = price_col[mask].values
+    valid["discount_rate"] = disc_col[mask].values
 
     yearly = (
         valid.groupby("publication_year")
         .agg(
-            avg_price=("price", "mean"),
-            count=("price", "size"),
+            avg_discount=("discount_rate", "mean"),
+            count=("discount_rate", "size"),
         )
         .reset_index()
         .sort_values("publication_year")
     )
-    yearly["price_rolling"] = yearly["avg_price"].rolling(3, center=True, min_periods=1).mean()
+    yearly["discount_rolling"] = yearly["avg_discount"].rolling(3, center=True, min_periods=1).mean()
 
-    c_bar = colors[2] if len(colors) > 2 else "#10b981"
-    c_line = colors[3] if len(colors) > 3 else "#f59e0b"
+    c_bar = colors[0] if len(colors) > 0 else "#3b82f6"
+    c_line = colors[1] if len(colors) > 1 else "#f59e0b"
 
     fig = make_subplots(specs=[[{"secondary_y": True}]])
 
@@ -300,28 +300,28 @@ def _q10_price_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
     fig.add_trace(
         go.Scatter(
             x=yearly["publication_year"],
-            y=yearly["avg_price"],
-            name="Giá TB",
+            y=yearly["avg_discount"],
+            name="Chiết khấu TB",
             mode="markers",
             marker={"color": c_line, "size": 5},
-            hovertemplate="Giá TB: %{y:,.0f} ₫<extra></extra>",
+            hovertemplate="Chiết khấu TB: %{y:.1f}%<extra></extra>",
         ),
         secondary_y=True,
     )
     fig.add_trace(
         go.Scatter(
             x=yearly["publication_year"],
-            y=yearly["price_rolling"],
-            name="Giá TB động (3 năm)",
+            y=yearly["discount_rolling"],
+            name="Chiết khấu TB động (3 năm)",
             mode="lines",
             line={"color": c_line, "width": 2.5},
-            hovertemplate="Giá TB động: %{y:,.0f} ₫<extra></extra>",
+            hovertemplate="Chiết khấu TB động: %{y:.1f}%<extra></extra>",
         ),
         secondary_y=True,
     )
 
     fig.update_layout(
-        title="Giá trung bình & số đầu sách theo năm xuất bản",
+        title="Chiết khấu trung bình & số đầu sách theo năm xuất bản",
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
         legend={"orientation": "h", "y": -0.2},
@@ -329,7 +329,7 @@ def _q10_price_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
         hovermode="x unified",
     )
     fig.update_yaxes(title_text="Số đầu sách", secondary_y=False)
-    fig.update_yaxes(title_text="Giá trung bình (₫)", secondary_y=True)
+    fig.update_yaxes(title_text="Chiết khấu trung bình (%)", secondary_y=True)
     apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
 
@@ -371,16 +371,13 @@ def render_price_discount_tab(
         ]
     )
 
-    st.markdown("<div class='section-card'>", unsafe_allow_html=True)
     _q5_discount_threshold(df, colors)
     st.markdown("</div>", unsafe_allow_html=True)
 
     col_left, col_right = st.columns(2)
     with col_left:
-        st.markdown("<div class='section-card'>", unsafe_allow_html=True)
         _q9_year_trend(df, colors)
         st.markdown("</div>", unsafe_allow_html=True)
     with col_right:
-        st.markdown("<div class='section-card'>", unsafe_allow_html=True)
         _q10_price_year_trend(df, colors)
         st.markdown("</div>", unsafe_allow_html=True)
