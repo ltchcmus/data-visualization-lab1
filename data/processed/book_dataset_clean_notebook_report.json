@@ -3,10 +3,24 @@
   "main_output_path": "C:\\Users\\ACER\\Desktop\\Work\\Project\\DataVis\\Lab\\PlotTwist\\data\\processed\\book_dataset_clean_notebook.csv",
   "author_output_path": "C:\\Users\\ACER\\Desktop\\Work\\Project\\DataVis\\Lab\\PlotTwist\\data\\processed\\book_dataset_authors_long_notebook.csv",
   "raw_rows": 132955,
-  "rows_after_cleaning": 36808,
-  "rows_dropped_by_critical_missing": 96147,
-  "dropped_single_value_columns": [
+  "rows_after_cleaning": 36763,
+  "rows_dropped_by_page_range_filter": 66968,
+  "rows_dropped_by_critical_missing": 29224,
+  "page_range_filter": {
+    "enabled": true,
+    "column": "number_of_page",
+    "min": 1,
+    "max": 5000
+  },
+  "dropped_single_value_columns_pass1": [
+    "stock",
     "cat_level_1"
+  ],
+  "dropped_single_value_columns_pass2": [],
+  "dropped_single_value_columns_final_export": [],
+  "dropped_single_value_columns": [
+    "cat_level_1",
+    "stock"
   ],
   "critical_columns_used": [
     "name",
@@ -67,7 +81,6 @@
     "isbn13",
     "book_cover",
     "inventory_status",
-    "stock",
     "is_authentic",
     "has_return_policy",
     "cat_level_4",
