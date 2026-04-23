@@ -363,45 +363,116 @@ def _chart_13_review_bin_line(df: pd.DataFrame, colors: list[str]):
     if data.empty:
         return None
 
-    labels = ["0-10", "11-50", "50-100", ">100"]
-    bins = [-0.001, 10, 50, 100, float("inf")]
+    # Detailed review bins to locate the threshold where sales momentum accelerates.
+    labels = ["0-10", "11-50", "51-100", "101-500", "501-1000", ">1000"]
+    bins = [-0.001, 10, 50, 100, 500, 1000, float("inf")]
     data["review_bin"] = pd.cut(data["review_count"], bins=bins, labels=labels, include_lowest=True, right=True)
 
     agg = (
         data.groupby("review_bin", observed=False)
         .agg(
             avg_sold=("all_time_quantity_sold", "mean"),
-            total_sold=("all_time_quantity_sold", "sum"),
             book_count=("all_time_quantity_sold", "size"),
         )
         .reindex(labels)
         .reset_index()
     )
 
+    # Fill missing bins for stable rendering and robust surge-point detection.
+    agg["avg_sold"] = agg["avg_sold"].fillna(0)
+    agg["book_count"] = agg["book_count"].fillna(0)
+
+    # Surge point = bin with the largest positive step-up in average sold.
+    delta = agg["avg_sold"].diff().fillna(0)
+    surge_idx = int(delta.idxmax()) if len(delta) > 0 else 0
+    surge_bin = str(agg.loc[surge_idx, "review_bin"])
+
     fig = go.Figure()
+
+    # Background volume bars (secondary axis) stay subtle to avoid competing with area trend.
+    fig.add_trace(
+        go.Bar(
+            x=agg["review_bin"],
+            y=agg["book_count"],
+            name="Số lượng đầu sách",
+            marker={"color": "#94a3b8"},
+            opacity=0.3,
+            yaxis="y2",
+            hovertemplate="Nhóm review: %{x}<br>Số lượng đầu sách: %{y:,.0f}<extra></extra>",
+        )
+    )
+
+    area_line_color = colors[0] if colors else "#2563eb"
+    area_fill_color = "rgba(37,99,235,0.50)"
     fig.add_trace(
         go.Scatter(
             x=agg["review_bin"],
             y=agg["avg_sold"],
             mode="lines+markers",
-            line={"width": 3, "color": colors[0] if colors else "#2563eb"},
-            marker={"size": 9, "color": colors[1] if len(colors) > 1 else "#f97316"},
-            customdata=agg[["total_sold", "book_count"]],
+            line={"width": 3.2, "color": area_line_color},
+            marker={"size": 11, "color": area_line_color, "line": {"width": 1.2, "color": "#ffffff"}},
+            fill="tozeroy",
+            fillcolor=area_fill_color,
             hovertemplate=(
                 "Nhóm review: %{x}<br>"
                 "Doanh số trung bình: %{y:,.0f}<br>"
-                "Tổng doanh số: %{customdata[0]:,.0f}<br>"
-                "Số đầu sách: %{customdata[1]:,.0f}<extra></extra>"
+                "Số lượng đầu sách: %{customdata:,.0f}<extra></extra>"
             ),
+            customdata=agg["book_count"],
             name="Doanh số trung bình",
+            yaxis="y",
         )
     )
-    fig.update_layout(
-        title="Biểu đồ 1.3: Điểm bùng phát doanh số theo nhóm review",
-        xaxis_title="Nhóm review_count",
-        yaxis_title="Doanh số trung bình",
+
+    # Plotly compatibility: add_vline with categorical x can fail on some versions.
+    # Use add_shape + add_annotation to keep the same insight marker reliably.
+    fig.add_shape(
+        type="line",
+        x0=surge_bin,
+        x1=surge_bin,
+        y0=0,
+        y1=1,
+        xref="x",
+        yref="paper",
+        line={"dash": "dash", "width": 1.6, "color": "rgba(220,38,38,0.85)"},
     )
-    _format_chart(fig, height=340)
+    fig.add_annotation(
+        x=surge_bin,
+        y=1,
+        xref="x",
+        yref="paper",
+        text=f"Điểm bùng phát: {surge_bin}",
+        showarrow=False,
+        xanchor="left",
+        yanchor="bottom",
+        font={"size": 10, "color": "#991b1b"},
+        bgcolor="rgba(255,255,255,0.92)",
+        bordercolor="rgba(220,38,38,0.55)",
+        borderwidth=1,
+        borderpad=3,
+    )
+
+    fig.update_layout(
+        title="Biểu đồ 1.3: Hành trình Bùng phát: Cần bao nhiêu Review để tạo ra cú hích doanh số?",
+        xaxis={"title": "Nhóm review_count", "showgrid": False},
+        yaxis={
+            "title": "Doanh số trung bình",
+            "showgrid": True,
+            "gridcolor": "#e2e8f0",
+            "tickformat": ",.0f",
+            "rangemode": "tozero",
+        },
+        yaxis2={
+            "title": "Số lượng đầu sách",
+            "overlaying": "y",
+            "side": "right",
+            "showgrid": False,
+            "tickformat": ",.0f",
+            "rangemode": "tozero",
+        },
+        barmode="overlay",
+    )
+    _format_chart(fig, height=360, x_grid=False, y_grid=True)
     return fig
 
 
