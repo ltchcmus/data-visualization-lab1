@@ -392,15 +392,7 @@ def render_top_filters(df: pd.DataFrame) -> pd.DataFrame:
         """
         <style>
         .top-filter-title {
-            color: #1E293B !important;
-            font-weight: 700;
-            display: inline-block;
-            border: 1px solid #dbe7f2;
-            border-radius: 10px;
-            background: #ffffff;
-            box-shadow: 0 6px 14px rgba(9, 18, 34, 0.06);
-            padding: 4px 10px;
-            margin-bottom: 0.25rem;
+            display: none !important;
         }
         [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] {
             background: #ffffff !important;
@@ -470,6 +462,7 @@ def render_top_filters(df: pd.DataFrame) -> pd.DataFrame:
             options=genre_options,
             default=[],
             label_visibility="collapsed",
+            placeholder="Thể loại",
         )
 
     with col_year:

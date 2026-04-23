@@ -64,14 +64,6 @@ def _q2_category_boxplot(df: pd.DataFrame, colors: list[str]) -> None:
     )
     apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
-    with st.expander(":material/notes: Nhận xét"):
-        st.markdown(
-            """
-- Boxplot cho thấy **phân phối doanh số** thực sự trong từng thể loại, bao gồm cả outlier.
-- Thể loại có hộp (box) rộng → doanh số dao động lớn; hộp hẹp → đồng đều hơn.
-- So sánh median (đường ngang trong hộp) giữa các thể loại để tìm nhóm tiềm năng.
-"""
-        )
 
 
 def _q10_pages_vs_sold(df: pd.DataFrame, colors: list[str]) -> None:
@@ -119,14 +111,6 @@ def _q10_pages_vs_sold(df: pd.DataFrame, colors: list[str]) -> None:
     )
     apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
-    with st.expander(":material/notes: Nhận xét"):
-        st.markdown(
-            """
-- Scatter plot cho thấy mối quan hệ giữa **độ dày sách** và **doanh số bán**.
-- Đường hồi quy (trendline) giúp nhận diện xu hướng chung: sách dày hơn có bán tốt hơn không?
-- Nhóm màu theo khoảng trang giúp phân biệt rõ ràng các phân khúc sản phẩm.
-"""
-        )
 
 
 def _q12_niche_market(df: pd.DataFrame, colors: list[str]) -> None:
@@ -200,16 +184,6 @@ def _q12_niche_market(df: pd.DataFrame, colors: list[str]) -> None:
     )
     apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
-    with st.expander(":material/notes: Nhận xét"):
-        st.markdown(
-            """
-- **Ngôi sao** (High Sales / High Rating): thể loại phổ biến và được yêu thích — ưu tiên duy trì.
-- **Tiềm năng (Niche)** (Low Sales / High Rating): sách chất lượng cao nhưng ít người biết — cơ hội marketing.
-- **Phổ thông** (High Sales / Low Rating): bán chạy dù rating thấp — thường là sách giáo khoa, từ điển.
-- **Cần cải thiện** (Low Sales / Low Rating): cần xem xét lại chiến lược sản phẩm.
-- Kích thước điểm thể hiện số lượng đầu sách trong danh mục.
-"""
-        )
 
 
 def render_distribution_product_tab(

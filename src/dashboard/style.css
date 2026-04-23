@@ -26,6 +26,15 @@ body,
     font-family: "Be Vietnam Pro", "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif !important;
 }
 
+/* no scroll layout*/
+/* section[data-testid="stMain"] {
+    overflow: hidden !important;
+}
+
+div[data-testid="stSidebarContent"] {
+    overflow: hidden !important;
+} */
+
 div[data-testid="stVerticalBlock"] {
     gap: 0rem !important;
 }
@@ -36,6 +45,18 @@ div[data-testid="stSelectbox"] {
 
 div[data-testid="stMultiSelect"] {
     margin-top: 16px;
+}
+
+div[data-testid="stWidgetLabel"] p {
+    margin: 0 0 4px;
+}
+
+div[data-testid="stElementContainer"] {
+    margin-bottom: 0 !important;
+}
+
+[data-testid="stMainBlockContainer"] {
+    padding-top: 65px;
 }
 
 [data-testid="stHeader"],
@@ -631,13 +652,13 @@ div[data-testid="stMultiSelect"] {
 }
 
 [data-testid="column"]:has(.top-filter-title) [data-baseweb="tag"] {
-    background: #F8FAFC !important;
-    border: 1px solid #d6e3f0 !important;
+    background: #DBEAFE !important;
+    border: 1px solid #93C5FD !important;
     border-radius: 10px !important;
 }
 
 [data-testid="column"]:has(.top-filter-title) [data-baseweb="tag"] span {
-    color: #1E293B !important;
+    color: #1E40AF !important;
 }
 
 [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] svg {
@@ -774,7 +795,7 @@ div[data-testid="stMultiSelect"] {
     animation: fadeInUp 0.35s ease both;
 }
 
-/* -- TAB PAGE HEADER UPGRADE -- */
+
 .tab-page-header {
     background: linear-gradient(135deg, #EEF2FF 0%, #F8FAFC 50%, #E0ECFF 100%) !important;
     border-left: 4px solid #1E40AF !important;
@@ -794,7 +815,6 @@ div[data-testid="stMultiSelect"] {
     pointer-events: none;
 }
 
-/* -- EXPANDER PREMIUM STYLING -- */
 .stApp [data-testid="stExpander"] {
     border: 1px solid #d6e3f0 !important;
     border-radius: 12px !important;
@@ -839,7 +859,6 @@ div[data-testid="stMultiSelect"] {
     margin-bottom: 4px;
 }
 
-/* -- CAPTION BADGE STYLE -- */
 .stApp [data-testid="stCaptionContainer"] {
     background: linear-gradient(105deg, #EEF2FF 0%, #F8FAFC 100%);
     border: 1px solid #d6e3f0;

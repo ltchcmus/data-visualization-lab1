@@ -9,12 +9,12 @@ def format_vn(value: float | int, decimals: int = 0) -> str:
     return s.replace(",", "X").replace(".", ",").replace("X", ".")
 
 
-def apply_chart_style(fig, *, height: int = 380) -> None:
+def apply_chart_style(fig, *, height: int = 300) -> None:
     """Apply consistent axis/font/grid style and height to a Plotly figure."""
     fig.update_layout(
         font={"color": "#000000"},
         title={"font": {"color": "#000000"}},
-        margin={"t": 56},
+        margin=dict(l=20, r=20, t=30, b=20),
         height=height,
     )
     fig.update_xaxes(

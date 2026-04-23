@@ -103,25 +103,18 @@ def _q1_long_tail(df: pd.DataFrame, colors: list[str]) -> None:
         nbins=80,
         log_y=True,
         color_discrete_sequence=[colors[0]],
-        labels={"all_time_quantity_sold": "Lượng bán (all-time)", "count": "Số đầu sách (log)"},
+        labels={"all_time_quantity_sold": "Lượng bán", "count": "Số đầu sách (log)"},
     )
     fig.update_layout(
         title="Phân bổ doanh số: Hiệu ứng Long-tail",
         bargap=0.05,
-        xaxis_title="Lượng bán (all-time)",
-        yaxis_title="Số đầu sách (thang log)",
+        xaxis_title="Lượng bán",
+        yaxis_title="Số đầu sách (log)",
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
     )
     apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
-    with st.expander(":material/notes: Nhận xét từ biểu đồ"):
-        st.info(
-            """**Sự tập trung**: Doanh thu có tính tập trung cao; Top 1% sản phẩm đóng góp tới 23,7% tổng lượng bán.  
-                **Hiệu ứng Long-tail**: Tồn tại một "đuôi dài" khổng lồ gồm hàng nghìn đầu sách ngách có doanh số đơn lẻ thấp nhưng tổng hòa tạo nên độ phủ thị trường rộng lớn.  
-                **Cơ hội**: Cần tối ưu hệ thống gợi ý cho nhóm sách "đuôi dài" để khai thác tối đa giá trị từ thị trường ngách.
-            """
-        )
 
 
 def render_overview_tab(

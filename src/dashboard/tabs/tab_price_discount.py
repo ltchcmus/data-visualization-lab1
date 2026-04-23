@@ -146,26 +146,53 @@ def _q5_discount_threshold(df: pd.DataFrame, colors: list[str]) -> None:
         title="Tương quan giữa Mức giảm giá, Doanh số & Doanh thu",
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
-        legend={"orientation": "h", "y": -0.2},
+        showlegend=True,
+        legend=dict(
+            x=0.93,          
+            y=0.99,        
+            xanchor='right',
+            yanchor='top',
+            bgcolor="rgba(255, 255, 255, 0.8)",
+            bordercolor="Gray",
+            borderwidth=1,
+            font=dict(
+                family="Arial",
+                size=12,
+                color="black"
+            )
+        ),
+        margin=dict(t=50, b=50, l=50, r=50),
         hovermode="x unified",
         barmode="group",
-        margin=dict(t=50, b=0)
     )
     # Using log scale for left Y-axis since Total Sold (M) and Avg Sold (K) have large magnitude difference
-    fig.update_yaxes(title_text="Lượng bán (cuốn) - Log Scale", type="log", secondary_y=False)
+    fig.update_yaxes(title_text="Lượng bán (cuốn) - Log", type="log", secondary_y=False)
     fig.update_yaxes(title_text="Tỷ trọng (%)", secondary_y=True)
     apply_chart_style(fig)
+    fig.add_annotation(
+        x="21–30%",
+        y=agg[agg["discount_bin"] == "21–30%"]["pct_revenue"].values[0],
+        xref="x",
+        yref="y2",
+        text="Vùng tối ưu Doanh thu",
+        showarrow=True,
+        arrowhead=1,
+        ax=0,
+        ay=-40,
+        bgcolor="white",
+        bordercolor=colors[1],
+    )
     st.plotly_chart(fig, use_container_width=True)
 
-    with st.expander(":material/notes: Nhận xét"):
-        st.markdown(
-            """
-- Biểu đồ kết hợp Bar-Line giúp xem đồng thời **mức doanh số trung bình** (Bar) và sự phân bổ **Mật độ sách** cùng **Tổng doanh thu** (Line) trong từng nhóm discount.
-- Nhóm có discount cao không nhất thiết bán tốt nhất — có thể phản ánh sách cũ/tồn kho được giảm giá.
-- Ngưỡng "điểm bùng phát" (nếu có) sẽ là nhóm có lượng bán trung bình tăng vọt bất thường.
-- Đường % Doanh thu cho phép đánh giá xem phần lớn dòng tiền đến từ ngưỡng giảm giá nào, qua đó tìm ra mức giảm giá tối ưu nhất để tối đa hoá doanh thu.
-"""
-        )
+#     with st.expander(":material/notes: Nhận xét"):
+#         st.markdown(
+#             """
+# - Biểu đồ kết hợp Bar-Line giúp xem đồng thời **mức doanh số trung bình** (Bar) và sự phân bổ **Mật độ sách** cùng **Tổng doanh thu** (Line) trong từng nhóm discount.
+# - Nhóm có discount cao không nhất thiết bán tốt nhất — có thể phản ánh sách cũ/tồn kho được giảm giá.
+# - Ngưỡng "điểm bùng phát" (nếu có) sẽ là nhóm có lượng bán trung bình tăng vọt bất thường.
+# - Đường % Doanh thu cho phép đánh giá xem phần lớn dòng tiền đến từ ngưỡng giảm giá nào, qua đó tìm ra mức giảm giá tối ưu nhất để tối đa hoá doanh thu.
+# """
+#         )
 
 
 def _q9_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
@@ -215,15 +242,16 @@ def _q9_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
         margin=dict(t=50, b=0),
     )
     apply_chart_style(fig)
+    # Chú thích
     st.plotly_chart(fig, use_container_width=True)
-    with st.expander(":material/notes: Nhận xét"):
-        st.markdown(
-            """
-- Sách **xuất bản gần đây** có thể có doanh số cao hơn do được đặt trên kệ nổi bật hơn, nhưng sách cũ có nhiều thời gian tích lũy đơn hàng.
-- Đường trung bình động (3 năm) làm mịn biến động ngẫu nhiên, giúp thấy **xu hướng dài hạn** rõ hơn.
-- Nếu sách cổ điển (>10 năm) vẫn duy trì doanh số, đó là dấu hiệu của "sách vượt thời gian" đáng đầu tư dài hạn.
-"""
-        )
+#     with st.expander(":material/notes: Nhận xét"):
+#         st.markdown(
+#             """
+# - Sách **xuất bản gần đây** có thể có doanh số cao hơn do được đặt trên kệ nổi bật hơn, nhưng sách cũ có nhiều thời gian tích lũy đơn hàng.
+# - Đường trung bình động (3 năm) làm mịn biến động ngẫu nhiên, giúp thấy **xu hướng dài hạn** rõ hơn.
+# - Nếu sách cổ điển (>10 năm) vẫn duy trì doanh số, đó là dấu hiệu của "sách vượt thời gian" đáng đầu tư dài hạn.
+# """
+#         )
 
 
 def _q10_price_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
@@ -305,15 +333,15 @@ def _q10_price_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
     apply_chart_style(fig)
     st.plotly_chart(fig, use_container_width=True)
 
-    with st.expander(":material/notes: Nhận xét"):
-        st.markdown(
-            """
-- Biểu đồ cho thấy **xu hướng giá bán** sách thay đổi như thế nào qua từng năm, kết hợp với **khối lượng xuất bản**.
-- Nếu giá tăng nhưng số lượng sách giảm, có thể thị trường đang **chuyển sang phân khúc cao cấp hơn**.
-- Đường trung bình động giúp loại bỏ biến động ngắn hạn, cho thấy **xu hướng giá dài hạn** rõ ràng hơn.
-- Năm có nhiều đầu sách nhưng giá thấp có thể phản ánh giai đoạn **cạnh tranh giá gay gắt**.
-"""
-        )
+#     with st.expander(":material/notes: Nhận xét"):
+#         st.markdown(
+#             """
+# - Biểu đồ cho thấy **xu hướng giá bán** sách thay đổi như thế nào qua từng năm, kết hợp với **khối lượng xuất bản**.
+# - Nếu giá tăng nhưng số lượng sách giảm, có thể thị trường đang **chuyển sang phân khúc cao cấp hơn**.
+# - Đường trung bình động giúp loại bỏ biến động ngắn hạn, cho thấy **xu hướng giá dài hạn** rõ ràng hơn.
+# - Năm có nhiều đầu sách nhưng giá thấp có thể phản ánh giai đoạn **cạnh tranh giá gay gắt**.
+# """
+#         )
 
 
 def render_price_discount_tab(
@@ -337,7 +365,7 @@ def render_price_discount_tab(
     pct_discounted = float((disc > 0).sum() / len(disc) * 100) if len(disc) > 0 else 0.0
     _render_kpi_row(
         [
-            ("Sách có doanh số > 0", format_vn(len(sold_df)), "book", "blue"),
+            ("Giá sách TB", f"{format_vn(df['price'].mean())} VNĐ", "price", "blue"),
             ("Discount trung bình", f"{format_vn(avg_disc, 1)}%", "tag", "amber"),
             ("Tỷ lệ có giảm giá", f"{format_vn(pct_discounted, 1)}%", "percent", "blue"),
         ]

@@ -175,7 +175,6 @@ def main() -> None:
     _render_fixed_header(active_tab, colorblind_mode, total_books=len(raw_df))
 
     df = _prepare_data(raw_df)
-    st.markdown("<div style='margin-top:-1.35rem;'></div>", unsafe_allow_html=True)
     filtered_df = render_top_filters(df)
 
     if filtered_df.empty:
