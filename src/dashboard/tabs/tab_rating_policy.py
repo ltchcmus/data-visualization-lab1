@@ -521,26 +521,104 @@ def _chart_21_freeship_box(df: pd.DataFrame, colors: list[str]):
     if data.empty:
         return None
 
-    data["freeship_label"] = _freeship_label(data["has_freeship"])
-    color_map = {
-        FREE_TRUE_LABEL: colors[0] if colors else "#2563eb",
-        FREE_FALSE_LABEL: colors[1] if len(colors) > 1 else "#f97316",
-    }
+    del colors
 
-    fig = px.box(
-        data,
-        x="freeship_label",
-        y="all_time_quantity_sold",
-        color="freeship_label",
-        color_discrete_map=color_map,
-        points=False,
-        hover_data={"all_time_quantity_sold": ":,.0f", "seller_name": True},
-        labels={"freeship_label": "Chính sách freeship", "all_time_quantity_sold": "Doanh số (log)"},
-        title="Biểu đồ 2.1: Phân phối doanh số theo freeship (Boxplot, log scale)",
-    )
-    fig.update_yaxes(type="log")
+    data["freeship_label"] = _freeship_label(data["has_freeship"])
+    # Surface group-size imbalance directly in category labels.
+    counts = data["freeship_label"].value_counts(dropna=False)
+    label_false = f"{FREE_FALSE_LABEL} (N={int(counts.get(FREE_FALSE_LABEL, 0)):,})"
+    label_true = f"{FREE_TRUE_LABEL} (N={int(counts.get(FREE_TRUE_LABEL, 0)):,})"
+
+    y_false = data.loc[data["freeship_label"] == FREE_FALSE_LABEL, "all_time_quantity_sold"].astype(float)
+    y_true = data.loc[data["freeship_label"] == FREE_TRUE_LABEL, "all_time_quantity_sold"].astype(float)
+
+    # Estimate violin density in log-space to avoid collapsing into thin lines
+    # when the original distribution is strongly right-skewed.
+    y_false_log = np.log10(y_false) if not y_false.empty else y_false
+    y_true_log = np.log10(y_true) if not y_true.empty else y_true
+
+    fig = go.Figure()
+
+    if not y_false.empty:
+        fig.add_trace(
+            go.Violin(
+                x=[label_false] * len(y_false),
+                y=y_false_log,
+                name=label_false,
+                legendgroup="freeship_false",
+                scalegroup="freeship_false",
+                points=False,
+                box_visible=True,
+                meanline_visible=True,
+                line={"color": "#FF6347", "width": 1.4},
+                fillcolor="rgba(255,99,71,0.55)",
+                opacity=0.7,
+                spanmode="soft",
+                scalemode="width",
+                width=0.9,
+                customdata=y_false,
+                hovertemplate="Chính sách: %{x}<br>Doanh số: %{customdata:,.0f}<extra></extra>",
+            )
+        )
+
+    if not y_true.empty:
+        fig.add_trace(
+            go.Violin(
+                x=[label_true] * len(y_true),
+                y=y_true_log,
+                name=label_true,
+                legendgroup="freeship_true",
+                scalegroup="freeship_true",
+                points=False,
+                box_visible=True,
+                meanline_visible=True,
+                line={"color": "#4169E1", "width": 1.4},
+                fillcolor="rgba(65,105,225,0.55)",
+                opacity=0.7,
+                spanmode="soft",
+                scalemode="width",
+                width=0.9,
+                customdata=y_true,
+                hovertemplate="Chính sách: %{x}<br>Doanh số: %{customdata:,.0f}<extra></extra>",
+            )
+        )
+
+    y_all = pd.concat([y_false, y_true], ignore_index=True)
+    y_tick_vals = None
+    y_tick_text = None
+    if not y_all.empty:
+        y_min = float(max(1.0, y_all.min()))
+        y_max = float(max(y_min, y_all.max()))
+        exp_min = int(np.floor(np.log10(y_min)))
+        exp_max = int(np.ceil(np.log10(y_max)))
+        tick_raw = [float(10**e) for e in range(exp_min, exp_max + 1)]
+        # Keep ticks readable if range spans many orders of magnitude.
+        if len(tick_raw) > 6:
+            step = int(np.ceil(len(tick_raw) / 6))
+            tick_raw = tick_raw[::step]
+            if tick_raw[-1] != float(10**exp_max):
+                tick_raw.append(float(10**exp_max))
+        y_tick_vals = [np.log10(v) for v in tick_raw]
+        y_tick_text = [f"{v:,.0f}" for v in tick_raw]
+
     _format_chart(fig, height=430)
-    fig.update_layout(showlegend=False)
+    fig.update_xaxes(showgrid=False)
+    fig.update_yaxes(
+        showgrid=True,
+        griddash="dash",
+        gridcolor="#d1d5db",
+        tickmode="array" if y_tick_vals else "auto",
+        tickvals=y_tick_vals,
+        ticktext=y_tick_text,
+    )
+    fig.update_layout(
+        violinmode="group",
+        violingap=0.28,
+        title="Biểu đồ 2.1: Nghịch lý Freeship: Khi chính sách giao hàng miễn phí không đồng nghĩa với doanh số cao",
+        xaxis_title="Chính sách freeship",
+        yaxis_title="Doanh số (log10)",
+        showlegend=False,
+    )
     return fig
 
 
