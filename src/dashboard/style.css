@@ -20,15 +20,20 @@
     --fx-shadow: 0 8px 18px rgba(30, 64, 175, 0.08);
 }
 
-html, body, [class*="css"] {
+html,
+body,
+[class*="css"] {
     font-family: "Be Vietnam Pro", "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif !important;
 }
+
 div[data-testid="stVerticalBlock"] {
     gap: 0rem !important;
 }
+
 div[data-testid="stSelectbox"] {
     margin-top: 16px;
 }
+
 div[data-testid="stMultiSelect"] {
     margin-top: 16px;
 }
@@ -59,7 +64,7 @@ div[data-testid="stMultiSelect"] {
     z-index: 220 !important;
 }
 
-[data-testid="stSidebar"] > div:first-child {
+[data-testid="stSidebar"]>div:first-child {
     width: var(--left-sidebar-width) !important;
     min-width: var(--left-sidebar-width) !important;
     max-width: var(--left-sidebar-width) !important;
@@ -258,6 +263,7 @@ div[data-testid="stMultiSelect"] {
     padding: 12px 16px;
     margin: 24px 0 24px;
 }
+
 .tab-page-header .tph-title {
     color: #1E293B;
     font-size: 1.05rem;
@@ -265,6 +271,7 @@ div[data-testid="stMultiSelect"] {
     line-height: 1.35;
     margin: 0 0 3px;
 }
+
 .tab-page-header .tph-sub {
     color: #64748B;
     font-size: 0.82rem;
@@ -276,7 +283,14 @@ div[data-testid="stMultiSelect"] {
 /* -- KPI STRIP -- */
 .kpi-strip {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.kpi-strip.kpi-4col {
     grid-template-columns: repeat(4, 1fr);
+    display: grid;
     gap: 12px;
     margin-bottom: 12px;
 }
@@ -297,11 +311,25 @@ div[data-testid="stMultiSelect"] {
     min-height: 88px;
 }
 
-.kpi-box.accent-blue    { border-top-color: #1E40AF; }
-.kpi-box.accent-amber   { border-top-color: #D97706; }
-.kpi-box.accent-red     { border-top-color: #EF4444; }
-.kpi-box.accent-slate   { border-top-color: #64748B; }
-.kpi-box.accent-emerald { border-top-color: #059669; }
+.kpi-box.accent-blue {
+    border-top-color: #1E40AF;
+}
+
+.kpi-box.accent-amber {
+    border-top-color: #D97706;
+}
+
+.kpi-box.accent-red {
+    border-top-color: #EF4444;
+}
+
+.kpi-box.accent-slate {
+    border-top-color: #64748B;
+}
+
+.kpi-box.accent-emerald {
+    border-top-color: #059669;
+}
 
 .kpi-lbl {
     font-size: 0.62rem;
@@ -444,7 +472,7 @@ div[data-testid="stMultiSelect"] {
     box-shadow: 0 5px 14px rgba(30, 64, 175, 0.08) !important;
 }
 
-.stApp [data-testid="stAppViewContainer"] .main [data-testid="stPlotlyChart"] > div {
+.stApp [data-testid="stAppViewContainer"] .main [data-testid="stPlotlyChart"]>div {
     border: 1px solid #d6e3f0;
     border-radius: 12px;
     box-shadow: var(--shadow-soft);
@@ -497,9 +525,9 @@ div[data-testid="stMultiSelect"] {
 }
 
 /* widget labels */
-.control-card .stRadio > label,
-.control-card .stMultiSelect > label,
-.control-card .stSelectbox > label {
+.control-card .stRadio>label,
+.control-card .stMultiSelect>label,
+.control-card .stSelectbox>label {
     font-size: 0.68rem !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
@@ -579,8 +607,8 @@ div[data-testid="stMultiSelect"] {
     background-color: transparent !important;
 }
 
-[data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] > div,
-[data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] > div > div {
+[data-testid="column"]:has(.top-filter-title) [data-baseweb="select"]>div,
+[data-testid="column"]:has(.top-filter-title) [data-baseweb="select"]>div>div {
     background: #ffffff !important;
 }
 
@@ -637,7 +665,7 @@ div[data-testid="stMultiSelect"] {
     display: flex;
     align-items: center;
     gap: 10px;
-    text-decoration: none;
+    text-decoration: none !important;
     margin: 8px 0;
     height: 46px;
     border-radius: 14px;
@@ -648,12 +676,14 @@ div[data-testid="stMultiSelect"] {
     font-weight: 700;
     padding: 0 14px;
     white-space: nowrap;
+    color: inherit;
 }
 
 .book-tab-link:hover {
     border-color: #93C5FD;
     transform: translateY(-1px);
     box-shadow: 0 8px 16px rgba(9, 18, 34, 0.08);
+    text-decoration: none;
 }
 
 .book-tab-link.is-active {
@@ -661,6 +691,7 @@ div[data-testid="stMultiSelect"] {
     border-color: #C7D2FE;
     color: #1E40AF;
     box-shadow: inset 0 -3px 0 #1E40AF, 0 8px 18px rgba(9, 18, 34, 0.08);
+    text-decoration: none;
 }
 
 .book-tab-icon {
@@ -682,14 +713,31 @@ div[data-testid="stMultiSelect"] {
     opacity: 1;
 }
 
-::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: #f1f5f9; }
-::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
 
 /* -- FADE-IN ANIMATION -- */
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* -- SECTION CARD HOVER -- */
@@ -732,7 +780,9 @@ div[data-testid="stMultiSelect"] {
 .tab-page-header::after {
     content: '';
     position: absolute;
-    top: 0; right: 0; bottom: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
     width: 80px;
     background: linear-gradient(90deg, transparent, rgba(30, 64, 175, 0.04));
     pointer-events: none;
@@ -800,7 +850,7 @@ div[data-testid="stMultiSelect"] {
 }
 
 /* -- PLOTLY CHART GLASSMORPHISM -- */
-.stApp [data-testid="stAppViewContainer"] .main [data-testid="stPlotlyChart"] > div {
+.stApp [data-testid="stAppViewContainer"] .main [data-testid="stPlotlyChart"]>div {
     border: 1px solid rgba(214, 227, 240, 0.8);
     border-radius: 14px;
     box-shadow: 0 8px 24px rgba(30, 64, 175, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
@@ -809,7 +859,7 @@ div[data-testid="stMultiSelect"] {
     transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
-.stApp [data-testid="stAppViewContainer"] .main [data-testid="stPlotlyChart"] > div:hover {
+.stApp [data-testid="stAppViewContainer"] .main [data-testid="stPlotlyChart"]>div:hover {
     box-shadow: 0 12px 32px rgba(30, 64, 175, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.9);
     transform: translateY(-1px);
 }
@@ -830,7 +880,7 @@ div[data-testid="stMultiSelect"] {
 }
 
 .kpi-section .kpi-box {
-    background: linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.05) 100%) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.14) !important;
     border-top: 3px solid rgba(255, 255, 255, 0.25) !important;
 }
@@ -878,7 +928,7 @@ div[data-testid="stMultiSelect"] {
         max-width: 76px !important;
     }
 
-    [data-testid="stSidebar"] > div:first-child {
+    [data-testid="stSidebar"]>div:first-child {
         width: 76px !important;
         min-width: 76px !important;
         max-width: 76px !important;
@@ -912,7 +962,9 @@ div[data-testid="stMultiSelect"] {
         padding: 8px 12px;
     }
 
-    .hdr-title { font-size: 0.78rem; }
+    .hdr-title {
+        font-size: 0.78rem;
+    }
 
     .kpi-strip {
         grid-template-columns: repeat(2, 1fr);

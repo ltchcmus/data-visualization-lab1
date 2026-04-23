@@ -70,7 +70,7 @@ def _render_kpis(df: pd.DataFrame) -> None:
             pct_authentic = float(auth[valid_auth].eq(True).sum() / valid_auth.sum() * 100)
 
     rating_benchmark = (
-        "Cao hơn mức trung bình ngành (4.0)." if avg_rating >= 4.0 else "Thấp hơn mức trung bình ngành (4.0)."
+        "Cao hơn mức kỳ vọng của người mua." if avg_rating >= 4.0 else "Thấp hơn mức kỳ vọng của người mua."
     )
     rating_tone = "red" if avg_rating < 4.0 else "blue"
 
@@ -138,13 +138,12 @@ def _q1_long_tail(df: pd.DataFrame, colors: list[str]) -> None:
     )
     _apply_black_text(fig)
     st.plotly_chart(fig, use_container_width=True)
-    with st.expander(":material/notes: Nhận xét"):
-        st.markdown(
+    with st.expander(":material/notes: Nhận xét từ biểu đồ"):
+        st.info(
+            """**Sự tập trung**: Doanh thu có tính tập trung cao; Top 1% sản phẩm đóng góp tới 23,7% tổng lượng bán.  
+                **Hiệu ứng Long-tail**: Tồn tại một "đuôi dài" khổng lồ gồm hàng nghìn đầu sách ngách có doanh số đơn lẻ thấp nhưng tổng hòa tạo nên độ phủ thị trường rộng lớn.  
+                **Cơ hội**: Cần tối ưu hệ thống gợi ý cho nhóm sách "đuôi dài" để khai thác tối đa giá trị từ thị trường ngách.
             """
-- Phân bổ doanh số cho thấy hiệu ứng **Long-tail** rõ rệt: đa số sách bán rất ít, chỉ một số ít bán chạy vượt trội.
-- Thang log giúp nhận diện các "tầng" doanh số khác nhau mà thang tuyến tính khó thấy.
-- Đây là cơ sở quan trọng để phân nhóm sách theo mức độ bán chạy.
-"""
         )
 
 
@@ -196,3 +195,9 @@ def render_overview_tab(
 
     st.caption("Biểu đồ dùng thang log ở trục tung để giảm ảnh hưởng của outliers.")
     _q1_long_tail(df, colors)
+    st.markdown('<div style="margin-top: 50px;"></div>', unsafe_allow_html=True)
+    with st.expander(":material/notes: Kết luận"):
+        st.info(""" 
+                1. Mô hình: Nhà sách đang vận hành theo quy luật Pareto; cần tập trung nguồn lực Marketing cho nhóm sách "Ngôi sao".
+    2. Cải thiện: Cần rà soát lại các đầu sách có Rating thấp để bảo vệ uy tín thương hiệu.
+    3. Tiềm năng: Tận dụng danh mục NXB đa dạng để mở rộng các chương trình khuyến mãi theo nhóm đối tượng chuyên biệt""")

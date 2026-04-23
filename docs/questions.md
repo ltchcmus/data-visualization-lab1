@@ -10,6 +10,21 @@
 
 **Câu hỏi:** Phân tích phân bổ doanh số (`all_time_quantity_sold`) của các đầu sách nhằm xác định liệu doanh thu có tập trung vào một số ít sản phẩm bán chạy hay phân tán đều, từ đó làm rõ mức độ tồn tại của hiệu ứng long-tail trong dataset hiện tại.
 
+**Mục tiêu:** Sử dụng biểu đồ Histogram và thang đo log để phân tích phân phối doanh số của 36.808 đầu sách, nhằm xác định liệu mô hình kinh doanh có tuân theo quy luật Pareto (20/80) hay không, từ đó đề xuất 03 chiến lược quản lý kho bãi cho nhóm sách "ngách" (long-tail) trước khi kết thúc tuần 6
+
+**Nhận xét:**
+Sự tồn tại rõ rệt của Hiệu ứng Long-tail: Biểu đồ cho thấy một phân phối lệch phải cực kỳ lớn. 
+Đại đa số các đầu sách tập trung ở nhóm có lượng bán thấp (gần trục 0), tạo thành "cái đuôi dài" kéo dài về phía bên phải.
+Giá trị của Thang đo Log: Nhờ việc áp dụng $log(y)$, chúng ta có thể quan sát được sự hiện diện của các nhóm sách bán được 
+từ 1.000 đến hơn 3.500 bản. Nếu sử dụng thang đo tuyến tính, các nhóm này sẽ bị lu mờ hoàn toàn bởi nhóm sách có doanh số thấp, 
+khiến chúng ta bỏ lỡ các phân khúc "Best-seller".
+Điểm đột biến ở cuối trục (Outliers): Có một sự gia tăng bất thường về số lượng đầu sách ở mốc doanh số cao nhất (>3.500 bản). 
+Đây là nhóm sản phẩm "ngôi sao", đóng góp tỷ trọng doanh thu vượt trội so với phần còn lại của danh mục.
+Mật độ dữ liệu: Khoảng cách giữa các cột ở phần đuôi thưa dần, cho thấy ở các mức doanh số cao, 
+sự cạnh tranh giữa các đầu sách trở nên ít hơn nhưng giá trị mỗi đầu sách mang lại lại lớn hơn rất nhiều.
+**Kết luận:** Việc phân tích đã làm rõ bài toán về hiệu quả bán hàng thông qua cấu trúc doanh số:Về mô hình kinh doanh: Dataset hiện tại minh chứng cho quy luật Pareto: Doanh thu của nhà sách phụ thuộc lớn vào một nhóm nhỏ các đầu sách bán chạy (Head), nhưng sự đa dạng của hàng nghìn đầu sách ngách (Tail) chính là yếu tố tạo nên độ phủ thị trường.Về chiến lược: * Nhóm Head: Cần ưu tiên các chiến dịch marketing mạnh mẽ và đảm bảo tồn kho liên tục vì đây là nguồn thu chính.Nhóm Tail: Cần áp dụng hệ thống gợi ý (Recommendation System) thông minh để kết nối các sản phẩm ngách này tới đúng tệp khách hàng mục tiêu mà không tốn quá nhiều chi phí quảng cáo đại trà.Độ tin cậy: Việc xác định được "Cái đuôi dài" giúp nhóm khẳng định dataset đủ độ phức tạp và tính thực tế để thực hiện các phân tích sâu hơn ở các tab tiếp theo.
+
+
 **Biểu đồ:** Histogram + Log scale
 
 | Trục | Cột |
