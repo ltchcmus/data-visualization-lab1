@@ -705,6 +705,7 @@ def _chart_23_grouped_top5(df: pd.DataFrame, colors: list[str]):
     if data.empty:
         return None
 
+    # Aggregate sales by seller and freeship state, then convert to within-seller percentages.
     data["freeship_label"] = _freeship_label(data["has_freeship"])
     grouped = (
         data.groupby(["seller_name", "freeship_label"], as_index=False)["all_time_quantity_sold"]
@@ -716,32 +717,50 @@ def _chart_23_grouped_top5(df: pd.DataFrame, colors: list[str]):
     pivot = grouped.pivot(index="seller_name", columns="freeship_label", values="total_sold").fillna(0)
     pivot = pivot.reindex(seller_order)
 
+    seller_totals = pivot.sum(axis=1).replace(0, np.nan)
+    pct_true = (pivot.get(FREE_TRUE_LABEL, pd.Series(index=seller_order, dtype=float)) / seller_totals * 100).fillna(0)
+    pct_false = (pivot.get(FREE_FALSE_LABEL, pd.Series(index=seller_order, dtype=float)) / seller_totals * 100).fillna(0)
+
+    # Keep labels readable inside bars; hide small segments to avoid overlap.
+    text_true = [f"{v:.0f}%" if v > 5 else "" for v in pct_true]
+    text_false = [f"{v:.0f}%" if v > 5 else "" for v in pct_false]
+
+    del colors
+
     fig = go.Figure()
     fig.add_trace(
         go.Bar(
             x=seller_order,
-            y=pivot.get(FREE_TRUE_LABEL, pd.Series(index=seller_order, dtype=float)).fillna(0),
+            y=pct_true,
             name=FREE_TRUE_LABEL,
-            marker_color=colors[0] if colors else "#2563eb",
-            hovertemplate="Nhà cung cấp: %{x}<br>Freeship: Có<br>Tổng doanh số: %{y:,.0f}<extra></extra>",
+            marker_color="#4169E1",
+            text=text_true,
+            textposition="inside",
+            insidetextanchor="middle",
+            hovertemplate="Nhà cung cấp: %{x}<br>Freeship: Có<br>Tỷ trọng: %{y:.1f}%<extra></extra>",
         )
     )
     fig.add_trace(
         go.Bar(
             x=seller_order,
-            y=pivot.get(FREE_FALSE_LABEL, pd.Series(index=seller_order, dtype=float)).fillna(0),
+            y=pct_false,
             name=FREE_FALSE_LABEL,
-            marker_color=colors[1] if len(colors) > 1 else "#f97316",
-            hovertemplate="Nhà cung cấp: %{x}<br>Freeship: Không<br>Tổng doanh số: %{y:,.0f}<extra></extra>",
+            marker_color="#FF6347",
+            text=text_false,
+            textposition="inside",
+            insidetextanchor="middle",
+            hovertemplate="Nhà cung cấp: %{x}<br>Freeship: Không<br>Tỷ trọng: %{y:.1f}%<extra></extra>",
         )
     )
     fig.update_layout(
-        barmode="group",
-        title="Biểu đồ 2.3: Top 5 seller theo trạng thái freeship",
+        barmode="stack",
+        title="Chiến lược bán hàng: Ông trùm Tiki Trading đi ngược số đông khi không cần phụ thuộc vào Freeship",
         xaxis_title="Nhà cung cấp",
-        yaxis_title="Tổng doanh số",
+        yaxis_title="Tỷ trọng doanh số theo seller",
     )
-    _format_chart(fig, height=360, x_grid=False, y_grid=True)
+    _format_chart(fig, height=380, x_grid=False, y_grid=False)
+    fig.update_yaxes(range=[0, 100], ticksuffix="%", showgrid=False, zeroline=False)
+    fig.update_xaxes(showgrid=False)
     fig.update_xaxes(tickangle=-18)
     return fig
 
