@@ -54,7 +54,7 @@ def _fmt_k(n):
 # CHART 1 — Top 15 NXB doanh số TB  (H-Bar)
 # ---------------------------------------------------------------------------
 
-def _chart_top_publishers(df, colors):
+def _chart_top_publishers(df, colors, heatmap_scale):
     sold_df = _filter_sold(df)
     if "publisher_vn" not in sold_df.columns:
         st.info("Không có cột publisher_vn."); return
@@ -101,7 +101,7 @@ def _chart_publisher_donut(df, colors):
         labels=top["publisher_short"], values=top["all_time_quantity_sold"],
         hole=0.52, textinfo="percent", textposition="inside",
         customdata=top["publisher_vn"],
-        marker=dict(colors=px.colors.qualitative.Set2[:len(top)]),
+        marker=dict(colors=colors[:len(top)] if colors else px.colors.qualitative.Set2[:len(top)]),
         hovertemplate="<b>%{customdata}</b><br>Tổng bán: %{value:,.0f}<br>Tỷ trọng: %{percent}<extra></extra>"))
     fig.update_layout(title="Thị phần theo NXB (Top 10 + Khác)",
                       plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
@@ -139,7 +139,7 @@ def _chart_author_pareto(df, colors):
                              mode="lines+markers", line=dict(color=colors[1],width=2),
                              marker=dict(size=6), yaxis="y2",
                              hovertemplate="%{y:.1f}%<extra></extra>"))
-    fig.add_hline(y=80, line_dash="dot", line_color="#1E40AF",
+    fig.add_hline(y=80, line_dash="dot", line_color=colors[0] if colors else "#1E40AF",
                   annotation_text="80%", annotation_position="right", yref="y2")
     fig.update_layout(
         title="Pareto: Top 20 tác giả & % Doanh thu tích lũy",
@@ -156,7 +156,7 @@ def _chart_author_pareto(df, colors):
 # CHART 4 — Tác giả: Ổn định vs Siêu phẩm  (Scatter)
 # ---------------------------------------------------------------------------
 
-def _chart_author_consistency(df, colors):
+def _chart_author_consistency(df, colors, heatmap_scale):
     sold_df = _filter_sold(df)
     if "authors" not in sold_df.columns or "price" not in sold_df.columns:
         st.info("Thiếu cột authors hoặc price."); return
@@ -176,7 +176,7 @@ def _chart_author_consistency(df, colors):
 
     fig = px.scatter(agg, x="avg_rev", y="max_share", size="total",
                      hover_name="authors", size_max=35, opacity=0.65,
-                     color="n", color_continuous_scale=[[0,"#fbbf24"],[0.5,"#f97316"],[1,"#dc2626"]],
+                     color="n", color_continuous_scale=[[0, colors[2] if len(colors) > 2 else "#fbbf24"], [0.5, colors[1] if len(colors) > 1 else "#f97316"], [1, colors[3] if len(colors) > 3 else "#dc2626"]],
                      labels={"avg_rev":"Doanh thu TB/cuốn","max_share":"% siêu phẩm chiếm",
                              "n":"Số đầu sách","total":"Lượng GD"},
                      title="Tác giả: Ổn định đều tay vs Phụ thuộc siêu phẩm")
@@ -211,14 +211,14 @@ def render_publisher_author_tab(
         _chart_author_pareto(df, colors)
         st.markdown("</div>", unsafe_allow_html=True)
     with col_b:
-        _chart_author_consistency(df, colors)
+        _chart_author_consistency(df, colors, heatmap_scale)
         st.markdown("</div>", unsafe_allow_html=True)
 
     # ── SECTION 2: NHÀ XUẤT BẢN ──
 
     col_c, col_d = st.columns(2)
     with col_c:
-        _chart_top_publishers(df, colors)
+        _chart_top_publishers(df, colors, heatmap_scale)
         st.markdown("</div>", unsafe_allow_html=True)
     with col_d:
         _chart_publisher_donut(df, colors)

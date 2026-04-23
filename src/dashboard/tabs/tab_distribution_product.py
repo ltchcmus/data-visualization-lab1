@@ -52,7 +52,7 @@ def _q2_category_boxplot(df: pd.DataFrame, colors: list[str]) -> None:
         x=col,
         y="all_time_quantity_sold",
         log_y=True,
-        color_discrete_sequence=[COOL_TONE_COLORS[1]],
+        color_discrete_sequence=[colors[0] if colors else '#1D4ED8'],
         labels={col: "Thể loại", "all_time_quantity_sold": "Lượng bán (log)"},
     )
     fig.update_layout(
@@ -93,7 +93,7 @@ def _q10_pages_vs_sold(df: pd.DataFrame, colors: list[str]) -> None:
         x="number_of_page",
         y="all_time_quantity_sold",
         color="page_group",
-        color_discrete_sequence=COOL_TONE_COLORS,
+        color_discrete_sequence=colors,
         category_orders={"page_group": group_order},
         trendline="ols",
         log_y=True,
@@ -152,10 +152,10 @@ def _q12_niche_market(df: pd.DataFrame, colors: list[str]) -> None:
     agg["quadrant"] = agg.apply(_quadrant, axis=1)
 
     quadrant_colors = {
-        "Ngôi sao": "#2563EB",
-        "Tiềm năng (Niche)": "#16A34A",
-        "Phổ thông": "#F59E0B",
-        "Cần cải thiện": "#DC2626",
+        "Ngôi sao": colors[0] if len(colors) > 0 else "#2563EB",
+        "Tiềm năng (Niche)": colors[2] if len(colors) > 2 else "#16A34A",
+        "Phổ thông": colors[1] if len(colors) > 1 else "#F59E0B",
+        "Cần cải thiện": colors[3] if len(colors) > 3 else "#DC2626",
     }
 
     fig = px.scatter(

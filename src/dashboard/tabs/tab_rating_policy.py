@@ -41,6 +41,13 @@ def _freeship_label(series: pd.Series) -> pd.Series:
     return series.map({True: FREE_TRUE_LABEL, False: FREE_FALSE_LABEL})
 
 
+def _hex_to_rgba(color: str, alpha: float) -> str:
+    if color.startswith("#") and len(color) >= 7:
+        h = color.lstrip("#")
+        return f"rgba({int(h[0:2], 16)}, {int(h[2:4], 16)}, {int(h[4:6], 16)}, {alpha})"
+    return color
+
+
 def _format_chart(fig, *, height: int = 380, x_grid: bool = False, y_grid: bool = True) -> None:
     fig.update_layout(
         template="plotly_white",
@@ -125,7 +132,7 @@ def _render_filters(df: pd.DataFrame) -> tuple[pd.DataFrame, tuple[float, float]
     return filtered, rating_range, freeship_choice
 
 
-def _chart_11_scatter(df: pd.DataFrame, colors: list[str]):
+def _chart_11_scatter(df: pd.DataFrame, colors: list[str], heatmap_scale: str):
     data = df[
         (df["rating_average"].notna())
         & (df["rating_average"] >= 2)
@@ -135,7 +142,6 @@ def _chart_11_scatter(df: pd.DataFrame, colors: list[str]):
     if data.empty:
         return None
 
-    del colors
     x_values = np.sort(data["rating_average"].round(1).unique())
 
     y_max = int(data["review_count"].max())
@@ -194,7 +200,7 @@ def _chart_11_scatter(df: pd.DataFrame, colors: list[str]):
             z=z_log,
             customdata=custom,
             zsmooth=False,
-            colorscale="Blues",
+            colorscale=heatmap_scale,
             hovertemplate=(
                 "Rating Average: %{x}<br>"
                 "Review Count: %{y}<br>"
@@ -306,7 +312,7 @@ def _chart_12_rating_bin(df: pd.DataFrame, colors: list[str]):
     )
 
     bar_color = colors[0] if colors else "#4f6d8a"
-    line_color = "#d97706"
+    line_color = colors[1] if len(colors)>1 else "#d97706"
 
     fig = go.Figure()
     fig.add_trace(
@@ -398,7 +404,7 @@ def _chart_13_review_bin_line(df: pd.DataFrame, colors: list[str]):
             x=agg["review_bin"],
             y=bar_y,
             name="Số lượng đầu sách",
-            marker={"color": "#9E9E9E"},
+            marker={"color": colors[2] if len(colors)>2 else "#9E9E9E"},
             opacity=0.4,
             text=agg["book_count"],
             texttemplate="%{text:,.0f}",
@@ -409,7 +415,7 @@ def _chart_13_review_bin_line(df: pd.DataFrame, colors: list[str]):
     )
 
     area_line_color = colors[0] if colors else "#2563eb"
-    area_fill_color = "rgba(37,99,235,0.50)"
+    area_fill_color = _hex_to_rgba(area_line_color, 0.50)
     fig.add_trace(
         go.Scatter(
             x=agg["review_bin"],
@@ -520,8 +526,6 @@ def _chart_21_freeship_box(df: pd.DataFrame, colors: list[str]):
     if data.empty:
         return None
 
-    del colors
-
     data["freeship_label"] = _freeship_label(data["has_freeship"])
     data["log_sales"] = np.log10(data["all_time_quantity_sold"] + 1.0)
     # Surface group-size imbalance directly in category labels.
@@ -537,6 +541,7 @@ def _chart_21_freeship_box(df: pd.DataFrame, colors: list[str]):
     fig = go.Figure()
 
     if not y_false_log.empty:
+        line_color_false = colors[1] if (colors and len(colors) > 1) else "#FF6347"
         fig.add_trace(
             go.Violin(
                 x=[label_false] * len(y_false_log),
@@ -547,8 +552,11 @@ def _chart_21_freeship_box(df: pd.DataFrame, colors: list[str]):
                 points=False,
                 box_visible=True,
                 meanline_visible=True,
-                line={"color": "#FF6347", "width": 1.4},
-                fillcolor="rgba(255,99,71,0.55)",
+                line={
+                    "color": line_color_false,
+                    "width": 1.4
+                },
+                fillcolor=_hex_to_rgba(line_color_false, 0.55),
                 opacity=0.5,
                 spanmode="soft",
                 scalemode="width",
@@ -559,6 +567,7 @@ def _chart_21_freeship_box(df: pd.DataFrame, colors: list[str]):
         )
 
     if not y_true_log.empty:
+        line_color_true = colors[0] if colors else "#4169E1"
         fig.add_trace(
             go.Violin(
                 x=[label_true] * len(y_true_log),
@@ -569,8 +578,8 @@ def _chart_21_freeship_box(df: pd.DataFrame, colors: list[str]):
                 points=False,
                 box_visible=True,
                 meanline_visible=True,
-                line={"color": "#4169E1", "width": 1.4},
-                fillcolor="rgba(65,105,225,0.55)",
+                line={"color": line_color_true, "width": 1.4},
+                fillcolor=_hex_to_rgba(line_color_true, 0.55),
                 opacity=0.5,
                 spanmode="soft",
                 scalemode="width",
@@ -725,15 +734,13 @@ def _chart_23_grouped_top5(df: pd.DataFrame, colors: list[str]):
     text_true = [f"{v:.0f}%" if v > 5 else "" for v in pct_true]
     text_false = [f"{v:.0f}%" if v > 5 else "" for v in pct_false]
 
-    del colors
-
     fig = go.Figure()
     fig.add_trace(
         go.Bar(
             x=seller_order,
             y=pct_true,
             name=FREE_TRUE_LABEL,
-            marker_color="#4169E1",
+            marker_color=colors[0] if colors else "#4169E1",
             text=text_true,
             textposition="inside",
             insidetextanchor="middle",
@@ -745,7 +752,7 @@ def _chart_23_grouped_top5(df: pd.DataFrame, colors: list[str]):
             x=seller_order,
             y=pct_false,
             name=FREE_FALSE_LABEL,
-            marker_color="#FF6347",
+            marker_color=colors[1] if len(colors)>1 else "#FF6347",
             text=text_false,
             textposition="inside",
             insidetextanchor="middle",
@@ -771,7 +778,6 @@ def render_rating_policy_tab(
     colors: list[str],
     heatmap_scale: str,
 ) -> None:
-    del heatmap_scale
 
     required_cols = {
         "rating_average",
@@ -797,7 +803,7 @@ def render_rating_policy_tab(
         return
 
     st.header("Phần 1: Hiệu ứng đám đông")
-    fig11 = _chart_11_scatter(filtered_df, colors)
+    fig11 = _chart_11_scatter(filtered_df, colors, heatmap_scale)
     if fig11 is None:
         st.caption("Không đủ dữ liệu để vẽ Biểu đồ 1.1.")
     else:
