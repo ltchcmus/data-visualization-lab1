@@ -143,7 +143,7 @@ sự cạnh tranh giữa các đầu sách trở nên ít hơn nhưng giá trị
 
 **Câu hỏi:** Phân tích sự ảnh hưởng của discount đến sales: Discount có thực sự làm sách xuất bản gần đây có lợi thế doanh số hơn sách cũ không? Xu hướng lượng bán thay đổi theo năm xuất bản (`publication_date`) như thế nào?
 
-**Mục tiêu:** So sánh hiệu quả doanh số của nhóm sách mới xuất bản (2020–2025) so với nhóm sách cũ dựa trên xu hướng lượng bán và giá bán trung bình, nhằm chứng minh liệu việc giảm giá bán (đang có xu hướng giảm ở biểu đồ 3) có thực sự tạo ra ưu thế doanh số vượt trội cho sách mới hay không.
+**Mục tiêu:** So sánh hiệu quả doanh số của nhóm sách mới xuất bản (2020–2025) so với nhóm sách cũ dựa trên xu hướng lượng bán và giá bán trung bình, nhằm chứng minh liệu việc giảm giá bán có thực sự tạo ra ưu thế doanh số vượt trội cho sách mới hay không.
 
 **Biểu đồ:** Bar Chart theo năm + đường trung bình động
 

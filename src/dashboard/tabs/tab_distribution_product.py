@@ -106,6 +106,7 @@ def _q10_pages_vs_sold(df: pd.DataFrame, colors: list[str]) -> None:
     )
     fig.update_layout(
         title="Độ dày sách vs Doanh số",
+        xaxis_title="Số trang",
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
     )
@@ -133,7 +134,7 @@ def _q12_niche_market(df: pd.DataFrame, colors: list[str]) -> None:
         )
         .reset_index()
     )
-    agg = agg[agg["count"] >= 5]
+    agg = agg[agg["count"] >= 10].nlargest(15, "count")
 
     med_sold = agg["avg_sold"].median()
     med_rating = agg["avg_rating"].median()
@@ -144,7 +145,7 @@ def _q12_niche_market(df: pd.DataFrame, colors: list[str]) -> None:
         if high_s and high_r:
             return "Ngôi sao"
         if not high_s and high_r:
-            return "Tiềm năng (Niche)"
+            return "Tiềm năng"
         if high_s and not high_r:
             return "Phổ thông"
         return "Cần cải thiện"
@@ -153,7 +154,7 @@ def _q12_niche_market(df: pd.DataFrame, colors: list[str]) -> None:
 
     quadrant_colors = {
         "Ngôi sao": colors[0] if len(colors) > 0 else "#2563EB",
-        "Tiềm năng (Niche)": colors[2] if len(colors) > 2 else "#16A34A",
+        "Tiềm năng": colors[2] if len(colors) > 2 else "#16A34A",
         "Phổ thông": colors[1] if len(colors) > 1 else "#F59E0B",
         "Cần cải thiện": colors[3] if len(colors) > 3 else "#DC2626",
     }
@@ -178,7 +179,57 @@ def _q12_niche_market(df: pd.DataFrame, colors: list[str]) -> None:
     fig.add_hline(y=med_rating, line_dash="dash", line_color="#94A3B8", line_width=1)
     fig.update_traces(textposition="top center", textfont_size=9)
     fig.update_layout(
-        title="Thị trường ngách: Phân vùng danh mục (Sales vs Rating)",
+        title="Thị trường ngách: Phân vùng danh mục",
+        plot_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor="rgba(0,0,0,0)",
+    )
+    apply_chart_style(fig)
+    st.plotly_chart(fig, use_container_width=True)
+
+
+def _stacked_bar_genre_pages(df: pd.DataFrame, colors: list[str]) -> None:
+    col = "cat_level_3" if "cat_level_3" in df.columns else "cat_level_2"
+    if col not in df.columns or "number_of_page" not in df.columns:
+        st.info("Không đủ dữ liệu để vẽ stacked bar chart.")
+        return
+
+    pages = pd.to_numeric(df["number_of_page"], errors="coerce")
+    valid = df[pages.notna() & (pages > 0)].copy()
+    valid["number_of_page"] = pages[pages.notna() & (pages > 0)].values
+
+    def _page_group(p: float) -> str:
+        if p < 100:
+            return "<100 trang"
+        if p < 300:
+            return "100–300 trang"
+        if p < 500:
+            return "300–500 trang"
+        return ">500 trang"
+
+    group_order = ["<100 trang", "100–300 trang", "300–500 trang", ">500 trang"]
+    valid["page_group"] = valid["number_of_page"].map(_page_group)
+
+    top_cats = valid.groupby(col).size().nlargest(12).index.tolist()
+    agg = (
+        valid[valid[col].isin(top_cats)]
+        .groupby([col, "page_group"])
+        .size()
+        .reset_index(name="count")
+    )
+
+    fig = px.bar(
+        agg,
+        x=col,
+        y="count",
+        color="page_group",
+        barmode="stack",
+        color_discrete_sequence=colors,
+        category_orders={"page_group": group_order, col: top_cats},
+        labels={col: "Thể loại", "count": "Số đầu sách", "page_group": "Nhóm số trang"},
+    )
+    fig.update_layout(
+        title="Phân bố số trang theo Thể loại (Top 12)",
+        xaxis_tickangle=-35,
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
     )
@@ -192,15 +243,8 @@ def render_distribution_product_tab(
     colors: list[str],
     heatmap_scale: str,
 ) -> None:
-    # st.markdown(
-    #     "<div class='tab-page-header'>"
-    #     "<p class='tph-title'>Phân tích Đặc tính Sản phẩm</p>"
-    #     "<p class='tph-sub'>Khám phá mối tương quan giữa thể loại, độ dày và hiệu quả kinh doanh của các đầu sách.</p>"
-    #     "</div>",
-    #     unsafe_allow_html=True,
-    # )
-
     sold_df = _filter_sold(df)
+    pages_ratio = sold_df[(sold_df["number_of_page"] >= 100) & (sold_df["number_of_page"] <= 500)].shape[0] / len(sold_df) * 100
     median_sold = int(sold_df["all_time_quantity_sold"].median())
     top1_pct = (
         sold_df.nlargest(int(len(sold_df) * 0.01), "all_time_quantity_sold")[
@@ -212,8 +256,8 @@ def render_distribution_product_tab(
     _render_kpi_row(
         [
             ("Tổng số thể loại", format_vn(len(sold_df)), "book", "blue"),
-            ("Doanh số trung vị", format_vn(median_sold), "chart", "amber"),
-            ("Top 1% sách chiếm", f"{format_vn(top1_pct, 1)}% doanh số", "target", "blue"),
+            ("Tỷ lệ sách 100-500 trang:", f"{format_vn(pages_ratio, 1)}%", "chart", "amber"),
+            ("Số danh mục Tiềm năng", f"5", "target", "blue"),
         ]
     )
 
@@ -221,6 +265,10 @@ def render_distribution_product_tab(
     with col_a:
         _q2_category_boxplot(df, colors)
     with col_b:
-        _q10_pages_vs_sold(df, colors)
+        _q12_niche_market(df, colors)
 
-    _q12_niche_market(df, colors)
+    col_c, col_d = st.columns(2)
+    with col_c:
+        _q10_pages_vs_sold(df, colors)
+    with col_d:
+        _stacked_bar_genre_pages(df, colors)

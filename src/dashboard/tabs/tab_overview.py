@@ -166,8 +166,3 @@ def render_overview_tab(
 
     _q1_long_tail(df, colors)
     st.markdown('<div style="margin-top: 50px;"></div>', unsafe_allow_html=True)
-    with st.expander(":material/notes: Kết luận"):
-        st.info(""" 
-                1. Mô hình: Nhà sách đang vận hành theo quy luật Pareto; cần tập trung nguồn lực Marketing cho nhóm sách "Ngôi sao".
-    2. Cải thiện: Cần rà soát lại các đầu sách có Rating thấp để bảo vệ uy tín thương hiệu.
-    3. Tiềm năng: Tận dụng danh mục NXB đa dạng để mở rộng các chương trình khuyến mãi theo nhóm đối tượng chuyên biệt""")

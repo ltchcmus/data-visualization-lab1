@@ -97,7 +97,7 @@ def _q5_discount_threshold(df: pd.DataFrame, colors: list[str]) -> None:
     )
 
     # 2. Bar chart 2: Tổng lượng bán (Trục trái)
-    c4 = colors[3] if len(colors) > 3 else "#f59e0b"
+    c4 = colors[3] if len(colors) > 3 else "#420bf5"
     fig.add_trace(
         go.Bar(
             x=agg["discount_bin"].astype(str),
@@ -177,7 +177,7 @@ def _q5_discount_threshold(df: pd.DataFrame, colors: list[str]) -> None:
         text="Vùng tối ưu Doanh thu",
         showarrow=True,
         arrowhead=1,
-        ax=0,
+        ax=-70,
         ay=-40,
         bgcolor="white",
         bordercolor=colors[1],
@@ -238,7 +238,20 @@ def _q9_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
         yaxis_title="Lượng bán trung bình",
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
-        legend={"orientation": "h", "y": -0.2},
+        legend=dict(
+            x=0.3,          
+            y=0.99,        
+            xanchor='right',
+            yanchor='top',
+            bgcolor="rgba(255, 255, 255, 0.8)",
+            bordercolor="Gray",
+            borderwidth=1,
+            font=dict(
+                family="Arial",
+                size=6,
+                color="black"
+            )
+        ),
         margin=dict(t=50, b=0),
     )
     apply_chart_style(fig)
@@ -324,10 +337,24 @@ def _q10_price_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
         title="Chiết khấu trung bình & số đầu sách theo năm xuất bản",
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
-        legend={"orientation": "h", "y": -0.2},
+        legend=dict(
+            x=0.3,          
+            y=0.99,        
+            xanchor='right',
+            yanchor='top',
+            bgcolor="rgba(255, 255, 255, 0.8)",
+            bordercolor="Gray",
+            borderwidth=1,
+            font=dict(
+                family="Arial",
+                size=6,
+                color="black"
+            )
+        ),
         margin=dict(t=50, b=0),
         hovermode="x unified",
     )
+    fig.update_xaxes(title_text="Năm xuất bản")
     fig.update_yaxes(title_text="Số đầu sách", secondary_y=False)
     fig.update_yaxes(title_text="Chiết khấu trung bình (%)", secondary_y=True)
     apply_chart_style(fig)
@@ -366,7 +393,7 @@ def render_price_discount_tab(
     _render_kpi_row(
         [
             ("Giá sách TB", f"{format_vn(df['price'].mean())} VNĐ", "price", "blue"),
-            ("Discount trung bình", f"{format_vn(avg_disc, 1)}%", "tag", "amber"),
+            ("Chiết khấu trung bình", f"{format_vn(avg_disc, 1)}%", "tag", "amber"),
             ("Tỷ lệ có giảm giá", f"{format_vn(pct_discounted, 1)}%", "percent", "blue"),
         ]
     )
