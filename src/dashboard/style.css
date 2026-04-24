@@ -145,12 +145,6 @@ div[data-testid="stElementContainer"] {
   padding-top: 132px !important;
 }
 
-/* Ensure the first filter row is visually pulled upward
-[data-testid="stHorizontalBlock"]:has(.top-filter-title) {
-    margin-top: 0.5rem !important;
-    margin-bot: 0.5rem !important;
-} */
-
 /* -- HEADER -- */
 .dashboard-head {
   position: fixed;
