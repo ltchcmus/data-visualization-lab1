@@ -10,9 +10,6 @@ import streamlit as st
 from ..format_utils import apply_chart_style, format_vn
 from ..ui_cards import render_metric_strip
 
-# ---------------------------------------------------------------------------
-# helpers
-# ---------------------------------------------------------------------------
 
 def _filter_sold(df: pd.DataFrame) -> pd.DataFrame:
     sold = pd.to_numeric(df["all_time_quantity_sold"], errors="coerce")
