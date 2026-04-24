@@ -330,7 +330,7 @@ div[data-baseweb="select"] ul[role="listbox"] {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 8px;
-  padding: 6px 12px;
+  padding: 8px 14px;
   text-align: center;
   text-decoration: none;
   display: block;
@@ -345,13 +345,18 @@ div[data-baseweb="select"] ul[role="listbox"] {
   transform: translateY(-1px);
 }
 
+.hdr-badge:hover .hdr-badge-val,
+.hdr-badge:hover .hdr-badge-lbl {
+  color: #111827;
+}
+
 .hdr-badge-val {
-  font-size: 1rem;
+  font-size: 1.08rem;
   line-height: 1;
 }
 
 .hdr-badge-lbl {
-  font-size: 0.55rem;
+  font-size: 0.62rem;
   color: rgba(255, 255, 255, 0.76);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -1233,7 +1238,66 @@ div[data-baseweb="select"] ul[role="listbox"] {
 }
 
 /* ═══════════════════════════════════════════════════════════════
- * 14. ANIMATIONS & SCROLLBARS
+ * 14. LOADING OVERLAY
+ * ═══════════════════════════════════════════════════════════════ */
+.pt-loader-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 5000 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.94), rgba(227, 238, 253, 0.9));
+  backdrop-filter: blur(3px);
+  margin: 0 !important;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.24s ease;
+}
+
+.pt-loader-overlay.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.pt-loader-card {
+  min-width: 250px;
+  padding: 20px 24px;
+  border-radius: 16px;
+  border: 1px solid #dbe7f2;
+  background: linear-gradient(145deg, #ffffff 0%, #eff6ff 100%);
+  box-shadow: 0 20px 36px rgba(37, 99, 235, 0.18);
+}
+
+.pt-loader-text {
+  color: #1e3a8a !important;
+  font-size: 0.86rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.pt-loader-ring {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 4px solid #c7d2fe;
+  border-top-color: #1d4ed8;
+  border-right-color: #2563eb;
+  animation: ptLoaderSpin 0.85s linear infinite;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+  margin: 0 auto;
+}
+
+@keyframes ptLoaderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+ * 15. ANIMATIONS & SCROLLBARS
  * ═══════════════════════════════════════════════════════════════ */
 @keyframes fadeInUp {
   from {
@@ -1262,9 +1326,19 @@ div[data-baseweb="select"] ul[role="listbox"] {
 }
 
 /* ═══════════════════════════════════════════════════════════════
- * 15. RESPONSIVE
+ * 16. RESPONSIVE
  * ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 900px) {
+
+  .pt-loader-card {
+    min-width: 220px;
+    padding: 16px 18px;
+  }
+
+  .pt-loader-ring {
+    width: 48px;
+    height: 48px;
+  }
 
   [data-testid="stSidebar"],
   [data-testid="stSidebar"]>div:first-child {

@@ -14,6 +14,7 @@ if __package__ in {None, ""}:
     if str(src_dir) not in sys.path:
         sys.path.insert(0, str(src_dir))
 
+    from dashboard.format_utils import configure_plotly_template
     from dashboard.components.data_loader import default_data_path, load_dataset
     from dashboard.components.filter_ui import render_top_filters
     from dashboard.tabs import (
@@ -25,6 +26,7 @@ if __package__ in {None, ""}:
         render_rating_seller_tab,
     )
 else:
+    from .format_utils import configure_plotly_template
     from .components.data_loader import default_data_path, load_dataset
     from .components.filter_ui import render_top_filters
     from .tabs import (
@@ -96,6 +98,22 @@ def _inject_style() -> None:
     )
 
 
+def _render_loader_overlay(slot, *, visible: bool) -> None:
+    visible_class = " is-visible" if visible else ""
+    aria_busy = "true" if visible else "false"
+    slot.markdown(
+        f"""
+        <div id="plottwist-loader" class="pt-loader-overlay{visible_class}" aria-live="polite" aria-busy="{aria_busy}">
+            <div class="pt-loader-card">
+                <div class="pt-loader-ring" aria-hidden="true"></div>
+                <div class="pt-loader-text">Đang tải dashboard...</div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
 def _get_active_tab() -> str:
     raw_value = st.query_params.get("tab", "overview")
     selected = raw_value[0] if isinstance(raw_value, list) else raw_value
@@ -117,7 +135,7 @@ def _render_floating_tab_rail(active_tab: str, colorblind_mode: bool) -> None:
         active_class = " is-active" if tab_key == active_tab else ""
         item_blocks.append(
             (
-                f'<a class="book-tab-link{active_class}" href="?tab={tab_key}{cb_suffix}" target="_self">'
+                f'<a class="book-tab-link{active_class}" href="?tab={tab_key}{cb_suffix}" target="_self" onclick="var el=document.getElementById(\'plottwist-loader\'); if (el) el.classList.add(\'is-visible\');">'
                 f'<span class="book-tab-icon">{tab_meta["icon"]}</span>'
                 f'<span class="book-tab-label">{tab_meta["label"]}</span>'
                 "</a>"
@@ -137,7 +155,10 @@ def _render_fixed_header(active_tab: str, colorblind_mode: bool, total_books: in
     updated_at = datetime.now().strftime("%H:%M %d/%m/%Y")
 
     # JS snippet: when clicking the toggle, also update localStorage
-    toggle_js = f"localStorage.setItem('plottwist_colorblind', '{target_state}');"
+    toggle_js = (
+        f"localStorage.setItem('plottwist_colorblind', '{target_state}');"
+        "var el=document.getElementById('plottwist-loader'); if (el) el.classList.add('is-visible');"
+    )
 
     st.markdown(
         f"""
@@ -194,45 +215,51 @@ def main() -> None:
         layout="wide",
         initial_sidebar_state="expanded",
     )
+    configure_plotly_template("plotly_white")
     pio.templates.default = "plotly_white"
     _inject_style()
-    active_tab = _get_active_tab()
-    colorblind_mode = _get_colorblind_mode()
-
+    loader_slot = st.empty()
+    _render_loader_overlay(loader_slot, visible=True)
     try:
-        raw_df = load_dataset(str(default_data_path()))
-    except FileNotFoundError as exc:
-        st.error(str(exc))
-        st.stop()
+        active_tab = _get_active_tab()
+        colorblind_mode = _get_colorblind_mode()
 
-    st.sidebar.markdown(" ")
-    _render_floating_tab_rail(active_tab, colorblind_mode)
-    _render_fixed_header(active_tab, colorblind_mode, total_books=len(raw_df))
+        try:
+            raw_df = load_dataset(str(default_data_path()))
+        except FileNotFoundError as exc:
+            st.error(str(exc))
+            st.stop()
 
-    df = _prepare_data(raw_df)
-    filtered_df = render_top_filters(df)
+        st.sidebar.markdown(" ")
+        _render_floating_tab_rail(active_tab, colorblind_mode)
+        _render_fixed_header(active_tab, colorblind_mode, total_books=len(raw_df))
 
-    if filtered_df.empty:
-        st.warning("Bộ lọc hiện tại không có dữ liệu. Hãy mở rộng phạm vi lọc để tiếp tục.")
-        st.stop()
+        df = _prepare_data(raw_df)
+        filtered_df = render_top_filters(df)
 
-    colors = COLORBLIND_COLORS if colorblind_mode else NORMAL_COLORS
-    heatmap_scale = "Viridis" if colorblind_mode else "Blues"
+        if filtered_df.empty:
+            st.warning("Bộ lọc hiện tại không có dữ liệu. Hãy mở rộng phạm vi lọc để tiếp tục.")
+            st.stop()
 
-    if active_tab == "overview":
-        render_overview_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
-    elif active_tab == "distribution":
-        render_distribution_product_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
-    elif active_tab == "price":
-        render_price_discount_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
-    elif active_tab == "publisher":
-        render_publisher_author_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
-    elif active_tab == "rating_crowd":
-        render_rating_crowd_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
-    elif active_tab == "rating_seller":
-        render_rating_seller_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
-    else:
-        render_distribution_product_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+        colors = COLORBLIND_COLORS if colorblind_mode else NORMAL_COLORS
+        heatmap_scale = "Viridis" if colorblind_mode else "Blues"
+
+        if active_tab == "overview":
+            render_overview_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+        elif active_tab == "distribution":
+            render_distribution_product_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+        elif active_tab == "price":
+            render_price_discount_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+        elif active_tab == "publisher":
+            render_publisher_author_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+        elif active_tab == "rating_crowd":
+            render_rating_crowd_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+        elif active_tab == "rating_seller":
+            render_rating_seller_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+        else:
+            render_distribution_product_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+    finally:
+        _render_loader_overlay(loader_slot, visible=False)
 
 
 if __name__ == "__main__":
