@@ -78,60 +78,6 @@ def _prepare_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     return work
 
 
-def _render_filters(df: pd.DataFrame) -> tuple[pd.DataFrame, tuple[float, float], list[str]]:
-    st.markdown("<div class='tab4-filter-card'>", unsafe_allow_html=True)
-    c0, c1, c2 = st.columns([1.25, 1.7, 1.15])
-
-    with c0:
-        st.markdown("<div class='tab4-filter-title'>Bộ lọc tương tác</div>", unsafe_allow_html=True)
-        st.markdown(
-            "<div class='tab4-filter-sub'>Lọc nhanh theo rating và chính sách freeship để so sánh hành vi doanh số.</div>",
-            unsafe_allow_html=True,
-        )
-
-    rating_valid = df["rating_average"].dropna().clip(lower=0, upper=5)
-    default_range = (0.0, 5.0)
-    if not rating_valid.empty:
-        default_range = (float(rating_valid.min()), float(rating_valid.max()))
-
-    with c1:
-        rating_range = st.slider(
-            "Lọc theo khoảng rating",
-            min_value=0.0,
-            max_value=5.0,
-            value=default_range,
-            step=0.1,
-            key="tab4_rating_range",
-        )
-
-    with c2:
-        freeship_choice = st.multiselect(
-            "Lọc theo freeship",
-            options=[FREE_TRUE_LABEL, FREE_FALSE_LABEL],
-            default=[FREE_TRUE_LABEL, FREE_FALSE_LABEL],
-            key="tab4_freeship_options",
-        )
-
-    filtered = df[df["rating_average"].between(rating_range[0], rating_range[1], inclusive="both")].copy()
-
-    if freeship_choice:
-        allowed = []
-        if FREE_TRUE_LABEL in freeship_choice:
-            allowed.append(True)
-        if FREE_FALSE_LABEL in freeship_choice:
-            allowed.append(False)
-        filtered = filtered[filtered["has_freeship"].isin(allowed)]
-    else:
-        filtered = filtered.iloc[0:0]
-
-    with c0:
-        st.metric("Bản ghi sau lọc", f"{len(filtered):,}")
-
-    st.markdown("</div>", unsafe_allow_html=True)
-
-    return filtered, rating_range, freeship_choice
-
-
 def _chart_11_scatter(df: pd.DataFrame, colors: list[str], heatmap_scale: str):
     data = df[
         (df["rating_average"].notna())
@@ -793,13 +739,9 @@ def render_rating_policy_tab(
     st.markdown("<div class='tab-page-header'>Tab 4 — Đánh giá & Chính sách Dịch vụ</div>", unsafe_allow_html=True)
 
     base_df = _prepare_dataframe(df)
-    filtered_df, _, freeship_choice = _render_filters(base_df)
-
-    if not freeship_choice:
-        st.info("Hãy chọn ít nhất một trạng thái freeship để hiển thị biểu đồ.")
-        return
+    filtered_df = base_df
     if filtered_df.empty:
-        st.info("Không có dữ liệu sau khi lọc. Hãy mở rộng bộ lọc rating hoặc freeship.")
+        st.info("Không có dữ liệu sau khi áp dụng bộ lọc toàn cục. Hãy mở rộng bộ lọc để tiếp tục.")
         return
 
     st.header("Phần 1: Hiệu ứng đám đông")

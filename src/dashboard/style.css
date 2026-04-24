@@ -140,7 +140,7 @@ div[data-testid="stElementContainer"] {
 .stApp [data-testid="stAppViewContainer"] .main .block-container {
   margin-left: 0 !important;
   padding-left: var(--content-left-gap) !important;
-  padding-top: 88px !important;
+  padding-top: 132px !important;
 }
 
 /* Ensure the first filter row is visually pulled upward

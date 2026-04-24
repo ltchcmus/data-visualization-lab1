@@ -391,6 +391,42 @@ def render_top_filters(df: pd.DataFrame) -> pd.DataFrame:
     st.markdown(
         """
         <style>
+        .filter-toggle-wrap {
+            margin: 2px 0 8px 0;
+        }
+        .st-key-filter_toggle_shell {
+            margin-top: 8px !important;
+            margin-bottom: 12px !important;
+            border-radius: 14px;
+            border: 1px solid #7ea2c9;
+            background: linear-gradient(110deg, #e9f2ff 0%, #d6e8ff 48%, #edf6ff 100%);
+            box-shadow: 0 12px 24px rgba(30, 64, 175, 0.18);
+            padding: 10px 14px;
+        }
+        .st-key-filter_toggle_shell [data-testid="stHorizontalBlock"] {
+            align-items: center !important;
+            min-height: 40px;
+        }
+        .filter-toggle-title {
+            color: #153458 !important;
+            font-weight: 800;
+            font-size: 1.12rem !important;
+            letter-spacing: 0.015em;
+            line-height: 1.25;
+            padding-left: 6px;
+        }
+        .st-key-filter_toggle_shell .st-key-global_filter_panel_open {
+            margin: 0 !important;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .st-key-filter_toggle_shell .st-key-global_filter_panel_open [data-testid="stToggle"] {
+            margin: 0 !important;
+        }
+        .st-key-filter_toggle_shell .st-key-global_filter_panel_open [data-baseweb="checkbox"] {
+            transform: scale(1.12);
+            transform-origin: right center;
+        }
         .top-filter-title {
             display: none !important;
         }
@@ -434,48 +470,112 @@ def render_top_filters(df: pd.DataFrame) -> pd.DataFrame:
         unsafe_allow_html=True,
     )
 
-    col_lang, col_genre, col_year = st.columns([1.8, 2.5, 1.3])
+    if "global_filter_panel_open" not in st.session_state:
+        st.session_state["global_filter_panel_open"] = False
+    if "global_lang_label" not in st.session_state:
+        st.session_state["global_lang_label"] = list(BOOK_TYPE_MAP.keys())[0]
+    if "global_selected_genres" not in st.session_state:
+        st.session_state["global_selected_genres"] = []
+    if "global_year_label" not in st.session_state:
+        st.session_state["global_year_label"] = list(YEAR_PRESET_MAP.keys())[0]
 
-    with col_lang:
-        st.markdown("<div class='top-filter-title'>Loại sách</div>", unsafe_allow_html=True)
-        lang_label = st.selectbox(
-            "Loại sách",
-            options=list(BOOK_TYPE_MAP.keys()),
-            index=0,
-            label_visibility="collapsed",
-        )
+    rating_values = pd.to_numeric(df.get("rating_average"), errors="coerce").dropna().clip(lower=0, upper=5)
+    rating_default = (0.0, 5.0)
+    if not rating_values.empty:
+        rating_default = (float(rating_values.min()), float(rating_values.max()))
 
-    lang_val = BOOK_TYPE_MAP.get(lang_label)
-    if lang_val is not None and "cat_level_2" in df.columns:
-        genre_df = df[df["cat_level_2"] == lang_val]
-    else:
-        genre_df = df
+    if "global_rating_range" not in st.session_state:
+        st.session_state["global_rating_range"] = rating_default
+    if "global_freeship_filter" not in st.session_state:
+        st.session_state["global_freeship_filter"] = ["Có Freeship", "Không Freeship"]
 
-    with col_genre:
-        st.markdown("<div class='top-filter-title'>Thể loại</div>", unsafe_allow_html=True)
-        if "cat_level_3" in genre_df.columns:
-            genre_options = sorted(genre_df["cat_level_3"].dropna().unique().tolist())
+    with st.container(key="filter_toggle_shell"):
+        t_col1, t_col2 = st.columns([8.2, 1.4], vertical_alignment="center")
+        with t_col1:
+            st.markdown("<div class='filter-toggle-title'>Bộ lọc Dashboard</div>", unsafe_allow_html=True)
+        with t_col2:
+            st.toggle(
+                "Bật/tắt bộ lọc",
+                key="global_filter_panel_open",
+                label_visibility="collapsed",
+                help="Bật để hiện toàn bộ bộ lọc dashboard.",
+            )
+
+    if st.session_state["global_filter_panel_open"]:
+        col_lang, col_genre, col_year = st.columns([1.8, 2.5, 1.3])
+
+        with col_lang:
+            st.markdown("<div class='top-filter-title'>Loại sách</div>", unsafe_allow_html=True)
+            st.selectbox(
+                "Loại sách",
+                options=list(BOOK_TYPE_MAP.keys()),
+                key="global_lang_label",
+                label_visibility="collapsed",
+            )
+
+        lang_val_ui = BOOK_TYPE_MAP.get(st.session_state["global_lang_label"])
+        if lang_val_ui is not None and "cat_level_2" in df.columns:
+            genre_df = df[df["cat_level_2"] == lang_val_ui]
         else:
-            genre_options = []
-        selected_genres = st.multiselect(
-            "Thể loại",
-            options=genre_options,
-            default=[],
-            label_visibility="collapsed",
-            placeholder="Thể loại",
-        )
+            genre_df = df
 
-    with col_year:
-        st.markdown("<div class='top-filter-title'>Năm xuất bản</div>", unsafe_allow_html=True)
-        year_label = st.selectbox(
-            "Năm xuất bản",
-            options=list(YEAR_PRESET_MAP.keys()),
-            label_visibility="collapsed",
-        )
+        with col_genre:
+            st.markdown("<div class='top-filter-title'>Thể loại</div>", unsafe_allow_html=True)
+            if "cat_level_3" in genre_df.columns:
+                genre_options = sorted(genre_df["cat_level_3"].dropna().unique().tolist())
+            else:
+                genre_options = []
+            st.multiselect(
+                "Thể loại",
+                options=genre_options,
+                key="global_selected_genres",
+                label_visibility="collapsed",
+                placeholder="Thể loại",
+            )
+
+        with col_year:
+            st.markdown("<div class='top-filter-title'>Năm xuất bản</div>", unsafe_allow_html=True)
+            st.selectbox(
+                "Năm xuất bản",
+                options=list(YEAR_PRESET_MAP.keys()),
+                key="global_year_label",
+                label_visibility="collapsed",
+            )
+
+        adv_col_1, adv_col_2 = st.columns([2.0, 1.2])
+        with adv_col_1:
+            st.slider(
+                "Khoảng rating",
+                min_value=0.0,
+                max_value=5.0,
+                value=st.session_state["global_rating_range"],
+                step=0.1,
+                key="global_rating_range",
+                help="Áp dụng cho toàn bộ dashboard.",
+            )
+        with adv_col_2:
+            st.multiselect(
+                "Trạng thái freeship",
+                options=["Có Freeship", "Không Freeship"],
+                default=["Có Freeship", "Không Freeship"],
+                key="global_freeship_filter",
+                help="Có thể chọn một hoặc cả hai trạng thái.",
+            )
+
+    st.markdown("<div style='height: 24px;'></div>", unsafe_allow_html=True)
+
+    selected_freeship_labels = st.session_state.get("global_freeship_filter", ["Có Freeship", "Không Freeship"])
+    freeship_options: list[bool] = []
+    if "Có Freeship" in selected_freeship_labels:
+        freeship_options.append(True)
+    if "Không Freeship" in selected_freeship_labels:
+        freeship_options.append(False)
 
     return apply_top_filters(
         df,
-        lang_label=lang_label,
-        selected_genres=selected_genres,
-        year_label=year_label,
+        lang_label=st.session_state["global_lang_label"],
+        selected_genres=list(st.session_state.get("global_selected_genres", [])),
+        year_label=st.session_state["global_year_label"],
+        rating_range=tuple(float(v) for v in st.session_state["global_rating_range"]),
+        freeship_options=freeship_options,
     )
