@@ -28,14 +28,14 @@ body,
     sans-serif !important;
 }
 
-/* no scroll layout*/
-/* section[data-testid="stMain"] {
-    overflow: hidden !important;
+/* Restore scroll on the main layout so charts can be seen fully */
+section[data-testid="stMain"] {
+    overflow: auto !important;
 }
 
 div[data-testid="stSidebarContent"] {
     overflow: hidden !important;
-} */
+}
 
 div[data-testid="stVerticalBlock"] {
   gap: 0rem !important;
