@@ -82,13 +82,14 @@ def _prepare_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def _render_kpi_row(items: list[tuple[str, str, str, str]]) -> None:
+    cols = max(1, len(items))
     render_metric_strip(
         [
             {"label": label, "value": value, "icon": icon, "tone": tone}
             for label, value, icon, tone in items
         ],
         compact=True,
-        cols=4,
+        cols=cols,
     )
 
 
@@ -761,8 +762,6 @@ def render_rating_crowd_tab(
     if filtered_df is None:
         return
 
-    st.subheader("Hiệu ứng đám đông từ Rating & Review")
-
     valid = filtered_df[
         (filtered_df["rating_average"].notna())
         & (filtered_df["review_count"].notna())
@@ -776,7 +775,6 @@ def render_rating_crowd_tab(
         [
             ("Sách có review", format_vn(int((filtered_df["review_count"] > 0).sum())), "book", "blue"),
             ("Rating trung bình", format_vn(float(filtered_df["rating_average"].mean()), 2), "star", "amber"),
-            ("Review trung vị", format_vn(float(filtered_df["review_count"].median()), 0), "chart", "slate"),
             ("Tỷ lệ rating >= 4.5", f"{format_vn(high_rating_ratio, 1)}%", "target", "emerald"),
         ]
     )
@@ -813,11 +811,11 @@ def render_rating_seller_tab(
     if filtered_df is None:
         return
 
-    st.subheader("Chiến lược nhà cung cấp & Freeship")
-
     seller_agg = _top_seller_table(filtered_df, n=10)
     top10_total = float(seller_agg["total_sold"].sum()) if not seller_agg.empty else 0.0
-    top1_share = float(seller_agg.iloc[0]["total_sold"] / top10_total * 100) if top10_total > 0 else 0.0
+    total_sold_all = float(pd.to_numeric(filtered_df["all_time_quantity_sold"], errors="coerce").fillna(0).sum())
+    top10_share_all = float(top10_total / total_sold_all * 100) if total_sold_all > 0 else 0.0
+    median_seller_sold = float(seller_agg["total_sold"].median()) if not seller_agg.empty else 0.0
 
     fs = filtered_df["has_freeship"].dropna()
     freeship_ratio = float(fs.eq(True).mean() * 100) if not fs.empty else 0.0
@@ -825,9 +823,9 @@ def render_rating_seller_tab(
     _render_kpi_row(
         [
             ("Số seller hoạt động", format_vn(int(filtered_df["seller_name"].nunique())), "building", "blue"),
-            ("Top 1 trong Top 10", f"{format_vn(top1_share, 1)}%", "target", "amber"),
             ("Tỷ lệ có freeship", f"{format_vn(freeship_ratio, 1)}%", "ship", "emerald"),
-            ("Top seller theo dõi", format_vn(int(min(10, len(seller_agg)))), "users", "slate"),
+            ("Top 10 đóng góp", f"{format_vn(top10_share_all, 1)}% doanh số", "target", "slate"),
+            ("Doanh số trung vị/seller", format_vn(median_seller_sold, 0), "chart", "blue"),
         ]
     )
 
