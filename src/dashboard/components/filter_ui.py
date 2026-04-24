@@ -5,6 +5,8 @@ from typing import Any
 import pandas as pd
 import streamlit as st
 
+from .filter_engine import BOOK_TYPE_MAP, YEAR_PRESET_MAP, apply_top_filters
+
 
 WIDGET_KEYS = {
     "selected_columns": "global_selected_columns",
@@ -154,11 +156,12 @@ def render_filter_panel(df: pd.DataFrame, defaults: dict[str, Any]) -> None:
         """
         <style>
         .filter-card {
-            border: 1px solid #d9e1ec;
+            border: 1px solid #cfe0f2;
             border-radius: 16px;
             padding: 14px 18px;
-            background: linear-gradient(180deg, #f9fbfe 0%, #f3f7fc 100%);
+            background: linear-gradient(105deg, #dcedff 0%, #eff6ff 52%, #ffffff 100%);
             margin-bottom: 12px;
+            box-shadow: 0 8px 18px rgba(31, 79, 125, 0.12);
         }
         .filter-title {
             font-size: 1.05rem;
@@ -382,3 +385,97 @@ def collect_filter_state_from_widgets() -> dict[str, Any]:
         ),
         "has_freeship": st.session_state[WIDGET_KEYS["has_freeship"]],
     }
+
+
+def render_top_filters(df: pd.DataFrame) -> pd.DataFrame:
+    st.markdown(
+        """
+        <style>
+        .top-filter-title {
+            display: none !important;
+        }
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] {
+            background: #ffffff !important;
+            border: 1px solid #d8e6f3 !important;
+            border-radius: 10px !important;
+            box-shadow: 0 5px 14px rgba(9, 18, 34, 0.06) !important;
+        }
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] * {
+            background-color: transparent !important;
+        }
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] > div,
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] > div > div {
+            background: #ffffff !important;
+        }
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] span,
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] div,
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] input {
+            color: #1E293B !important;
+            -webkit-text-fill-color: #1E293B !important;
+        }
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] input::placeholder {
+            color: #64748B !important;
+            -webkit-text-fill-color: #64748B !important;
+        }
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="tag"] {
+            background: #F8FAFC !important;
+            border: 1px solid #d6e3f0 !important;
+            border-radius: 10px !important;
+        }
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="tag"] span {
+            color: #1E293B !important;
+        }
+        [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] svg {
+            color: #64748B !important;
+            fill: #64748B !important;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    col_lang, col_genre, col_year = st.columns([1.8, 2.5, 1.3])
+
+    with col_lang:
+        st.markdown("<div class='top-filter-title'>Loại sách</div>", unsafe_allow_html=True)
+        lang_label = st.selectbox(
+            "Loại sách",
+            options=list(BOOK_TYPE_MAP.keys()),
+            index=0,
+            label_visibility="collapsed",
+        )
+
+    lang_val = BOOK_TYPE_MAP.get(lang_label)
+    if lang_val is not None and "cat_level_2" in df.columns:
+        genre_df = df[df["cat_level_2"] == lang_val]
+    else:
+        genre_df = df
+
+    with col_genre:
+        st.markdown("<div class='top-filter-title'>Thể loại</div>", unsafe_allow_html=True)
+        if "cat_level_3" in genre_df.columns:
+            genre_options = sorted(genre_df["cat_level_3"].dropna().unique().tolist())
+        else:
+            genre_options = []
+        selected_genres = st.multiselect(
+            "Thể loại",
+            options=genre_options,
+            default=[],
+            label_visibility="collapsed",
+            placeholder="Thể loại",
+        )
+
+    with col_year:
+        st.markdown("<div class='top-filter-title'>Năm xuất bản</div>", unsafe_allow_html=True)
+        year_label = st.selectbox(
+            "Năm xuất bản",
+            options=list(YEAR_PRESET_MAP.keys()),
+            label_visibility="collapsed",
+        )
+
+    return apply_top_filters(
+        df,
+        lang_label=lang_label,
+        selected_genres=selected_genres,
+        year_label=year_label,
+    )

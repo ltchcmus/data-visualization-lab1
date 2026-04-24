@@ -1,7 +1,14 @@
+src/data_collection/data/
 *.log
-CLAUDE.md
+CLAUDE.md   
 .claude
 imgs/
 __pycache__/
 .vscode
 cong
+.github/
+.venv/
+sample_dashboard/
+AGENTS.md
+.env
+.env.example

@@ -66,7 +66,7 @@ def default_data_path() -> Path:
     if env_override is not None:
         return env_override
 
-    return root / "data" / "processed" / "book_dataset_clean_locked_rows_run2.csv"
+    return root / "data" / "processed" / "book_dataset_clean_notebook.csv"
 
 
 def _normalize_boolean_value(value: object) -> object:

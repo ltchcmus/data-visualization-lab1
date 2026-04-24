@@ -1,151 +1,231 @@
 from __future__ import annotations
 
+from datetime import datetime
 import sys
 from pathlib import Path
-from typing import Any
 
+import pandas as pd
+import plotly.express as px
+import plotly.io as pio
 import streamlit as st
 
 if __package__ in {None, ""}:
-    # Allow running this file directly: python app.py from src/dashboard.
     src_dir = Path(__file__).resolve().parents[1]
     if str(src_dir) not in sys.path:
         sys.path.insert(0, str(src_dir))
 
     from dashboard.components.data_loader import default_data_path, load_dataset
-    from dashboard.components.filter_engine import (
-        apply_filters,
-        build_filter_defaults,
-        sanitize_filter_state,
+    from dashboard.components.filter_ui import render_top_filters
+    from dashboard.tabs import (
+        render_distribution_product_tab,
+        render_overview_tab,
+        render_price_discount_tab,
+        render_publisher_author_tab,
+        render_rating_policy_tab,
     )
-    from dashboard.components.filter_ui import (
-        collect_filter_state_from_widgets,
-        initialize_filter_widgets,
-        render_filter_panel,
-        reset_filter_widgets,
-    )
-    from dashboard.components.shared_data import set_dashboard_data_state
-    from dashboard.tabs.sample_dashboard import render_sample_dashboard_page
 else:
     from .components.data_loader import default_data_path, load_dataset
-    from .components.filter_engine import (
-        apply_filters,
-        build_filter_defaults,
-        sanitize_filter_state,
+    from .components.filter_ui import render_top_filters
+    from .tabs import (
+        render_distribution_product_tab,
+        render_overview_tab,
+        render_price_discount_tab,
+        render_publisher_author_tab,
+        render_rating_policy_tab,
     )
-    from .components.filter_ui import (
-        collect_filter_state_from_widgets,
-        initialize_filter_widgets,
-        render_filter_panel,
-        reset_filter_widgets,
+
+
+NORMAL_COLORS = px.colors.qualitative.Plotly
+COLORBLIND_COLORS = [
+    "#0077BB",
+    "#EE7733",
+    "#009988",
+    "#CC3311",
+    "#33BBEE",
+    "#EE3377",
+    "#BBBBBB",
+]
+
+TAB_OPTIONS = {
+    "overview": {"icon": '<i class="fa-solid fa-chart-pie"></i>', "label": "Tổng quan"},
+    "distribution": {"icon": '<i class="fa-solid fa-layer-group"></i>', "label": "Sản phẩm"},
+    "price": {"icon": '<i class="fa-solid fa-tags"></i>', "label": "Giá & Chiết khấu"},
+    "publisher": {"icon": '<i class="fa-solid fa-building-columns"></i>', "label": "NXB & Tác giả"},
+    "rating": {"icon": '<i class="fa-solid fa-star-half-stroke"></i>', "label": "Đánh giá & Chính sách"},
+}
+
+
+def _inject_style() -> None:
+    st.markdown(
+        '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>',
+        unsafe_allow_html=True,
     )
-    from .components.shared_data import set_dashboard_data_state
-    from .tabs.sample_dashboard import render_sample_dashboard_page
+    css_path = Path(__file__).with_name("style.css")
+    css_content = css_path.read_text(encoding="utf-8")
+    st.markdown(f"<style>{css_content}</style>", unsafe_allow_html=True)
+
+    # Inject JavaScript to persist colorblind mode in localStorage
+    st.markdown(
+        """
+        <script>
+        (function() {
+            const CB_KEY = 'plottwist_colorblind';
+            const params = new URLSearchParams(window.location.search);
+            const cbParam = params.get('cb');
+
+            // If cb param is present, save it to localStorage
+            if (cbParam !== null) {
+                localStorage.setItem(CB_KEY, cbParam);
+            } else {
+                // If no cb param, restore from localStorage
+                const stored = localStorage.getItem(CB_KEY);
+                if (stored === '1') {
+                    // Add cb=1 to URL and reload
+                    params.set('cb', '1');
+                    const newUrl = window.location.pathname + '?' + params.toString();
+                    window.location.replace(newUrl);
+                }
+            }
+        })();
+        </script>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
-def _clone_state(data: dict[str, Any]) -> dict[str, Any]:
-    cloned: dict[str, Any] = {}
-    for key, value in data.items():
-        if isinstance(value, list):
-            cloned[key] = list(value)
-        elif isinstance(value, tuple):
-            cloned[key] = tuple(value)
-        else:
-            cloned[key] = value
-    return cloned
+def _get_active_tab() -> str:
+    raw_value = st.query_params.get("tab", "overview")
+    selected = raw_value[0] if isinstance(raw_value, list) else raw_value
+    if selected not in TAB_OPTIONS:
+        selected = "distribution"
+    return selected
 
 
-def _prepare_csv_bytes(df) -> bytes:
-    return df.to_csv(index=False).encode("utf-8-sig")
+def _get_colorblind_mode() -> bool:
+    raw_value = st.query_params.get("cb", "0")
+    selected = raw_value[0] if isinstance(raw_value, list) else raw_value
+    return str(selected).strip() in {"1", "true", "True", "on"}
+
+
+def _render_floating_tab_rail(active_tab: str, colorblind_mode: bool) -> None:
+    cb_suffix = "&cb=1" if colorblind_mode else ""
+    item_blocks: list[str] = []
+    for tab_key, tab_meta in TAB_OPTIONS.items():
+        active_class = " is-active" if tab_key == active_tab else ""
+        item_blocks.append(
+            (
+                f'<a class="book-tab-link{active_class}" href="?tab={tab_key}{cb_suffix}" target="_self">'
+                f'<span class="book-tab-icon">{tab_meta["icon"]}</span>'
+                f'<span class="book-tab-label">{tab_meta["label"]}</span>'
+                "</a>"
+            )
+        )
+
+    st.markdown(
+        "<div class='book-tab-rail'>" + "".join(item_blocks) + "</div>",
+        unsafe_allow_html=True,
+    )
+
+
+def _render_fixed_header(active_tab: str, colorblind_mode: bool, total_books: int) -> None:
+    target_state = "0" if colorblind_mode else "1"
+    toggle_label = "Bật chế độ mù màu" if not colorblind_mode else "Tắt chế độ mù màu"
+    toggle_href = f"?tab={active_tab}&cb={target_state}"
+    updated_at = datetime.now().strftime("%H:%M %d/%m/%Y")
+
+    # JS snippet: when clicking the toggle, also update localStorage
+    toggle_js = f"localStorage.setItem('plottwist_colorblind', '{target_state}');"
+
+    st.markdown(
+        f"""
+        <div class="dashboard-head">
+            <div class="hdr-left">
+                <div class="hdr-logo"><i class="fa-solid fa-book"></i></div>
+                <div>
+                    <div class="hdr-title">Phân tích các yếu tố ảnh hưởng đến hiệu quả bán hàng sách trên nền tảng trực tuyến Nhà sách Tiki</div>
+                </div>
+            </div>
+            <div class="hdr-right">
+                <div class="hdr-actions">
+                    <div class="hdr-stat">
+                        <div class="hdr-stat-val"></div>
+                        <div class="hdr-stat-lbl"></div>
+                    </div>
+                    <a class="hdr-badge" href="{toggle_href}" target="_self" onclick="{toggle_js}">
+                        <div class="hdr-badge-val">👁</div>
+                        <div class="hdr-badge-lbl">{toggle_label}</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def _prepare_data(df: pd.DataFrame) -> pd.DataFrame:
+    view = df.copy()
+    numeric_cols = [
+        "price",
+        "discount_rate",
+        "rating_average",
+        "review_count",
+        "all_time_quantity_sold",
+    ]
+    for col in numeric_cols:
+        if col in view.columns:
+            view[col] = pd.to_numeric(view[col], errors="coerce")
+
+    if "publication_year" not in view.columns and "publication_date" in view.columns:
+        view["publication_date"] = pd.to_datetime(view["publication_date"], errors="coerce")
+        view["publication_year"] = view["publication_date"].dt.year
+
+    return view
+
 
 
 def main() -> None:
     st.set_page_config(
-        page_title="PlotTwist - Global Select and Filter",
+        page_title="PlotTwist - Dashboard phân tích sách",
+        page_icon=":material/analytics:",
         layout="wide",
+        initial_sidebar_state="expanded",
     )
+    pio.templates.default = "plotly_white"
+    _inject_style()
+    active_tab = _get_active_tab()
+    colorblind_mode = _get_colorblind_mode()
 
-    st.title("Global Data Scope")
-    st.caption(
-        "This page manages global filter state and shared dataset for the main dashboard."
-    )
-
-    data_path = default_data_path()
     try:
-        raw_df = load_dataset(str(data_path))
+        raw_df = load_dataset(str(default_data_path()))
     except FileNotFoundError as exc:
         st.error(str(exc))
         st.stop()
 
-    defaults = build_filter_defaults(raw_df)
-    st.session_state["filter_defaults"] = _clone_state(defaults)
+    st.sidebar.markdown(" ")
+    _render_floating_tab_rail(active_tab, colorblind_mode)
+    _render_fixed_header(active_tab, colorblind_mode, total_books=len(raw_df))
 
-    initialize_filter_widgets(defaults)
+    df = _prepare_data(raw_df)
+    filtered_df = render_top_filters(df)
 
-    action_col_1, action_col_2, _ = st.columns([1.2, 1.2, 6])
-    with action_col_1:
-        if st.button("Reset all filters", use_container_width=True):
-            reset_filter_widgets(defaults)
-            st.session_state["filter_state"] = _clone_state(defaults)
-            st.rerun()
+    if filtered_df.empty:
+        st.warning("Bộ lọc hiện tại không có dữ liệu. Hãy mở rộng phạm vi lọc để tiếp tục.")
+        st.stop()
 
-    with action_col_2:
-        st.download_button(
-            label="Export filtered CSV",
-            data=_prepare_csv_bytes(st.session_state.get("shared_df", raw_df)),
-            file_name="book_dataset_filtered_scope.csv",
-            mime="text/csv",
-            use_container_width=True,
-        )
+    colors = COLORBLIND_COLORS if colorblind_mode else NORMAL_COLORS
+    heatmap_scale = "Viridis" if colorblind_mode else "Blues"
 
-    render_filter_panel(raw_df, defaults)
-
-    user_filter_state = collect_filter_state_from_widgets()
-    cleaned_filter_state = sanitize_filter_state(raw_df, user_filter_state, defaults)
-
-    filtered_rows_df, shared_df, filter_meta = apply_filters(
-        raw_df,
-        cleaned_filter_state,
-        defaults,
-    )
-
-    set_dashboard_data_state(
-        raw_df=raw_df,
-        filtered_df=filtered_rows_df,
-        shared_df=shared_df,
-        filter_state=cleaned_filter_state,
-        filter_meta=filter_meta,
-    )
-
-    col_a, col_b, col_c, col_d = st.columns(4)
-    col_a.metric("Rows before filter", f"{filter_meta['row_before']:,}")
-    col_b.metric("Rows after filter", f"{filter_meta['row_after']:,}")
-    col_c.metric("Retained", f"{filter_meta['retention_pct']:.2f}%")
-    col_d.metric("Active filters", f"{filter_meta['active_filter_count']}")
-
-    st.caption(
-        f"Selected columns for shared dataset: {filter_meta['selected_columns_count']}"
-    )
-
-    if filter_meta["active_filter_count"] == 0:
-        st.info("No active row filters. Shared dataset currently contains all rows.")
+    if active_tab == "overview":
+        render_overview_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+    elif active_tab == "distribution":
+        render_distribution_product_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+    elif active_tab == "price":
+        render_price_discount_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+    elif active_tab == "publisher":
+        render_publisher_author_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
     else:
-        st.markdown("### Active Filters")
-        for active_filter in filter_meta["active_filters"]:
-            st.write(f"- {active_filter}")
-
-    st.success(
-        "Global filter state is ready. Your teammate dashboard can read shared_df from session state."
-    )
-
-    with st.expander("Debug preview (optional)", expanded=False):
-        if shared_df.empty:
-            st.warning("Current filters returned no rows. Adjust filters to continue.")
-        else:
-            st.dataframe(shared_df.head(50), use_container_width=True)
-
-    st.divider()
-    render_sample_dashboard_page()
+        render_rating_policy_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
 
 
 if __name__ == "__main__":
