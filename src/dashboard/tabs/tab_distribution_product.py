@@ -54,7 +54,7 @@ def _q2_category_boxplot(df: pd.DataFrame, colors: list[str]) -> None:
         y="all_time_quantity_sold",
         log_y=True,
         color_discrete_sequence=[colors[0] if colors else '#1D4ED8'],
-        labels={col: "Thể loại", "all_time_quantity_sold": "Lượng bán (log)"},
+        labels={col: "Thể loại", "all_time_quantity_sold": "Lượng bán"},
     )
     fig.update_layout(
         title="Hiệu quả bán hàng theo thể loại (Top 15)",
@@ -97,11 +97,12 @@ def _q10_pages_vs_sold(df: pd.DataFrame, colors: list[str]) -> None:
         color_discrete_sequence=colors,
         category_orders={"page_group": group_order},
         trendline="ols",
+        log_x=True,
         log_y=True,
         opacity=0.55,
         labels={
             "number_of_page": "Số trang",
-            "all_time_quantity_sold": "Lượng bán (log)",
+            "all_time_quantity_sold": "Lượng bán",
             "page_group": "Nhóm số trang",
         },
     )
@@ -111,6 +112,46 @@ def _q10_pages_vs_sold(df: pd.DataFrame, colors: list[str]) -> None:
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
     )
+
+    x_min = float(valid["number_of_page"].min())
+    x_max = float(valid["number_of_page"].max())
+    decade_ticks_x: list[int] = []
+    tick_x = 1
+    while tick_x * 10 <= max(1.0, x_min):
+        tick_x *= 10
+    while tick_x <= max(1.0, x_max):
+        decade_ticks_x.append(tick_x)
+        tick_x *= 10
+    if not decade_ticks_x:
+        decade_ticks_x = [1]
+
+    y_max = float(valid["all_time_quantity_sold"].max())
+    decade_ticks: list[int] = []
+    tick = 1
+    while tick <= max(1.0, y_max):
+        decade_ticks.append(tick)
+        tick *= 10
+    if not decade_ticks:
+        decade_ticks = [1]
+
+    fig.update_yaxes(
+        tickmode="array",
+        tickvals=decade_ticks,
+        ticktext=[format_vn(v, 0) for v in decade_ticks],
+        minor=dict(showgrid=False),
+    )
+
+    fig.update_xaxes(
+        tickmode="array",
+        tickvals=decade_ticks_x,
+        ticktext=[format_vn(v, 0) for v in decade_ticks_x],
+        minor=dict(showgrid=False),
+    )
+
+    for trace in fig.data:
+        if "markers" in str(getattr(trace, "mode", "")):
+            trace.marker.size = 5
+
     apply_chart_style(fig)
     render_chart_with_ml("dist_pages_vs_sold", fig, df, label="Số trang vs Doanh số")
 
