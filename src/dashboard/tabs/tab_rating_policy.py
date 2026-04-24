@@ -5,6 +5,9 @@ import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 
+from ..format_utils import format_vn
+from ..ui_cards import render_metric_strip
+
 FREE_TRUE_LABEL = "Có Freeship"
 FREE_FALSE_LABEL = "Không Freeship"
 
@@ -76,6 +79,17 @@ def _prepare_dataframe(df: pd.DataFrame) -> pd.DataFrame:
         work.loc[work["seller_name"].isin(["", "<NA>"]), "seller_name"] = "Không rõ"
 
     return work
+
+
+def _render_kpi_row(items: list[tuple[str, str, str, str]]) -> None:
+    render_metric_strip(
+        [
+            {"label": label, "value": value, "icon": icon, "tone": tone}
+            for label, value, icon, tone in items
+        ],
+        compact=True,
+        cols=4,
+    )
 
 
 def _chart_11_scatter(df: pd.DataFrame, colors: list[str], heatmap_scale: str):
@@ -232,7 +246,7 @@ def _chart_11_scatter(df: pd.DataFrame, colors: list[str], heatmap_scale: str):
             )
 
     _format_chart(fig, height=440)
-    fig.update_layout(title="Biểu đồ 1.1: 2D Density Heatmap Rating vs Review Count (lọc rating >= 2)")
+    fig.update_layout(title="Bản đồ nhiệt: Rating vs Review")
     fig.update_xaxes(title="Rating Average", type="category", categoryorder="array", categoryarray=x_labels)
     fig.update_yaxes(title="Nhóm Review Count", type="category", categoryorder="array", categoryarray=y_labels)
     return fig
@@ -294,7 +308,7 @@ def _chart_12_rating_bin(df: pd.DataFrame, colors: list[str]):
 
     _format_chart(fig, height=360, y_grid=True, x_grid=False)
     fig.update_layout(
-        title="Biểu đồ 1.2: Sức mạnh của Rating: Hiệu quả bán hàng và Quy mô nhóm",
+        title="Rating và hiệu quả bán hàng",
         xaxis={"title": "Nhóm rating", "showgrid": False},
         yaxis={"title": "Doanh số trung bình", "showgrid": True, "gridcolor": "#e2e8f0"},
         yaxis2={
@@ -434,7 +448,7 @@ def _chart_13_review_bin_line(df: pd.DataFrame, colors: list[str]):
         y2_tick_text = [f"{v:,.0f}" for v in raw_ticks]
 
     fig.update_layout(
-        title="Biểu đồ 1.3: Hành trình Bùng phát: Cần bao nhiêu Review để tạo ra cú hích doanh số?",
+        title="Ngưỡng review tạo bùng phát doanh số",
         xaxis={"title": "Nhóm review_count", "showgrid": False},
         yaxis={
             "title": "Doanh số trung bình",
@@ -551,7 +565,7 @@ def _chart_21_freeship_box(df: pd.DataFrame, colors: list[str]):
     fig.update_layout(
         violinmode="group",
         violingap=0.36,
-        title="Biểu đồ 2.1: Nghịch lý Freeship: Khi chính sách giao hàng miễn phí không đồng nghĩa với doanh số cao",
+        title="Phân bố doanh số theo freeship",
         xaxis_title="Chính sách freeship",
         yaxis_title="Tổng doanh số (Thang đo Log)",
         showlegend=False,
@@ -634,7 +648,7 @@ def _chart_22_top_seller_bar(df: pd.DataFrame, colors: list[str]):
 
     _format_chart(fig, height=390, x_grid=True, y_grid=False)
     fig.update_layout(
-        title="Biểu đồ 2.2: Sự thống trị thị trường: Tiki Trading áp đảo hoàn toàn Top 10 nhà cung cấp",
+        title="Top 10 seller theo doanh số",
         xaxis_title="Tổng doanh số",
         yaxis_title="Nhà cung cấp",
     )
@@ -707,7 +721,7 @@ def _chart_23_grouped_top5(df: pd.DataFrame, colors: list[str]):
     )
     fig.update_layout(
         barmode="stack",
-        title="Chiến lược bán hàng: Ông trùm Tiki Trading đi ngược số đông khi không cần phụ thuộc vào Freeship",
+        title="Tỷ trọng freeship của Top 5 seller",
         xaxis_title="Nhà cung cấp",
         yaxis_title="Tỷ trọng doanh số theo seller",
     )
@@ -749,6 +763,24 @@ def render_rating_crowd_tab(
 
     st.subheader("Hiệu ứng đám đông từ Rating & Review")
 
+    valid = filtered_df[
+        (filtered_df["rating_average"].notna())
+        & (filtered_df["review_count"].notna())
+        & (filtered_df["all_time_quantity_sold"] > 0)
+    ].copy()
+    high_rating_ratio = 0.0
+    if not valid.empty:
+        high_rating_ratio = float((valid["rating_average"] >= 4.5).mean() * 100)
+
+    _render_kpi_row(
+        [
+            ("Sách có review", format_vn(int((filtered_df["review_count"] > 0).sum())), "book", "blue"),
+            ("Rating trung bình", format_vn(float(filtered_df["rating_average"].mean()), 2), "star", "amber"),
+            ("Review trung vị", format_vn(float(filtered_df["review_count"].median()), 0), "chart", "slate"),
+            ("Tỷ lệ rating >= 4.5", f"{format_vn(high_rating_ratio, 1)}%", "target", "emerald"),
+        ]
+    )
+
     fig11 = _chart_11_scatter(filtered_df, colors, heatmap_scale)
     if fig11 is None:
         st.caption("Không đủ dữ liệu để vẽ Biểu đồ 1.1.")
@@ -782,6 +814,22 @@ def render_rating_seller_tab(
         return
 
     st.subheader("Chiến lược nhà cung cấp & Freeship")
+
+    seller_agg = _top_seller_table(filtered_df, n=10)
+    top10_total = float(seller_agg["total_sold"].sum()) if not seller_agg.empty else 0.0
+    top1_share = float(seller_agg.iloc[0]["total_sold"] / top10_total * 100) if top10_total > 0 else 0.0
+
+    fs = filtered_df["has_freeship"].dropna()
+    freeship_ratio = float(fs.eq(True).mean() * 100) if not fs.empty else 0.0
+
+    _render_kpi_row(
+        [
+            ("Số seller hoạt động", format_vn(int(filtered_df["seller_name"].nunique())), "building", "blue"),
+            ("Top 1 trong Top 10", f"{format_vn(top1_share, 1)}%", "target", "amber"),
+            ("Tỷ lệ có freeship", f"{format_vn(freeship_ratio, 1)}%", "ship", "emerald"),
+            ("Top seller theo dõi", format_vn(int(min(10, len(seller_agg)))), "users", "slate"),
+        ]
+    )
 
     fig21 = _chart_21_freeship_box(filtered_df, colors)
     if fig21 is None:
