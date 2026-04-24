@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 import streamlit as st
 
 from ..format_utils import apply_chart_style, format_vn
+from ..ml_integration import render_chart_with_ml
 from ..ui_cards import render_metric_strip
 
 FREE_TRUE_LABEL = "Có Freeship"
@@ -789,7 +790,7 @@ def render_rating_crowd_tab(
     if fig11 is None:
         st.caption("Không đủ dữ liệu để vẽ Biểu đồ 1.1.")
     else:
-        st.plotly_chart(fig11, width="stretch")
+        render_chart_with_ml("rating_crowd_scatter", fig11, filtered_df, label="Bản đồ nhiệt: Rating vs Review")
 
     c1, c2 = st.columns(2)
     with c1:
@@ -797,13 +798,13 @@ def render_rating_crowd_tab(
         if fig12 is None:
             st.caption("Không đủ dữ liệu để vẽ Biểu đồ 1.2.")
         else:
-            st.plotly_chart(fig12, width="stretch")
+            render_chart_with_ml("rating_crowd_bin", fig12, filtered_df, label="Rating và hiệu quả bán hàng")
     with c2:
         fig13 = _chart_13_review_bin_line(filtered_df, colors)
         if fig13 is None:
             st.caption("Không đủ dữ liệu để vẽ Biểu đồ 1.3.")
         else:
-            st.plotly_chart(fig13, width="stretch")
+            render_chart_with_ml("rating_crowd_surge", fig13, filtered_df, label="Ngưỡng review tạo bùng phát doanh số")
 
 
 def render_rating_seller_tab(
@@ -839,7 +840,7 @@ def render_rating_seller_tab(
     if fig21 is None:
         st.caption("Không đủ dữ liệu để vẽ Biểu đồ 2.1.")
     else:
-        st.plotly_chart(fig21, width="stretch")
+        render_chart_with_ml("rating_seller_freeship", fig21, filtered_df, label="Phân bố doanh số theo freeship")
 
     c3, c4 = st.columns(2)
     with c3:
@@ -847,10 +848,10 @@ def render_rating_seller_tab(
         if fig22 is None:
             st.caption("Không đủ dữ liệu để vẽ Biểu đồ 2.2.")
         else:
-            st.plotly_chart(fig22, width="stretch")
+            render_chart_with_ml("rating_seller_top10", fig22, filtered_df, label="Top 10 seller theo doanh số")
     with c4:
         fig23 = _chart_23_grouped_top5(filtered_df, colors)
         if fig23 is None:
             st.caption("Không đủ dữ liệu để vẽ Biểu đồ 2.3.")
         else:
-            st.plotly_chart(fig23, width="stretch")
+            render_chart_with_ml("rating_seller_freeship_share", fig23, filtered_df, label="Tỷ trọng freeship của Top 5 seller")

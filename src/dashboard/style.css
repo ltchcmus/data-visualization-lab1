@@ -39,6 +39,15 @@ body,
 /* ═══════════════════════════════════════════════════════════════
  * 3. STREAMLIT LAYOUT OVERRIDES
  * ═══════════════════════════════════════════════════════════════ */
+/* Restore scroll on the main layout so charts can be seen fully */
+section[data-testid="stMain"] {
+  overflow: auto !important;
+}
+
+div[data-testid="stSidebarContent"] {
+  overflow: hidden !important;
+}
+
 div[data-testid="stVerticalBlock"] {
   gap: 0rem !important;
 }

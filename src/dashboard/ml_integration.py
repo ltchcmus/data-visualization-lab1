@@ -187,6 +187,79 @@ def _get_plugin() -> InsightPlugin:
         ),
     ])
 
+    # ── TAB: rating_crowd (Hiệu ứng đám đông) ───────────────────────────
+    plugin.register_many([
+        ChartDefinition(
+            chart_id="rating_crowd_scatter",
+            tab_id="rating_crowd",
+            title="Bản đồ nhiệt: Rating vs Review",
+            question="Mối quan hệ giữa rating, review và doanh số như thế nào?",
+            evidence_builder=make_correlation_builder(
+                columns=["rating_average", "review_count", "all_time_quantity_sold"],
+            ),
+            tags=("rating", "review", "scatter"),
+        ),
+        ChartDefinition(
+            chart_id="rating_crowd_bin",
+            tab_id="rating_crowd",
+            title="Rating và hiệu quả bán hàng",
+            question="Nhóm rating nào mang lại doanh số cao nhất?",
+            evidence_builder=make_group_aggregate_builder(
+                group_col="rating_average", value_col="all_time_quantity_sold",
+                agg="mean", top_n=5, min_count=1, ascending=False,
+            ),
+            tags=("rating", "sales", "bar"),
+        ),
+        ChartDefinition(
+            chart_id="rating_crowd_surge",
+            tab_id="rating_crowd",
+            title="Ngưỡng review tạo bùng phát doanh số",
+            question="Số lượng review bao nhiêu thì doanh số bắt đầu tăng mạnh?",
+            evidence_builder=make_group_aggregate_builder(
+                group_col="review_count", value_col="all_time_quantity_sold",
+                agg="mean", top_n=5, min_count=1, ascending=False,
+            ),
+            tags=("review", "surge", "line"),
+        ),
+    ])
+
+    # ── TAB: rating_seller (Chiến lược seller) ───────────────────────────
+    plugin.register_many([
+        ChartDefinition(
+            chart_id="rating_seller_freeship",
+            tab_id="rating_seller",
+            title="Phân bố doanh số theo freeship",
+            question="Freeship ảnh hưởng thế nào đến doanh số?",
+            evidence_builder=make_group_aggregate_builder(
+                group_col="has_freeship", value_col="all_time_quantity_sold",
+                agg="mean", top_n=2, min_count=1, ascending=False,
+            ),
+            tags=("freeship", "sales", "box"),
+        ),
+        ChartDefinition(
+            chart_id="rating_seller_top10",
+            tab_id="rating_seller",
+            title="Top 10 seller theo doanh số",
+            question="Nhà cung cấp nào có doanh số cao nhất?",
+            evidence_builder=make_group_aggregate_builder(
+                group_col="current_seller", value_col="all_time_quantity_sold",
+                agg="sum", top_n=10, min_count=1, ascending=False,
+            ),
+            tags=("seller", "sales", "bar"),
+        ),
+        ChartDefinition(
+            chart_id="rating_seller_freeship_share",
+            tab_id="rating_seller",
+            title="Tỷ trọng freeship của Top 5 seller",
+            question="Các seller hàng đầu sử dụng freeship như thế nào?",
+            evidence_builder=make_group_aggregate_builder(
+                group_col="current_seller", value_col="has_freeship",
+                agg="count", top_n=5, min_count=1, ascending=False,
+            ),
+            tags=("seller", "freeship", "stack"),
+        ),
+    ])
+
     return plugin
 
 
