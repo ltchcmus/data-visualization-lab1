@@ -718,13 +718,7 @@ def _chart_23_grouped_top5(df: pd.DataFrame, colors: list[str]):
     return fig
 
 
-def render_rating_policy_tab(
-    df: pd.DataFrame,
-    *,
-    colors: list[str],
-    heatmap_scale: str,
-) -> None:
-
+def _prepare_tab_data(df: pd.DataFrame) -> pd.DataFrame | None:
     required_cols = {
         "rating_average",
         "review_count",
@@ -733,18 +727,28 @@ def render_rating_policy_tab(
     }
     missing = [c for c in required_cols if c not in df.columns]
     if missing:
-        st.warning("Tab 4 thiếu cột dữ liệu bắt buộc: " + ", ".join(missing))
-        return
+        st.warning("Tab thiếu cột dữ liệu bắt buộc: " + ", ".join(missing))
+        return None
 
-    st.markdown("<div class='tab-page-header'>Tab 4 — Đánh giá & Chính sách Dịch vụ</div>", unsafe_allow_html=True)
-
-    base_df = _prepare_dataframe(df)
-    filtered_df = base_df
-    if filtered_df.empty:
+    prepared = _prepare_dataframe(df)
+    if prepared.empty:
         st.info("Không có dữ liệu sau khi áp dụng bộ lọc toàn cục. Hãy mở rộng bộ lọc để tiếp tục.")
+        return None
+    return prepared
+
+
+def render_rating_crowd_tab(
+    df: pd.DataFrame,
+    *,
+    colors: list[str],
+    heatmap_scale: str,
+) -> None:
+    filtered_df = _prepare_tab_data(df)
+    if filtered_df is None:
         return
 
-    st.header("Phần 1: Hiệu ứng đám đông")
+    st.subheader("Hiệu ứng đám đông từ Rating & Review")
+
     fig11 = _chart_11_scatter(filtered_df, colors, heatmap_scale)
     if fig11 is None:
         st.caption("Không đủ dữ liệu để vẽ Biểu đồ 1.1.")
@@ -765,7 +769,20 @@ def render_rating_policy_tab(
         else:
             st.plotly_chart(fig13, width="stretch")
 
-    st.header("Phần 2: Phân tích Nhà cung cấp & Dịch vụ")
+
+def render_rating_seller_tab(
+    df: pd.DataFrame,
+    *,
+    colors: list[str],
+    heatmap_scale: str,
+) -> None:
+    del heatmap_scale
+    filtered_df = _prepare_tab_data(df)
+    if filtered_df is None:
+        return
+
+    st.subheader("Chiến lược nhà cung cấp & Freeship")
+
     fig21 = _chart_21_freeship_box(filtered_df, colors)
     if fig21 is None:
         st.caption("Không đủ dữ liệu để vẽ Biểu đồ 2.1.")
