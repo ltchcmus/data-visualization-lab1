@@ -308,13 +308,10 @@ def render_top_filters(df: pd.DataFrame) -> pd.DataFrame:
         with adv_col_1:
             st.slider("Khoảng rating", min_value=0.0, max_value=5.0,
                       value=st.session_state["global_rating_range"], step=0.1,
-                      key="global_rating_range", help="Áp dụng cho toàn bộ dashboard.")
+                      key="global_rating_range")
         with adv_col_2:
             st.multiselect("Trạng thái freeship", options=["Có Freeship", "Không Freeship"],
-                           default=["Có Freeship", "Không Freeship"], key="global_freeship_filter",
-                           help="Có thể chọn một hoặc cả hai trạng thái.")
-
-    st.markdown("<div style='height: 24px;'></div>", unsafe_allow_html=True)
+                           default=["Có Freeship", "Không Freeship"], key="global_freeship_filter")
 
     return apply_top_filters(
         df,
