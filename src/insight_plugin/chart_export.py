@@ -78,7 +78,7 @@ def _export_via_kaleido_v1(
         if loop and loop.is_running():
             import concurrent.futures
             with concurrent.futures.ThreadPoolExecutor(max_workers=1) as pool:
-                pool.submit(asyncio.run, _do()).result(timeout=30)
+                pool.submit(asyncio.run, _do()).result(timeout=300)
         else:
             asyncio.run(_do())
     else:

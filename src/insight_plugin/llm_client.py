@@ -275,7 +275,7 @@ class RuleBasedLLMClient:
         user_payload: JsonDict,
         response_schema: JsonDict,
         media_parts: list[dict[str, Any]] | None = None,
-        timeout_seconds: int = 30,
+        timeout_seconds: int = 300,
     ) -> JsonDict:
         mode = str(user_payload.get("mode", "insight")).lower()
 

@@ -1,6 +1,6 @@
 # Danh sách câu hỏi phân tích
 
-**Bài toán chung:** Phân tích các yếu tố ảnh hưởng đến hiệu quả bán hàng của sách trên shop
+**Bài toán chung:** Phân tích các yếu tố ảnh hưởng đến hiệu quả bán hàng của sách trên nền tảng trực tuyến Nhà sách Tiki
 
 **Biến mục tiêu:** `all_time_quantity_sold`
 
@@ -13,24 +13,23 @@
 **Mục tiêu:** Sử dụng biểu đồ Histogram và thang đo log để phân tích phân phối doanh số của 36.808 đầu sách, nhằm xác định liệu mô hình kinh doanh có tuân theo quy luật Pareto (20/80) hay không, từ đó đề xuất 03 chiến lược quản lý kho bãi cho nhóm sách "ngách" (long-tail) trước khi kết thúc tuần 6
 
 **Nhận xét:**
-Sự tồn tại rõ rệt của Hiệu ứng Long-tail: Biểu đồ cho thấy một phân phối lệch phải cực kỳ lớn. 
+Sự tồn tại rõ rệt của Hiệu ứng Long-tail: Biểu đồ cho thấy một phân phối lệch phải cực kỳ lớn.
 Đại đa số các đầu sách tập trung ở nhóm có lượng bán thấp (gần trục 0), tạo thành "cái đuôi dài" kéo dài về phía bên phải.
-Giá trị của Thang đo Log: Nhờ việc áp dụng $log(y)$, chúng ta có thể quan sát được sự hiện diện của các nhóm sách bán được 
-từ 1.000 đến hơn 3.500 bản. Nếu sử dụng thang đo tuyến tính, các nhóm này sẽ bị lu mờ hoàn toàn bởi nhóm sách có doanh số thấp, 
+Giá trị của Thang đo Log: Nhờ việc áp dụng $log(y)$, chúng ta có thể quan sát được sự hiện diện của các nhóm sách bán được
+từ 1.000 đến hơn 3.500 bản. Nếu sử dụng thang đo tuyến tính, các nhóm này sẽ bị lu mờ hoàn toàn bởi nhóm sách có doanh số thấp,
 khiến chúng ta bỏ lỡ các phân khúc "Best-seller".
-Điểm đột biến ở cuối trục (Outliers): Có một sự gia tăng bất thường về số lượng đầu sách ở mốc doanh số cao nhất (>3.500 bản). 
+Điểm đột biến ở cuối trục (Outliers): Có một sự gia tăng bất thường về số lượng đầu sách ở mốc doanh số cao nhất (>3.500 bản).
 Đây là nhóm sản phẩm "ngôi sao", đóng góp tỷ trọng doanh thu vượt trội so với phần còn lại của danh mục.
-Mật độ dữ liệu: Khoảng cách giữa các cột ở phần đuôi thưa dần, cho thấy ở các mức doanh số cao, 
+Mật độ dữ liệu: Khoảng cách giữa các cột ở phần đuôi thưa dần, cho thấy ở các mức doanh số cao,
 sự cạnh tranh giữa các đầu sách trở nên ít hơn nhưng giá trị mỗi đầu sách mang lại lại lớn hơn rất nhiều.
-**Kết luận:** Việc phân tích đã làm rõ bài toán về hiệu quả bán hàng thông qua cấu trúc doanh số:Về mô hình kinh doanh: Dataset hiện tại minh chứng cho quy luật Pareto: Doanh thu của nhà sách phụ thuộc lớn vào một nhóm nhỏ các đầu sách bán chạy (Head), nhưng sự đa dạng của hàng nghìn đầu sách ngách (Tail) chính là yếu tố tạo nên độ phủ thị trường.Về chiến lược: * Nhóm Head: Cần ưu tiên các chiến dịch marketing mạnh mẽ và đảm bảo tồn kho liên tục vì đây là nguồn thu chính.Nhóm Tail: Cần áp dụng hệ thống gợi ý (Recommendation System) thông minh để kết nối các sản phẩm ngách này tới đúng tệp khách hàng mục tiêu mà không tốn quá nhiều chi phí quảng cáo đại trà.Độ tin cậy: Việc xác định được "Cái đuôi dài" giúp nhóm khẳng định dataset đủ độ phức tạp và tính thực tế để thực hiện các phân tích sâu hơn ở các tab tiếp theo.
-
+**Kết luận:** Việc phân tích đã làm rõ bài toán về hiệu quả bán hàng thông qua cấu trúc doanh số:Về mô hình kinh doanh: Dataset hiện tại minh chứng cho quy luật Pareto: Doanh thu của nhà sách phụ thuộc lớn vào một nhóm nhỏ các đầu sách bán chạy (Head), nhưng sự đa dạng của hàng nghìn đầu sách ngách (Tail) chính là yếu tố tạo nên độ phủ thị trường.Về chiến lược: \* Nhóm Head: Cần ưu tiên các chiến dịch marketing mạnh mẽ và đảm bảo tồn kho liên tục vì đây là nguồn thu chính.Nhóm Tail: Cần áp dụng hệ thống gợi ý (Recommendation System) thông minh để kết nối các sản phẩm ngách này tới đúng tệp khách hàng mục tiêu mà không tốn quá nhiều chi phí quảng cáo đại trà.Độ tin cậy: Việc xác định được "Cái đuôi dài" giúp nhóm khẳng định dataset đủ độ phức tạp và tính thực tế để thực hiện các phân tích sâu hơn ở các tab tiếp theo.
 
 **Biểu đồ:** Histogram + Log scale
 
-| Trục | Cột |
-|------|-----|
-| X | `all_time_quantity_sold` |
-| Y | frequency (log scale) |
+| Trục | Cột                      |
+| ---- | ------------------------ |
+| X    | `all_time_quantity_sold` |
+| Y    | frequency (log scale)    |
 
 **Ghi chú:** Dễ nhìn nhận ra long-tail.
 
@@ -43,10 +42,10 @@ sự cạnh tranh giữa các đầu sách trở nên ít hơn nhưng giá trị
 
 **Biểu đồ:** Boxplot
 
-| Trục | Cột |
-|------|-----|
-| X | `cat_level_2` (category) |
-| Y | `all_time_quantity_sold` |
+| Trục | Cột                      |
+| ---- | ------------------------ |
+| X    | `cat_level_2` (category) |
+| Y    | `all_time_quantity_sold` |
 
 **Ghi chú:** Không chỉ biết "cái nào cao", mà còn biết: ổn định hay không, có outlier (best seller) không.
 
@@ -58,10 +57,10 @@ sự cạnh tranh giữa các đầu sách trở nên ít hơn nhưng giá trị
 
 **Biểu đồ:** Horizontal Bar Chart (Top N)
 
-| Trục | Cột |
-|------|-----|
-| X | `all_time_quantity_sold` trung bình |
-| Y | `publisher_vn` (top 15–20 NXB) |
+| Trục | Cột                                 |
+| ---- | ----------------------------------- |
+| X    | `all_time_quantity_sold` trung bình |
+| Y    | `publisher_vn` (top 15–20 NXB)      |
 
 **Ghi chú:** Sắp xếp giảm dần để dễ so sánh. Có thể thêm đường trung bình toàn dataset để thấy NXB nào vượt ngưỡng. Lưu ý lọc bỏ các NXB có quá ít đầu sách (< 5) để tránh bias.
 
@@ -73,10 +72,10 @@ sự cạnh tranh giữa các đầu sách trở nên ít hơn nhưng giá trị
 
 **Biểu đồ:** Biểu đồ Pareto hoặc Boxplot
 
-| Thành phần | Chi tiết |
-|------------|----------|
-| Pareto | X: tác giả sắp xếp giảm dần theo tổng `all_time_quantity_sold`; Y trái: tổng lượng bán; Y phải: % tích lũy |
-| Boxplot | Mỗi box là một tác giả top (10–15), thể hiện phân phối doanh số các đầu sách |
+| Thành phần | Chi tiết                                                                                                   |
+| ---------- | ---------------------------------------------------------------------------------------------------------- |
+| Pareto     | X: tác giả sắp xếp giảm dần theo tổng `all_time_quantity_sold`; Y trái: tổng lượng bán; Y phải: % tích lũy |
+| Boxplot    | Mỗi box là một tác giả top (10–15), thể hiện phân phối doanh số các đầu sách                               |
 
 **Ghi chú:** Pareto kiểm tra quy tắc 80/20. Boxplot phân biệt tác giả "bán đều" vs tác giả "một hit duy nhất".
 
@@ -90,10 +89,10 @@ sự cạnh tranh giữa các đầu sách trở nên ít hơn nhưng giá trị
 
 **Biểu đồ:** Bar + Line (dual axis)
 
-| Thành phần | Chi tiết |
-|------------|----------|
-| Bar | Số lượng bán ra theo nhóm discount |
-| Line | Tỷ lệ giảm giá trên trục Y phụ |
+| Thành phần | Chi tiết                           |
+| ---------- | ---------------------------------- |
+| Bar        | Số lượng bán ra theo nhóm discount |
+| Line       | Tỷ lệ giảm giá trên trục Y phụ     |
 
 **Ghi chú:** Sử dụng biểu đồ kết hợp với cột (Bar) thể hiện số lượng bán ra và đường (Line) thể hiện tỷ lệ giảm giá. Việc đặt hai yếu tố này cùng một trục thời gian hoặc danh mục sách sẽ giúp xác định các điểm nơi mức giảm giá mang lại hiệu quả chuyển đổi cao nhất.
 
@@ -115,10 +114,10 @@ sự cạnh tranh giữa các đầu sách trở nên ít hơn nhưng giá trị
 
 **Biểu đồ:** Bubble chart hoặc Correlation Heatmap
 
-| Thành phần | Chi tiết |
-|------------|----------|
-| Bubble | X: `rating_average`; Y: `review_count`; kích thước bong bóng (size): `all_time_quantity_sold` |
-| HeatMap | Thể hiện hệ số tương quan giữa các biến số lượng |
+| Thành phần | Chi tiết                                                                                      |
+| ---------- | --------------------------------------------------------------------------------------------- |
+| Bubble     | X: `rating_average`; Y: `review_count`; kích thước bong bóng (size): `all_time_quantity_sold` |
+| HeatMap    | Thể hiện hệ số tương quan giữa các biến số lượng                                              |
 
 **Ghi chú:** Thể hiện hệ số tương quan giữa các biến số lượng (giá, điểm đánh giá, số lượt đánh giá, lượt bán) để có cái nhìn tổng quát bằng số liệu.
 
@@ -130,10 +129,10 @@ sự cạnh tranh giữa các đầu sách trở nên ít hơn nhưng giá trị
 
 **Biểu đồ:** Violin plot hoặc Boxplot
 
-| Trục | Cột |
-|------|-----|
-| X | `has_freeship` True/False hoặc top 5 `current_seller` |
-| Y | phân bổ của `all_time_quantity_sold` (log scale) |
+| Trục | Cột                                                   |
+| ---- | ----------------------------------------------------- |
+| X    | `has_freeship` True/False hoặc top 5 `current_seller` |
+| Y    | phân bổ của `all_time_quantity_sold` (log scale)      |
 
 **Ghi chú:** Biểu đồ này vừa cho thấy mức trung vị, vừa cho thấy độ phân tán của lượng bán. Có thể dùng thang đo log để giảm thiểu tác động của outliers.
 
@@ -147,10 +146,10 @@ sự cạnh tranh giữa các đầu sách trở nên ít hơn nhưng giá trị
 
 **Biểu đồ:** Bar Chart theo năm + đường trung bình động
 
-| Trục | Cột |
-|------|-----|
-| X | năm xuất bản (nhóm theo năm) |
-| Y | `all_time_quantity_sold` trung bình |
+| Trục | Cột                                 |
+| ---- | ----------------------------------- |
+| X    | năm xuất bản (nhóm theo năm)        |
+| Y    | `all_time_quantity_sold` trung bình |
 
 **Ghi chú:** Giúp thấy sách mới hay sách kinh điển lâu năm bán tốt hơn. Lưu ý: sách cũ có nhiều thời gian tích lũy đơn hàng hơn → cần chuẩn hóa nếu muốn so sánh chính xác so với tang sales?
 
@@ -163,10 +162,10 @@ Xác định mối tương quan giữa số trang và doanh số để kết lu�
 
 **Biểu đồ:** Scatter Plot + đường hồi quy
 
-| Trục | Cột |
-|------|-----|
-| X | `number_of_page` (nhóm theo khoảng: <100, 100–300, 300–500, >500) |
-| Y | `all_time_quantity_sold` |
+| Trục | Cột                                                               |
+| ---- | ----------------------------------------------------------------- |
+| X    | `number_of_page` (nhóm theo khoảng: <100, 100–300, 300–500, >500) |
+| Y    | `all_time_quantity_sold`                                          |
 
 **Ghi chú:** Dùng log scale cho trục Y do phân phối lệch. Scatter plot thể hiện xu hướng tổng thể, đường hồi quy cho thấy chiều hướng tương quan (dương/âm/không rõ).
 
@@ -186,10 +185,10 @@ Biểu đồ: Scatter Plot với đường trung bình (Quadrant Chart) chia là
 
 ## Tổ chức theo Tab Dashboard
 
-| Tab | Câu hỏi | Chủ đề |
-|-----|---------|--------|
-| Tab 0 — Tổng quan | Q1 | Tổng quan thị trường & KPI chính |
-| Tab 1 — Sản phẩm | Q2, Q10, Q12 | Đặc tính vật lý & Phân loại |
-| Tab 2 — Giá & Chiết khấu | Q5, Q9, Q11 | Tác động của giá, chiết khấu, thời gian |
-| Tab 3 — NXB & Tác giả | Q3, Q4/Q6 | Nhà xuất bản, tác giả |
-| Tab 4 — Đánh giá & Chính sách | Q7, Q8 | Rating, review, freeship, seller |
+| Tab                           | Câu hỏi      | Chủ đề                                  |
+| ----------------------------- | ------------ | --------------------------------------- |
+| Tab 0 — Tổng quan             | Q1           | Tổng quan thị trường & KPI chính        |
+| Tab 1 — Sản phẩm              | Q2, Q10, Q12 | Đặc tính vật lý & Phân loại             |
+| Tab 2 — Giá & Chiết khấu      | Q5, Q9, Q11  | Tác động của giá, chiết khấu, thời gian |
+| Tab 3 — NXB & Tác giả         | Q3, Q4/Q6    | Nhà xuất bản, tác giả                   |
+| Tab 4 — Đánh giá & Chính sách | Q7, Q8       | Rating, review, freeship, seller        |

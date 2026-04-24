@@ -1,6 +1,7 @@
 """Dashboard tab modules."""
 
 from .tab_distribution_product import render_distribution_product_tab
+from .tab_machine_learning import render_machine_learning_tab
 from .tab_overview import render_overview_tab
 from .tab_price_discount import render_price_discount_tab
 from .tab_publisher_author import render_publisher_author_tab
@@ -13,4 +14,6 @@ __all__ = [
 	"render_publisher_author_tab",
 	"render_rating_crowd_tab",
 	"render_rating_seller_tab",
+	"render_machine_learning_tab",
 ]
+

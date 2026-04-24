@@ -587,22 +587,26 @@ def render_chat_section(df: pd.DataFrame) -> None:
                 )
                 st.session_state["ml_chat_answer"] = answer
             except Exception as e:
-                st.error(f"❌ Có lỗi xảy ra khi hỏi AI: {e}")
+                st.error(f"Có lỗi xảy ra khi hỏi AI: {e}")
 
     # ── Show answer ──────────────────────────────────────────────
     answer = st.session_state.get("ml_chat_answer")
     if answer:
-        st.markdown(
-            f"<div class='ml-chat-answer'>"
-            f"<div class='ml-chat-answer-label'>🤖 Trả lời</div>"
-            f"</div>",
-            unsafe_allow_html=True,
+        # Build answer HTML — must be ONE block so content stays inside the box
+        answer_html = (
+            "<div class='ml-chat-answer'>"
+            "<div class='ml-chat-answer-label'>🤖 Trả lời</div>"
+            f"<div class='ml-chat-answer-body'>{answer.answer}</div>"
         )
-        st.markdown(answer.answer)
+        if answer.limitations:
+            lim_text = " · ".join(answer.limitations)
+            answer_html += f"<div class='ml-chat-answer-lim'>⚠️ {lim_text}</div>"
+        answer_html += "</div>"
+
+        st.markdown(answer_html, unsafe_allow_html=True)
+
         if answer.evidence_table:
             st.dataframe(pd.DataFrame(answer.evidence_table), use_container_width=True)
-        if answer.limitations:
-            st.caption("⚠️ " + " · ".join(answer.limitations))
         if answer.warnings:
             st.warning(" | ".join(answer.warnings))
         for attachment in answer.attachments:

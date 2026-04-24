@@ -58,7 +58,7 @@ class HighlightService:
         image_bytes: bytes | None = None,
         image_mime_type: str = "image/png",
         force_refresh: bool = False,
-        timeout_seconds: int = 30,
+        timeout_seconds: int = 300,
     ) -> HighlightResult:
         """Analyze a Plotly figure and return highlight annotations.
 

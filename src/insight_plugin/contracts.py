@@ -22,7 +22,7 @@ class LLMClient(Protocol):
         user_payload: JsonDict,
         response_schema: JsonDict,
         media_parts: list[MediaPart] | None = None,
-        timeout_seconds: int = 30,
+        timeout_seconds: int = 300,
     ) -> JsonDict: ...
 
 

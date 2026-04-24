@@ -352,12 +352,14 @@ div[data-baseweb="select"] ul[role="listbox"] {
 
 .hdr-badge-val {
   font-size: 1.08rem;
-  line-height: 1;
+  line-height: 1.5;
+  color: #ffffffc5;
 }
 
 .hdr-badge-lbl {
-  font-size: 0.62rem;
-  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.7rem;
+  font-weight: 750;
+  color: rgba(255, 255, 255, 0.92);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-top: 2px;
@@ -890,7 +892,7 @@ div[data-baseweb="select"] ul[role="listbox"] {
   background: linear-gradient(110deg, #e9f2ff 0%, #d6e8ff 48%, #edf6ff 100%);
   box-shadow: 0 12px 24px rgba(30, 64, 175, 0.18);
   padding: 8px 12px;
-  margin: 14px 0px 0px 6px;
+  margin: 22px 0px 0px 6px;
 }
 
 .st-key-filter_toggle_shell [data-testid="stHorizontalBlock"] {
@@ -898,12 +900,17 @@ div[data-baseweb="select"] ul[role="listbox"] {
 }
 
 .filter-toggle-title {
+  display: flex;
+  align-items: center;
   color: #153458 !important;
   font-weight: 800;
   font-size: 1.12rem !important;
   letter-spacing: 0.015em;
-  line-height: 1.25;
-  padding-left: 6px;
+  line-height: 1;
+  margin: 0;
+  min-height: 32px;
+  padding: 0 0 12px;
+  transform: translateY(-2px);
 }
 
 .st-key-filter_toggle_shell .st-key-global_filter_panel_open {

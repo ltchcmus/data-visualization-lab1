@@ -217,7 +217,7 @@ class InsightPlugin:
         image_provider: ImageProviderFn | None = None,
         image_mime_type: str = "image/png",
         force_refresh: bool = False,
-        timeout_seconds: int = 30,
+        timeout_seconds: int = 300,
     ) -> InsightResult:
         return self.insight_service.generate(
             chart_id=chart_id,
@@ -244,7 +244,7 @@ class InsightPlugin:
         include_images: bool = False,
         image_provider: Any | None = None,
         image_mime_type: str = "image/png",
-        timeout_seconds: int = 30,
+        timeout_seconds: int = 300,
         force_refresh: bool = False,
     ) -> ChatAnswer:
         return self.chat_service.ask(
@@ -292,7 +292,7 @@ class InsightPlugin:
         image_bytes: bytes | None = None,
         image_mime_type: str = "image/png",
         force_refresh: bool = False,
-        timeout_seconds: int = 30,
+        timeout_seconds: int = 300,
     ) -> HighlightResult:
         """Send chart data to LLM and get annotation highlights.
 
@@ -325,7 +325,7 @@ class InsightPlugin:
         include_image: bool = False,
         image_bytes: bytes | None = None,
         force_refresh: bool = False,
-        timeout_seconds: int = 30,
+        timeout_seconds: int = 300,
     ) -> tuple[Any, HighlightResult]:
         """Convenience: highlight + apply annotations → (new_figure, result).
 
