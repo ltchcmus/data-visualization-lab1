@@ -330,8 +330,29 @@ def apply_highlight_annotations(figure: Any, annotations: list[JsonDict]) -> Any
 
     Returns a **new** (deep-copied) figure so the original is untouched.
     """
+    import math
     fig = copy.deepcopy(figure)
     color_idx = 0
+
+    try:
+        fig_dict = fig.to_dict()
+        is_log_x = fig_dict.get('layout', {}).get('xaxis', {}).get('type') == 'log'
+        is_log_y = fig_dict.get('layout', {}).get('yaxis', {}).get('type') == 'log'
+    except Exception:
+        is_log_x = getattr(fig.layout.xaxis, 'type', None) == 'log'
+        is_log_y = getattr(fig.layout.yaxis, 'type', None) == 'log'
+
+    def _cx(val: Any) -> Any:
+        v = _coerce_coord(val)
+        if is_log_x and isinstance(v, (int, float)) and v > 0:
+            return math.log10(v)
+        return v
+
+    def _cy(val: Any) -> Any:
+        v = _coerce_coord(val)
+        if is_log_y and isinstance(v, (int, float)) and v > 0:
+            return math.log10(v)
+        return v
 
     for ann in annotations:
         ann_type = str(ann.get("type", "label")).lower().strip()
@@ -341,8 +362,8 @@ def apply_highlight_annotations(figure: Any, annotations: list[JsonDict]) -> Any
         try:
             if ann_type == "label":
                 fig.add_annotation(
-                    x=_coerce_coord(ann.get("x")),
-                    y=_coerce_coord(ann.get("y")),
+                    x=_cx(ann.get("x")),
+                    y=_cy(ann.get("y")),
                     text=str(ann.get("text", "")),
                     showarrow=bool(ann.get("show_arrow", True)),
                     arrowhead=2,
@@ -366,10 +387,10 @@ def apply_highlight_annotations(figure: Any, annotations: list[JsonDict]) -> Any
                     fill = _hex_to_rgba(color, 0.13)
                 fig.add_shape(
                     type="rect",
-                    x0=_coerce_coord(ann.get("x0")),
-                    y0=_coerce_coord(ann.get("y0")),
-                    x1=_coerce_coord(ann.get("x1")),
-                    y1=_coerce_coord(ann.get("y1")),
+                    x0=_cx(ann.get("x0")),
+                    y0=_cy(ann.get("y0")),
+                    x1=_cx(ann.get("x1")),
+                    y1=_cy(ann.get("y1")),
                     fillcolor=fill,
                     line=dict(
                         color=ann.get("border_color", color),
@@ -379,10 +400,10 @@ def apply_highlight_annotations(figure: Any, annotations: list[JsonDict]) -> Any
                 )
                 label = ann.get("label", "")
                 if label:
-                    cx = _mid(_coerce_coord(ann.get("x0")), _coerce_coord(ann.get("x1")))
+                    cx = _mid(_cx(ann.get("x0")), _cx(ann.get("x1")))
                     fig.add_annotation(
                         x=cx,
-                        y=_coerce_coord(ann.get("y1")),
+                        y=_cy(ann.get("y1")),
                         text=str(label),
                         showarrow=False,
                         font=dict(size=11, color=color),
@@ -392,10 +413,10 @@ def apply_highlight_annotations(figure: Any, annotations: list[JsonDict]) -> Any
             elif ann_type in ("trend_line", "line"):
                 fig.add_shape(
                     type="line",
-                    x0=_coerce_coord(ann.get("x0")),
-                    y0=_coerce_coord(ann.get("y0")),
-                    x1=_coerce_coord(ann.get("x1")),
-                    y1=_coerce_coord(ann.get("y1")),
+                    x0=_cx(ann.get("x0")),
+                    y0=_cy(ann.get("y0")),
+                    x1=_cx(ann.get("x1")),
+                    y1=_cy(ann.get("y1")),
                     line=dict(
                         color=color,
                         width=float(ann.get("width", 2.5)),
@@ -405,8 +426,8 @@ def apply_highlight_annotations(figure: Any, annotations: list[JsonDict]) -> Any
                 label = ann.get("label", "")
                 if label:
                     fig.add_annotation(
-                        x=_coerce_coord(ann.get("x1")),
-                        y=_coerce_coord(ann.get("y1")),
+                        x=_cx(ann.get("x1")),
+                        y=_cy(ann.get("y1")),
                         text=str(label),
                         showarrow=False,
                         font=dict(size=11, color=color),

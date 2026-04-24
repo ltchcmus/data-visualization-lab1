@@ -8,6 +8,7 @@ from plotly.subplots import make_subplots
 import streamlit as st
 
 from ..format_utils import apply_chart_style, format_vn
+from ..ml_integration import render_chart_with_ml
 from ..ui_cards import render_metric_strip
 
 
@@ -74,7 +75,7 @@ def _chart_top_publishers(df, colors, heatmap_scale):
                       paper_bgcolor="rgba(0,0,0,0)", yaxis_categoryorder="total ascending",
                       margin=dict(t=50,b=10,l=10,r=10), height=350)
     apply_chart_style(fig)
-    st.plotly_chart(fig, use_container_width=True)
+    render_chart_with_ml("pub_top_publishers", fig, df, label="Top NXB")
 
 # ---------------------------------------------------------------------------
 # CHART 2 — Donut thị phần NXB  (Donut)
@@ -105,7 +106,7 @@ def _chart_publisher_donut(df, colors):
                       showlegend=True, legend=dict(font_size=10, orientation="h", y=-0.2),
                       margin=dict(t=50,b=10,l=10,r=10), height=350)
     apply_chart_style(fig)
-    st.plotly_chart(fig, use_container_width=True)
+    render_chart_with_ml("pub_donut", fig, df, label="Thị phần NXB")
 
 # ---------------------------------------------------------------------------
 # CHART 3 — Pareto tác giả (Doanh thu)  (Bar + Line combo)
@@ -147,7 +148,7 @@ def _chart_author_pareto(df, colors):
         plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
         margin=dict(t=80,b=120,l=10,r=40), height=450)
     apply_chart_style(fig)
-    st.plotly_chart(fig, use_container_width=True)
+    render_chart_with_ml("pub_author_pareto", fig, df, label="Pareto tác giả")
 
 # ---------------------------------------------------------------------------
 # CHART 4 — Tác giả: Ổn định vs Siêu phẩm  (Scatter)
@@ -182,7 +183,7 @@ def _chart_author_consistency(df, colors, heatmap_scale):
     fig.update_layout(plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
                       margin=dict(t=80,b=20,l=10,r=10), height=450)
     apply_chart_style(fig)
-    st.plotly_chart(fig, use_container_width=True)
+    render_chart_with_ml("pub_author_consistency", fig, df, label="Ổn định vs Siêu phẩm")
 
 def render_publisher_author_tab(
     df: pd.DataFrame, *, colors: list[str], heatmap_scale: str,

@@ -64,6 +64,34 @@ def _inject_style() -> None:
     css_content = css_path.read_text(encoding="utf-8")
     st.markdown(f"<style>{css_content}</style>", unsafe_allow_html=True)
 
+    # Inject JavaScript to persist colorblind mode in localStorage
+    st.markdown(
+        """
+        <script>
+        (function() {
+            const CB_KEY = 'plottwist_colorblind';
+            const params = new URLSearchParams(window.location.search);
+            const cbParam = params.get('cb');
+
+            // If cb param is present, save it to localStorage
+            if (cbParam !== null) {
+                localStorage.setItem(CB_KEY, cbParam);
+            } else {
+                // If no cb param, restore from localStorage
+                const stored = localStorage.getItem(CB_KEY);
+                if (stored === '1') {
+                    // Add cb=1 to URL and reload
+                    params.set('cb', '1');
+                    const newUrl = window.location.pathname + '?' + params.toString();
+                    window.location.replace(newUrl);
+                }
+            }
+        })();
+        </script>
+        """,
+        unsafe_allow_html=True,
+    )
+
 
 def _get_active_tab() -> str:
     raw_value = st.query_params.get("tab", "overview")
@@ -79,13 +107,14 @@ def _get_colorblind_mode() -> bool:
     return str(selected).strip() in {"1", "true", "True", "on"}
 
 
-def _render_floating_tab_rail(active_tab: str) -> None:
+def _render_floating_tab_rail(active_tab: str, colorblind_mode: bool) -> None:
+    cb_suffix = "&cb=1" if colorblind_mode else ""
     item_blocks: list[str] = []
     for tab_key, tab_meta in TAB_OPTIONS.items():
         active_class = " is-active" if tab_key == active_tab else ""
         item_blocks.append(
             (
-                f'<a class="book-tab-link{active_class}" href="?tab={tab_key}" target="_self">'
+                f'<a class="book-tab-link{active_class}" href="?tab={tab_key}{cb_suffix}" target="_self">'
                 f'<span class="book-tab-icon">{tab_meta["icon"]}</span>'
                 f'<span class="book-tab-label">{tab_meta["label"]}</span>'
                 "</a>"
@@ -104,6 +133,9 @@ def _render_fixed_header(active_tab: str, colorblind_mode: bool, total_books: in
     toggle_href = f"?tab={active_tab}&cb={target_state}"
     updated_at = datetime.now().strftime("%H:%M %d/%m/%Y")
 
+    # JS snippet: when clicking the toggle, also update localStorage
+    toggle_js = f"localStorage.setItem('plottwist_colorblind', '{target_state}');"
+
     st.markdown(
         f"""
         <div class="dashboard-head">
@@ -119,7 +151,7 @@ def _render_fixed_header(active_tab: str, colorblind_mode: bool, total_books: in
                         <div class="hdr-stat-val"></div>
                         <div class="hdr-stat-lbl"></div>
                     </div>
-                    <a class="hdr-badge" href="{toggle_href}" target="_self">
+                    <a class="hdr-badge" href="{toggle_href}" target="_self" onclick="{toggle_js}">
                         <div class="hdr-badge-val">👁</div>
                         <div class="hdr-badge-lbl">{toggle_label}</div>
                     </a>
@@ -171,7 +203,7 @@ def main() -> None:
         st.stop()
 
     st.sidebar.markdown(" ")
-    _render_floating_tab_rail(active_tab)
+    _render_floating_tab_rail(active_tab, colorblind_mode)
     _render_fixed_header(active_tab, colorblind_mode, total_books=len(raw_df))
 
     df = _prepare_data(raw_df)

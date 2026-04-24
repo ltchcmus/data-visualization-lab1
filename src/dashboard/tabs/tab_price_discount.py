@@ -6,6 +6,7 @@ import streamlit as st
 from plotly.subplots import make_subplots
 
 from ..format_utils import apply_chart_style, format_vn
+from ..ml_integration import render_chart_with_ml
 from ..ui_cards import render_metric_strip
 
 
@@ -182,7 +183,7 @@ def _q5_discount_threshold(df: pd.DataFrame, colors: list[str]) -> None:
         bgcolor="white",
         bordercolor=colors[1],
     )
-    st.plotly_chart(fig, use_container_width=True)
+    render_chart_with_ml("price_discount_threshold", fig, df, label="Mức giảm giá & Doanh số")
 
 #     with st.expander(":material/notes: Nhận xét"):
 #         st.markdown(
@@ -256,7 +257,7 @@ def _q9_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
     )
     apply_chart_style(fig)
     # Chú thích
-    st.plotly_chart(fig, use_container_width=True)
+    render_chart_with_ml("price_year_trend", fig, df, label="Doanh số theo năm")
 #     with st.expander(":material/notes: Nhận xét"):
 #         st.markdown(
 #             """
@@ -358,7 +359,7 @@ def _q10_price_year_trend(df: pd.DataFrame, colors: list[str]) -> None:
     fig.update_yaxes(title_text="Số đầu sách", secondary_y=False)
     fig.update_yaxes(title_text="Chiết khấu trung bình (%)", secondary_y=True)
     apply_chart_style(fig)
-    st.plotly_chart(fig, use_container_width=True)
+    render_chart_with_ml("price_discount_year_trend", fig, df, label="Chiết khấu theo năm")
 
 #     with st.expander(":material/notes: Nhận xét"):
 #         st.markdown(

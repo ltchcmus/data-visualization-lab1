@@ -5,6 +5,7 @@ import plotly.express as px
 import streamlit as st
 
 from ..format_utils import apply_chart_style, format_vn
+from ..ml_integration import render_chart_with_ml, render_chat_section
 from ..ui_cards import render_kpi_section, render_metric_strip
 
 
@@ -114,7 +115,7 @@ def _q1_long_tail(df: pd.DataFrame, colors: list[str]) -> None:
         paper_bgcolor="rgba(0,0,0,0)",
     )
     apply_chart_style(fig)
-    st.plotly_chart(fig, use_container_width=True)
+    render_chart_with_ml("overview_long_tail", fig, df, label="Phân bổ doanh số")
 
 
 def render_overview_tab(
@@ -165,4 +166,8 @@ def render_overview_tab(
     )
 
     _q1_long_tail(df, colors)
+
+    # ── ML Chat / Ask AI section ──────────────────────────────────
+    render_chat_section(df)
+
     st.markdown('<div style="margin-top: 50px;"></div>', unsafe_allow_html=True)
