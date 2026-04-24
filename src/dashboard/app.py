@@ -145,7 +145,7 @@ def _render_fixed_header(active_tab: str, colorblind_mode: bool, total_books: in
             <div class="hdr-left">
                 <div class="hdr-logo"><i class="fa-solid fa-book"></i></div>
                 <div>
-                    <div class="hdr-title">Phân tích các yếu tố ảnh hưởng đến hiệu quả bán sách trên nền tảng trực tuyến Nhà sách Tiki</div>
+                    <div class="hdr-title">Phân tích các yếu tố ảnh hưởng đến hiệu quả bán hàng trên nền tảng Nhà sách Tiki</div>
                 </div>
             </div>
             <div class="hdr-right">

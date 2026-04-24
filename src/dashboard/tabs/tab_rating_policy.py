@@ -5,7 +5,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 
-from ..format_utils import format_vn
+from ..format_utils import apply_chart_style, format_vn
 from ..ml_integration import render_chart_with_ml
 from ..ui_cards import render_metric_strip
 
@@ -247,10 +247,11 @@ def _chart_11_scatter(df: pd.DataFrame, colors: list[str], heatmap_scale: str):
                 ),
             )
 
-    _format_chart(fig, height=440)
+    _format_chart(fig, height=350)
     fig.update_layout(title="Bản đồ nhiệt: Rating vs Review")
     fig.update_xaxes(title="Rating Average", type="category", categoryorder="array", categoryarray=x_labels)
     fig.update_yaxes(title="Nhóm Review Count", type="category", categoryorder="array", categoryarray=y_labels)
+    apply_chart_style(fig)
     return fig
 
 
@@ -308,7 +309,7 @@ def _chart_12_rating_bin(df: pd.DataFrame, colors: list[str]):
         )
     )
 
-    _format_chart(fig, height=360, y_grid=True, x_grid=False)
+    _format_chart(fig, height=350, y_grid=True, x_grid=False)
     fig.update_layout(
         title="Rating và hiệu quả bán hàng",
         xaxis={"title": "Nhóm rating", "showgrid": False},
@@ -322,6 +323,7 @@ def _chart_12_rating_bin(df: pd.DataFrame, colors: list[str]):
         },
         legend={"orientation": "h", "y": 1.14, "x": 1.0, "xanchor": "right", "yanchor": "bottom"},
     )
+    apply_chart_style(fig)
     return fig
 
 
@@ -475,11 +477,12 @@ def _chart_13_review_bin_line(df: pd.DataFrame, colors: list[str]):
         barmode="overlay",
     )
     # Keep only primary horizontal gridlines; hide secondary-axis grid to reduce clutter.
-    _format_chart(fig, height=360, x_grid=False, y_grid=False)
+    _format_chart(fig, height=350, x_grid=False, y_grid=False)
     fig.update_layout(
         yaxis={**fig.layout.yaxis.to_plotly_json(), "showgrid": True, "gridcolor": "#e2e8f0", "nticks": 7},
         yaxis2={**fig.layout.yaxis2.to_plotly_json(), "showgrid": False},
     )
+    apply_chart_style(fig)
     return fig
 
 
@@ -572,6 +575,7 @@ def _chart_21_freeship_box(df: pd.DataFrame, colors: list[str]):
         yaxis_title="Tổng doanh số (Thang đo Log)",
         showlegend=False,
     )
+    apply_chart_style(fig)
     return fig
 
 
@@ -656,6 +660,7 @@ def _chart_22_top_seller_bar(df: pd.DataFrame, colors: list[str]):
     )
     # Reverse category order so the longest bar is shown at the top.
     fig.update_yaxes(autorange="reversed")
+    apply_chart_style(fig)
     return fig
 
 
@@ -731,6 +736,7 @@ def _chart_23_grouped_top5(df: pd.DataFrame, colors: list[str]):
     fig.update_yaxes(range=[0, 100], ticksuffix="%", showgrid=False, zeroline=False)
     fig.update_xaxes(showgrid=False)
     fig.update_xaxes(tickangle=-18)
+    apply_chart_style(fig)
     return fig
 
 

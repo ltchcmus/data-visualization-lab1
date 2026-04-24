@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap");
 
+/* ═══════════════════════════════════════════════════════════════
+ * 1. DESIGN TOKENS
+ * ═══════════════════════════════════════════════════════════════ */
 :root {
-  --pri-900: #1e40af;
   --pri-800: #1d4ed8;
-  --pri-700: #1e40af;
   --pri-500: #1e40af;
   --acc-500: #ef4444;
   --bg-050: #f8fafc;
@@ -20,6 +21,9 @@
   --fx-shadow: 0 8px 18px rgba(30, 64, 175, 0.08);
 }
 
+/* ═══════════════════════════════════════════════════════════════
+ * 2. GLOBAL RESET & TYPOGRAPHY
+ * ═══════════════════════════════════════════════════════════════ */
 html,
 body,
 [class*="css"] {
@@ -28,13 +32,20 @@ body,
     sans-serif !important;
 }
 
+.stApp {
+  background: var(--bg-050);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+ * 3. STREAMLIT LAYOUT OVERRIDES
+ * ═══════════════════════════════════════════════════════════════ */
 /* Restore scroll on the main layout so charts can be seen fully */
 section[data-testid="stMain"] {
-    overflow: auto !important;
+  overflow: auto !important;
 }
 
 div[data-testid="stSidebarContent"] {
-    overflow: hidden !important;
+  overflow: hidden !important;
 }
 
 div[data-testid="stVerticalBlock"] {
@@ -69,35 +80,42 @@ div[data-testid="stElementContainer"] {
   min-height: 0 !important;
 }
 
-/* Collapse the space Streamlit reserves for the hidden native header */
 [data-testid="stAppViewContainer"] {
   padding-top: 0 !important;
 }
 
-.stApp {
-  background: #f8fafc;
+[data-testid="stSidebar"],
+[data-testid="stSidebar"]>div:first-child {
+  width: var(--left-sidebar-width) !important;
+  min-width: var(--left-sidebar-width) !important;
+  max-width: var(--left-sidebar-width) !important;
+  background: linear-gradient(180deg, var(--bg-050) 0%, #eef2ff 100%);
+  z-index: 220 !important;
 }
 
 [data-testid="stSidebar"] {
-  width: var(--left-sidebar-width) !important;
-  min-width: var(--left-sidebar-width) !important;
-  max-width: var(--left-sidebar-width) !important;
   border-right: 1px solid #c8dced;
-  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
-  z-index: 220 !important;
 }
 
-[data-testid="stSidebar"] > div:first-child {
-  width: var(--left-sidebar-width) !important;
-  min-width: var(--left-sidebar-width) !important;
-  max-width: var(--left-sidebar-width) !important;
-  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
-  z-index: 220 !important;
+[data-testid="stSidebar"] [data-testid="stSidebarUserContent"] {
+  padding-top: 0.4rem;
+  padding-left: 0.35rem;
+  padding-right: 0.35rem;
+}
+
+[data-testid="collapsedControl"] {
+  display: none !important;
 }
 
 .stApp [data-testid="stAppViewContainer"],
 .stApp [data-testid="stAppViewContainer"] .main {
   overflow: visible !important;
+}
+
+.stApp [data-testid="stAppViewContainer"] .main .block-container {
+  margin-left: 0 !important;
+  padding-left: var(--content-left-gap) !important;
+  padding-top: 88px !important;
 }
 
 /* Streamlit still allocates space for markdown blocks that host fixed UI; collapse that space */
@@ -122,36 +140,95 @@ div[data-testid="stElementContainer"] {
 }
 
 /* Hide style-only markdown wrappers so they do not create extra vertical gaps */
-.element-container:has(
-  > [data-testid="stMarkdownContainer"] > style:only-child
-),
+.element-container:has(> [data-testid="stMarkdownContainer"] > style:only-child),
 .element-container:has(> [data-testid="stMarkdownContainer"]:empty) {
   display: none !important;
 }
 
-[data-testid="stSidebar"] [data-testid="stSidebarUserContent"] {
-  padding-top: 0.4rem;
-  padding-left: 0.35rem;
-  padding-right: 0.35rem;
+/* ═══════════════════════════════════════════════════════════════
+ * 4. GLOBAL WIDGET OVERRIDES
+ * ═══════════════════════════════════════════════════════════════ */
+.stApp [data-testid="stAppViewContainer"] .main [data-baseweb="select"],
+.stApp [data-testid="stAppViewContainer"] .main [data-baseweb="radio"] {
+  box-shadow: 0 5px 14px rgba(30, 64, 175, 0.08) !important;
 }
 
-[data-testid="collapsedControl"] {
-  display: none !important;
+/* Prevent dropdown listbox from growing too tall */
+div[data-baseweb="select"] ul[role="listbox"] {
+  max-height: 300px !important;
+  overflow-y: auto !important;
 }
 
-.stApp [data-testid="stAppViewContainer"] .main .block-container {
-  margin-left: 0 !important;
-  padding-left: var(--content-left-gap) !important;
-  padding-top: 132px !important;
+.stApp [data-testid="stAppViewContainer"] .main [data-testid="stAlert"] {
+  border: 1px solid var(--fx-border) !important;
+  border-radius: 10px !important;
+  background: var(--fx-gradient) !important;
+  box-shadow: var(--fx-shadow) !important;
 }
 
-/* Ensure the first filter row is visually pulled upward
-[data-testid="stHorizontalBlock"]:has(.top-filter-title) {
-    margin-top: 0.5rem !important;
-    margin-bot: 0.5rem !important;
-} */
+.stApp [data-testid="stAppViewContainer"] .main [data-testid="stAlert"] p {
+  color: var(--pri-500) !important;
+}
 
-/* -- HEADER -- */
+/* ═══════════════════════════════════════════════════════════════
+ * 5. GLOBAL TEXT COLOR OVERRIDES
+ * ═══════════════════════════════════════════════════════════════ */
+.stApp [data-testid="stAppViewContainer"] .main .block-container,
+.stApp [data-testid="stAppViewContainer"] .main .block-container p,
+.stApp [data-testid="stAppViewContainer"] .main .block-container span,
+.stApp [data-testid="stAppViewContainer"] .main .block-container div,
+.stApp [data-testid="stAppViewContainer"] .main .block-container label,
+.stApp [data-testid="stAppViewContainer"] .main .block-container li,
+.stApp [data-testid="stAppViewContainer"] .main .block-container h1,
+.stApp [data-testid="stAppViewContainer"] .main .block-container h2,
+.stApp [data-testid="stAppViewContainer"] .main .block-container h3,
+.stApp [data-testid="stAppViewContainer"] .main .block-container h4,
+.stApp [data-testid="stAppViewContainer"] .main .block-container h5,
+.stApp [data-testid="stAppViewContainer"] .main .block-container h6 {
+  color: var(--ink-700) !important;
+}
+
+.stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetricLabel"],
+.stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetricLabel"] *,
+.stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetricValue"],
+.stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetricValue"] *,
+.stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetricDelta"],
+.stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetricDelta"] * {
+  color: var(--ink-700) !important;
+  -webkit-text-fill-color: var(--ink-700) !important;
+  opacity: 1 !important;
+}
+
+.stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetric"],
+.stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetric"] *,
+.stApp [data-testid="stAppViewContainer"] .main [data-testid="metric-container"],
+.stApp [data-testid="stAppViewContainer"] .main [data-testid="metric-container"] *,
+.stApp [data-testid="stAppViewContainer"] .main div[data-testid*="Metric"],
+.stApp [data-testid="stAppViewContainer"] .main div[data-testid*="Metric"] * {
+  color: var(--ink-700) !important;
+  fill: var(--ink-700) !important;
+  stroke: var(--ink-700) !important;
+  -webkit-text-fill-color: var(--ink-700) !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+}
+
+.stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .gtitle,
+.stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .xtitle,
+.stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .ytitle,
+.stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .legend text,
+.stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .xtick text,
+.stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .ytick text,
+.stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .annotation text,
+.stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .cbtitle,
+.stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .g-gtitle text {
+  fill: var(--ink-700) !important;
+  color: var(--ink-700) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+ * 6. FIXED CHROME: HEADER
+ * ═══════════════════════════════════════════════════════════════ */
 .dashboard-head {
   position: fixed;
   top: 4px;
@@ -282,17 +359,111 @@ div[data-testid="stElementContainer"] {
   white-space: nowrap;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+ * 7. FIXED CHROME: FLOATING TAB RAIL
+ * ═══════════════════════════════════════════════════════════════ */
+.book-tab-rail {
+  position: fixed;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3000;
+  width: 66px;
+  padding: 10px 8px;
+  border-radius: 22px;
+  border: 1px solid var(--line-200);
+  background: var(--bg-050);
+  box-shadow: 0 8px 18px rgba(9, 18, 34, 0.06);
+  transition: width 0.2s ease;
+  overflow: hidden;
+}
+
+.book-tab-rail:hover {
+  width: 230px;
+  background: linear-gradient(180deg, #b6d4f1 0%, #eef2ff 100%);
+}
+
+.book-tab-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none !important;
+  margin: 8px 0;
+  height: 46px;
+  border-radius: 14px;
+  border: 1px solid var(--line-200);
+  background: #ffffff;
+  box-shadow: 0 6px 14px rgba(9, 18, 34, 0.05);
+  color: inherit;
+  font-weight: 700;
+  padding: 0 14px;
+  white-space: nowrap;
+}
+
+.book-tab-link:hover {
+  border-color: #93c5fd;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(9, 18, 34, 0.08);
+  text-decoration: none;
+}
+
+.book-tab-link.is-active {
+  background: var(--bg-050);
+  border-color: #c7d2fe;
+  color: var(--pri-500);
+  box-shadow:
+    inset 0 -3px 0 var(--pri-500),
+    0 8px 18px rgba(9, 18, 34, 0.08);
+  text-decoration: none;
+}
+
+.book-tab-icon {
+  display: inline-flex;
+  width: 18px;
+  min-width: 18px;
+  justify-content: center;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.book-tab-label {
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+}
+
+.book-tab-rail:hover .book-tab-label {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+ * 8. TAB PAGE HEADER
+ * ═══════════════════════════════════════════════════════════════ */
 .tab-page-header {
   border: 1px solid var(--fx-border);
+  border-left: 4px solid var(--pri-500) !important;
   border-radius: 10px;
-  background: var(--fx-gradient);
+  background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 50%, #e0ecff 100%) !important;
   box-shadow: var(--fx-shadow);
   padding: 12px 16px;
-  margin: 24px 0 24px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.35s ease both;
+}
+
+.tab-page-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 80px;
+  background: linear-gradient(90deg, transparent, rgba(30, 64, 175, 0.04));
+  pointer-events: none;
 }
 
 .tab-page-header .tph-title {
-  color: #1e293b;
+  color: var(--ink-700);
   font-size: 1.05rem;
   font-weight: 700;
   line-height: 1.35;
@@ -300,14 +471,16 @@ div[data-testid="stElementContainer"] {
 }
 
 .tab-page-header .tph-sub {
-  color: #64748b;
+  color: var(--ink-500);
   font-size: 0.82rem;
   font-weight: 400;
   line-height: 1.4;
   margin: 0;
 }
 
-/* -- KPI STRIP -- */
+/* ═══════════════════════════════════════════════════════════════
+ * 9. KPI COMPONENTS
+ * ═══════════════════════════════════════════════════════════════ */
 .kpi-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -328,16 +501,24 @@ div[data-testid="stElementContainer"] {
 .kpi-box {
   background: linear-gradient(105deg, #ffffff 0%, #f8fbff 100%);
   border: 1px solid rgba(255, 255, 255, 0.72);
-  border-top: 3px solid #1e40af;
+  border-top: 3px solid var(--pri-500);
   border-radius: 12px;
   padding: 7px 14px;
   margin: 6px 0 12px;
   box-shadow: 0 10px 22px rgba(9, 18, 34, 0.06);
   height: auto;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.kpi-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(9, 18, 34, 0.1);
 }
 
 .kpi-box.accent-blue {
-  border-top-color: #1e40af;
+  border-top-color: var(--pri-500);
 }
 
 .kpi-box.accent-amber {
@@ -345,11 +526,11 @@ div[data-testid="stElementContainer"] {
 }
 
 .kpi-box.accent-red {
-  border-top-color: #ef4444;
+  border-top-color: var(--acc-500);
 }
 
 .kpi-box.accent-slate {
-  border-top-color: #64748b;
+  border-top-color: var(--ink-500);
 }
 
 .kpi-box.accent-emerald {
@@ -368,7 +549,7 @@ div[data-testid="stElementContainer"] {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #64748b;
+  color: var(--ink-500);
   white-space: nowrap;
 }
 
@@ -379,17 +560,18 @@ div[data-testid="stElementContainer"] {
   line-height: 1;
 }
 
+.kpi-val .u {
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: var(--ink-500);
+}
+
 .kpi-sub {
   margin-top: 8px;
-  color: #64748b;
+  color: var(--ink-500);
   font-size: 0.75rem;
   line-height: 1.35;
 }
-
-/* .kpi-strip.compact .kpi-box {
-    padding: 14px 16px;
-    min-height: 76px;
-} */
 
 .kpi-strip.compact .kpi-lbl {
   font-size: 0.62rem;
@@ -417,227 +599,7 @@ div[data-testid="stElementContainer"] {
   height: 100%;
 }
 
-.kpi-val .u {
-  font-size: 0.68rem;
-  font-weight: 400;
-  color: #64748b;
-}
-
-/* Force black text in main content area */
-.stApp [data-testid="stAppViewContainer"] .main .block-container,
-.stApp [data-testid="stAppViewContainer"] .main .block-container p,
-.stApp [data-testid="stAppViewContainer"] .main .block-container span,
-.stApp [data-testid="stAppViewContainer"] .main .block-container div,
-.stApp [data-testid="stAppViewContainer"] .main .block-container label,
-.stApp [data-testid="stAppViewContainer"] .main .block-container li,
-.stApp [data-testid="stAppViewContainer"] .main .block-container h1,
-.stApp [data-testid="stAppViewContainer"] .main .block-container h2,
-.stApp [data-testid="stAppViewContainer"] .main .block-container h3,
-.stApp [data-testid="stAppViewContainer"] .main .block-container h4,
-.stApp [data-testid="stAppViewContainer"] .main .block-container h5,
-.stApp [data-testid="stAppViewContainer"] .main .block-container h6 {
-  color: #1e293b !important;
-}
-
-.stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetricLabel"],
-.stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetricLabel"] *,
-.stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetricValue"],
-.stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetricValue"] *,
-.stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetricDelta"],
-.stApp
-  [data-testid="stAppViewContainer"]
-  .main
-  [data-testid="stMetricDelta"]
-  * {
-  color: #1e293b !important;
-  -webkit-text-fill-color: #1e293b !important;
-  opacity: 1 !important;
-}
-
-.stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetric"],
-.stApp [data-testid="stAppViewContainer"] .main [data-testid="stMetric"] *,
-.stApp
-  [data-testid="stAppViewContainer"]
-  .main
-  [data-testid="metric-container"],
-.stApp
-  [data-testid="stAppViewContainer"]
-  .main
-  [data-testid="metric-container"]
-  *,
-.stApp [data-testid="stAppViewContainer"] .main div[data-testid*="Metric"],
-.stApp [data-testid="stAppViewContainer"] .main div[data-testid*="Metric"] * {
-  color: #1e293b !important;
-  fill: #1e293b !important;
-  stroke: #1e293b !important;
-  -webkit-text-fill-color: #1e293b !important;
-  text-shadow: none !important;
-  opacity: 1 !important;
-}
-
-.stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .gtitle,
-.stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .xtitle,
-.stApp [data-testid="stAppViewContainer"] .main .js-plotly-plot .plotly .ytitle,
-.stApp
-  [data-testid="stAppViewContainer"]
-  .main
-  .js-plotly-plot
-  .plotly
-  .legend
-  text,
-.stApp
-  [data-testid="stAppViewContainer"]
-  .main
-  .js-plotly-plot
-  .plotly
-  .xtick
-  text,
-.stApp
-  [data-testid="stAppViewContainer"]
-  .main
-  .js-plotly-plot
-  .plotly
-  .ytick
-  text,
-.stApp
-  [data-testid="stAppViewContainer"]
-  .main
-  .js-plotly-plot
-  .plotly
-  .annotation
-  text,
-.stApp
-  [data-testid="stAppViewContainer"]
-  .main
-  .js-plotly-plot
-  .plotly
-  .cbtitle,
-.stApp
-  [data-testid="stAppViewContainer"]
-  .main
-  .js-plotly-plot
-  .plotly
-  .g-gtitle
-  text {
-  fill: #1e293b !important;
-  color: #1e293b !important;
-}
-
-/* -- SECTION CARDS -- */
-.section-card {
-  border: 1px solid var(--fx-border);
-  border-radius: 14px;
-  background: linear-gradient(105deg, #ffffff 0%, #f8fbff 100%);
-  padding: 14px;
-  margin-top: 6px;
-  margin-bottom: 8px;
-  box-shadow: 0 6px 14px rgba(30, 64, 175, 0.06);
-}
-
-/* -- FILTER BAR -- */
-.control-card {
-  border: 1px solid var(--fx-border);
-  border-radius: 10px;
-  background: linear-gradient(105deg, #ffffff 0%, #f8fbff 100%);
-  padding: 10px 16px 6px;
-  margin-bottom: 12px;
-  box-shadow: 0 6px 14px rgba(9, 18, 34, 0.06);
-}
-
-.tab4-filter-card {
-  border: 1px solid #d8e6f3;
-  border-radius: 14px;
-  background: linear-gradient(110deg, #ffffff 0%, #f6faff 58%, #eef5ff 100%);
-  box-shadow: 0 10px 24px rgba(20, 52, 88, 0.08);
-  padding: 12px 14px 8px;
-  margin: 4px 0 14px;
-}
-
-.tab4-filter-title {
-  font-size: 0.88rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #1e3a8a;
-  margin-top: 2px;
-}
-
-.tab4-filter-sub {
-  margin-top: 4px;
-  margin-bottom: 8px;
-  font-size: 0.77rem;
-  line-height: 1.4;
-  color: #475569;
-}
-
-[data-testid="stHorizontalBlock"]:has(.tab4-filter-card)
-  [data-testid="stMetric"] {
-  background: #ffffff;
-  border: 1px solid #dbe7f2;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(16, 40, 68, 0.06);
-}
-
-[data-testid="stHorizontalBlock"]:has(.tab4-filter-card)
-  [data-testid="stMetricLabel"] {
-  color: #64748b !important;
-  font-size: 0.72rem !important;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-[data-testid="stHorizontalBlock"]:has(.tab4-filter-card)
-  [data-testid="stMetricValue"] {
-  color: #0f2740 !important;
-  font-size: 1.05rem !important;
-}
-
-[data-testid="stHorizontalBlock"]:has(.tab4-filter-card) .stSlider > label,
-[data-testid="stHorizontalBlock"]:has(.tab4-filter-card)
-  .stMultiSelect
-  > label {
-  font-size: 0.72rem !important;
-  font-weight: 700 !important;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #475569 !important;
-}
-
-[data-testid="stHorizontalBlock"]:has(.tab4-filter-card)
-  [data-baseweb="select"] {
-  background: #ffffff !important;
-  border: 1px solid #d8e6f3 !important;
-  border-radius: 10px !important;
-}
-
-.stApp [data-testid="stAppViewContainer"] .main [data-testid="stAlert"] {
-  border: 1px solid var(--fx-border) !important;
-  border-radius: 10px !important;
-  background: var(--fx-gradient) !important;
-  box-shadow: var(--fx-shadow) !important;
-}
-
-.stApp [data-testid="stAppViewContainer"] .main [data-testid="stAlert"] p {
-  color: #1e40af !important;
-}
-
-.stApp [data-testid="stAppViewContainer"] .main [data-baseweb="select"],
-.stApp [data-testid="stAppViewContainer"] .main [data-baseweb="radio"] {
-  box-shadow: 0 5px 14px rgba(30, 64, 175, 0.08) !important;
-}
-
-.stApp
-  [data-testid="stAppViewContainer"]
-  .main
-  [data-testid="stPlotlyChart"]
-  > div {
-  border: 1px solid #d6e3f0;
-  border-radius: 12px;
-  box-shadow: var(--shadow-soft);
-  background: #ffffff;
-  padding: 6px;
-}
-
+/* KPI SECTION — dark card variant */
 .kpi-section {
   background: linear-gradient(135deg, #102844 0%, #2c5a88 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -682,10 +644,112 @@ div[data-testid="stElementContainer"] {
   text-align: right;
 }
 
-/* widget labels */
-.control-card .stRadio > label,
-.control-card .stMultiSelect > label,
-.control-card .stSelectbox > label {
+.kpi-section .kpi-strip {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.kpi-section .kpi-box {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-top: 3px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+.kpi-section .kpi-lbl {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.kpi-section .kpi-val {
+  color: #ffffff !important;
+}
+
+.kpi-section .kpi-sub {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.kpi-section .kpi-icon svg g {
+  stroke: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+ * 10. CONTENT CARDS
+ * ═══════════════════════════════════════════════════════════════ */
+.section-card {
+  border: 1px solid var(--fx-border);
+  border-radius: 14px;
+  background: linear-gradient(105deg, #ffffff 0%, #f8fbff 100%);
+  padding: 14px;
+  margin-top: 6px;
+  margin-bottom: 8px;
+  box-shadow: 0 6px 14px rgba(30, 64, 175, 0.06);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+  animation: fadeInUp 0.4s ease both;
+}
+
+.section-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(30, 64, 175, 0.1);
+}
+
+.section-row-title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pri-500);
+  padding: 10px 16px;
+  margin: 18px 0 8px;
+  border-radius: 10px;
+  border: 1px solid #d6e3f0;
+  border-left: 4px solid var(--pri-500);
+  background: linear-gradient(135deg, #eef2ff 0%, var(--bg-050) 100%);
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.05);
+  animation: fadeInUp 0.35s ease both;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+ * 11. FILTER COMPONENTS
+ * ═══════════════════════════════════════════════════════════════ */
+
+/* -- Filter panel (sidebar) -- */
+.filter-card {
+  border: 1px solid var(--fx-border);
+  border-radius: 16px;
+  padding: 14px 18px;
+  background: linear-gradient(105deg, #dcedff 0%, #eff6ff 52%, #ffffff 100%);
+  margin-bottom: 12px;
+  box-shadow: 0 8px 18px rgba(31, 79, 125, 0.12);
+}
+
+.filter-title {
+  font-size: 1.05rem;
+  font-weight: 650;
+  color: #1f3653;
+  margin-bottom: 2px;
+}
+
+.filter-subtitle {
+  color: #47617d;
+  font-size: 0.92rem;
+  margin-bottom: 0;
+}
+
+/* -- Filter bar (control-card) -- */
+.control-card {
+  border: 1px solid var(--fx-border);
+  border-radius: 10px;
+  background: linear-gradient(105deg, #ffffff 0%, #f8fbff 100%);
+  padding: 10px 16px 6px;
+  margin-bottom: 12px;
+  box-shadow: 0 6px 14px rgba(9, 18, 34, 0.06);
+}
+
+.control-card .stRadio>label,
+.control-card .stMultiSelect>label,
+.control-card .stSelectbox>label {
   font-size: 0.68rem !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
@@ -693,11 +757,10 @@ div[data-testid="stElementContainer"] {
   color: var(--ink-500) !important;
 }
 
-/* radio as pill buttons */
 .control-card .stRadio [data-baseweb="radio"] {
   padding: 3px 10px 3px 4px;
   border-radius: 6px;
-  border: 1px solid #dbe7f2;
+  border: 1px solid var(--line-200);
   background: #f1f5f9;
   margin-right: 4px;
   transition: background 0.15s;
@@ -718,14 +781,15 @@ div[data-testid="stElementContainer"] {
   color: var(--ink-700);
 }
 
-/* multiselect light */
-.control-card .stMultiSelect [data-baseweb="select"] {
+.control-card .stMultiSelect [data-baseweb="select"],
+.control-card .stSelectbox [data-baseweb="select"] {
   background: #ffffff !important;
   border: 1px solid #d8e6f3 !important;
   border-radius: 10px !important;
 }
 
-.control-card .stMultiSelect [data-baseweb="select"]:focus-within {
+.control-card .stMultiSelect [data-baseweb="select"]:focus-within,
+.control-card .stSelectbox [data-baseweb="select"]:focus-within {
   border-color: var(--pri-500) !important;
   box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.15) !important;
 }
@@ -737,23 +801,138 @@ div[data-testid="stElementContainer"] {
 }
 
 .control-card .stMultiSelect [data-baseweb="tag"] span {
-  color: #1e40af !important;
+  color: var(--pri-500) !important;
   font-size: 0.74rem !important;
 }
 
-/* selectbox (year drill-out) */
-.control-card .stSelectbox [data-baseweb="select"] {
+/* -- Tab 4 filter card -- */
+.tab4-filter-card {
+  border: 1px solid #d8e6f3;
+  border-radius: 14px;
+  background: linear-gradient(110deg, #ffffff 0%, #f6faff 58%, #eef5ff 100%);
+  box-shadow: 0 10px 24px rgba(20, 52, 88, 0.08);
+  padding: 12px 14px 8px;
+  margin: 4px 0 14px;
+}
+
+.tab4-filter-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1e3a8a;
+  margin-top: 2px;
+}
+
+.tab4-filter-sub {
+  margin-top: 4px;
+  margin-bottom: 8px;
+  font-size: 0.77rem;
+  line-height: 1.4;
+  color: #475569;
+}
+
+[data-testid="stHorizontalBlock"]:has(.tab4-filter-card) [data-testid="stMetric"] {
+  background: #ffffff;
+  border: 1px solid var(--line-200);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(16, 40, 68, 0.06);
+}
+
+[data-testid="stHorizontalBlock"]:has(.tab4-filter-card) [data-testid="stMetricLabel"] {
+  color: var(--ink-500) !important;
+  font-size: 0.72rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+[data-testid="stHorizontalBlock"]:has(.tab4-filter-card) [data-testid="stMetricValue"] {
+  color: #0f2740 !important;
+  font-size: 1.05rem !important;
+}
+
+[data-testid="stHorizontalBlock"]:has(.tab4-filter-card) .stSlider>label,
+[data-testid="stHorizontalBlock"]:has(.tab4-filter-card) .stMultiSelect>label {
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #475569 !important;
+}
+
+[data-testid="stHorizontalBlock"]:has(.tab4-filter-card) [data-baseweb="select"] {
   background: #ffffff !important;
   border: 1px solid #d8e6f3 !important;
   border-radius: 10px !important;
 }
 
-.control-card .stSelectbox [data-baseweb="select"]:focus-within {
-  border-color: var(--pri-500) !important;
-  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.15) !important;
+/* -- Top filter bar (toggle shell) -- */
+/* Xóa bỏ hoàn toàn phần không gian của Label */
+.st-key-global_filter_panel_open [data-testid="stWidgetLabel"] {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
 }
 
-/* top filter row: light multiselect/select placeholders */
+.st-key-global_filter_panel_open [data-testid="stToggle"] {
+  margin-top: 0 !important;
+  align-self: center;
+}
+
+.st-key-filter_toggle_shell {
+  border-radius: 14px;
+  border: 1px solid #7ea2c9;
+  background: linear-gradient(110deg, #e9f2ff 0%, #d6e8ff 48%, #edf6ff 100%);
+  box-shadow: 0 12px 24px rgba(30, 64, 175, 0.18);
+  padding: 8px 12px;
+  margin: 14px 0px 0px 6px;
+}
+
+.st-key-filter_toggle_shell [data-testid="stHorizontalBlock"] {
+  align-items: center !important;
+}
+
+.filter-toggle-title {
+  color: #153458 !important;
+  font-weight: 800;
+  font-size: 1.12rem !important;
+  letter-spacing: 0.015em;
+  line-height: 1.25;
+  padding-left: 6px;
+}
+
+.st-key-filter_toggle_shell .st-key-global_filter_panel_open {
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.st-key-filter_toggle_shell .st-key-global_filter_panel_open [data-testid="stToggle"] {
+  margin: 0 !important;
+}
+
+.st-key-filter_toggle_shell .st-key-global_filter_panel_open [data-baseweb="checkbox"] {
+  transform: scale(1.12);
+  transform-origin: right center;
+}
+
+.st-key-filter_toggle_shell [data-testid="stHorizontalBlock"]>[data-testid="column"]:first-child {
+  display: flex;
+  align-items: center;
+}
+
+.st-key-filter_toggle_shell [data-testid="stHorizontalBlock"]>[data-testid="column"]:first-child [data-testid="stMarkdownContainer"] {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Sentinel hidden by default; used to scope column selectors below */
+.top-filter-title {
+  display: none !important;
+}
+
 [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] {
   background: #ffffff !important;
   border: 1px solid #d8e6f3 !important;
@@ -765,198 +944,59 @@ div[data-testid="stElementContainer"] {
   background-color: transparent !important;
 }
 
-[data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] > div,
-[data-testid="column"]:has(.top-filter-title)
-  [data-baseweb="select"]
-  > div
-  > div {
+[data-testid="column"]:has(.top-filter-title) [data-baseweb="select"]>div,
+[data-testid="column"]:has(.top-filter-title) [data-baseweb="select"]>div>div {
   background: #ffffff !important;
 }
 
 [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] span,
 [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] div,
 [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] input {
-  color: #1e293b !important;
-  -webkit-text-fill-color: #1e293b !important;
+  color: var(--ink-700) !important;
+  -webkit-text-fill-color: var(--ink-700) !important;
 }
 
-[data-testid="column"]:has(.top-filter-title)
-  [data-baseweb="select"]
-  input::placeholder {
-  color: #64748b !important;
-  -webkit-text-fill-color: #64748b !important;
+[data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] input::placeholder {
+  color: var(--ink-500) !important;
+  -webkit-text-fill-color: var(--ink-500) !important;
 }
 
 [data-testid="column"]:has(.top-filter-title) [data-baseweb="tag"] {
-  background: #dbeafe !important;
-  border: 1px solid #93c5fd !important;
+  background: var(--bg-050) !important;
+  border: 1px solid #d6e3f0 !important;
   border-radius: 10px !important;
 }
 
 [data-testid="column"]:has(.top-filter-title) [data-baseweb="tag"] span {
-  color: #1e40af !important;
+  color: var(--ink-700) !important;
 }
 
 [data-testid="column"]:has(.top-filter-title) [data-baseweb="select"] svg {
-  color: #64748b !important;
-  fill: #64748b !important;
+  color: var(--ink-500) !important;
+  fill: var(--ink-500) !important;
 }
 
-/* -- FLOATING TAB RAIL -- */
-.book-tab-rail {
-  position: fixed;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 3000;
-  width: 66px;
-  padding: 10px 8px;
-  border-radius: 22px;
-  border: 1px solid #dbe7f2;
-  background: #f8fafc;
-  box-shadow: 0 8px 18px rgba(9, 18, 34, 0.06);
-  transition: width 0.2s ease;
-  overflow: hidden;
-}
-
-.book-tab-rail:hover {
-  width: 230px;
-  background: linear-gradient(180deg, #b6d4f1 0%, #eef2ff 100%);
-}
-
-.book-tab-link {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none !important;
-  margin: 8px 0;
-  height: 46px;
+/* ═══════════════════════════════════════════════════════════════
+ * 12. CHART & DATA DISPLAY
+ * ═══════════════════════════════════════════════════════════════ */
+.stApp [data-testid="stAppViewContainer"] .main [data-testid="stPlotlyChart"]>div {
+  border: 1px solid rgba(214, 227, 240, 0.8);
   border-radius: 14px;
-  border: 1px solid #dbe7f2;
-  background: #ffffff;
-  box-shadow: 0 6px 14px rgba(9, 18, 34, 0.05);
-  color: #1e293b;
-  font-weight: 700;
-  padding: 0 14px;
-  white-space: nowrap;
-  color: inherit;
-}
-
-.book-tab-link:hover {
-  border-color: #93c5fd;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 16px rgba(9, 18, 34, 0.08);
-  text-decoration: none;
-}
-
-.book-tab-link.is-active {
-  background: #f8fafc;
-  border-color: #c7d2fe;
-  color: #1e40af;
   box-shadow:
-    inset 0 -3px 0 #1e40af,
-    0 8px 18px rgba(9, 18, 34, 0.08);
-  text-decoration: none;
-}
-
-.book-tab-icon {
-  display: inline-flex;
-  width: 18px;
-  min-width: 18px;
-  justify-content: center;
-  font-size: 1rem;
-  line-height: 1;
-}
-
-.book-tab-label {
-  opacity: 0;
-  transition: opacity 0.18s ease;
-  pointer-events: none;
-}
-
-.book-tab-rail:hover .book-tab-label {
-  opacity: 1;
-}
-
-::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
-}
-
-/* -- FADE-IN ANIMATION -- */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* -- SECTION CARD HOVER -- */
-.section-card {
+    0 8px 24px rgba(30, 64, 175, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  background: linear-gradient(180deg, #ffffff 0%, #fcfeff 100%);
+  padding: 8px;
   transition:
-    transform 0.22s ease,
-    box-shadow 0.22s ease;
-  animation: fadeInUp 0.4s ease both;
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
 }
 
-.section-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(30, 64, 175, 0.1);
-}
-
-/* -- SECTION ROW TITLE (sub-header within tabs) -- */
-.section-row-title {
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #1e40af;
-  padding: 10px 16px;
-  margin: 18px 0 8px;
-  border-radius: 10px;
-  border: 1px solid #d6e3f0;
-  border-left: 4px solid #1e40af;
-  background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 100%);
-  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.05);
-  animation: fadeInUp 0.35s ease both;
-}
-
-.tab-page-header {
-  background: linear-gradient(
-    135deg,
-    #eef2ff 0%,
-    #f8fafc 50%,
-    #e0ecff 100%
-  ) !important;
-  border-left: 4px solid #1e40af !important;
-  position: relative;
-  overflow: hidden;
-  animation: fadeInUp 0.35s ease both;
-}
-
-.tab-page-header::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 80px;
-  background: linear-gradient(90deg, transparent, rgba(30, 64, 175, 0.04));
-  pointer-events: none;
+.stApp [data-testid="stAppViewContainer"] .main [data-testid="stPlotlyChart"]>div:hover {
+  box-shadow:
+    0 12px 32px rgba(30, 64, 175, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
 }
 
 .stApp [data-testid="stExpander"] {
@@ -984,15 +1024,13 @@ div[data-testid="stElementContainer"] {
   padding: 10px 16px !important;
   font-weight: 600 !important;
   font-size: 0.82rem !important;
-  color: #1e40af !important;
+  color: var(--pri-500) !important;
   letter-spacing: 0.01em !important;
   transition: background 0.2s ease !important;
 }
 
 .stApp [data-testid="stExpander"] summary:hover,
-.stApp
-  [data-testid="stExpander"]
-  [data-testid="stExpanderToggleDetails"]:hover {
+.stApp [data-testid="stExpander"] [data-testid="stExpanderToggleDetails"]:hover {
   background: linear-gradient(135deg, #e0e7ff 0%, #eef2ff 100%) !important;
 }
 
@@ -1008,7 +1046,7 @@ div[data-testid="stElementContainer"] {
 }
 
 .stApp [data-testid="stCaptionContainer"] {
-  background: linear-gradient(105deg, #eef2ff 0%, #f8fafc 100%);
+  background: linear-gradient(105deg, #eef2ff 0%, var(--bg-050) 100%);
   border: 1px solid #d6e3f0;
   border-radius: 8px;
   padding: 8px 14px;
@@ -1022,127 +1060,31 @@ div[data-testid="stElementContainer"] {
   font-weight: 500 !important;
 }
 
-/* -- PLOTLY CHART GLASSMORPHISM -- */
-.stApp
-  [data-testid="stAppViewContainer"]
-  .main
-  [data-testid="stPlotlyChart"]
-  > div {
-  border: 1px solid rgba(214, 227, 240, 0.8);
-  border-radius: 14px;
-  box-shadow:
-    0 8px 24px rgba(30, 64, 175, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  background: linear-gradient(180deg, #ffffff 0%, #fcfeff 100%);
-  padding: 8px;
-  transition:
-    box-shadow 0.25s ease,
-    transform 0.25s ease;
-}
-
-.stApp
-  [data-testid="stAppViewContainer"]
-  .main
-  [data-testid="stPlotlyChart"]
-  > div:hover {
-  box-shadow:
-    0 12px 32px rgba(30, 64, 175, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  transform: translateY(-1px);
-}
-
-/* -- KPI BOX HOVER -- */
-.kpi-box {
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.kpi-box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(9, 18, 34, 0.1);
-}
-
-/* -- KPI SECTION CARDS (DARK) IN SECTION -- */
-.kpi-section .kpi-strip {
-  grid-template-columns: repeat(5, 1fr);
-}
-
-.kpi-section .kpi-box {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.05) 100%
-  ) !important;
-  border: 1px solid rgba(255, 255, 255, 0.14) !important;
-  border-top: 3px solid rgba(255, 255, 255, 0.25) !important;
-}
-
-/* .kpi-section .kpi-box.accent-red     { border-top-color: #FCA5A5 !important; }
-.kpi-section .kpi-box.accent-emerald { border-top-color: #6EE7B7 !important; }
-.kpi-section .kpi-box.accent-amber   { border-top-color: #FCD34D !important; } */
-
-.kpi-section .kpi-lbl {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-
-.kpi-section .kpi-val {
-  color: #ffffff !important;
-}
-
-/* .kpi-section .kpi-box.accent-red .kpi-val {
-    color: #FCA5A5 !important;
-}
-
-.kpi-section .kpi-box.accent-emerald .kpi-val {
-    color: #6EE7B7 !important;
-} */
-
-.kpi-section .kpi-sub {
-  color: rgba(255, 255, 255, 0.6) !important;
-}
-
-.kpi-section .kpi-icon svg g {
-  stroke: rgba(255, 255, 255, 0.7) !important;
-}
-
-/* .kpi-section .kpi-box.accent-red .kpi-icon svg g {
-    stroke: #FCA5A5 !important;
-}
-
-.kpi-section .kpi-box.accent-emerald .kpi-icon svg g {
-    stroke: #6EE7B7 !important;
-} */
-
-/* -- ML INSIGHT: hover-to-reveal floating button on charts -- */
-
-/*
+/* ═══════════════════════════════════════════════════════════════
+ * 13. ML INSIGHT
+ *
  * Structure generated by render_chart_with_ml():
- *
- *   <div data-testid="stVerticalBlock">   ← Streamlit auto-wraps each call
- *     <div class="ml-chart-wrap" ...>      ← sentinel marker
- *     <div data-testid="stPlotlyChart">    ← the chart
- *     <button data-testid="stPopoverButton"> ← the 🤖 button
- *   </div>
- *
- * CSS Strategy:
- *   The stVerticalBlock that CONTAINS .ml-chart-wrap is the hover target.
- *   Inside it, the popover button is hidden by default and shown on :hover.
- *   We use the :has() selector to scope it.
- */
+ *   <div data-testid="stVerticalBlock">
+ *     <div class="ml-chart-wrap">      ← sentinel
+ *     <div data-testid="stPlotlyChart">
+ *     <button data-testid="stPopoverButton">
+ * ═══════════════════════════════════════════════════════════════ */
 
-/* The wrapper block that contains our sentinel */
-[data-testid="stVerticalBlock"]:has(
-  > [data-testid="element-container"] .ml-chart-wrap
-) {
+/* Sentinel div — no visual impact */
+.ml-chart-wrap {
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  font-size: 0;
+}
+
+[data-testid="stVerticalBlock"]:has(> [data-testid="element-container"] .ml-chart-wrap) {
   position: relative;
 }
 
-/* Hide the popover trigger by default */
-[data-testid="stVerticalBlock"]:has(
-    > [data-testid="element-container"] .ml-chart-wrap
-  )
-  > [data-testid="element-container"]:last-of-type {
+[data-testid="stVerticalBlock"]:has(> [data-testid="element-container"] .ml-chart-wrap)>[data-testid="element-container"]:last-of-type {
   position: absolute;
   bottom: 16px;
   right: 16px;
@@ -1155,20 +1097,14 @@ div[data-testid="stElementContainer"] {
   pointer-events: none;
 }
 
-/* Reveal on hover over the entire chart block */
-[data-testid="stVerticalBlock"]:has(
-    > [data-testid="element-container"] .ml-chart-wrap
-  ):hover
-  > [data-testid="element-container"]:last-of-type {
+[data-testid="stVerticalBlock"]:has(> [data-testid="element-container"] .ml-chart-wrap):hover>[data-testid="element-container"]:last-of-type {
   opacity: 1;
   transform: scale(1);
   pointer-events: auto;
 }
 
-/* Style the 🤖 popover trigger — small round icon button */
-[data-testid="stVerticalBlock"]:has(.ml-chart-wrap)
-  button[data-testid="stPopoverButton"] {
-  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%) !important;
+[data-testid="stVerticalBlock"]:has(.ml-chart-wrap) button[data-testid="stPopoverButton"] {
+  background: linear-gradient(135deg, var(--pri-500) 0%, #3b82f6 100%) !important;
   color: #ffffff !important;
   border: none !important;
   border-radius: 50% !important;
@@ -1185,32 +1121,26 @@ div[data-testid="stElementContainer"] {
   cursor: pointer !important;
 }
 
-[data-testid="stVerticalBlock"]:has(.ml-chart-wrap)
-  button[data-testid="stPopoverButton"]:hover {
-  background: linear-gradient(135deg, #1d4ed8 0%, #60a5fa 100%) !important;
+[data-testid="stVerticalBlock"]:has(.ml-chart-wrap) button[data-testid="stPopoverButton"]:hover {
+  background: linear-gradient(135deg, var(--pri-800) 0%, #60a5fa 100%) !important;
   transform: scale(1.1) !important;
   box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4) !important;
 }
 
-/* Remove the default caret/arrow on the popover button */
-[data-testid="stVerticalBlock"]:has(.ml-chart-wrap)
-  button[data-testid="stPopoverButton"]
-  svg {
+[data-testid="stVerticalBlock"]:has(.ml-chart-wrap) button[data-testid="stPopoverButton"] svg {
   display: none !important;
 }
 
-/* Popover body glassmorphism */
 .stApp [data-testid="stPopoverBody"] {
   padding: 14px 16px;
   border-radius: 14px;
-  background: linear-gradient(135deg, #f8fafc 0%, #eef4ff 60%, #ffffff 100%);
+  background: linear-gradient(135deg, var(--bg-050) 0%, #eef4ff 60%, #ffffff 100%);
   border: 1px solid #d6e3f0;
   box-shadow: 0 12px 32px rgba(30, 64, 175, 0.12);
   max-width: 420px;
 }
 
-/* ML action buttons inside popover */
-.stApp [data-testid="stPopoverBody"] .stButton > button {
+.stApp [data-testid="stPopoverBody"] .stButton>button {
   font-size: 0.72rem !important;
   padding: 4px 8px !important;
   min-height: 30px !important;
@@ -1218,7 +1148,7 @@ div[data-testid="stElementContainer"] {
   font-weight: 600 !important;
   border: 1px solid #d6e3f0 !important;
   background: #ffffff !important;
-  color: #1e40af !important;
+  color: var(--pri-500) !important;
   transition: all 0.15s ease !important;
   white-space: nowrap !important;
   display: flex !important;
@@ -1226,23 +1156,22 @@ div[data-testid="stElementContainer"] {
   align-items: center !important;
 }
 
-.stApp [data-testid="stPopoverBody"] .stButton > button div,
-.stApp [data-testid="stPopoverBody"] .stButton > button p {
+.stApp [data-testid="stPopoverBody"] .stButton>button div,
+.stApp [data-testid="stPopoverBody"] .stButton>button p {
   white-space: nowrap !important;
   overflow: visible !important;
 }
 
-.stApp [data-testid="stPopoverBody"] .stButton > button:hover {
+.stApp [data-testid="stPopoverBody"] .stButton>button:hover {
   background: #eef4ff !important;
   border-color: #93c5fd !important;
   transform: translateY(-1px) !important;
   box-shadow: 0 4px 12px rgba(30, 64, 175, 0.1) !important;
 }
 
-/* Popover heading & text */
 .stApp [data-testid="stPopoverBody"] h5 {
   font-size: 0.82rem !important;
-  color: #1e40af !important;
+  color: var(--pri-500) !important;
   margin-bottom: 8px !important;
   padding-bottom: 6px !important;
   border-bottom: 1px solid #e2ecf7 !important;
@@ -1250,7 +1179,7 @@ div[data-testid="stElementContainer"] {
 
 .stApp [data-testid="stPopoverBody"] h3 {
   font-size: 0.86rem !important;
-  color: #1e40af !important;
+  color: var(--pri-500) !important;
   margin-top: 8px !important;
 }
 
@@ -1260,16 +1189,9 @@ div[data-testid="stElementContainer"] {
   line-height: 1.5 !important;
 }
 
-/* -- ML CHAT SECTION (Overview tab) -- */
 .ml-chat-section {
   margin-top: 16px;
   margin-bottom: 24px;
-}
-
-/* Fix for st.multiselect dropdown keyboard scrolling issue */
-div[data-baseweb="select"] ul[role="listbox"] {
-  max-height: 300px !important;
-  overflow-y: auto !important;
 }
 
 .ml-chat-header {
@@ -1278,7 +1200,7 @@ div[data-baseweb="select"] ul[role="listbox"] {
   gap: 10px;
   padding: 12px 18px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 60%, #3b82f6 100%);
+  background: linear-gradient(135deg, #1e3a5f 0%, var(--pri-500) 60%, #3b82f6 100%);
   color: #ffffff;
   box-shadow: 0 4px 14px rgba(30, 64, 175, 0.15);
 }
@@ -1302,32 +1224,50 @@ div[data-baseweb="select"] ul[role="listbox"] {
 .ml-chat-answer-label {
   font-size: 0.78rem;
   font-weight: 700;
-  color: #1e40af;
+  color: var(--pri-500);
   padding: 6px 14px;
-  background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 100%);
+  background: linear-gradient(135deg, #eef2ff 0%, var(--bg-050) 100%);
   border-radius: 8px;
-  border-left: 3px solid #1e40af;
+  border-left: 3px solid var(--pri-500);
   display: inline-block;
 }
 
-/* Sentinel div — no visual impact */
-.ml-chart-wrap {
-  height: 0;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  line-height: 0;
-  font-size: 0;
-}
-
-@media (max-width: 900px) {
-  [data-testid="stSidebar"] {
-    width: 76px !important;
-    min-width: 76px !important;
-    max-width: 76px !important;
+/* ═══════════════════════════════════════════════════════════════
+ * 14. ANIMATIONS & SCROLLBARS
+ * ═══════════════════════════════════════════════════════════════ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
 
-  [data-testid="stSidebar"] > div:first-child {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+ * 15. RESPONSIVE
+ * ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+
+  [data-testid="stSidebar"],
+  [data-testid="stSidebar"]>div:first-child {
     width: 76px !important;
     min-width: 76px !important;
     max-width: 76px !important;
