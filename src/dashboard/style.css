@@ -1295,8 +1295,13 @@ div[data-baseweb="select"] ul[role="listbox"] {
 }
 
 .ml-chat-answer {
-  margin-top: 4px;
-  margin-bottom: 4px;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid #d6e3f0;
+  background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.06);
 }
 
 .ml-chat-answer-label {
@@ -1307,7 +1312,23 @@ div[data-baseweb="select"] ul[role="listbox"] {
   background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 100%);
   border-radius: 8px;
   border-left: 3px solid #1e40af;
-  display: inline-block;
+  display: block;
+  width: fit-content;
+  margin-bottom: 12px;
+}
+
+.ml-chat-answer-body {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: #1e293b;
+}
+
+.ml-chat-answer-lim {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #e2ecf7;
 }
 
 /* Sentinel div — no visual impact */

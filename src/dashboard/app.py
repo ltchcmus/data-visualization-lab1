@@ -18,6 +18,7 @@ if __package__ in {None, ""}:
     from dashboard.components.filter_ui import render_top_filters
     from dashboard.tabs import (
         render_distribution_product_tab,
+        render_machine_learning_tab,
         render_overview_tab,
         render_price_discount_tab,
         render_publisher_author_tab,
@@ -29,6 +30,7 @@ else:
     from .components.filter_ui import render_top_filters
     from .tabs import (
         render_distribution_product_tab,
+        render_machine_learning_tab,
         render_overview_tab,
         render_price_discount_tab,
         render_publisher_author_tab,
@@ -55,6 +57,7 @@ TAB_OPTIONS = {
     "publisher": {"icon": '<i class="fa-solid fa-building-columns"></i>', "label": "NXB & Tác giả"},
     "rating_crowd": {"icon": '<i class="fa-solid fa-users-viewfinder"></i>', "label": "Hiệu ứng đám đông"},
     "rating_seller": {"icon": '<i class="fa-solid fa-truck-fast"></i>', "label": "Chiến lược seller"},
+    "ml": {"icon": '<i class="fa-solid fa-brain"></i>', "label": "Machine Learning"},
 }
 
 
@@ -231,6 +234,8 @@ def main() -> None:
         render_rating_crowd_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
     elif active_tab == "rating_seller":
         render_rating_seller_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+    elif active_tab == "ml":
+        render_machine_learning_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
     else:
         render_distribution_product_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
 

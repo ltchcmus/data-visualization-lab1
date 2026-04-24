@@ -82,7 +82,7 @@ class InsightService:
         image_provider: ImageProviderFn | None = None,
         image_mime_type: str = "image/png",
         force_refresh: bool = False,
-        timeout_seconds: int = 30,
+        timeout_seconds: int = 300,
     ) -> InsightResult:
         packet = self.build_chart_evidence(
             chart_id=chart_id,

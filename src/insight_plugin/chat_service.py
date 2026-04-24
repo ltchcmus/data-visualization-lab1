@@ -58,7 +58,7 @@ class ChatService:
         image_provider: ImageProviderFn | None = None,
         image_mime_type: str = "image/png",
         force_refresh: bool = False,
-        timeout_seconds: int = 30,
+        timeout_seconds: int = 300,
     ) -> ChatAnswer:
         resolved_chart_ids = chart_ids or []
         if not resolved_chart_ids and tab_id:
