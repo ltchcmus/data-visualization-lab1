@@ -237,7 +237,26 @@ def collect_filter_state_from_widgets() -> dict[str, Any]:
     }
 
 
+def _sync_filter_to_query() -> None:
+    import json
+    keys = [
+        "global_filter_panel_open",
+        "global_lang_label",
+        "global_selected_genres",
+        "global_year_label",
+        "global_freeship_filter",
+        "global_rating_range",
+    ]
+    for k in keys:
+        if k in st.session_state:
+            try:
+                st.query_params[k] = json.dumps(st.session_state[k])
+            except Exception:
+                pass
+
+
 def _init_top_filter_state(df: pd.DataFrame) -> None:
+    import json
     defaults: list[tuple[str, Any]] = [
         ("global_filter_panel_open", False),
         ("global_lang_label", list(BOOK_TYPE_MAP.keys())[0]),
@@ -247,12 +266,24 @@ def _init_top_filter_state(df: pd.DataFrame) -> None:
     ]
     for key, default in defaults:
         if key not in st.session_state:
-            st.session_state[key] = default
+            if key in st.query_params:
+                try:
+                    st.session_state[key] = json.loads(st.query_params[key])
+                except Exception:
+                    st.session_state[key] = default
+            else:
+                st.session_state[key] = default
 
     if "global_rating_range" not in st.session_state:
         rating_values = pd.to_numeric(df.get("rating_average"), errors="coerce").dropna().clip(lower=0, upper=5)
         rating_default = (float(rating_values.min()), float(rating_values.max())) if not rating_values.empty else (0.0, 5.0)
-        st.session_state["global_rating_range"] = rating_default
+        if "global_rating_range" in st.query_params:
+            try:
+                st.session_state["global_rating_range"] = json.loads(st.query_params["global_rating_range"])
+            except Exception:
+                st.session_state["global_rating_range"] = rating_default
+        else:
+            st.session_state["global_rating_range"] = rating_default
 
 
 def _build_genre_df(df: pd.DataFrame) -> pd.DataFrame:
@@ -281,7 +312,7 @@ def render_top_filters(df: pd.DataFrame) -> pd.DataFrame:
             st.markdown("<div class='filter-toggle-title'>Bộ lọc Dashboard</div>", unsafe_allow_html=True)
         with t_col2:
             st.toggle("Bật/tắt bộ lọc", key="global_filter_panel_open",
-                      label_visibility="collapsed", help="Bật để hiện toàn bộ bộ lọc dashboard.")
+                      label_visibility="collapsed", help="Bật để hiện toàn bộ bộ lọc dashboard.", on_change=_sync_filter_to_query)
 
     if st.session_state["global_filter_panel_open"]:
         col_lang, col_genre, col_year = st.columns([1.8, 2.5, 1.3])
@@ -289,7 +320,7 @@ def render_top_filters(df: pd.DataFrame) -> pd.DataFrame:
         with col_lang:
             st.markdown("<div class='top-filter-title'>Loại sách</div>", unsafe_allow_html=True)
             st.selectbox("Loại sách", options=list(BOOK_TYPE_MAP.keys()),
-                         key="global_lang_label", label_visibility="collapsed")
+                         key="global_lang_label", label_visibility="collapsed", on_change=_sync_filter_to_query)
 
         genre_df = _build_genre_df(df)
         genre_options = sorted(genre_df["cat_level_3"].dropna().unique().tolist()) if "cat_level_3" in genre_df.columns else []
@@ -297,21 +328,20 @@ def render_top_filters(df: pd.DataFrame) -> pd.DataFrame:
         with col_genre:
             st.markdown("<div class='top-filter-title'>Thể loại</div>", unsafe_allow_html=True)
             st.multiselect("Thể loại", options=genre_options, key="global_selected_genres",
-                           label_visibility="collapsed", placeholder="Thể loại")
+                           label_visibility="collapsed", placeholder="Thể loại", on_change=_sync_filter_to_query)
 
         with col_year:
             st.markdown("<div class='top-filter-title'>Năm xuất bản</div>", unsafe_allow_html=True)
             st.selectbox("Năm xuất bản", options=list(YEAR_PRESET_MAP.keys()),
-                         key="global_year_label", label_visibility="collapsed")
+                         key="global_year_label", label_visibility="collapsed", on_change=_sync_filter_to_query)
 
         adv_col_1, adv_col_2 = st.columns([2.0, 1.2])
         with adv_col_1:
-            st.slider("Khoảng rating", min_value=0.0, max_value=5.0,
-                      value=st.session_state["global_rating_range"], step=0.1,
-                      key="global_rating_range")
+            st.slider("Khoảng rating", min_value=0.0, max_value=5.0, step=0.1,
+                      key="global_rating_range", on_change=_sync_filter_to_query)
         with adv_col_2:
             st.multiselect("Trạng thái freeship", options=["Có Freeship", "Không Freeship"],
-                           default=["Có Freeship", "Không Freeship"], key="global_freeship_filter")
+                           key="global_freeship_filter", on_change=_sync_filter_to_query)
 
     return apply_top_filters(
         df,

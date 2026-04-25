@@ -132,13 +132,22 @@ def _get_colorblind_mode() -> bool:
 
 
 def _render_floating_tab_rail(active_tab: str, colorblind_mode: bool) -> None:
+    import urllib.parse
+    current_params = st.query_params.to_dict()
+    current_params.pop('tab', None)
+    current_params.pop('cb', None)
+    base_param_str = ""
+    if current_params:
+        base_param_str = "&" + urllib.parse.urlencode(current_params, doseq=True)
+
     cb_suffix = "&cb=1" if colorblind_mode else ""
     item_blocks: list[str] = []
     for tab_key, tab_meta in TAB_OPTIONS.items():
         active_class = " is-active" if tab_key == active_tab else ""
+        href = f"?tab={tab_key}{cb_suffix}{base_param_str}"
         item_blocks.append(
             (
-                f'<a class="book-tab-link{active_class}" href="?tab={tab_key}{cb_suffix}" target="_self" onclick="var el=document.getElementById(\'plottwist-loader\'); if (el) el.classList.add(\'is-visible\');">'
+                f'<a class="book-tab-link{active_class}" href="{href}" target="_self" onclick="var el=document.getElementById(\'plottwist-loader\'); if (el) el.classList.add(\'is-visible\');">'
                 f'<span class="book-tab-icon">{tab_meta["icon"]}</span>'
                 f'<span class="book-tab-label">{tab_meta["label"]}</span>'
                 "</a>"
@@ -152,9 +161,17 @@ def _render_floating_tab_rail(active_tab: str, colorblind_mode: bool) -> None:
 
 
 def _render_fixed_header(active_tab: str, colorblind_mode: bool, total_books: int) -> None:
+    import urllib.parse
+    current_params = st.query_params.to_dict()
+    current_params.pop('tab', None)
+    current_params.pop('cb', None)
+    base_param_str = ""
+    if current_params:
+        base_param_str = "&" + urllib.parse.urlencode(current_params, doseq=True)
+
     target_state = "0" if colorblind_mode else "1"
     toggle_label = "Bật chế độ mù màu" if not colorblind_mode else "Tắt chế độ mù màu"
-    toggle_href = f"?tab={active_tab}&cb={target_state}"
+    toggle_href = f"?tab={active_tab}&cb={target_state}{base_param_str}"
     updated_at = datetime.now().strftime("%H:%M %d/%m/%Y")
 
     # JS snippet: when clicking the toggle, also update localStorage
