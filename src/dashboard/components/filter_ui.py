@@ -260,9 +260,7 @@ def _init_top_filter_state(df: pd.DataFrame) -> None:
     defaults: list[tuple[str, Any]] = [
         ("global_filter_panel_open", False),
         ("global_lang_label", list(BOOK_TYPE_MAP.keys())[0]),
-        ("global_selected_genres", []),
         ("global_year_label", list(YEAR_PRESET_MAP.keys())[0]),
-        ("global_freeship_filter", ["Có Freeship", "Không Freeship"]),
     ]
     for key, default in defaults:
         if key not in st.session_state:
@@ -327,8 +325,17 @@ def render_top_filters(df: pd.DataFrame) -> pd.DataFrame:
 
         with col_genre:
             st.markdown("<div class='top-filter-title'>Thể loại</div>", unsafe_allow_html=True)
-            st.multiselect("Thể loại", options=genre_options, key="global_selected_genres",
-                           label_visibility="collapsed", placeholder="Thể loại", on_change=_sync_filter_to_query)
+            import json
+            genre_kwargs = {"key": "global_selected_genres", "on_change": _sync_filter_to_query}
+            if "global_selected_genres" not in st.session_state:
+                val = []
+                if "global_selected_genres" in st.query_params:
+                    try:
+                        val = json.loads(st.query_params["global_selected_genres"])
+                    except Exception:
+                        pass
+                genre_kwargs["default"] = val
+            st.multiselect("Thể loại", options=genre_options, label_visibility="collapsed", placeholder="Thể loại", **genre_kwargs)
 
         with col_year:
             st.markdown("<div class='top-filter-title'>Năm xuất bản</div>", unsafe_allow_html=True)
@@ -340,8 +347,17 @@ def render_top_filters(df: pd.DataFrame) -> pd.DataFrame:
             st.slider("Khoảng rating", min_value=0.0, max_value=5.0, step=0.1,
                       key="global_rating_range", on_change=_sync_filter_to_query)
         with adv_col_2:
-            st.multiselect("Trạng thái freeship", options=["Có Freeship", "Không Freeship"],
-                           key="global_freeship_filter", on_change=_sync_filter_to_query)
+            import json
+            fs_kwargs = {"key": "global_freeship_filter", "on_change": _sync_filter_to_query}
+            if "global_freeship_filter" not in st.session_state:
+                val = ["Có Freeship", "Không Freeship"]
+                if "global_freeship_filter" in st.query_params:
+                    try:
+                        val = json.loads(st.query_params["global_freeship_filter"])
+                    except Exception:
+                        pass
+                fs_kwargs["default"] = val
+            st.multiselect("Trạng thái freeship", options=["Có Freeship", "Không Freeship"], **fs_kwargs)
 
     return apply_top_filters(
         df,
