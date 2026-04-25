@@ -169,6 +169,7 @@ def _q5_discount_threshold(df: pd.DataFrame, colors: list[str]) -> None:
     # Using log scale for left Y-axis since Total Sold (M) and Avg Sold (K) have large magnitude difference
     fig.update_yaxes(title_text="Lượng bán (cuốn) - Log", type="log", secondary_y=False)
     fig.update_yaxes(title_text="Tỷ trọng (%)", secondary_y=True)
+    fig.update_layout(xaxis_title="Mức giảm giá (%)")
     apply_chart_style(fig)
     fig.add_annotation(
         x="21–30%",
