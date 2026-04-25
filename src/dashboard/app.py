@@ -54,11 +54,23 @@ COLORBLIND_COLORS = [
 
 TAB_OPTIONS = {
     "overview": {"icon": '<i class="fa-solid fa-chart-pie"></i>', "label": "Tổng quan"},
-    "distribution": {"icon": '<i class="fa-solid fa-layer-group"></i>', "label": "Sản phẩm"},
+    "distribution": {
+        "icon": '<i class="fa-solid fa-layer-group"></i>',
+        "label": "Sản phẩm",
+    },
     "price": {"icon": '<i class="fa-solid fa-tags"></i>', "label": "Giá & Chiết khấu"},
-    "publisher": {"icon": '<i class="fa-solid fa-building-columns"></i>', "label": "NXB & Tác giả"},
-    "rating_crowd": {"icon": '<i class="fa-solid fa-users-viewfinder"></i>', "label": "Hiệu ứng đám đông"},
-    "rating_seller": {"icon": '<i class="fa-solid fa-truck-fast"></i>', "label": "Chiến lược seller"},
+    "publisher": {
+        "icon": '<i class="fa-solid fa-building-columns"></i>',
+        "label": "NXB & Tác giả",
+    },
+    "rating_crowd": {
+        "icon": '<i class="fa-solid fa-users-viewfinder"></i>',
+        "label": "Hiệu ứng đám đông",
+    },
+    "rating_seller": {
+        "icon": '<i class="fa-solid fa-truck-fast"></i>',
+        "label": "Chiến lược seller",
+    },
     "ml": {"icon": '<i class="fa-solid fa-brain"></i>', "label": "Machine Learning"},
 }
 
@@ -133,9 +145,10 @@ def _get_colorblind_mode() -> bool:
 
 def _render_floating_tab_rail(active_tab: str, colorblind_mode: bool) -> None:
     import urllib.parse
+
     current_params = st.query_params.to_dict()
-    current_params.pop('tab', None)
-    current_params.pop('cb', None)
+    current_params.pop("tab", None)
+    current_params.pop("cb", None)
     base_param_str = ""
     if current_params:
         base_param_str = "&" + urllib.parse.urlencode(current_params, doseq=True)
@@ -160,11 +173,14 @@ def _render_floating_tab_rail(active_tab: str, colorblind_mode: bool) -> None:
     )
 
 
-def _render_fixed_header(active_tab: str, colorblind_mode: bool, total_books: int) -> None:
+def _render_fixed_header(
+    active_tab: str, colorblind_mode: bool, total_books: int
+) -> None:
     import urllib.parse
+
     current_params = st.query_params.to_dict()
-    current_params.pop('tab', None)
-    current_params.pop('cb', None)
+    current_params.pop("tab", None)
+    current_params.pop("cb", None)
     base_param_str = ""
     if current_params:
         base_param_str = "&" + urllib.parse.urlencode(current_params, doseq=True)
@@ -186,7 +202,7 @@ def _render_fixed_header(active_tab: str, colorblind_mode: bool, total_books: in
             <div class="hdr-left">
                 <div class="hdr-logo"><i class="fa-solid fa-book"></i></div>
                 <div>
-                    <div class="hdr-title">Phân tích các yếu tố ảnh hưởng đến hiệu quả bán hàng trên nền tảng Nhà sách Tiki</div>
+                    <div class="hdr-title">Phân tích các yếu tố ảnh hưởng đến hiệu quả bán hàng của sách trên nền tảng trực tuyến Nhà sách Tiki</div>
                 </div>
             </div>
             <div class="hdr-right">
@@ -221,11 +237,12 @@ def _prepare_data(df: pd.DataFrame) -> pd.DataFrame:
             view[col] = pd.to_numeric(view[col], errors="coerce")
 
     if "publication_year" not in view.columns and "publication_date" in view.columns:
-        view["publication_date"] = pd.to_datetime(view["publication_date"], errors="coerce")
+        view["publication_date"] = pd.to_datetime(
+            view["publication_date"], errors="coerce"
+        )
         view["publication_year"] = view["publication_date"].dt.year
 
     return view
-
 
 
 def main() -> None:
@@ -258,7 +275,9 @@ def main() -> None:
         filtered_df = render_top_filters(df)
 
         if filtered_df.empty:
-            st.warning("Bộ lọc hiện tại không có dữ liệu. Hãy mở rộng phạm vi lọc để tiếp tục.")
+            st.warning(
+                "Bộ lọc hiện tại không có dữ liệu. Hãy mở rộng phạm vi lọc để tiếp tục."
+            )
             return
 
         colors = COLORBLIND_COLORS if colorblind_mode else NORMAL_COLORS
@@ -267,19 +286,33 @@ def main() -> None:
         if active_tab == "overview":
             render_overview_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
         elif active_tab == "distribution":
-            render_distribution_product_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+            render_distribution_product_tab(
+                filtered_df, colors=colors, heatmap_scale=heatmap_scale
+            )
         elif active_tab == "price":
-            render_price_discount_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+            render_price_discount_tab(
+                filtered_df, colors=colors, heatmap_scale=heatmap_scale
+            )
         elif active_tab == "publisher":
-            render_publisher_author_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+            render_publisher_author_tab(
+                filtered_df, colors=colors, heatmap_scale=heatmap_scale
+            )
         elif active_tab == "rating_crowd":
-            render_rating_crowd_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+            render_rating_crowd_tab(
+                filtered_df, colors=colors, heatmap_scale=heatmap_scale
+            )
         elif active_tab == "rating_seller":
-            render_rating_seller_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+            render_rating_seller_tab(
+                filtered_df, colors=colors, heatmap_scale=heatmap_scale
+            )
         elif active_tab == "ml":
-            render_machine_learning_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+            render_machine_learning_tab(
+                filtered_df, colors=colors, heatmap_scale=heatmap_scale
+            )
         else:
-            render_distribution_product_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+            render_distribution_product_tab(
+                filtered_df, colors=colors, heatmap_scale=heatmap_scale
+            )
     finally:
         _render_loader_overlay(loader_slot, visible=False)
 
