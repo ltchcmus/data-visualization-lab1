@@ -15,3 +15,6 @@ buttonRadius = "8px"
 
 font = "sans serif"
 codeFont = "monospace"
+
+[server]
+fileWatcherType = "poll"
