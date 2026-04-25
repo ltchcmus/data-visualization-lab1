@@ -21,7 +21,8 @@ if __package__ in {None, ""}:
         render_overview_tab,
         render_price_discount_tab,
         render_publisher_author_tab,
-        render_rating_policy_tab,
+        render_rating_crowd_tab,
+        render_rating_seller_tab,
     )
 else:
     from .components.data_loader import default_data_path, load_dataset
@@ -31,7 +32,8 @@ else:
         render_overview_tab,
         render_price_discount_tab,
         render_publisher_author_tab,
-        render_rating_policy_tab,
+        render_rating_crowd_tab,
+        render_rating_seller_tab,
     )
 
 
@@ -51,7 +53,8 @@ TAB_OPTIONS = {
     "distribution": {"icon": '<i class="fa-solid fa-layer-group"></i>', "label": "Sản phẩm"},
     "price": {"icon": '<i class="fa-solid fa-tags"></i>', "label": "Giá & Chiết khấu"},
     "publisher": {"icon": '<i class="fa-solid fa-building-columns"></i>', "label": "NXB & Tác giả"},
-    "rating": {"icon": '<i class="fa-solid fa-star-half-stroke"></i>', "label": "Đánh giá & Chính sách"},
+    "rating_crowd": {"icon": '<i class="fa-solid fa-users-viewfinder"></i>', "label": "Hiệu ứng đám đông"},
+    "rating_seller": {"icon": '<i class="fa-solid fa-truck-fast"></i>', "label": "Chiến lược seller"},
 }
 
 
@@ -63,6 +66,34 @@ def _inject_style() -> None:
     css_path = Path(__file__).with_name("style.css")
     css_content = css_path.read_text(encoding="utf-8")
     st.markdown(f"<style>{css_content}</style>", unsafe_allow_html=True)
+
+    # Inject JavaScript to persist colorblind mode in localStorage
+    st.markdown(
+        """
+        <script>
+        (function() {
+            const CB_KEY = 'plottwist_colorblind';
+            const params = new URLSearchParams(window.location.search);
+            const cbParam = params.get('cb');
+
+            // If cb param is present, save it to localStorage
+            if (cbParam !== null) {
+                localStorage.setItem(CB_KEY, cbParam);
+            } else {
+                // If no cb param, restore from localStorage
+                const stored = localStorage.getItem(CB_KEY);
+                if (stored === '1') {
+                    // Add cb=1 to URL and reload
+                    params.set('cb', '1');
+                    const newUrl = window.location.pathname + '?' + params.toString();
+                    window.location.replace(newUrl);
+                }
+            }
+        })();
+        </script>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 def _get_active_tab() -> str:
@@ -79,13 +110,14 @@ def _get_colorblind_mode() -> bool:
     return str(selected).strip() in {"1", "true", "True", "on"}
 
 
-def _render_floating_tab_rail(active_tab: str) -> None:
+def _render_floating_tab_rail(active_tab: str, colorblind_mode: bool) -> None:
+    cb_suffix = "&cb=1" if colorblind_mode else ""
     item_blocks: list[str] = []
     for tab_key, tab_meta in TAB_OPTIONS.items():
         active_class = " is-active" if tab_key == active_tab else ""
         item_blocks.append(
             (
-                f'<a class="book-tab-link{active_class}" href="?tab={tab_key}" target="_self">'
+                f'<a class="book-tab-link{active_class}" href="?tab={tab_key}{cb_suffix}" target="_self">'
                 f'<span class="book-tab-icon">{tab_meta["icon"]}</span>'
                 f'<span class="book-tab-label">{tab_meta["label"]}</span>'
                 "</a>"
@@ -104,13 +136,16 @@ def _render_fixed_header(active_tab: str, colorblind_mode: bool, total_books: in
     toggle_href = f"?tab={active_tab}&cb={target_state}"
     updated_at = datetime.now().strftime("%H:%M %d/%m/%Y")
 
+    # JS snippet: when clicking the toggle, also update localStorage
+    toggle_js = f"localStorage.setItem('plottwist_colorblind', '{target_state}');"
+
     st.markdown(
         f"""
         <div class="dashboard-head">
             <div class="hdr-left">
                 <div class="hdr-logo"><i class="fa-solid fa-book"></i></div>
                 <div>
-                    <div class="hdr-title">Phân tích các yếu tố ảnh hưởng đến hiệu quả bán hàng sách trên nền tảng trực tuyến Nhà sách Tiki</div>
+                    <div class="hdr-title">Phân tích các yếu tố ảnh hưởng đến hiệu quả bán hàng trên nền tảng Nhà sách Tiki</div>
                 </div>
             </div>
             <div class="hdr-right">
@@ -119,7 +154,7 @@ def _render_fixed_header(active_tab: str, colorblind_mode: bool, total_books: in
                         <div class="hdr-stat-val"></div>
                         <div class="hdr-stat-lbl"></div>
                     </div>
-                    <a class="hdr-badge" href="{toggle_href}" target="_self">
+                    <a class="hdr-badge" href="{toggle_href}" target="_self" onclick="{toggle_js}">
                         <div class="hdr-badge-val">👁</div>
                         <div class="hdr-badge-lbl">{toggle_label}</div>
                     </a>
@@ -171,7 +206,7 @@ def main() -> None:
         st.stop()
 
     st.sidebar.markdown(" ")
-    _render_floating_tab_rail(active_tab)
+    _render_floating_tab_rail(active_tab, colorblind_mode)
     _render_fixed_header(active_tab, colorblind_mode, total_books=len(raw_df))
 
     df = _prepare_data(raw_df)
@@ -192,8 +227,12 @@ def main() -> None:
         render_price_discount_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
     elif active_tab == "publisher":
         render_publisher_author_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+    elif active_tab == "rating_crowd":
+        render_rating_crowd_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+    elif active_tab == "rating_seller":
+        render_rating_seller_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
     else:
-        render_rating_policy_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
+        render_distribution_product_tab(filtered_df, colors=colors, heatmap_scale=heatmap_scale)
 
 
 if __name__ == "__main__":

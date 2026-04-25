@@ -10,3 +10,5 @@ cong
 .venv/
 sample_dashboard/
 AGENTS.md
+.env
+.env.example

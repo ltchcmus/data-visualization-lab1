@@ -212,6 +212,8 @@ def apply_top_filters(
     lang_label: str,
     selected_genres: list[str],
     year_label: str,
+    rating_range: tuple[float, float] | None = None,
+    freeship_options: list[bool] | None = None,
 ) -> pd.DataFrame:
     lang_val = BOOK_TYPE_MAP.get(lang_label)
     if lang_val is not None and "cat_level_2" in df.columns:
@@ -229,5 +231,16 @@ def apply_top_filters(
         low, high = year_range
         years = pd.to_numeric(filtered["publication_year"], errors="coerce")
         filtered = filtered[years.between(low, high, inclusive="both")]
+
+    if rating_range is not None and "rating_average" in filtered.columns:
+        low, high = float(rating_range[0]), float(rating_range[1])
+        ratings = pd.to_numeric(filtered["rating_average"], errors="coerce")
+        filtered = filtered[ratings.between(low, high, inclusive="both")]
+
+    if freeship_options is not None and "has_freeship" in filtered.columns:
+        if freeship_options:
+            filtered = filtered[filtered["has_freeship"].isin(freeship_options)]
+        else:
+            filtered = filtered.iloc[0:0]
 
     return filtered

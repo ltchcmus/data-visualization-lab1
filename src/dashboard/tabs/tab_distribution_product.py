@@ -5,6 +5,7 @@ import plotly.express as px
 import streamlit as st
 
 from ..format_utils import apply_chart_style, format_vn
+from ..ml_integration import render_chart_with_ml
 from ..ui_cards import render_metric_strip
 
 
@@ -63,7 +64,7 @@ def _q2_category_boxplot(df: pd.DataFrame, colors: list[str]) -> None:
         paper_bgcolor="rgba(0,0,0,0)",
     )
     apply_chart_style(fig)
-    st.plotly_chart(fig, use_container_width=True)
+    render_chart_with_ml("dist_category_boxplot", fig, df, label="Boxplot thể loại")
 
 
 def _q10_pages_vs_sold(df: pd.DataFrame, colors: list[str]) -> None:
@@ -111,7 +112,7 @@ def _q10_pages_vs_sold(df: pd.DataFrame, colors: list[str]) -> None:
         paper_bgcolor="rgba(0,0,0,0)",
     )
     apply_chart_style(fig)
-    st.plotly_chart(fig, use_container_width=True)
+    render_chart_with_ml("dist_pages_vs_sold", fig, df, label="Số trang vs Doanh số")
 
 
 def _q12_niche_market(df: pd.DataFrame, colors: list[str]) -> None:
@@ -184,7 +185,7 @@ def _q12_niche_market(df: pd.DataFrame, colors: list[str]) -> None:
         paper_bgcolor="rgba(0,0,0,0)",
     )
     apply_chart_style(fig)
-    st.plotly_chart(fig, use_container_width=True)
+    render_chart_with_ml("dist_niche_market", fig, df, label="Thị trường ngách")
 
 
 def _stacked_bar_genre_pages(df: pd.DataFrame, colors: list[str]) -> None:
@@ -234,7 +235,7 @@ def _stacked_bar_genre_pages(df: pd.DataFrame, colors: list[str]) -> None:
         paper_bgcolor="rgba(0,0,0,0)",
     )
     apply_chart_style(fig)
-    st.plotly_chart(fig, use_container_width=True)
+    render_chart_with_ml("dist_genre_pages", fig, df, label="Số trang theo thể loại")
 
 
 def render_distribution_product_tab(
