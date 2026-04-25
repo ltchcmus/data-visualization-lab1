@@ -231,7 +231,7 @@ def main() -> None:
             raw_df = load_dataset(str(default_data_path()))
         except FileNotFoundError as exc:
             st.error(str(exc))
-            st.stop()
+            return
 
         st.sidebar.markdown(" ")
         _render_floating_tab_rail(active_tab, colorblind_mode)
@@ -242,7 +242,7 @@ def main() -> None:
 
         if filtered_df.empty:
             st.warning("Bộ lọc hiện tại không có dữ liệu. Hãy mở rộng phạm vi lọc để tiếp tục.")
-            st.stop()
+            return
 
         colors = COLORBLIND_COLORS if colorblind_mode else NORMAL_COLORS
         heatmap_scale = "Viridis" if colorblind_mode else "Blues"
