@@ -1,4 +1,5 @@
 """Machine Learning tab — model results, feature importance, clustering, prediction."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -16,7 +17,9 @@ from ..ui_cards import render_kpi_section, render_metric_strip
 # ---------------------------------------------------------------------------
 # Artifact paths
 # ---------------------------------------------------------------------------
-_ARTIFACTS_DIR = Path(__file__).resolve().parents[3] / "notebooks" / "model" / "artifacts"
+_ARTIFACTS_DIR = (
+    Path(__file__).resolve().parents[3] / "notebooks" / "model" / "artifacts"
+)
 
 
 @st.cache_resource(show_spinner=False)
@@ -31,10 +34,12 @@ def _load_artifacts():
     if feat_imp_path.exists():
         feat_imp = pd.read_csv(feat_imp_path)
     else:
-        feat_imp = pd.DataFrame({
-            "feature": metadata["features"],
-            "importance": rf_model.feature_importances_,
-        })
+        feat_imp = pd.DataFrame(
+            {
+                "feature": metadata["features"],
+                "importance": rf_model.feature_importances_,
+            }
+        )
 
     return rf_model, kmeans, cluster_scaler, metadata, feat_imp
 
@@ -137,7 +142,12 @@ def _render_feature_importance(feat_imp, colors) -> None:
         "is_heavy_book": "Sách dày (>300 trang)",
     }
     df["display"] = df["feature"].apply(
-        lambda f: name_map.get(f, f.replace("publisher_vn_mapped_", "NXB: ").replace("cat_level_2_mapped_", "DM: "))
+        lambda f: name_map.get(
+            f,
+            f.replace("publisher_vn_mapped_", "NXB: ").replace(
+                "cat_level_2_mapped_", "DM: "
+            ),
+        )
     )
 
     fig = go.Figure()
@@ -187,7 +197,10 @@ def _render_actual_vs_predicted(rf_model, metadata) -> None:
             name="Predictions",
         )
     )
-    lims = [min(y_test.min(), y_pred.min()) - 0.3, max(y_test.max(), y_pred.max()) + 0.3]
+    lims = [
+        min(y_test.min(), y_pred.min()) - 0.3,
+        max(y_test.max(), y_pred.max()) + 0.3,
+    ]
     fig.add_trace(
         go.Scatter(
             x=lims,
@@ -219,21 +232,25 @@ def _render_clusters(kmeans, cluster_scaler, colors) -> None:
     df_eda["cluster"] = kmeans.predict(cluster_scaler.transform(X_cl))
 
     # Profile
-    profile = df_eda.groupby("cluster").agg(
-        count=("cluster", "size"),
-        avg_sales=("all_time_quantity_sold", "mean"),
-        avg_rating=("rating_average", "mean"),
-        avg_price=("price", "mean"),
-        avg_reviews=("review_count", "mean"),
-    ).round(1)
+    profile = (
+        df_eda.groupby("cluster")
+        .agg(
+            count=("cluster", "size"),
+            avg_sales=("all_time_quantity_sold", "mean"),
+            avg_rating=("rating_average", "mean"),
+            avg_price=("price", "mean"),
+            avg_reviews=("review_count", "mean"),
+        )
+        .round(1)
+    )
 
     # Name clusters (đảm bảo 4 tên phân biệt dựa trên rank tương đối)
     sales_sorted = profile.sort_values("avg_sales", ascending=False).index.tolist()
-    
+
     cluster_names = {}
     cluster_names[sales_sorted[0]] = "Best Seller"
     cluster_names[sales_sorted[-1]] = "Low Performer"
-    
+
     rem = sales_sorted[1:3]
     if profile.loc[rem[0], "avg_rating"] > profile.loc[rem[1], "avg_rating"]:
         cluster_names[rem[0]] = "Niche"
@@ -250,14 +267,16 @@ def _render_clusters(kmeans, cluster_scaler, colors) -> None:
         r = profile.loc[c]
         name = cluster_names[c]
         tone = ["blue", "amber", "emerald", "violet"][c % 4]
-        kpi_items.append({
-            "label": f"{name}",
-            "value": f"{format_vn(int(r['count']))} sách",
-            "icon": "book",
-            "tone": tone,
-        })
+        kpi_items.append(
+            {
+                "label": f"{name}",
+                "value": f"{format_vn(int(r['count']))} sách",
+                "icon": "book",
+                "tone": tone,
+            }
+        )
     render_metric_strip(kpi_items, compact=True, cols=4)
-
+    """
     # Scatter: Rating vs Sales by cluster
     sample = df_eda.groupby("cluster", group_keys=False).apply(
         lambda x: x.sample(min(len(x), 1500), random_state=42)
@@ -288,17 +307,51 @@ def _render_clusters(kmeans, cluster_scaler, colors) -> None:
     apply_chart_style(fig, height=420)
     st.plotly_chart(fig, use_container_width=True, key="ml_cluster_scatter")
 
+    """
+    cluster_colors = ["#3b82f6", "#ef4444", "#10b981", "#f59e0b"]
+    color_map = {cluster_names[c]: cluster_colors[c % 4] for c in sorted(profile.index)}
+
+    # Box plot: phân phối log(Doanh số) theo từng phân khúc
+    fig = go.Figure()
+    order = ["Best Seller", "Niche", "Normal", "Low Performer"]
+    ordered_names = [n for n in order if n in color_map]
+    for name in ordered_names:
+        subset = df_eda[df_eda["cluster_name"] == name]["log_sales_cl"]
+        fig.add_trace(
+            go.Box(
+                y=subset,
+                name=name,
+                marker_color=color_map[name],
+                boxmean="sd",
+                line=dict(width=1.5),
+            )
+        )
+    fig.update_layout(
+        title="Phân phối doanh số theo phân khúc thị trường (KMeans Clustering)",
+        yaxis_title="log(Doanh số)",
+        xaxis_title="Phân khúc",
+        plot_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor="rgba(0,0,0,0)",
+        showlegend=False,
+    )
+    apply_chart_style(fig, height=420)
+    st.plotly_chart(fig, use_container_width=True, key="ml_cluster_box")
+
     # Cluster detail table
     display = profile.copy()
     display["Phân khúc"] = [cluster_names[c] for c in display.index]
-    display = display.rename(columns={
-        "count": "Số sách",
-        "avg_sales": "Doanh số TB",
-        "avg_rating": "Rating TB",
-        "avg_price": "Giá TB (₫)",
-        "avg_reviews": "Reviews TB",
-    })
-    display = display[["Phân khúc", "Số sách", "Doanh số TB", "Rating TB", "Giá TB (₫)", "Reviews TB"]]
+    display = display.rename(
+        columns={
+            "count": "Số sách",
+            "avg_sales": "Doanh số TB",
+            "avg_rating": "Rating TB",
+            "avg_price": "Giá TB (₫)",
+            "avg_reviews": "Reviews TB",
+        }
+    )
+    display = display[
+        ["Phân khúc", "Số sách", "Doanh số TB", "Rating TB", "Giá TB (₫)", "Reviews TB"]
+    ]
     st.dataframe(display, use_container_width=True, hide_index=True)
 
 
@@ -318,13 +371,19 @@ def _render_prediction_form(rf_model, metadata) -> None:
 
     c1, c2, c3 = st.columns(3)
     with c1:
-        price = st.number_input("Giá sách (VND)", min_value=0, value=150000, step=10000, key="ml_price")
+        price = st.number_input(
+            "Giá sách (VND)", min_value=0, value=150000, step=10000, key="ml_price"
+        )
         rating = st.slider("Rating", 0.0, 5.0, 4.2, 0.1, key="ml_rating")
     with c2:
         discount = st.slider("Chiết khấu (%)", 0, 80, 20, 5, key="ml_discount")
-        n_pages = st.number_input("Số trang", min_value=10, value=250, step=10, key="ml_pages")
+        n_pages = st.number_input(
+            "Số trang", min_value=10, value=250, step=10, key="ml_pages"
+        )
     with c3:
-        reviews = st.number_input("Số lượt review", min_value=0, value=15, step=1, key="ml_reviews")
+        reviews = st.number_input(
+            "Số lượt review", min_value=0, value=15, step=1, key="ml_reviews"
+        )
         publisher = st.selectbox("Nhà xuất bản", ["Other"] + top_pubs, key="ml_pub")
         category = st.selectbox("Danh mục", ["Other"] + top_cats, key="ml_cat")
 
@@ -373,8 +432,18 @@ def _render_prediction_form(rf_model, metadata) -> None:
 
         render_metric_strip(
             [
-                {"label": "Doanh số dự đoán", "value": f"{format_vn(pred_sales)} cuốn", "icon": "chart", "tone": tone},
-                {"label": "log(sales)", "value": f"{log_pred:.3f}", "icon": "chart", "tone": "slate"},
+                {
+                    "label": "Doanh số dự đoán",
+                    "value": f"{format_vn(pred_sales)} cuốn",
+                    "icon": "chart",
+                    "tone": tone,
+                },
+                {
+                    "label": "log(sales)",
+                    "value": f"{log_pred:.3f}",
+                    "icon": "chart",
+                    "tone": "slate",
+                },
                 {"label": "Nhận định", "value": verdict, "icon": "star", "tone": tone},
             ],
             compact=True,
@@ -386,6 +455,7 @@ def _render_prediction_form(rf_model, metadata) -> None:
 # Main render
 # ---------------------------------------------------------------------------
 
+
 def render_machine_learning_tab(
     df: pd.DataFrame,
     *,
@@ -394,7 +464,9 @@ def render_machine_learning_tab(
 ) -> None:
     """Render the Machine Learning tab."""
     if not _ARTIFACTS_DIR.exists():
-        st.warning("Chưa tìm thấy model artifacts. Vui lòng chạy notebook `train.ipynb` trước.")
+        st.warning(
+            "Chưa tìm thấy model artifacts. Vui lòng chạy notebook `train.ipynb` trước."
+        )
         return
 
     try:
