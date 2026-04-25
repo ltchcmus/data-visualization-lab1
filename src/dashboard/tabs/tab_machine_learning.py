@@ -231,16 +231,16 @@ def _render_clusters(kmeans, cluster_scaler, colors) -> None:
     sales_sorted = profile.sort_values("avg_sales", ascending=False).index.tolist()
     
     cluster_names = {}
-    cluster_names[sales_sorted[0]] = "⭐ Best Seller"
-    cluster_names[sales_sorted[-1]] = "📉 Low Performer"
+    cluster_names[sales_sorted[0]] = "Best Seller"
+    cluster_names[sales_sorted[-1]] = "Low Performer"
     
     rem = sales_sorted[1:3]
     if profile.loc[rem[0], "avg_rating"] > profile.loc[rem[1], "avg_rating"]:
-        cluster_names[rem[0]] = "💎 Niche"
-        cluster_names[rem[1]] = "📊 Normal"
+        cluster_names[rem[0]] = "Niche"
+        cluster_names[rem[1]] = "Normal"
     else:
-        cluster_names[rem[1]] = "💎 Niche"
-        cluster_names[rem[0]] = "📊 Normal"
+        cluster_names[rem[1]] = "Niche"
+        cluster_names[rem[0]] = "Normal"
 
     df_eda["cluster_name"] = df_eda["cluster"].map(cluster_names)
 
@@ -259,7 +259,9 @@ def _render_clusters(kmeans, cluster_scaler, colors) -> None:
     render_metric_strip(kpi_items, compact=True, cols=4)
 
     # Scatter: Rating vs Sales by cluster
-    sample = df_eda.sample(min(5000, len(df_eda)), random_state=42)
+    sample = df_eda.groupby("cluster", group_keys=False).apply(
+        lambda x: x.sample(min(len(x), 1500), random_state=42)
+    )
     cluster_colors = ["#3b82f6", "#ef4444", "#10b981", "#f59e0b"]
     color_map = {cluster_names[c]: cluster_colors[c % 4] for c in sorted(profile.index)}
 
@@ -308,7 +310,7 @@ def _render_prediction_form(rf_model, metadata) -> None:
 
     st.markdown(
         "<div style='margin-top:8px; margin-bottom:16px;'>"
-        "<span style='font-size:1.1rem; font-weight:700; color:#1e293b;'>🔮 Dự đoán doanh số</span>"
+        "<span style='font-size:1.1rem; font-weight:700; color:#1e293b;'>Dự đoán doanh số</span>"
         "<span style='font-size:0.82rem; color:#64748b; margin-left:8px;'>"
         "Nhập thông tin sách để model dự đoán lượng bán.</span></div>",
         unsafe_allow_html=True,
@@ -326,7 +328,7 @@ def _render_prediction_form(rf_model, metadata) -> None:
         publisher = st.selectbox("Nhà xuất bản", ["Other"] + top_pubs, key="ml_pub")
         category = st.selectbox("Danh mục", ["Other"] + top_cats, key="ml_cat")
 
-    if st.button("🚀 Dự đoán", key="ml_predict_btn", use_container_width=True):
+    if st.button("Dự đoán", key="ml_predict_btn", use_container_width=True):
         # Build feature row
         row = {
             "price": price,
@@ -357,21 +359,21 @@ def _render_prediction_form(rf_model, metadata) -> None:
 
         # Display result
         if pred_sales > 1000:
-            emoji, tone = "🔥", "emerald"
+            tone = "emerald"
             verdict = "Best Seller tiềm năng!"
         elif pred_sales > 100:
-            emoji, tone = "📈", "blue"
+            tone = "blue"
             verdict = "Doanh số tốt."
         elif pred_sales > 20:
-            emoji, tone = "📊", "amber"
+            tone = "amber"
             verdict = "Doanh số trung bình."
         else:
-            emoji, tone = "📉", "red"
+            tone = "red"
             verdict = "Doanh số thấp."
 
         render_metric_strip(
             [
-                {"label": "Doanh số dự đoán", "value": f"{emoji} {format_vn(pred_sales)} cuốn", "icon": "chart", "tone": tone},
+                {"label": "Doanh số dự đoán", "value": f"{format_vn(pred_sales)} cuốn", "icon": "chart", "tone": tone},
                 {"label": "log(sales)", "value": f"{log_pred:.3f}", "icon": "chart", "tone": "slate"},
                 {"label": "Nhận định", "value": verdict, "icon": "star", "tone": tone},
             ],
@@ -392,7 +394,7 @@ def render_machine_learning_tab(
 ) -> None:
     """Render the Machine Learning tab."""
     if not _ARTIFACTS_DIR.exists():
-        st.warning("⚠️ Chưa tìm thấy model artifacts. Vui lòng chạy notebook `train.ipynb` trước.")
+        st.warning("Chưa tìm thấy model artifacts. Vui lòng chạy notebook `train.ipynb` trước.")
         return
 
     try:
@@ -416,7 +418,7 @@ def render_machine_learning_tab(
     # 3. Clustering
     st.markdown(
         "<div style='margin-top:20px; margin-bottom:8px;'>"
-        "<span style='font-size:1.05rem; font-weight:700; color:#1e293b;'>📊 Phân khúc thị trường (KMeans)</span>"
+        "<span style='font-size:1.05rem; font-weight:700; color:#1e293b;'>Phân khúc thị trường (KMeans)</span>"
         "</div>",
         unsafe_allow_html=True,
     )
