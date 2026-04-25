@@ -295,11 +295,26 @@ def render_distribution_product_tab(
         / sold_df["all_time_quantity_sold"].sum()
         * 100
     )
+
+    col_cat = "cat_level_3" if "cat_level_3" in sold_df.columns else "cat_level_2"
+    _rating = pd.to_numeric(sold_df.get("rating_average"), errors="coerce")
+    _niche_df = sold_df[_rating.notna() & (_rating > 0)].copy()
+    _niche_df["rating_average"] = pd.to_numeric(_niche_df["rating_average"], errors="coerce")
+    _agg = (
+        _niche_df.groupby(col_cat)
+        .agg(avg_sold=("all_time_quantity_sold", "mean"), avg_rating=("rating_average", "mean"), count=(col_cat, "count"))
+        .reset_index()
+    )
+    _agg = _agg[_agg["count"] >= 10].nlargest(15, "count")
+    _med_sold = _agg["avg_sold"].median()
+    _med_rating = _agg["avg_rating"].median()
+    num_potential = int(((_agg["avg_sold"] < _med_sold) & (_agg["avg_rating"] >= _med_rating)).sum())
+
     _render_kpi_row(
         [
             ("Tổng số thể loại", format_vn(len(sold_df)), "book", "blue"),
             ("Tỷ lệ sách 100-500 trang:", f"{format_vn(pages_ratio, 1)}%", "chart", "amber"),
-            ("Số danh mục Tiềm năng", f"5", "target", "blue"),
+            ("Số danh mục Tiềm năng", f"{num_potential}", "target", "blue"),
         ]
     )
 

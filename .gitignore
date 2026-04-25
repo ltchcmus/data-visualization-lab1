@@ -12,3 +12,6 @@ sample_dashboard/
 AGENTS.md
 .env
 .env.example
+.python-version
+*.toml
+uv.lock
