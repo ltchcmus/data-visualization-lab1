@@ -49,10 +49,12 @@ data-visualization-lab1/
 ## 3. Pipeline xử lý dữ liệu & Xây dựng ứng dụng
 
 ### 1. Thu thập và Tiền xử lý dữ liệu
+
 - Thu thập dữ liệu sản phẩm sách từ nền tảng Tiki.
 - Xử lý dữ liệu bị khuyết, dữ liệu ngoại lai và chuẩn hóa thông tin cho phù hợp.
 
 ### 2. Trực quan hóa dữ liệu
+
 - Xu hướng doanh số bán hàng và chính sách giá theo tuổi đời của sách.
 - Đánh giá hiệu suất của tác giả và nhà xuất bản (Ứng dụng quy tắc 80/20).
 - Tác động của đánh giá (rating/review) và hiệu ứng đám đông đến sức mua.
@@ -60,6 +62,7 @@ data-visualization-lab1/
 - Đánh giá lượng phân phối sản phẩm và rủi ro lưu kho (Long-tail effect).
 
 ### 3. Học máy và Dashboard
+
 - Xây dựng mô hình Học máy (Random Forest Regressor) để dự báo doanh số.
 - Ứng dụng K-Means Clustering để phân cụm và phân khúc thị trường sản phẩm.
 - Phát triển ứng dụng Web Dashboard tương tác với Streamlit.
@@ -69,9 +72,11 @@ data-visualization-lab1/
 
 ## 4. Hướng dẫn cài đặt môi trường
 
-Yêu cầu môi trường: Python >= 3.10
+- Yêu cầu môi trường: Python >= 3.10
+- Yếu cầu phải tải trước folder data trên drive: [data-on-drive](https://drive.google.com/drive/folders/11GMwRh89sUaNiGqwADPY9f7EjX-etYgG?usp=sharing)
 
 ### 4.1. Cách 1 - Sử dụng venv
+
 ```bash
 # Tạo môi trường
 python -m venv .venv
@@ -87,6 +92,7 @@ pip install -r requirements.txt
 ```
 
 ### 4.2. Cách 2 - Sử dụng uv
+
 ```bash
 # Cài đặt uv (nếu chưa có)
 pip install uv
@@ -105,10 +111,13 @@ uv pip install -r requirements.txt
 ## 5. Cách chạy project
 
 ### Khởi động Data Dashboard
+
 ```bash
 streamlit run src/dashboard/app.py
 ```
+
 Sau khi chạy, mở trình duyệt theo địa chỉ được hiển thị (thường là: `http://localhost:8501`)
 
 ### Quan sát các Notebook phân tích chi tiết
+
 Mở thư mục `notebooks/` trong Jupyter Notebook / Jupyter Lab / VSCode để chạy từng bước cho quy trình EDA, Preprocessing và Model Selection.

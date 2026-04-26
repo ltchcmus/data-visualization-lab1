@@ -15,3 +15,5 @@ AGENTS.md
 .python-version
 *.toml
 uv.lock
+src/.env
+src/.env.example
