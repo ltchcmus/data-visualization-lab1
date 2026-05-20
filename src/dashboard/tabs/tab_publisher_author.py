@@ -142,6 +142,7 @@ def _chart_author_pareto(df, colors):
     fig.update_layout(
         title="Pareto: Top 20 tác giả & % Doanh thu tích lũy",
         xaxis_tickangle=-45,
+        xaxis_title="Tác giả",
         yaxis=dict(title="Tổng doanh thu (₫)"),
         yaxis2=dict(title="% tích lũy", overlaying="y", side="right", range=[0,105]),
         legend=dict(orientation="h",yanchor="bottom",y=1.02,xanchor="right",x=1),

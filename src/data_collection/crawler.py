@@ -360,20 +360,6 @@ def load_raw_product(product_data_file):
     with open(product_data_file, "r") as file:
         return file.readlines()
 
-# TAM THOI COMMENT CUM HAM REVIEW/CUSTOMER/BUY HISTORY
-#
-# def map_json_to_customers(json_data):
-#     ...
-#
-# def map_json_to_review(json_data):
-#     ...
-#
-# def map_json_to_buy_history(json_data):
-#     ...
-#
-# def fetch_user_reviews_data(folder_parent_path, product_id_list):
-#     ...
-
 def fetch_and_save_product_data(folder, product_list_id):
     """
     Lấy dữ liệu chi tiết sản phẩm và lưu vào file.
